@@ -17,7 +17,7 @@ public class MainTeam extends FragmentActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.all_team);
+        //setContentView(R.layout.all_team);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
