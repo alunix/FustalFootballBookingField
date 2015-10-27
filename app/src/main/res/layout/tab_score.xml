@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#fff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="25dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="Score"
+                    android:textSize="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <ImageView
+                    android:layout_marginLeft="135dp"
+                    android:src="@drawable/league"
+                    android:layout_width="170dp"
+                    android:layout_height="25dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/button_confirm_pressed"
+                android:layout_width="340dp"
+                android:layout_height="2dp">
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#f4f4f4"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                >
+                <ExpandableListView
+                    android:transcriptMode="alwaysScroll"
+                    android:groupIndicator="@drawable/group_indicator"
+                    android:id="@+id/lvExp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                </ExpandableListView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/bgTableLeague"
+                android:layout_marginTop="5dp"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="Sat Agu 2015"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                    </LinearLayout>
+                <TextView
+                    android:layout_marginLeft="140dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bgtableleague"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/manchester"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/ColorPrimary"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:text="1 - 2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:src="@drawable/chelsea"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="80dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="12 : 00 PM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="-2dp"
+                android:background="@drawable/bgtableleague"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/manchester"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/ColorPrimary"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:text="1 - 1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:src="@drawable/chelsea"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="80dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="1 : 00 PM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/bgTableLeague"
+                android:layout_marginTop="0dp"
+                android:layout_width="fill_parent"
+                android:layout_height="35dp">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="Sun Agu 2015"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                    </LinearLayout>
+                <TextView
+                    android:layout_marginLeft="140dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="Time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bgtableleague"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/manchester"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/ColorPrimary"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:text="1 - 1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:src="@drawable/chelsea"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="80dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="12 : 00 PM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="-2dp"
+                android:background="@drawable/bgtableleague"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="8dp"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/manchester"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textColor="@color/ColorPrimary"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    android:text="2 - 1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:src="@drawable/chelsea"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="80dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textBtnReg"
+                    android:text="1 : 00 PM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>

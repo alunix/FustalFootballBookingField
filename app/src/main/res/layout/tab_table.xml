@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/textBtnReg"
+            android:text="Table League"
+            android:textSize="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="90dp"
+            android:src="@drawable/league"
+            android:layout_width="170dp"
+            android:layout_height="25dp" />
+    </LinearLayout>
+        <TextView
+            android:layout_marginTop="-7dp"
+            android:textColor="#ff2516"
+            android:textSize="9dp"
+            android:layout_marginLeft="23dp"
+            android:text="Last updated 4 Agu 2015"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    <View
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/button_confirm_pressed"
+        android:layout_width="340dp"
+        android:layout_height="2dp">
+    </View>
+
+        <LinearLayout
+            android:paddingTop="9dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfirst"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:text="Pos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="45dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:text="Club"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="125dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:text="P"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:text="GD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:text="Pts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgsecond"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="1"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Man City"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgthird"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="2"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Liverpool"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgforth"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="3"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Chelsea"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Everton"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-2dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="5"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Man Unt"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-2dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="6"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Aston Villa"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-2dp"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="7"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Chrystal Place"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-3dp"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="8"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="New Castle"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-3dp"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="9"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Norwich"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-3dp"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Stoke"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-3dp"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="11"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Sunderland"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-3dp"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="Watford"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgfive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="-3dp"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp">
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="13"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="West Brom"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+
+                android:layout_marginLeft="15dp"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="4"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="10"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textSize="13sp"
+                android:layout_marginLeft="0dp"
+                android:textStyle="bold"
+                android:textColor="#0288d1"
+                android:text="12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+
+</FrameLayout>
