@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutLeague"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <EditText
+            android:textSize="14dp"
+            android:singleLine="true"
+            android:id="@+id/editTextSearch"
+            android:layout_marginLeft="10dp"
+            android:hint="Search League"
+            android:drawableRight="@drawable/ic_search_team"
+            android:textColorHint="#86cdd1"
+            android:layout_width="340dp"
+            android:theme="@style/MyEditTextTheme"
+            android:textColorHighlight="#fff"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        card_view:cardCornerRadius="5dp"
+        android:id="@+id/cv"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="-3dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:padding="0dp">
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_marginTop="-7dp"
+                    android:id="@+id/imageLogo"
+                    android:paddingLeft="5dp"
+                    android:src="@drawable/logofield"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginLeft="70dp"
+                    android:src="@drawable/ic_vertical_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp" />
+
+            </LinearLayout>
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="right"
+                    android:id="@+id/imageLeague"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/ic_next"
+                    android:layout_width="20dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</FrameLayout>

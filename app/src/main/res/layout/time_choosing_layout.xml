@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/time7to8am"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time 7 To 8 AM"/>
+        <CheckBox
+            android:id="@+id/time8to9am"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time 8 To 9 AM"/>
+        <CheckBox
+            android:id="@+id/time9to10am"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time 9 To 10 AM"/>
+
+    </RadioGroup>
+
+</LinearLayout>

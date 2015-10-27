@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutTeam"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:textSize="14dp"
+                android:singleLine="true"
+                android:id="@+id/editTextSearch"
+                android:layout_marginLeft="10dp"
+                android:hint="Search Team"
+                android:drawableRight="@drawable/ic_search_team"
+                android:textColorHint="#86cdd1"
+                android:layout_width="340dp"
+                android:theme="@style/MyEditTextTheme"
+                android:textColorHighlight="#fff"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="1dp"
+            card_view:cardCornerRadius="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="95dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/imageLogo"
+                        android:paddingLeft="5dp"
+                        android:src="@drawable/logoreal"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#0288D1"
+                            android:text="Team Name: "
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:textColor="#0288D1"
+                            android:id="@+id/textTeamName"
+                            android:paddingLeft="2dp"
+                            android:text="Real Madrid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="7dp"
+
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#0288D1"
+                            android:text="Members: "
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:textColor="#0288D1"
+                            android:id="@+id/textTeamNumber"
+                            android:paddingLeft="20dp"
+                            android:text="11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="8dp"
+                        android:background="#fff"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:id="@+id/btnJoinMember"
+                            android:textColor="#fff"
+                            android:background="@drawable/button_radius_blue"
+                            android:textSize="8.2dp"
+                            android:text="Join Member"
+                            android:layout_width="65dp"
+                            android:layout_height="20dp" />
+                        <Button
+                            android:textStyle="bold"
+                            android:textAllCaps="false"
+                            android:id="@+id/btnPlayWith"
+                            android:layout_marginLeft="8dp"
+                            android:textColor="#fff"
+                            android:background="@drawable/button_radius_red"
+                            android:textSize="8.2dp"
+                            android:text="Play With"
+                            android:layout_width="55dp"
+                            android:layout_height="20dp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="11sp"
+                        android:layout_marginTop="20dp"
+                        android:textColor="#ff0016"
+                        android:layout_marginLeft="20dp"
+                        android:text="+1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <ImageView
+                        android:id="@+id/openteam"
+                        android:layout_marginTop="22dp"
+                        android:layout_marginLeft="0dp"
+                        android:src="@drawable/ic_vertical_line"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/imageShowTeam"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="27dp"
+                        android:src="@drawable/ic_next"
+                        android:layout_width="20dp"
+                        android:layout_height="30dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+<!--</android.support.v4.widget.NestedScrollView>-->
+
+</FrameLayout>
