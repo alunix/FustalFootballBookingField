@@ -37,6 +37,7 @@ public class MainTeam extends FragmentActivity{
                 transaction.commit();
             }
         };
+
         ImageView teamgroup = (ImageView)findViewById(R.id.imageShowTeam);
         teamgroup.setOnClickListener(listener);
         ImageView teampost = (ImageView)findViewById(R.id.imageShowTeam);
