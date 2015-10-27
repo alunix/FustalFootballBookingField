@@ -37,7 +37,7 @@ public class tab_fixture extends RootFragmgmet {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View fixture = inflater.inflate(R.layout.tab_fixture,container,false);
+         View fixture = inflater.inflate(R.layout.tab_fixture,container,false);
 
         expListView = (ExpandableListView)fixture.findViewById(R.id.lvExp);
         prepareListData();
@@ -75,7 +75,7 @@ public class tab_fixture extends RootFragmgmet {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
-                TextView showMatchWeek = (TextView)fixture.findViewById(R.id.lblListHeader);
+                TextView showMatchWeek = (TextView)getActivity().findViewById(R.id.lblListHeader);
 
                 showMatchWeek.setText(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition));
 

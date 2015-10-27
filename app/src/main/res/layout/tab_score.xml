@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content" />
 
                 <ImageView
-                    android:src="@drawable/chelsea"
+                    android:src="@drawable/busee"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <TextView
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content" />
 
                 <ImageView
-                    android:src="@drawable/chelsea"
+                    android:src="@drawable/busee"
                     android:layout_width="55dp"
                     android:layout_height="55dp" />
                 <TextView
@@ -237,7 +237,7 @@
                     android:layout_height="wrap_content" />
 
                 <ImageView
-                    android:src="@drawable/chelsea"
+                    android:src="@drawable/busee"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <TextView
@@ -277,7 +277,7 @@
                     android:layout_height="wrap_content" />
 
                 <ImageView
-                    android:src="@drawable/chelsea"
+                    android:src="@drawable/busee"
                     android:layout_width="55dp"
                     android:layout_height="55dp" />
                 <TextView
