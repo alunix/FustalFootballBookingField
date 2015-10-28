@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -20,12 +21,23 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * Created by USER on 10/1/2015.
  */
 public class Tab_Map extends RootFragmgmet {
-    static final LatLng map = new LatLng(21,57);
+  //  static final LatLng map = new LatLng(21,57);
     private GoogleMap googleMap;
 
 //    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
 //    static final LatLng KIEL = new LatLng(53.551, 9.993);
 //    private GoogleMap map;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        try {
+            showMap();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
     @Nullable
     @Override
@@ -38,22 +50,30 @@ public class Tab_Map extends RootFragmgmet {
 //        .snippet("Kiel is cool").icon(BitmapDescriptorFactory.fromResource(R.drawable.ball)));
 //        map.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG,15));
 //        map.animateCamera(CameraUpdateFactory.zoomTo(10),2000,null);
-        showMap();
+
 
         return view;
     }
 
     private void showMap() {
-        try{
+
             if(googleMap == null){
                 googleMap = ((MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.Map)).getMap();
             }
-            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-            Marker TP = googleMap.addMarker(new MarkerOptions().
-                    position(map).title("Phnom Penh"));
+        if (googleMap == null){
+            Toast.makeText(getActivity().getApplicationContext(),
+                    "Sorry! unable to create maps", Toast.LENGTH_LONG).show();
+
         }
-        catch (Exception e){
-            e.printStackTrace();
+//            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+//            Marker TP = googleMap.addMarker(new MarkerOptions().
+//                    position(map).title("Phnom Penh"));
         }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        showMap();
     }
 }
+
