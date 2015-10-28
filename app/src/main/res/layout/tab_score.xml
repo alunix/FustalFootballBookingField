@@ -128,7 +128,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"
-                    android:layout_width="60dp"
+                    android:layout_width="45dp"
                     android:layout_height="wrap_content" />
 
 
@@ -169,7 +169,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"
-                    android:layout_width="60dp"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -234,7 +234,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"
-                    android:layout_width="60dp"
+                    android:layout_width="45dp"
                     android:layout_height="wrap_content" />
 
 
@@ -275,7 +275,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"
-                    android:layout_width="60dp"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>

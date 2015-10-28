@@ -97,7 +97,6 @@ public class tab_fixture extends RootFragmgmet {
         listDataHeader.add("All Club");
 
         List<String> matchWeek = new ArrayList<String>();
-        matchWeek.add("All Session");
         matchWeek.add("Match week 1");
         matchWeek.add("Match week 2");
         matchWeek.add("Match week 3");
@@ -138,7 +137,6 @@ public class tab_fixture extends RootFragmgmet {
         matchWeek.add("Match week 38");
 
         List<String> allclub = new ArrayList<String>();
-        allclub.add("All Club");
         allclub.add("Arsenal");
         allclub.add("Aston Villa");
         allclub.add("Bournemouth");

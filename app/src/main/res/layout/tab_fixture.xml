@@ -92,7 +92,7 @@
 
             <TextView
                 android:gravity="right"
-                android:layout_marginLeft="140dp"
+                android:layout_marginLeft="120dp"
                 android:textStyle="bold"
                 android:textColor="@color/textBtnReg"
                 android:text="Time"
@@ -136,7 +136,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/textBtnReg"
                 android:text="12 : 00 PM"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
 
 
@@ -177,7 +177,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/textBtnReg"
                 android:text="12 : 00 PM"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
 
 
@@ -206,7 +206,7 @@
                 </LinearLayout>
             <TextView
                 android:gravity="right"
-                android:layout_marginLeft="140dp"
+                android:layout_marginLeft="120dp"
                 android:textStyle="bold"
                 android:textColor="@color/textBtnReg"
                 android:text="Time"
@@ -250,7 +250,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/textBtnReg"
                 android:text="12 : 00 PM"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
@@ -290,7 +290,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/textBtnReg"
                 android:text="12 : 00 PM"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content" />
 
 

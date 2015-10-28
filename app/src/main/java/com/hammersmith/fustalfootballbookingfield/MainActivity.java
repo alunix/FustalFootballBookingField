@@ -48,6 +48,12 @@ public class MainActivity extends RootFragmgmet {
         });
         return view;
     }
+    @Override
+    public void onDestroy()
+    {
+        android.os.Process.killProcess(android.os.Process.myPid());
+        super.onDestroy();
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
