@@ -46,7 +46,7 @@ public class Tab_Map extends RootFragmgmet {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_map,container, false);
 
-        MapFragment mapFragment = MapFragment.newInstance();
+       // MapFragment mapFragment = MapFragment.newInstance();
 
 
 
