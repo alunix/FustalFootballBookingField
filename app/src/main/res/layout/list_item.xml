@@ -11,7 +11,6 @@
         android:paddingTop="3dp"
         android:textColor="#000"
         android:paddingBottom="3dp"
-
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
 
 

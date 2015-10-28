@@ -30,7 +30,7 @@ public class tab_fixture extends RootFragmgmet {
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
-    String value = "Hello";
+    String value = "";
     public tab_fixture(){
 
     }
@@ -76,7 +76,9 @@ public class tab_fixture extends RootFragmgmet {
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
                 TextView showMatchWeek = (TextView)getActivity().findViewById(R.id.lblListHeader);
+                TextView showAllClub = (TextView)getActivity().findViewById(R.id.lblListHeader);
 
+                showAllClub.setText(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition));
                 showMatchWeek.setText(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition));
 
 //                Toast.makeText(getContext(),listDataChild.get(listDataHeader.get(groupPosition))
@@ -87,6 +89,7 @@ public class tab_fixture extends RootFragmgmet {
 
         return fixture;
     }
+
 
     private void prepareListData() {
 

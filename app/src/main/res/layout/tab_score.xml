@@ -114,21 +114,21 @@
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"
                     android:text="1 - 2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
                     android:src="@drawable/arsenal"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" />
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
                 <TextView
                     android:gravity="right"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="80dp"
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"
-                    android:layout_width="45dp"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content" />
 
 
@@ -155,7 +155,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"
                     android:text="1 - 1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
@@ -165,7 +165,7 @@
                 <TextView
                     android:gravity="right"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="80dp"
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"
@@ -220,21 +220,21 @@
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"
                     android:text="1 - 1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
                     android:src="@drawable/arsenal"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" />
+                    android:layout_width="55dp"
+                    android:layout_height="55dp" />
                 <TextView
                     android:gravity="right"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="80dp"
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"
-                    android:layout_width="45dp"
+                    android:layout_width="40dp"
                     android:layout_height="wrap_content" />
 
 
@@ -261,7 +261,7 @@
                     android:textStyle="bold"
                     android:layout_marginTop="20dp"
                     android:text="2 - 1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content" />
 
                 <ImageView
@@ -271,7 +271,7 @@
                 <TextView
                     android:gravity="right"
                     android:layout_marginTop="20dp"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="80dp"
                     android:textStyle="bold"
                     android:textColor="@color/textBtnReg"
                     android:text="FT"

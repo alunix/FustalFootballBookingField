@@ -46,7 +46,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
         }
         else
         {
-            League_Fixture league = new League_Fixture();
+            TabLeagueView league = new TabLeagueView();
             return league;
         }
     }
