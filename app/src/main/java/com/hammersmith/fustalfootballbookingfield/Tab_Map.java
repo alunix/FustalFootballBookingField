@@ -71,8 +71,8 @@ public class Tab_Map extends RootFragmgmet {
                     "Sorry! unable to create maps", Toast.LENGTH_LONG).show();
 
         }
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
+//        googleMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 //            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 //            Marker TP = googleMap.addMarker(new MarkerOptions().
 //                    position(map).title("Phnom Penh"));
