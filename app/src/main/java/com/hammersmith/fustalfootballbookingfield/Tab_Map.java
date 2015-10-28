@@ -37,6 +37,7 @@ public class Tab_Map extends RootFragmgmet {
         try {
             showMap();
         }catch (Exception e){
+
             e.printStackTrace();
         }
     }
