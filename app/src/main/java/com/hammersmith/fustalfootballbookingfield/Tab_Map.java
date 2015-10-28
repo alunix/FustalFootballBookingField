@@ -22,6 +22,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
  */
 public class Tab_Map extends RootFragmgmet {
   //  static final LatLng map = new LatLng(21,57);
+  static final LatLng HAMBURG = new LatLng(53.558, 9.927);
+    static final LatLng KIEL = new LatLng(53.551, 9.993);
     private GoogleMap googleMap;
 
 //    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
@@ -44,6 +46,10 @@ public class Tab_Map extends RootFragmgmet {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_map,container, false);
 
+        MapFragment mapFragment = MapFragment.newInstance();
+
+
+
 //        map = ((SupportMapFragment)getFragmentManager().findFragmentById(R.id.Map)).getMap();
 //        Marker hamburg = map.addMarker(new MarkerOptions().position(HAMBURG).title("Hamburg"));
 //        Marker kiel = map.addMarker(new MarkerOptions().position(KIEL).title("Kiel")
@@ -65,6 +71,8 @@ public class Tab_Map extends RootFragmgmet {
                     "Sorry! unable to create maps", Toast.LENGTH_LONG).show();
 
         }
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
 //            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 //            Marker TP = googleMap.addMarker(new MarkerOptions().
 //                    position(map).title("Phnom Penh"));
