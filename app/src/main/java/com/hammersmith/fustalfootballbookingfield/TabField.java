@@ -23,8 +23,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.hammersmith.fustalfootballbookingfield.RootFragmgmet;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -43,7 +41,7 @@ public class TabField extends RootFragmgmet {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_field,container,false);
+        View view = inflater.inflate(R.layout.tab_booking,container,false);
 
         textField = (TextView)view.findViewById(R.id.txtfield);
 

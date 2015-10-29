@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
-                android:src="@drawable/imgemperia"
+                android:src="@drawable/imgnaga"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <LinearLayout
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:src="@drawable/imgdowntown"
+                    android:src="@drawable/imgemperia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <LinearLayout
@@ -154,7 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:src="@drawable/imgnaga"
+                    android:src="@drawable/imgdowntown"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <LinearLayout
