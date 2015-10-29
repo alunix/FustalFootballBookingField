@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by USER on 10/1/2015.
@@ -20,7 +21,7 @@ public class Tab_List extends RootFragmgmet {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_home,container,false);
 
-        Button imageBooking = (Button)view.findViewById(R.id.btnBookingField);
+        TextView imageBooking = (TextView)view.findViewById(R.id.bookingfield);
         imageBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
