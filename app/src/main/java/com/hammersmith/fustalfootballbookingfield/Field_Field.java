@@ -34,18 +34,6 @@ public class Field_Field extends RootFragmgmet {
             }
         });
 
-        ImageView bookingField = (ImageView)view.findViewById(R.id.imageFild);
-        bookingField.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = new BookingField();
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.layoutAllField,fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-            }
-        });
 
 
         return view;

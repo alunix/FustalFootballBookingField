@@ -35,7 +35,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
 
         if(position == 0) // if the position is 0 we are returning the First tab
         {
-            Tab_List home = new Tab_List();
+            TabList home = new TabList();
             return home;
 
         }

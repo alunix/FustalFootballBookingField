@@ -1,16 +1,14 @@
 package com.hammersmith.fustalfootballbookingfield;
+
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
-import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
@@ -20,25 +18,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.hammersmith.fustalfootballbookingfield.RootFragmgmet;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
-/**
- * Created by USER on 10/1/2015.
- */
-public class Tab_Field extends RootFragmgmet{
+public class TabField extends RootFragmgmet {
     Button button;
     ImageView date,time,ball;
     public static TextView textDate,textTime,textField;
@@ -155,50 +146,50 @@ public class Tab_Field extends RootFragmgmet{
         final int[] mSelected = {-1};
 //        @Override
 //        protected void onResume() {
-            super.onResume();
-            final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Select Time");
-            builder.setCancelable(true);
-            final String[] strings = new String[]{"7 To 8 AM","8 To 9 AM","9 To 10 AM","10 To 11 AM","11 To 12 AM","12 To 1 PM",
-                    "1 To 2 PM","2 To 3 PM","3 To 4 PM","4 To 5 PM","5 To 6 PM","6 To 7 PM","7 To 8 PM","8 To 9 PM","9 To 10 PM"};
-            final DialogInterface.OnMultiChoiceClickListener onClick =
-                    new DialogInterface.OnMultiChoiceClickListener() {
-                        @Override public void onClick(final DialogInterface dialog,
-                                                      final int which, final boolean isChecked) {
-                            if (isChecked) {
-                                if ((mSelected[0] != -1) && (mSelected[0] != which)) {
-                                    final int oldVal = mSelected[0];
-                                    final AlertDialog alert = (AlertDialog)dialog;
-                                    final ListView list = alert.getListView();
-                                    list.setItemChecked(oldVal, false);
-                                }
-                                mSelected[0] = which;
-                            } else
-                                mSelected[0] = -1;
-                        }
-                    };
-            builder.setMultiChoiceItems(strings, null, onClick);
-            builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-                @Override public void onClick(final DialogInterface dialog,
-                                              final int which) {
-                    String message = null;
-                    if (mSelected[0] == -1)
-                        message = "You didn't select!";
-                    else
-                        message = strings[mSelected[0]];
-                    //Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
-                    textTime.setText(message);
-                }
-            })
-            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-            dialog = builder.create();
-            dialog.show();
-        }
+        super.onResume();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Select Time");
+        builder.setCancelable(true);
+        final String[] strings = new String[]{"7 To 8 AM","8 To 9 AM","9 To 10 AM","10 To 11 AM","11 To 12 AM","12 To 1 PM",
+                "1 To 2 PM","2 To 3 PM","3 To 4 PM","4 To 5 PM","5 To 6 PM","6 To 7 PM","7 To 8 PM","8 To 9 PM","9 To 10 PM"};
+        final DialogInterface.OnMultiChoiceClickListener onClick =
+                new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override public void onClick(final DialogInterface dialog,
+                                                  final int which, final boolean isChecked) {
+                        if (isChecked) {
+                            if ((mSelected[0] != -1) && (mSelected[0] != which)) {
+                                final int oldVal = mSelected[0];
+                                final AlertDialog alert = (AlertDialog)dialog;
+                                final ListView list = alert.getListView();
+                                list.setItemChecked(oldVal, false);
+                            }
+                            mSelected[0] = which;
+                        } else
+                            mSelected[0] = -1;
+                    }
+                };
+        builder.setMultiChoiceItems(strings, null, onClick);
+        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+            @Override public void onClick(final DialogInterface dialog,
+                                          final int which) {
+                String message = null;
+                if (mSelected[0] == -1)
+                    message = "You didn't select!";
+                else
+                    message = strings[mSelected[0]];
+                //Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                textTime.setText(message);
+            }
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        dialog = builder.create();
+        dialog.show();
+    }
     //}
 
 
@@ -207,8 +198,8 @@ public class Tab_Field extends RootFragmgmet{
     private void selectTime() {
         final Dialog dialogFragment;
         final String[] items = {"Time 7 To 8 AM","Time 8 To 9 AM","Time 9 To 10 AM","Time 10 To 11 AM","Time 11 To 12 AM","Time 12 To 1 PM",
-                                "Time 1 To 2 PM","Time 2 To 3 PM","Time 3 To 4 PM","Time 4 To 5 PM","Time 5 To 6 PM","Time 6 To 7 PM",
-                                "TIme 7 To 8 PM","Time 8 To 9 PM","Time 9 To 10 PM"};
+                "Time 1 To 2 PM","Time 2 To 3 PM","Time 3 To 4 PM","Time 4 To 5 PM","Time 5 To 6 PM","Time 6 To 7 PM",
+                "TIme 7 To 8 PM","Time 8 To 9 PM","Time 9 To 10 PM"};
         final int numArray = items.length;
         final ArrayList<Integer> itemSelected = new ArrayList<Integer>();
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
