@@ -21,10 +21,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
  * Created by USER on 10/1/2015.
  */
 public class Tab_Map extends RootFragmgmet {
-  //  static final LatLng map = new LatLng(21,57);
+  static final LatLng map = new LatLng(11.92110315,105.55664062);
   static final LatLng HAMBURG = new LatLng(53.558, 9.927);
-    static final LatLng KIEL = new LatLng(53.551, 9.993);
-    private GoogleMap googleMap;
+  static final LatLng KIEL = new LatLng(53.551, 9.993);
+  private GoogleMap googleMap;
 
 //    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
 //    static final LatLng KIEL = new LatLng(53.551, 9.993);
