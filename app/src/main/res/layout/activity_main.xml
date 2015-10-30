@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".users.MainActivity">
 
     <!--<include-->
         <!--android:id="@+id/tool_bar"-->
@@ -15,7 +15,7 @@
 
     <include layout="@layout/tool_bar"/>
 
-    <com.hammersmith.fustalfootballbookingfield.SlidingTabLayoutText
+    <com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText
         android:layout_gravity="bottom"
         android:id="@+id/tabs"
         android:layout_width="match_parent"

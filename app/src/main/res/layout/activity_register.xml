@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/test"
-    tools:context=".RegisterActivity">
+    tools:context=".login.RegisterActivity">
 
     <LinearLayout
         android:layout_weight="3"

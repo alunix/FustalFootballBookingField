@@ -86,7 +86,7 @@
 
     </LinearLayout>
 
-    <com.hammersmith.fustalfootballbookingfield.SlidingTabLayoutText
+    <com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText
         android:layout_gravity="bottom"
         android:id="@+id/sub_tabs"
         android:layout_width="match_parent"

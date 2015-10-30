@@ -72,7 +72,7 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
-            <com.hammersmith.fustalfootballbookingfield.SlidingTabLayoutText
+            <com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText
                 android:layout_marginTop="35dp"
                 android:layout_gravity="bottom"
                 android:id="@+id/sub_tabs"
