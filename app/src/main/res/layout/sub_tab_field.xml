@@ -35,7 +35,7 @@
                         android:layout_height="220dp">
                         <ImageView
                             android:layout_marginTop="-3dp"
-                            android:src="@drawable/imgemperia"
+                            android:src="@drawable/imgnaga"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
