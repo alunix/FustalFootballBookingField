@@ -46,7 +46,7 @@
                     <TextView
                         android:gravity="center"
                         android:paddingTop="8dp"
-                        android:alpha="0.7"
+                        android:alpha="0.4"
                         android:background="#000"
                         android:textStyle="bold"
                         android:textColor="#ffffff"
@@ -57,7 +57,7 @@
                     <TextView
                         android:paddingBottom="5dp"
                         android:gravity="center"
-                        android:alpha="0.7"
+                        android:alpha="0.4"
                         android:background="#000"
                         android:textStyle="bold"
                         android:textColor="#ffffff"
@@ -70,8 +70,8 @@
                     android:id="@+id/bookingfield"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:alpha="0.7"
-                    android:background="#ff0000"
+                    android:alpha="0.6"
+                    android:background="#ac0030"
                     android:textStyle="bold"
                     android:textColor="#ffffff"
                     android:textSize="16sp"
@@ -108,7 +108,7 @@
                         <TextView
                             android:gravity="center"
                             android:paddingTop="8dp"
-                            android:alpha="0.7"
+                            android:alpha="0.4"
                             android:background="#000"
                             android:textStyle="bold"
                             android:textColor="#ffffff"
@@ -119,7 +119,7 @@
                         <TextView
                             android:paddingBottom="5dp"
                             android:gravity="center"
-                            android:alpha="0.7"
+                            android:alpha="0.4"
                             android:background="#000"
                             android:textStyle="bold"
                             android:textColor="#ffffff"
@@ -131,8 +131,8 @@
                     <TextView
                         android:gravity="center"
                         android:padding="10dp"
-                        android:alpha="0.7"
-                        android:background="#ff0000"
+                        android:alpha="0.6"
+                        android:background="#ac0030"
                         android:textStyle="bold"
                         android:textColor="#ffffff"
                         android:textSize="16sp"
@@ -169,7 +169,7 @@
                         <TextView
                             android:gravity="center"
                             android:paddingTop="8dp"
-                            android:alpha="0.7"
+                            android:alpha="0.4"
                             android:background="#000"
                             android:textStyle="bold"
                             android:textColor="#ffffff"
@@ -180,7 +180,7 @@
                         <TextView
                             android:paddingBottom="5dp"
                             android:gravity="center"
-                            android:alpha="0.7"
+                            android:alpha="0.4"
                             android:background="#000"
                             android:textStyle="bold"
                             android:textColor="#ffffff"
@@ -192,8 +192,8 @@
                     <TextView
                         android:gravity="center"
                         android:padding="10dp"
-                        android:alpha="0.7"
-                        android:background="#ff0000"
+                        android:alpha="0.6"
+                        android:background="#ac0030"
                         android:textStyle="bold"
                         android:textColor="#ffffff"
                         android:textSize="16sp"

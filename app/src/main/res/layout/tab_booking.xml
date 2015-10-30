@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layoutBooking"
     android:orientation="vertical"
-    android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,12 +14,13 @@
         >
 
     <LinearLayout
-        android:background="@drawable/imgemperia"
+        android:background="@drawable/bgblur"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     <LinearLayout
+        android:layout_marginTop="-5dp"
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -62,14 +62,14 @@
                 android:layout_width="360dp"
                 android:layout_height="110dp" />
             <TextView
-                android:alpha="0.5"
-                android:background="#1e6ae2"
+                android:alpha="0.4"
+                android:background="#fff"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:id="@+id/textTeamName"
                 android:layout_marginLeft="1dp"
-                android:textColor="#ffffff"
+                android:textColor="#000"
                 android:layout_marginTop="3dp"
                 android:text="Down Town Sport"
                 android:layout_width="match_parent"
@@ -92,9 +92,9 @@
         <!--android:layout_height="wrap_content">-->
 
     <LinearLayout
-        android:layout_marginTop="20dp"
-        android:alpha="0.7"
-        android:background="#000"
+        android:layout_marginTop="0dp"
+        android:alpha="0.4"
+        android:background="#000000"
         android:layout_marginBottom="20dp"
         android:padding="3dp"
         android:orientation="horizontal"
@@ -285,7 +285,7 @@
                         android:theme="@style/MyEditTextTheme"
                         android:textColorHint="#9ec4ff"
                         android:hint="Select Day"
-                        android:layout_marginTop="17dp"
+                        android:layout_marginTop="18dp"
                         android:textSize="13sp"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content" />
@@ -302,7 +302,7 @@
                         android:theme="@style/MyEditTextTheme"
                         android:textColorHint="#9ec4ff"
                         android:hint="Select Time"
-                        android:layout_marginTop="17dp"
+                        android:layout_marginTop="21dp"
                         android:textSize="13sp"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content" />
