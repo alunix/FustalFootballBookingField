@@ -48,4 +48,13 @@
     <style name="MyEditTextTheme">
         <item name="colorControlNormal">#0288D1</item>
     </style>
+
+    <style name="ActionBarPopupThemeOverlay">
+        <item name="colorControlNormal">#0288D1</item>
+    </style>
+    <style name="ActionBarThemeOverlay">
+        <item name="colorControlNormal">#f7003a</item>
+    </style>
+
+
 </resources>
