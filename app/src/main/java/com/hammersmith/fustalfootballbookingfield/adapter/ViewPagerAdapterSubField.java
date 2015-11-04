@@ -7,8 +7,9 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hammersmith.fustalfootballbookingfield.preivew.Field_Field;
-import com.hammersmith.fustalfootballbookingfield.owner.Confirm_Booking;
+import com.hammersmith.fustalfootballbookingfield.TabBooking.TabSetting;
+import com.hammersmith.fustalfootballbookingfield.TabBooking.TabChecking;
+import com.hammersmith.fustalfootballbookingfield.TabBooking.TabConfirm;
 
 /**
  * Created by USER on 9/28/2015.
@@ -35,13 +36,17 @@ public class ViewPagerAdapterSubField extends FragmentStatePagerAdapter {
 
         if (position == 0) // if the position is 0 we are returning the First tab
         {
-            Confirm_Booking confirm = new Confirm_Booking();
+            TabConfirm confirm = new TabConfirm();
             return confirm;
         }
         if (position == 1)           // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
         {
-            Field_Field field = new Field_Field();
+            TabChecking field = new TabChecking();
             return field;
+        }
+        if(position == 2){
+            TabSetting setting = new TabSetting();
+            return setting;
         }
         return null;
     }

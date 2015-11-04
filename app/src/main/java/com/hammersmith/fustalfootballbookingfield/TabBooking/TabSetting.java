@@ -1,4 +1,4 @@
-package com.hammersmith.fustalfootballbookingfield.owner;
+package com.hammersmith.fustalfootballbookingfield.TabBooking;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,13 +10,13 @@ import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.users.RootFragmgmet;
 
 /**
- * Created by USER on 10/1/2015.
+ * Created by USER on 11/4/2015.
  */
-public class Confirm_Booking extends RootFragmgmet {
+public class TabSetting extends RootFragmgmet {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.confirm,container,false);
+        View view = inflater.inflate(R.layout.tab_setting,container,false);
         return view;
     }
 }

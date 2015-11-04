@@ -1,4 +1,4 @@
-package com.hammersmith.fustalfootballbookingfield.owner;
+package com.hammersmith.fustalfootballbookingfield.TabBooking;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,14 +16,14 @@ import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 /**
  * Created by USER on 9/28/2015.
  */
-public class FieldOwner extends RootFragmgmet {
+public class MainTabBooking extends RootFragmgmet {
 
     ViewPager pager;
     ViewPagerAdapterSubField adapter;
     SlidingTabLayoutText tab;
-    CharSequence Titles[] = {"Booking","Checking"};
-    int NumbOfTabs = 2;
-    public FieldOwner(){
+    CharSequence Titles[] = {"Booking","Checking","Setting"};
+    int NumbOfTabs = 3;
+    public MainTabBooking(){
 
     }
 

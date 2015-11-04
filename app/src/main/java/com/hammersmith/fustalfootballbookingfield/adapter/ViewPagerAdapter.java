@@ -6,6 +6,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hammersmith.fustalfootballbookingfield.Test.TabHome;
 import com.hammersmith.fustalfootballbookingfield.users.TabLeagueView;
 import com.hammersmith.fustalfootballbookingfield.users.TabList;
 import com.hammersmith.fustalfootballbookingfield.users.Tab_Map;
@@ -39,7 +40,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
 
         if(position == 0) // if the position is 0 we are returning the First tab
         {
-            TabList home = new TabList();
+            TabHome home = new TabHome();
             return home;
 
         }

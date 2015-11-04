@@ -2,6 +2,9 @@ package com.hammersmith.fustalfootballbookingfield.users;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerHomeAdapter;
 
@@ -32,7 +36,7 @@ public class TabList extends RootFragmgmet implements RecyclerHomeAdapter.ClickL
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerHomeAdapter(getActivity());
+        adapter = new RecyclerHomeAdapter(getActivity(),new ContainerApplication());
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         adapter.setClickListener(this);
@@ -49,14 +53,15 @@ public class TabList extends RootFragmgmet implements RecyclerHomeAdapter.ClickL
     @Override
     public void itemClicked(View view, int position) {
 
-        Toast.makeText(getActivity(),""+position,Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(),""+position,Toast.LENGTH_SHORT).show();
 
-//        Fragment fragment = new TabBooking();
-//        FragmentManager fragmentManager = getChildFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.layoutHome,fragment);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
+
+        Fragment fragment = new TabBooking();
+        FragmentManager fragmentManager = getChildFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.layoutHome,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
 
     }

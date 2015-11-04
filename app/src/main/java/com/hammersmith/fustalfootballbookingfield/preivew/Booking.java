@@ -24,14 +24,14 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.owner.FieldOwner;
+import com.hammersmith.fustalfootballbookingfield.TabBooking.MainTabBooking;
 import com.hammersmith.fustalfootballbookingfield.users.RootFragmgmet;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class TabField extends RootFragmgmet {
+public class Booking extends RootFragmgmet {
     Button button;
     ImageView date,time,ball;
     public static TextView textDate,textTime,textField;
@@ -87,7 +87,7 @@ public class TabField extends RootFragmgmet {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new FieldOwner();
+                Fragment fragment = new MainTabBooking();
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.layoutBooking, fragment);

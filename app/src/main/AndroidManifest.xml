@@ -54,7 +54,7 @@
                 android:value=".login.RegisterActivity" />
         </activity>
         <activity
-            android:name=".login.ContainerApplication"
+            android:name=".Container.ContainerApplication"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

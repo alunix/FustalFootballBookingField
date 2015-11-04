@@ -1,16 +1,25 @@
 package com.hammersmith.fustalfootballbookingfield.adapter;
 
+import android.app.*;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v4.app.*;
+import android.widget.Toast;
 
+import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.users.TabBooking;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by USER on 11/2/2015.
@@ -18,6 +27,7 @@ import java.util.ArrayList;
 public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapter.MyViewHolder>{
     ClickListener clickListener;
     Context context;
+    ContainerApplication main;
     public ArrayList<Integer> img = new ArrayList<>();
     public ArrayList<String> nameField = new ArrayList<>();
     public ArrayList<String> location = new ArrayList<>();
@@ -30,7 +40,7 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
     }
     RecyclerHomeAdapter(){}
 
-    public RecyclerHomeAdapter(Context context){
+    public RecyclerHomeAdapter(Context context,ContainerApplication ma){
         img.add(R.drawable.imgnaga);
         img.add(R.drawable.imgdowntown);
         img.add(R.drawable.imgemperia);
@@ -44,6 +54,7 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
         location.add("Batdom Bong");
 
         this.context = context;
+        main = ma;
     }
 
     @Override
@@ -70,10 +81,15 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
             itemView.setOnClickListener(this);
         }
 
+
         @Override
         public void onClick(View v) {
+
             if (clickListener != null){
-                clickListener.itemClicked(v,getLayoutPosition());
+                clickListener.itemClicked(v, getLayoutPosition());
+                fragmentJump();
+                Toast.makeText(context,"Item "+getPosition(),Toast.LENGTH_SHORT).show();
+                main.getSupportFragmentManager().beginTransaction().replace(R.id.layoutHome, new TabBooking()).addToBackStack(null).commit();
 
             }
         }
@@ -83,5 +99,21 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
     }
     public void setClickListener(ClickListener clickListener){
         this.clickListener = clickListener;
+    }
+    public void switchContent(int id, Fragment fragment){
+        if (context==null)
+            return;
+        if (context instanceof ContainerApplication){
+            ContainerApplication application = (ContainerApplication) context;
+            Fragment fgm = fragment;
+            application.switchContent(id,fgm);
+        }
+    }
+    public void fragmentJump(){
+        Fragment fragment = new TabBooking();
+        Bundle bundle = new Bundle();
+        bundle.putString("Key","value");
+        fragment.setArguments(bundle);
+        switchContent(R.id.layoutHome, fragment);
     }
 }
