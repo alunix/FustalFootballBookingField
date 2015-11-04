@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/layoutHome"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="-3dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
+                android:id="@+id/cv"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                card_view:cardCornerRadius="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginTop="0dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/cover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_marginTop="-53dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp">
+                        <LinearLayout
+                            android:background="#70000000"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/nameField"
+                                android:gravity="center"
+                                android:paddingTop="5dp"
+                                android:textStyle="bold"
+                                android:textColor="#ffffff"
+                                android:textSize="16sp"
+                                android:text="Emperial Stadium"
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/locationField"
+                                android:paddingBottom="5dp"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textColor="#ffffff"
+                                android:textSize="12sp"
+                                android:text="(Phnom Penh)"
+                                android:layout_width="250dp"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/bookingfield"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:background="#90ac0030"
+                            android:textStyle="bold"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp"
+                            android:text="Booking"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+
+</FrameLayout>
