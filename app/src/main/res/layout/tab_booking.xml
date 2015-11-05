@@ -100,7 +100,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -109,8 +109,8 @@
             <ImageView
                 android:layout_margin="5dp"
                 android:src="@drawable/image_field"
-                android:layout_width="80dp"
-                android:layout_height="55dp" />
+                android:layout_width="70dp"
+                android:layout_height="50dp" />
 
         </LinearLayout>
 
@@ -124,7 +124,7 @@
 
             <TextView
                 android:textStyle="bold"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textColor="#fff"
                 android:text="Name:"
                 android:layout_width="wrap_content"
@@ -132,7 +132,7 @@
             <TextView
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textColor="#fff"
                 android:text="Phone Number:"
                 android:layout_width="wrap_content"
@@ -142,7 +142,7 @@
             <TextView
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textColor="#fff"
                 android:text="Email:"
                 android:layout_width="wrap_content"
@@ -150,7 +150,7 @@
             <TextView
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textColor="#fff"
                 android:text="Chose Field:"
                 android:layout_width="wrap_content"
@@ -158,7 +158,7 @@
             <TextView
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textColor="#fff"
                 android:text="Choose Day:"
                 android:layout_width="wrap_content"
@@ -166,7 +166,7 @@
             <TextView
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:textColor="#fff"
                 android:text="Choose Time:"
                 android:layout_width="wrap_content"
@@ -180,10 +180,10 @@
                 android:textColor="#fff"
                 android:id="@+id/btnBooking"
                 android:background="@drawable/button_radius_blue"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:text="Booking Now"
-                android:layout_width="90dp"
-                android:layout_height="27dp" />
+                android:layout_width="95dp"
+                android:layout_height="28dp" />
 
 
         </LinearLayout>
@@ -203,7 +203,7 @@
                 android:hint="Name"
                 android:layout_marginTop="-1dp"
                 android:theme="@style/MyEditTextTheme"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -214,7 +214,7 @@
                 android:textColorHint="#999fa9"
                 android:hint="Phone Number"
                 android:layout_marginTop="5dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <EditText
@@ -225,7 +225,7 @@
                 android:theme="@style/MyEditTextTheme"
                 android:hint="Email"
                 android:layout_marginTop="3dp"
-                android:textSize="13sp"
+                android:textSize="14sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <LinearLayout
@@ -245,7 +245,7 @@
                         android:textColorHint="#999fa9"
                         android:hint="Type Field"
                         android:layout_marginTop="15dp"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content" />
                     <View
@@ -284,7 +284,7 @@
                         android:textColorHint="#999fa9"
                         android:hint="Select Day"
                         android:layout_marginTop="18dp"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content" />
                     <View
@@ -301,7 +301,7 @@
                         android:textColorHint="#999fa9"
                         android:hint="Select Time"
                         android:layout_marginTop="21dp"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         android:layout_width="115dp"
                         android:layout_height="wrap_content" />
                     <View

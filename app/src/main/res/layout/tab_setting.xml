@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bgblur"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
     <LinearLayout
         android:background="#90ffffff"
         android:orientation="vertical"
@@ -61,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:id="@+id/btnAddSmall"
                 android:layout_marginRight="20dp"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -73,6 +87,7 @@
                 android:layout_width="85dp"
                 android:layout_height="30dp" />
             <Button
+                android:id="@+id/btnRemoveSmall"
                 android:layout_marginRight="20dp"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -124,13 +139,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
             android:src="@drawable/image_field"
-            android:layout_width="140dp"
+            android:layout_width="130dp"
             android:layout_height="95dp" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:id="@+id/btnAddMedium"
                 android:layout_marginRight="20dp"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -143,6 +159,7 @@
                 android:layout_width="85dp"
                 android:layout_height="30dp" />
             <Button
+                android:id="@+id/btnRemoveMedium"
                 android:layout_marginRight="20dp"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -201,6 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <Button
+                android:id="@+id/btnAddLarge"
                 android:layout_marginRight="20dp"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -213,6 +231,7 @@
                 android:layout_width="85dp"
                 android:layout_height="30dp" />
             <Button
+                android:id="@+id/btnRemoveLarge"
                 android:layout_marginRight="20dp"
                 android:textColor="#fff"
                 android:textStyle="bold"
@@ -224,12 +243,8 @@
                 android:textAllCaps="false"
                 android:layout_width="85dp"
                 android:layout_height="30dp" />
-
         </LinearLayout>
-
     </LinearLayout>
-
-
-
-
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
