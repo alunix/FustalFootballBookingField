@@ -27,7 +27,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:text="Checking Field"
+                    android:text="Down Town Sport"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
@@ -52,13 +52,28 @@
                 android:background="#50ffffff"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="110dp">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/image_field"
-                    android:layout_width="110dp"
-                    android:layout_height="75dp" />
+                android:layout_height="130dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/image_field"
+                        android:layout_width="110dp"
+                        android:layout_height="75dp" />
+                    <TextView
+                        android:textColor="#ff0000"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Available Booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -102,13 +117,28 @@
                 android:background="#50ffffff"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="130dp">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/image_field"
-                    android:layout_width="130dp"
-                    android:layout_height="95dp" />
+                android:layout_height="150dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/image_field"
+                        android:layout_width="130dp"
+                        android:layout_height="95dp" />
+                    <TextView
+                        android:textColor="#ff0000"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Available Booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -153,13 +183,28 @@
                 android:background="#50ffffff"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
-                <ImageView
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:src="@drawable/image_field"
-                    android:layout_width="160dp"
-                    android:layout_height="110dp" />
+                android:layout_height="170dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/image_field"
+                        android:layout_width="160dp"
+                        android:layout_height="110dp" />
+                    <TextView
+                        android:textColor="#ff0000"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Available Booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"

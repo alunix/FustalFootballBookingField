@@ -16,7 +16,7 @@ import com.hammersmith.fustalfootballbookingfield.R;
 /**
  * Created by USER on 10/1/2015.
  */
-public class Tab_Map extends RootFragmgmet {
+public class Tab_Map extends RootFragment {
     static final LatLng TutorialsPoint = new LatLng(21 , 57);
     private GoogleMap googleMap;
 

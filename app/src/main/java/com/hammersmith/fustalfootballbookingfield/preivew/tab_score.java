@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.users.RootFragmgmet;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 import com.hammersmith.fustalfootballbookingfield.widget.ExpandableListAdaptor;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by USER on 9/18/2015.
  */
-public class tab_score extends RootFragmgmet {
+public class tab_score extends RootFragment {
 
     ExpandableListAdaptor listAdapter;
     ExpandableListView expListView;

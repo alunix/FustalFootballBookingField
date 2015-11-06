@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.users.RootFragmgmet;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 
 /**
  * Created by USER on 10/5/2015.
  */
-public class Table_Booking extends RootFragmgmet {
+public class Table_Booking extends RootFragment {
     TextView time7to8;
 
     @Nullable

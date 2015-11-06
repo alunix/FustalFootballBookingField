@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 
 import com.hammersmith.fustalfootballbookingfield.widget.OnBackPressListener;
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.users.RootFragmgmet;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 import com.hammersmith.fustalfootballbookingfield.adapter.ViewPagerAdapterSubField;
 import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 
 /**
  * Created by USER on 9/28/2015.
  */
-public class MainTabBooking extends RootFragmgmet {
+public class MainTabBooking extends RootFragment {
 
     ViewPager pager;
     ViewPagerAdapterSubField adapter;

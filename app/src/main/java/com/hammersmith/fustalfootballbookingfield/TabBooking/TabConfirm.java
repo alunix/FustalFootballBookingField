@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.users.RootFragmgmet;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 
 /**
  * Created by USER on 10/1/2015.
  */
-public class TabConfirm extends RootFragmgmet {
+public class TabConfirm extends RootFragment {
     Button confirm;
     @Nullable
     @Override

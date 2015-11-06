@@ -8,7 +8,7 @@ import com.hammersmith.fustalfootballbookingfield.widget.OnBackPressListener;
 /**
  * Created by USER on 9/28/2015.
  */
-public class RootFragmgmet extends Fragment implements OnBackPressListener {
+public class RootFragment extends Fragment implements OnBackPressListener {
     @Override
     public boolean onBackPress() {
         return new BackPressImplement(this).onBackPress();

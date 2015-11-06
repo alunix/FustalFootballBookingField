@@ -1,4 +1,4 @@
-package com.hammersmith.fustalfootballbookingfield.TabBooking;
+package com.hammersmith.fustalfootballbookingfield.users;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,23 +11,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.owner.Table_Booking;
-import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 
 /**
- * Created by USER on 9/28/2015.
+ * Created by USER on 11/5/2015.
  */
-public class TabChecking extends RootFragment {
+public class CheckingUser extends RootFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_checking,container,false);
+        View view = inflater.inflate(R.layout.tab_checking_user,container,false);
 
         Button check = (Button)view.findViewById(R.id.btnChecking);
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new Table_Booking();
+                Fragment fragment = new CalendarBooking();
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.layoutAllField,fragment);

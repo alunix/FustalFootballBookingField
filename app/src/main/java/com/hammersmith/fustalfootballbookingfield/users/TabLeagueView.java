@@ -12,7 +12,7 @@ import com.hammersmith.fustalfootballbookingfield.R;
 /**
  * Created by USER on 10/28/2015.
  */
-public class TabLeagueView extends RootFragmgmet {
+public class TabLeagueView extends RootFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

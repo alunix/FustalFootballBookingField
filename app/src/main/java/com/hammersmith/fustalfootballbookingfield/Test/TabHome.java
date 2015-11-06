@@ -11,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.users.RootFragmgmet;
-import com.hammersmith.fustalfootballbookingfield.users.TabBooking;
+import com.hammersmith.fustalfootballbookingfield.users.CheckingUser;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 
 /**
  * Created by USER on 11/4/2015.
  */
-public class TabHome extends RootFragmgmet {
+public class TabHome extends RootFragment {
     TextView booking;
     @Nullable
     @Override
@@ -28,7 +28,7 @@ public class TabHome extends RootFragmgmet {
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new TabBooking();
+                Fragment fragment = new CheckingUser();
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.layoutList,fragment);
