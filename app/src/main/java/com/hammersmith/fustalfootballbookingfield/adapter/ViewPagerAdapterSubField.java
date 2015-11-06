@@ -39,12 +39,7 @@ public class ViewPagerAdapterSubField extends FragmentStatePagerAdapter {
             TabConfirm confirm = new TabConfirm();
             return confirm;
         }
-        if (position == 1)           // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
-        {
-            TabChecking field = new TabChecking();
-            return field;
-        }
-        if(position == 2){
+        if(position == 1){
             TabSetting setting = new TabSetting();
             return setting;
         }

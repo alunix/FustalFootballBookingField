@@ -21,8 +21,8 @@ public class MainTabBooking extends RootFragment {
     ViewPager pager;
     ViewPagerAdapterSubField adapter;
     SlidingTabLayoutText tab;
-    CharSequence Titles[] = {"Booking","Checking","Setting"};
-    int NumbOfTabs = 3;
+    CharSequence Titles[] = {"Booking","Setting"};
+    int NumbOfTabs = 2;
     public MainTabBooking(){
 
     }

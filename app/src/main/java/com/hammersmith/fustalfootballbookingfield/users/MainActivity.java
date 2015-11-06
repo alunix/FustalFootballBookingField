@@ -22,8 +22,6 @@ public class MainActivity extends RootFragment {
     CharSequence Titles[]={"List","Map","League"};
     int Numboftabs =3;
     public MainActivity(){
-
-
     }
 
     @Nullable
