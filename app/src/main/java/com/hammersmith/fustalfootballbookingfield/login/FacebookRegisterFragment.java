@@ -56,6 +56,7 @@ public class FacebookRegisterFragment extends RootFragment implements OnBackPres
 
 
     LoginButton loginButton;
+
     CallbackManager callbackManager;
     AccessTokenTracker accessTokenTracker;
     AccessToken accessToken;
