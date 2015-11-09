@@ -6,10 +6,10 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabSettingLogin;
 import com.hammersmith.fustalfootballbookingfield.Test.TabHome;
-import com.hammersmith.fustalfootballbookingfield.users.TabLeagueView;
-import com.hammersmith.fustalfootballbookingfield.users.TabList;
-import com.hammersmith.fustalfootballbookingfield.users.Tab_Map;
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeagueView;
+import com.hammersmith.fustalfootballbookingfield.TabMain.Tab_Map;
 
 /**
  * Created by hp1 on 21-01-2015.
@@ -46,13 +46,17 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
         }
         else if(position == 1)
         {
-            Tab_Map setting = new Tab_Map();
-            return setting;
+            Tab_Map map = new Tab_Map();
+            return map;
+        }
+        else if (position == 2){
+            TabLeagueView league = new TabLeagueView();
+            return league;
         }
         else
         {
-            TabLeagueView league = new TabLeagueView();
-            return league;
+            TabSettingLogin login = new TabSettingLogin();
+            return login;
         }
     }
 

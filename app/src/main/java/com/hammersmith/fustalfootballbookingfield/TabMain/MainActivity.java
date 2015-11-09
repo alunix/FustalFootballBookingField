@@ -1,4 +1,4 @@
-package com.hammersmith.fustalfootballbookingfield.users;
+package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.ViewPagerAdapter;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 import com.hammersmith.fustalfootballbookingfield.widget.OnBackPressListener;
 import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 
@@ -19,8 +20,8 @@ public class MainActivity extends RootFragment {
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayoutText tabs;
-    CharSequence Titles[]={"List","Map","League"};
-    int Numboftabs =3;
+    CharSequence Titles[]={"List","Map","League","Setting"};
+    int Numboftabs =4;
     public MainActivity(){
     }
 

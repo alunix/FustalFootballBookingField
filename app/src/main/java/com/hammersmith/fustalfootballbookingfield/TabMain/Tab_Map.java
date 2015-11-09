@@ -1,4 +1,4 @@
-package com.hammersmith.fustalfootballbookingfield.users;
+package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 
 /**
  * Created by USER on 10/1/2015.

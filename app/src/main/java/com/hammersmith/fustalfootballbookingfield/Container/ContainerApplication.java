@@ -13,7 +13,7 @@ import android.support.v7.widget.SearchView;
 import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider;
-import com.hammersmith.fustalfootballbookingfield.users.MainActivity;
+import com.hammersmith.fustalfootballbookingfield.TabMain.MainActivity;
 import com.hammersmith.fustalfootballbookingfield.R;
 
 /**
