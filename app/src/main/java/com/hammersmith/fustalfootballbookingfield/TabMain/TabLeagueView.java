@@ -15,6 +15,10 @@ import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
  * Created by USER on 10/28/2015.
  */
 public class TabLeagueView extends RootFragment {
+
+    public TabLeagueView(){
+
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

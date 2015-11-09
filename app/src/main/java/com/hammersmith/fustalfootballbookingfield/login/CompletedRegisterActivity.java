@@ -20,7 +20,7 @@ public class CompletedRegisterActivity extends AppCompatActivity {
     }
 
     public void cancel(View view) {
-        Intent intent = new Intent().setClass(this,RegisterActivity.class);
+        Intent intent = new Intent().setClass(this,Register.class);
         startActivity(intent);
     }
 

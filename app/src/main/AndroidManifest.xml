@@ -24,15 +24,11 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
+        android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/NoActionBarTheme" >
-        <activity
-            android:name=".login.RegisterActivity"
-            android:label="@string/app_name" >
-
-        </activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -43,35 +39,33 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name=".login.CompletedRegisterActivity"
-            android:label="@string/title_activity_completed_register"
-            android:parentActivityName=".login.RegisterActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".login.RegisterActivity" />
+        <!--<activity-->
+            <!--android:name=".login.CompletedRegisterActivity"-->
+            <!--android:label="@string/title_activity_completed_register"-->
+            <!--android:parentActivityName=".login.Register" >-->
+            <!--<meta-data-->
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value=".login.Register" />-->
+        <!--</activity>-->
+        <activity android:name=".login.Register"
+            android:label="@string/app_name"
+            >
+        </activity>
+        <activity android:name=".login.getFacebookProfile"
+            android:label="@string/app_name"
+            >
+
         </activity>
         <activity
-            android:windowSoftInputMode="adjustPan|adjustNothing"
             android:name=".Container.ContainerApplication"
-            android:launchMode="singleTop"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
+
         </activity>
-        <provider
-            android:name=".app.SuggestionProvider"
-            android:authorities="com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider"
-            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

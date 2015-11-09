@@ -16,7 +16,7 @@ public class TabSettingLogin extends RootFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_setting_login,container,false);
-        return view;
+        View viewSetting = inflater.inflate(R.layout.tab_setting_login,container,false);
+        return viewSetting;
     }
 }
