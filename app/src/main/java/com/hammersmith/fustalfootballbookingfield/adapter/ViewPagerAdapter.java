@@ -38,28 +38,40 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
     //This method return the fragment for the every position in the View Pager
     @Override
     public Fragment getItem(int position) {
+        switch (position){
+            case 0:
+                return new TabAllField();
+            case 1:
+                return new TabMap();
+            case 2:
+                return new TabLeagueView();
+            case 3:
+                return new TabSettingLogin();
+            default:
+                return new TabAllField();
+        }
 
-        if(position == 0) // if the position is 0 we are returning the First tab
-        {
-            TabAllField home = new TabAllField();
-            return home;
-
-        }
-        if(position == 1)
-        {
-            TabMap map = new TabMap();
-            return map;
-        }
-        if (position == 2){
-            TabLeagueView league = new TabLeagueView();
-            return league;
-        }
-        if(position == 3)
-        {
-            TabSettingLogin login = new TabSettingLogin();
-            return login;
-        }
-        return null;
+//        if(position == 0) // if the position is 0 we are returning the First tab
+//        {
+//            TabAllField home = new TabAllField();
+//            return home;
+//
+//        }
+//        if(position == 1)
+//        {
+//            TabMap map = new TabMap();
+//            return map;
+//        }
+//        if (position == 2){
+//            TabLeagueView league = new TabLeagueView();
+//            return league;
+//        }
+//        if(position == 3)
+//        {
+//            TabSettingLogin login = new TabSettingLogin();
+//            return login;
+//        }
+//        return null;
 
     }
 
