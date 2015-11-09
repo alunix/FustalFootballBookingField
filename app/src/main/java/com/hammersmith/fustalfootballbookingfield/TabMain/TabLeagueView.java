@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
@@ -19,6 +20,8 @@ public class TabLeagueView extends RootFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View leagueView = inflater.inflate(R.layout.tab_league_view,container,false);
         WebView viewLeague = (WebView)leagueView.findViewById(R.id.webView);
+        viewLeague.getSettings().setJavaScriptEnabled(true);
+        viewLeague.setWebViewClient(new WebViewClient());
         viewLeague.loadUrl("http://m.premierleague.com/en-gb/fixtures.html");
         return leagueView;
     }
