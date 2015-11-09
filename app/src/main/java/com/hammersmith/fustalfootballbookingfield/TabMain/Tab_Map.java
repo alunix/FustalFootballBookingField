@@ -34,7 +34,7 @@ public class Tab_Map extends RootFragment {
 
         try {
             if (googleMap == null) {
-                googleMap = ((MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.Map)).getMap();
+                googleMap = ((MapFragment)getActivity().getFragmentManager().findFragmentById(R.id.maps)).getMap();
 //                googleMap = ((MapFragment) getFragmentManager().
 //                        findFragmentById(R.id.Map)).getMap();
             }
