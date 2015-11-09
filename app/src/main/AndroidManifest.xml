@@ -54,14 +54,26 @@
                 android:value=".login.RegisterActivity" />
         </activity>
         <activity
+            android:windowSoftInputMode="adjustPan|adjustNothing"
             android:name=".Container.ContainerApplication"
+            android:launchMode="singleTop"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
         </activity>
+        <provider
+            android:name=".app.SuggestionProvider"
+            android:authorities="com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
