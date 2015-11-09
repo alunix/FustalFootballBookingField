@@ -39,11 +39,13 @@ import java.security.Signature;
 import java.util.Arrays;
 
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
+import com.hammersmith.fustalfootballbookingfield.widget.OnBackPressListener;
 
 /**
  * Created by minea2015 on 11/2/2015.
  */
-public class FacebookRegisterFragment extends Fragment {
+public class FacebookRegisterFragment extends RootFragment implements OnBackPressListener{
 
    public String id, fullname, email, gender,photo;
     //  private String pro_photo;
@@ -251,12 +253,12 @@ public class FacebookRegisterFragment extends Fragment {
 //                                Toast.makeText(getActivity().getApplicationContext(), "Success !" + email, Toast.LENGTH_LONG).show();
 //                                Toast.makeText(getActivity().getApplicationContext(), "Success !" + gender, Toast.LENGTH_LONG).show();
                             }
-                            Intent intent = new Intent(getActivity(),getFacebookProfile.class);
-                            intent.putExtra(FULL_NAME,fullname);
-                            intent.putExtra(EMAIL, email);
-                            //  intent.putExtra(GENDER, gender);
-                            intent.putExtra(PHOTO, photo);
-                            startActivity(intent);
+//                            Intent intent = new Intent(getActivity(),getFacebookProfile.class);
+//                            intent.putExtra(FULL_NAME,fullname);
+//                            intent.putExtra(EMAIL, email);
+//                            //  intent.putExtra(GENDER, gender);
+//                            intent.putExtra(PHOTO, photo);
+//                            startActivity(intent);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -273,5 +275,8 @@ public class FacebookRegisterFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+
     }
+
+
 }
