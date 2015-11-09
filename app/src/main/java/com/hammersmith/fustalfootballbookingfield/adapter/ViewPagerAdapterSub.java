@@ -7,9 +7,9 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hammersmith.fustalfootballbookingfield.preivew.team_about;
-import com.hammersmith.fustalfootballbookingfield.preivew.team_member;
-import com.hammersmith.fustalfootballbookingfield.preivew.team_post;
+import com.hammersmith.fustalfootballbookingfield.preivew.TeamAbout;
+import com.hammersmith.fustalfootballbookingfield.preivew.TeamMember;
+import com.hammersmith.fustalfootballbookingfield.preivew.TeamPost;
 
 /**
  * Created by hp1 on 21-01-2015.
@@ -36,16 +36,16 @@ public class ViewPagerAdapterSub extends FragmentStatePagerAdapter {
 
         if (position == 0) // if the position is 0 we are returning the First tab
         {
-            team_post post = new team_post();
+            TeamPost post = new TeamPost();
             return post;
         }
         if (position == 1)           // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
         {
-            team_member member = new team_member();
+            TeamMember member = new TeamMember();
             return member;
         }
         if (position == 2) {
-            team_about about = new team_about();
+            TeamAbout about = new TeamAbout();
             return about;
         }
         return null;

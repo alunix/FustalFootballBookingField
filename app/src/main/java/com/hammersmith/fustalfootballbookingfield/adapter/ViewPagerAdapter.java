@@ -6,10 +6,11 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabAllField;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabSettingLogin;
 import com.hammersmith.fustalfootballbookingfield.Test.TabHome;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeagueView;
-import com.hammersmith.fustalfootballbookingfield.TabMain.Tab_Map;
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabMap;
 
 /**
  * Created by hp1 on 21-01-2015.
@@ -40,26 +41,27 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
 
         if(position == 0) // if the position is 0 we are returning the First tab
         {
-            TabHome home = new TabHome();
+            TabAllField home = new TabAllField();
             return home;
 
         }
-        else if(position == 1)
+        if(position == 1)
         {
-            Tab_Map map = new Tab_Map();
+            TabMap map = new TabMap();
             return map;
         }
-        else if (position == 2){
+        if (position == 2){
             TabLeagueView league = new TabLeagueView();
             return league;
         }
-        else
+        if(position == 3)
         {
             TabSettingLogin login = new TabSettingLogin();
             return login;
         }
-    }
+        return null;
 
+    }
 
     // This method return the titles for the Tabs in the Tab Strip
 

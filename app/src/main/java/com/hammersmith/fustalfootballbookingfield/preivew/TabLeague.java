@@ -16,7 +16,7 @@ import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 /**
  * Created by USER on 10/1/2015.
  */
-public class Tab_League extends RootFragment {
+public class TabLeague extends RootFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Tab_League extends RootFragment {
         imageLeague.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new League_Fixture();
+                Fragment fragment = new LeagueFixture();
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.layoutFragmentLeague,fragment);

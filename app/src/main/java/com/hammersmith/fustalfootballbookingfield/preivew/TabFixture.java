@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
@@ -18,29 +19,73 @@ import java.util.List;
 /**
  * Created by USER on 9/18/2015.
  */
-public class tab_score extends RootFragment {
+public class TabFixture extends RootFragment {
 
     ExpandableListAdaptor listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
-    public tab_score(){
+    String value = "";
+    public TabFixture(){
 
     }
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View score = inflater.inflate(R.layout.tab_score,container,false);
+         View fixture = inflater.inflate(R.layout.tab_fixture,container,false);
 
-        expListView = (ExpandableListView)score.findViewById(R.id.lvExp);
+        expListView = (ExpandableListView)fixture.findViewById(R.id.lvExp);
         prepareListData();
         listAdapter = new ExpandableListAdaptor(getActivity(), listDataHeader, listDataChild);
         expListView.setAdapter(listAdapter);
 
-        return score;
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+
+//                Toast.makeText(getContext(), "Group Clicked: " + listDataHeader.get(groupPosition)
+//                        , Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getContext(), listDataHeader.get(groupPosition)
+//                        + " Expanable", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+
+//                Toast.makeText(getContext(), listDataHeader.get(groupPosition)
+//                        + " Collapsed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
+                TextView showMatchWeek = (TextView)getActivity().findViewById(R.id.lblListHeader);
+                TextView showAllClub = (TextView)getActivity().findViewById(R.id.lblListHeader);
+
+                showAllClub.setText(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition));
+                showMatchWeek.setText(listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition));
+
+//                Toast.makeText(getContext(),listDataChild.get(listDataHeader.get(groupPosition))
+//                .get(childPosition),Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        return fixture;
     }
+
 
     private void prepareListData() {
 
@@ -51,7 +96,6 @@ public class tab_score extends RootFragment {
         listDataHeader.add("All Club");
 
         List<String> matchWeek = new ArrayList<String>();
-        matchWeek.add("All Session");
         matchWeek.add("Match week 1");
         matchWeek.add("Match week 2");
         matchWeek.add("Match week 3");
@@ -92,7 +136,6 @@ public class tab_score extends RootFragment {
         matchWeek.add("Match week 38");
 
         List<String> allclub = new ArrayList<String>();
-        allclub.add("All Club");
         allclub.add("Arsenal");
         allclub.add("Aston Villa");
         allclub.add("Bournemouth");

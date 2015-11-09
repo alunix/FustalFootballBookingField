@@ -17,15 +17,9 @@ import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 /**
  * Created by USER on 10/1/2015.
  */
-public class Tab_Map extends RootFragment {
+public class TabMap extends RootFragment {
     static final LatLng TutorialsPoint = new LatLng(21 , 57);
     private GoogleMap googleMap;
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Nullable
     @Override

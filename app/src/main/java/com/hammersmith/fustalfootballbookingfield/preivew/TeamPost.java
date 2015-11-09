@@ -12,7 +12,7 @@ import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
 /**
  * Created by USER on 9/15/2015.
  */
-public class team_post extends RootFragment {
+public class TeamPost extends RootFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {

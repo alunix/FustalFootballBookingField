@@ -15,7 +15,7 @@ import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 /**
  * Created by USER on 9/18/2015.
  */
-public class League_Fixture extends RootFragment {
+public class LeagueFixture extends RootFragment {
 
 
     ViewPager pager;
@@ -25,7 +25,7 @@ public class League_Fixture extends RootFragment {
     int NumbOfTabs = 3;
 
 
-    public League_Fixture(){
+    public LeagueFixture(){
 
     }
 

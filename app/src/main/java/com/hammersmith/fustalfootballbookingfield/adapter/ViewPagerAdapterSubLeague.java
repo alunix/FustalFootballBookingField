@@ -7,9 +7,9 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hammersmith.fustalfootballbookingfield.preivew.tab_fixture;
-import com.hammersmith.fustalfootballbookingfield.preivew.tab_score;
-import com.hammersmith.fustalfootballbookingfield.preivew.tab_table;
+import com.hammersmith.fustalfootballbookingfield.preivew.TabFixture;
+import com.hammersmith.fustalfootballbookingfield.preivew.TabScore;
+import com.hammersmith.fustalfootballbookingfield.preivew.TabTable;
 
 /**
  * Created by hp1 on 21-01-2015.
@@ -36,16 +36,16 @@ public class ViewPagerAdapterSubLeague extends FragmentStatePagerAdapter {
 
         if (position == 0) // if the position is 0 we are returning the First tab
         {
-            tab_fixture fixture = new tab_fixture();
+            TabFixture fixture = new TabFixture();
             return fixture;
         }
         if (position == 1)           // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
         {
-            tab_score score = new tab_score();
+            TabScore score = new TabScore();
             return score;
         }
         if (position == 2) {
-            tab_table table = new tab_table();
+            TabTable table = new TabTable();
             return table;
         }
         return null;

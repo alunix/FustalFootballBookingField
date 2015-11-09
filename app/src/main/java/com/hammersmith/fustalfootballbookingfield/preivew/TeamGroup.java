@@ -15,13 +15,13 @@ import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 /**
  * Created by USER on 9/17/2015.
  */
-public class team_group extends RootFragment {
+public class TeamGroup extends RootFragment {
     ViewPager pager;
     ViewPagerAdapterSub adapter;
     SlidingTabLayoutText tabs;
     CharSequence Titles[]={"Post","Team","About"};
     int NumofTabs = 3;
-    public team_group(){
+    public TeamGroup(){
 
     }
 
