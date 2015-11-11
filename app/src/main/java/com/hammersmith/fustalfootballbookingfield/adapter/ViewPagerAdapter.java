@@ -6,9 +6,8 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hammersmith.fustalfootballbookingfield.TabMain.TabAllField;
+import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentList;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabSettingLogin;
-import com.hammersmith.fustalfootballbookingfield.Test.TabHome;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeagueView;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabMap;
 
@@ -40,7 +39,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new TabAllField();
+                return new FragmentList();
             case 1:
                 return new TabMap();
             case 2:
@@ -48,30 +47,10 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
             case 3:
                 return new TabSettingLogin();
             default:
-                return new TabAllField();
+                return null;
         }
 
-//        if(position == 0) // if the position is 0 we are returning the First tab
-//        {
-//            TabAllField home = new TabAllField();
-//            return home;
-//
-//        }
-//        if(position == 1)
-//        {
-//            TabMap map = new TabMap();
-//            return map;
-//        }
-//        if (position == 2){
-//            TabLeagueView league = new TabLeagueView();
-//            return league;
-//        }
-//        if(position == 3)
-//        {
-//            TabSettingLogin login = new TabSettingLogin();
-//            return login;
-//        }
-//        return null;
+
 
     }
 

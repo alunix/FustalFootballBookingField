@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/bgblur"
+    android:id="@+id/layoutAllField"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="#60000000"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="Small Field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="#50ffffff"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="130dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/image_field"
+                        android:layout_width="110dp"
+                        android:layout_height="75dp" />
+                    <TextView
+                        android:textColor="#ff0000"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Available Booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/btnChecking"
+                        android:layout_marginRight="20dp"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:background="@drawable/button_radius_blue"
+                        android:layout_marginTop="80dp"
+                        android:layout_gravity="right"
+                        android:text="Booking"
+                        android:textAllCaps="false"
+                        android:layout_width="85dp"
+                        android:layout_height="30dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="#60000000"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="Medium Field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:background="#50ffffff"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/image_field"
+                        android:layout_width="130dp"
+                        android:layout_height="95dp" />
+                    <TextView
+                        android:textColor="#ff0000"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Available Booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/btnAddMedium"
+                        android:layout_marginRight="20dp"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:background="@drawable/button_radius_blue"
+                        android:layout_marginTop="100dp"
+                        android:layout_gravity="right"
+                        android:text="Booking"
+                        android:textAllCaps="false"
+                        android:layout_width="85dp"
+                        android:layout_height="30dp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:background="#60000000"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:text="Large Field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:background="#50ffffff"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/image_field"
+                        android:layout_width="160dp"
+                        android:layout_height="110dp" />
+                    <TextView
+                        android:textColor="#ff0000"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="20dp"
+                        android:text="Available Booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/btnAddLarge"
+                        android:layout_marginRight="20dp"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:background="@drawable/button_radius_blue"
+                        android:layout_marginTop="120dp"
+                        android:layout_gravity="right"
+                        android:text="Booking"
+                        android:textAllCaps="false"
+                        android:layout_width="85dp"
+                        android:layout_height="30dp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>

@@ -26,7 +26,7 @@ public class ContainerApplication extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.container_framelayout);
+        setContentView(R.layout.container_application_layout);
 
         recentSuggestions = new SearchRecentSuggestions(this, SuggestionProvider.AUTHORITY,SuggestionProvider.MODE);
         // Associate searchable configuration with the SearchView

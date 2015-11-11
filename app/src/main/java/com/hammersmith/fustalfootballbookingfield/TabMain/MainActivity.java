@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.ViewPagerAdapter;
-import com.hammersmith.fustalfootballbookingfield.users.RootFragment;
+import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 import com.hammersmith.fustalfootballbookingfield.widget.OnBackPressListener;
 import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 
@@ -36,7 +36,6 @@ public class MainActivity extends RootFragment {
         //tabs.setSelectedIndicatorColors(getResources().getColor(R.color.selectors));
         tabs.setCustomTabView(R.layout.custom_tab_text, R.id.textCustomTab);
         tabs.setDistributeEvenly(true);
-
 
         tabs.setCustomTabColorizer(new SlidingTabLayoutText.TabColorizer() {
 

@@ -5,13 +5,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.login.widget.ProfilePictureView;
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.adapter.RoundImage;
 
 
 import java.io.IOException;
@@ -19,8 +16,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import com.hammersmith.fustalfootballbookingfield.R;
 
 /**
  * Created by minea2015 on 11/2/2015.
@@ -32,7 +27,6 @@ public class getFacebookProfile extends AppCompatActivity {
     public String  fullname, email, gender,photo;
     Bitmap bitmap;
     //ImageView myOtherFBimg;
-    RoundImage roundImage;
    // RoundImage roundImage;
 
     @Override
