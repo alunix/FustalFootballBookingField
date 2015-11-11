@@ -1,4 +1,4 @@
-package com.hammersmith.fustalfootballbookingfield.Fragments;
+package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 /**
  * Created by USER on 10/29/2015.
  */
-public class FragmentList extends RootFragment implements RecyclerHomeAdapter.ClickListener{
+public class TabHome extends RootFragment implements RecyclerHomeAdapter.ClickListener{
     RecyclerView recyclerView;
     RecyclerHomeAdapter adapter;
     View root;
@@ -37,13 +37,13 @@ public class FragmentList extends RootFragment implements RecyclerHomeAdapter.Cl
             R.drawable.imgdowntown,
             R.drawable.imgemperia
     };
-    public FragmentList(){
+    public TabHome(){
 
     }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_list, container, false);
+        root = inflater.inflate(R.layout.tab_home, container, false);
 
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());

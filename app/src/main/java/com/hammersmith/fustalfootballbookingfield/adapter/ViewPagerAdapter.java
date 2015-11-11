@@ -6,7 +6,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentList;
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabHome;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabSettingLogin;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeagueView;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabMap;
@@ -39,7 +39,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return new FragmentList();
+                return new TabHome();
             case 1:
                 return new TabMap();
             case 2:

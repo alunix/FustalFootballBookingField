@@ -46,6 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:textSize="12sp"
                 android:gravity="center"
                 android:textColor="#000"
                 android:text="Time/Day"
@@ -63,11 +64,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:textSize="12sp"
                 android:textColor="#000"
                 android:text="Mon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginTop="-3dp"
                 android:textColor="#000"
                 android:text="Nov 5"
@@ -85,11 +88,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:textSize="12sp"
                 android:textColor="#000"
                 android:text="Tue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginTop="-3dp"
                 android:textColor="#000"
                 android:text="Nov 6"
@@ -107,11 +112,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:textSize="12sp"
                 android:textColor="#000"
                 android:text="Web"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginTop="-3dp"
                 android:textColor="#000"
                 android:text="Nov 7"
@@ -129,11 +136,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:textSize="12sp"
                 android:textColor="#000"
                 android:text="Thu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginTop="-3dp"
                 android:textColor="#000"
                 android:text="Nov 8"
@@ -158,6 +167,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent">
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:textColor="#000"
                 android:background="#f7f7f7"
@@ -166,6 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -175,6 +186,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -184,6 +196,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -193,6 +206,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -202,6 +216,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -211,6 +226,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -220,6 +236,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -229,6 +246,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -238,6 +256,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -247,6 +266,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -256,6 +276,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -265,6 +286,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -274,6 +296,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"
@@ -283,6 +306,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp" />
             <TextView
+                android:textSize="12sp"
                 android:layout_marginRight="3dp"
                 android:layout_marginTop="3dp"
                 android:textColor="#000"

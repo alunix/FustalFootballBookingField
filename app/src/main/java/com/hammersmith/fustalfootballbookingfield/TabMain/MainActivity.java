@@ -20,7 +20,7 @@ public class MainActivity extends RootFragment {
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayoutText tabs;
-    CharSequence Titles[]={"List","Map","League","Setting"};
+    CharSequence Titles[]={"Home","Map","League","Setting"};
     int Numboftabs =4;
     public MainActivity(){
     }

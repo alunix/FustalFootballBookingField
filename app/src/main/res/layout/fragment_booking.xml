@@ -108,7 +108,7 @@
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
                 android:textColor="#fff"
-                android:text="Chose Field:"
+                android:text="Type Field:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -116,7 +116,7 @@
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
                 android:textColor="#fff"
-                android:text="Choose Day:"
+                android:text="Day Booking:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -124,7 +124,7 @@
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
                 android:textColor="#fff"
-                android:text="Choose Time:"
+                android:text="Time Booking:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

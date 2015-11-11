@@ -40,8 +40,14 @@ public class FragmentCalendarBooking extends RootFragment {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(getActivity(),dayOfMonth+" / "+month+" / "+year,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(),dayOfMonth+" / "+month+" / "+year,Toast.LENGTH_SHORT).show();
+
                 Fragment fragment = new FragmentTimeBooking();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("dateBooking",dayOfMonth+"/"+month+"/"+year);
+                fragment.setArguments(bundle);
+
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.layoutCalendarBooking,fragment);

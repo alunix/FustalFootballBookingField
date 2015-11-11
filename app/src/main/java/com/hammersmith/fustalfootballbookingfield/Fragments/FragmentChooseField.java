@@ -16,7 +16,7 @@ import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 /**
  * Created by USER on 11/5/2015.
  */
-public class FragmentChoseField extends RootFragment {
+public class FragmentChooseField extends RootFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {

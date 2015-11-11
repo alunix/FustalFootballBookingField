@@ -18,7 +18,8 @@ import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 
 public class FragmentBooking extends RootFragment {
     Button button;
-    ImageView date,time,ball;
+    String dateBooking;
+    String date;
     public static TextView textDate,textTime,textField;
 
 
@@ -27,11 +28,15 @@ public class FragmentBooking extends RootFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_booking,container,false);
 
+        textDate = (TextView) view.findViewById(R.id.txtday);
         textField = (TextView)view.findViewById(R.id.txtfield);
-
         textTime = (TextView)view.findViewById(R.id.txttime);
 
+        String time = getArguments().getString("timeBooking");
+        textTime.setText(time);
 
+        String date = getArguments().getString("date");
+        textDate.setText(date);
 
         button = (Button)view.findViewById(R.id.btnBooking);
         button.setOnClickListener(new View.OnClickListener() {
