@@ -63,7 +63,7 @@
         <ImageView
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/image_field"
+            android:src="@drawable/img_field"
             android:layout_width="110dp"
             android:layout_height="75dp" />
         <LinearLayout
@@ -135,7 +135,7 @@
         <ImageView
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/image_field"
+            android:src="@drawable/img_field"
             android:layout_width="130dp"
             android:layout_height="95dp" />
         <LinearLayout
@@ -207,7 +207,7 @@
         <ImageView
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/image_field"
+            android:src="@drawable/img_field"
             android:layout_width="160dp"
             android:layout_height="110dp" />
         <LinearLayout

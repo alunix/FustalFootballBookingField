@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
@@ -19,11 +20,15 @@ import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
  */
 public class FragmentCalendarBooking extends RootFragment {
     CalendarView calendar;
+    String str;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_calendar_booking,container,false);
+        View view = inflater.inflate(R.layout.fragment_calendar_booking, container, false);
+
+        String field = getArguments().getString("field");
+        str = field;
         calendar = (CalendarView)view.findViewById(R.id.calendarView1);
         inilializeCalendar();
         return view;
@@ -41,12 +46,14 @@ public class FragmentCalendarBooking extends RootFragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 //Toast.makeText(getActivity(),dayOfMonth+" / "+month+" / "+year,Toast.LENGTH_SHORT).show();
-
                 Fragment fragment = new FragmentTimeBooking();
 
                 Bundle bundle = new Bundle();
                 bundle.putString("dateBooking",dayOfMonth+"/"+month+"/"+year);
+                bundle.putString("field",str);
                 fragment.setArguments(bundle);
+//                bundle.putString("field", str);
+//                fragment.setArguments(bundle);
 
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

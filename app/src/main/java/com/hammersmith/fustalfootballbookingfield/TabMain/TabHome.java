@@ -53,6 +53,9 @@ public class TabHome extends RootFragment implements RecyclerHomeAdapter.ClickLi
         recyclerView.setHasFixedSize(true);
         adapter.setClickListener(this);
 
+
+
+
         return root;
     }
 

@@ -49,7 +49,6 @@ public class TabMap extends RootFragment implements OnMapReadyCallback {
         }
         return view;
     }
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -60,9 +59,7 @@ public class TabMap extends RootFragment implements OnMapReadyCallback {
             supportMapFragment = SupportMapFragment.newInstance();
             fm.beginTransaction().replace(R.id.map,supportMapFragment).commit();
         }
-
     }
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap=googleMap;

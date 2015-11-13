@@ -20,6 +20,7 @@ import com.hammersmith.fustalfootballbookingfield.R;
  * Created by USER on 9/25/2015.
  */
 public class ContainerApplication extends AppCompatActivity {
+    Context context;
     private MainActivity containTab;
     SearchView searchView;
     SearchRecentSuggestions recentSuggestions;
@@ -44,7 +45,7 @@ public class ContainerApplication extends AppCompatActivity {
         }
     }
     private void initScreen() {
-        containTab = new MainActivity();
+        containTab = new MainActivity(getApplicationContext());
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.continer_framelayout,containTab).commit();
     }

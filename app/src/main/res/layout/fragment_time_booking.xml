@@ -17,808 +17,399 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:background="#70ffffff"
+            android:background="#52a9f5"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="45dp">
             <TextView
                 android:gravity="center"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:text="Choose Time Booking"
+                android:text="Choose Time For Booking"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
-
-    <LinearLayout
-        android:padding="3dp"
-        android:paddingTop="3dp"
-        android:orientation="horizontal"
-        android:background="#dadada"
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
         <LinearLayout
-            android:layout_marginRight="3dp"
-            android:background="#b7b7b7"
             android:orientation="vertical"
-            android:layout_weight="1.5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:textSize="12sp"
-                android:gravity="center"
-                android:textColor="#000"
-                android:text="Time/Day"
+            android:layout_marginLeft="30dp"
+            android:paddingBottom="20dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginRight="3dp"
-            android:background="#b7b7b7"
-            android:paddingTop="0dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:textSize="12sp"
-                android:textColor="#000"
-                android:text="Mon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginTop="-3dp"
-                android:textColor="#000"
-                android:text="Nov 5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginRight="3dp"
-            android:background="#b7b7b7"
-            android:paddingTop="0dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:textSize="12sp"
-                android:textColor="#000"
-                android:text="Tue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginTop="-3dp"
-                android:textColor="#000"
-                android:text="Nov 6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginRight="3dp"
-            android:background="#b7b7b7"
-            android:paddingTop="0dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:textSize="12sp"
-                android:textColor="#000"
-                android:text="Web"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginTop="-3dp"
-                android:textColor="#000"
-                android:text="Nov 7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginRight="3dp"
-            android:background="#b7b7b7"
-            android:paddingTop="0dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:textSize="12sp"
-                android:textColor="#000"
-                android:text="Thu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginTop="-3dp"
-                android:textColor="#000"
-                android:text="Nov 8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="-3dp"
-        android:padding="3dp"
-        android:orientation="horizontal"
-        android:background="#dadada"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1.5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="6 To 7 AM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="8 To 9 AM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="9 To 10 AM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="10 To 11 AM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="11 To 12 AM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="12 To 1 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="1 To 2 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="2 To 3 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="3 To 4 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="4 To 5 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="5 To 6 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="6 To 7 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="7 To 8 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="8 To 9 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:textSize="12sp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:text="9 To 10 PM"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_marginTop="2dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="16sp"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:text="Time/Day"
+                        android:gravity="center"
+                        android:background="#ff8282"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="6 To 7 AM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="7 To 8 AM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="8 To 9 AM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="9 To 10 AM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="10 To 11 AM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="11 To 12 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="12 To 1 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="1 To 2 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="2 To 3 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="3 To 4 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="4 To 5 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="5 To 6 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="6 To 7 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="7 To 8 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="8 To 9 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:textSize="12sp"
+                        android:textColor="#ff2323"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp"
+                        android:text="9 To 10 PM"
+                        android:gravity="center"
+                        android:background="#fafc6b"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
 
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_marginRight="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:id="@+id/txtBooking"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_marginRight="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginTop="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/timeBooking"
+                        android:textSize="16sp"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
+                        android:text="12/10/2015"
+                        android:gravity="center"
+                        android:background="#ff8282"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp" />
+                    <TextView
+                        android:id="@+id/time6to7am"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Not Available"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#ff5a5a"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time7to8am"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time8to9am"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time9to10am"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Not Available"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#ff5a5a"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time10to11am"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time11to12pm"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time12to1pm"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Not Available"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#ff5a5a"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time1to2pm"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time2to3pm"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time3to4pm"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Not Available"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#ff5a5a"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time4to5pm"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time5to6pm"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time6to7pm"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Not Available"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#ff5a5a"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time7to8pm"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time8to9pm"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Available Booking"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#51f53c"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+                    <TextView
+                        android:id="@+id/time9to10pm"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:textSize="14sp"
+                        android:text="Not Available"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center"
+                        android:background="#ff5a5a"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_marginRight="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                </LinearLayout>
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#b7b7b7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="#000"
-                android:background="#f7f7f7"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="25dp" />
-
+            </LinearLayout>
 
         </LinearLayout>
 
-
-
-
-    </LinearLayout>
     </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </FrameLayout>

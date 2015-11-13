@@ -1,6 +1,7 @@
 package com.hammersmith.fustalfootballbookingfield.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapter.MyViewHolder>{
     ClickListener clickListener;
     Context context;
+    //Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/KrinkesDecorPERSONAL.ttf");
     ContainerApplication main;
     public ArrayList<Integer> img = new ArrayList<>();
     public ArrayList<String> nameField = new ArrayList<>();
@@ -69,6 +71,8 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
             name = (TextView) itemView.findViewById(R.id.nameField);
             location = (TextView) itemView.findViewById(R.id.locationField);
             imgField = (ImageView)itemView.findViewById(R.id.cover);
+  //          name.setTypeface(typeface);
+    //        location.setTypeface(typeface);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }

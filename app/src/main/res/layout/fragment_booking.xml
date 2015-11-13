@@ -20,16 +20,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:background="#70ffffff"
+            android:background="#52a9f5"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="45dp">
             <TextView
+                android:id="@+id/title"
                 android:gravity="center"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:text="Booking Field"
+                android:text="Information For Booking"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -47,28 +48,16 @@
         <!--android:layout_height="wrap_content">-->
 
     <LinearLayout
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="0dp"
-        android:background="#50000000"
+        android:background="#e6e6e6"
         android:layout_marginBottom="20dp"
         android:padding="3dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_margin="5dp"
-                android:src="@drawable/image_field"
-                android:layout_width="70dp"
-                android:layout_height="50dp" />
-
-        </LinearLayout>
 
         <LinearLayout
 
@@ -81,7 +70,7 @@
             <TextView
                 android:textStyle="bold"
                 android:textSize="14sp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:text="Name:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -89,7 +78,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:text="Phone Number:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -99,7 +88,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:text="Email:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -107,7 +96,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:text="Type Field:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -115,7 +104,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:text="Day Booking:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -123,23 +112,10 @@
                 android:textStyle="bold"
                 android:layout_marginTop="25dp"
                 android:textSize="14sp"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:text="Time Booking:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
-            <Button
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="25dp"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                android:textColor="#fff"
-                android:id="@+id/btnBooking"
-                android:background="@drawable/button_radius_blue"
-                android:textSize="14sp"
-                android:text="Booking Now"
-                android:layout_width="100dp"
-                android:layout_height="28dp" />
 
 
         </LinearLayout>
@@ -155,7 +131,7 @@
                 android:textStyle="bold"
                 android:focusable="true"
                 android:singleLine="true"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textColorHint="#999fa9"
                 android:hint="Name"
                 android:layout_marginTop="-1dp"
@@ -167,7 +143,7 @@
                 android:textStyle="bold"
                 android:singleLine="true"
                 android:theme="@style/MyEditTextTheme"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textColorHint="#999fa9"
                 android:hint="Phone Number"
                 android:layout_marginTop="5dp"
@@ -176,7 +152,7 @@
                 android:layout_height="wrap_content" />
             <EditText
                 android:textStyle="bold"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textColorHint="#999fa9"
                 android:singleLine="true"
                 android:theme="@style/MyEditTextTheme"
@@ -195,7 +171,7 @@
                         android:singleLine="true"
                         android:id="@+id/txtfield"
                         android:theme="@style/MyEditTextTheme"
-                        android:textColor="#fff"
+                        android:textColor="#000"
                         android:textColorHint="#999fa9"
                         android:hint="Type Field"
                         android:layout_marginTop="15dp"
@@ -220,7 +196,7 @@
                         android:singleLine="true"
                         android:id="@+id/txtday"
                         android:theme="@style/MyEditTextTheme"
-                        android:textColor="#fff"
+                        android:textColor="#000"
                         android:textColorHint="#999fa9"
                         android:hint="Select Day"
                         android:layout_marginTop="18dp"
@@ -237,7 +213,7 @@
                         android:singleLine="true"
                         android:id="@+id/txttime"
                         android:theme="@style/MyEditTextTheme"
-                        android:textColor="#fff"
+                        android:textColor="#000"
                         android:textColorHint="#999fa9"
                         android:hint="Select Time"
                         android:layout_marginTop="21dp"
@@ -249,6 +225,18 @@
                         android:layout_marginTop="3dp"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"/>
+                    <Button
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginTop="25dp"
+                        android:textStyle="bold"
+                        android:textAllCaps="false"
+                        android:textColor="#fff"
+                        android:id="@+id/btnBooking"
+                        android:background="@drawable/button_radius_blue"
+                        android:textSize="14sp"
+                        android:text="Booking Now"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp" />
 
                 </LinearLayout>
 

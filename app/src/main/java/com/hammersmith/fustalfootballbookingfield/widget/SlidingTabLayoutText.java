@@ -48,6 +48,7 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
 
     private final SlidingTabStripSub mTabStrip;
+    Typeface fontFace;
 
     public SlidingTabLayoutText(Context context) {
         this(context, null);
@@ -60,6 +61,7 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
     public SlidingTabLayoutText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
+        fontFace = Typeface.createFromAsset(context.getAssets(), "fonts/Sports EA Sports.ttf");
         // Disable the Scroll Bar
         setHorizontalScrollBarEnabled(false);
         // Make sure that the Tab Strips fills this View
@@ -135,10 +137,12 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
      * {@link #setCustomTabView(int, int)}.
      */
     protected TextView createDefaultTabView(Context context) {
+
         TextView textView = new TextView(context);
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP);
-        textView.setTypeface(Typeface.DEFAULT_BOLD);
+
+        textView.setTypeface(fontFace);
         textView.setLayoutParams(new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
@@ -197,7 +201,8 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
 
             tabTitleView.setTextColor(getResources().getColorStateList(R.color.selector));
             tabTitleView.setTextSize(16);
-            tabTitleView.setTypeface(Typeface.SANS_SERIF,Typeface.BOLD);
+//            tabTitleView.setTypeface(Typeface.SANS_SERIF, Typeface.BOLD);
+            tabTitleView.setTypeface(fontFace,Typeface.NORMAL);
         }
     }
     public void setTabBackgroundColor(int color){

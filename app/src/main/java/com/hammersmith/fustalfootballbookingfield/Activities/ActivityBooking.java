@@ -23,6 +23,7 @@ import com.hammersmith.fustalfootballbookingfield.adapter.BookingViewPager;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentCalendarBooking;
 
 public class ActivityBooking extends AppCompatActivity {
+
     private CoordinatorLayout mCoordinator;
     private CollapsingToolbarLayout mCollapsingToolBarLayout;
     private Toolbar mToolbar;
@@ -65,6 +66,9 @@ public class ActivityBooking extends AppCompatActivity {
     }
 
     public static class MyFragment extends Fragment{
+        String small = "Small Field";
+        String medium = "Medium Field";
+        String large = "Large Field";
         private static final java.lang.String ARG_PAGE = "arg_page";
         public MyFragment(){
 
@@ -81,11 +85,52 @@ public class ActivityBooking extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.fragment_chosing_field,container,false);
-            Button check = (Button)v.findViewById(R.id.btnChecking);
-            check.setOnClickListener(new View.OnClickListener() {
+            Button buttonSmall = (Button)v.findViewById(R.id.btnSmall);
+            buttonSmall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new FragmentCalendarBooking();
+
+                    Bundle argument = new Bundle();
+                    argument.putString("field",small);
+                    fragment.setArguments(argument);
+
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.layoutAllField,fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+            });
+
+            Button buttonMedium = (Button)v.findViewById(R.id.btnMedium);
+            buttonMedium.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new FragmentCalendarBooking();
+
+                    Bundle argument = new Bundle();
+                    argument.putString("field",medium);
+                    fragment.setArguments(argument);
+
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.layoutAllField,fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+            });
+
+            Button buttonLarge = (Button)v.findViewById(R.id.btnLarge);
+            buttonLarge.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new FragmentCalendarBooking();
+
+                    Bundle argument = new Bundle();
+                    argument.putString("field",large);
+                    fragment.setArguments(argument);
+
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.layoutAllField,fragment);

@@ -1,11 +1,14 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
+import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.ViewPagerAdapter;
@@ -17,6 +20,7 @@ import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 public class MainActivity extends RootFragment {
 
     // Declaring Your View and Variables
+    Context context;
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayoutText tabs;
@@ -25,16 +29,22 @@ public class MainActivity extends RootFragment {
     public MainActivity(){
     }
 
+    public MainActivity(Context context){
+        this.context = context;
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_main,container,false);
+
 
         pager = (ViewPager)view.findViewById(R.id.pager);
         tabs = (SlidingTabLayoutText)view.findViewById(R.id.tabs);
         tabs.setTabBackgroundColor(getResources().getColor(R.color.selectors));
         //tabs.setSelectedIndicatorColors(getResources().getColor(R.color.selectors));
         tabs.setCustomTabView(R.layout.custom_tab_text, R.id.textCustomTab);
+       // TextView textView = (TextView) view.findViewById(R.id.textCustomTab);
+        //textView.setTypeface(fontFace);
         tabs.setDistributeEvenly(true);
 
         tabs.setCustomTabColorizer(new SlidingTabLayoutText.TabColorizer() {
