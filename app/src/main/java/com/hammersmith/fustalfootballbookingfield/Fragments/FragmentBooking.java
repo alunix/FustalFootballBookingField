@@ -1,20 +1,15 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.TabOwner.MainTabBooking;
 import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 
 public class FragmentBooking extends RootFragment {
@@ -30,15 +25,10 @@ public class FragmentBooking extends RootFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_booking,container,false);
 
-        //Typeface fontFace = Typeface.createFromAsset(getActivity().getAssets(),"fonts/Roboto-Black.ttf");
         textDate = (TextView) view.findViewById(R.id.txtday);
         textField = (TextView)view.findViewById(R.id.txtfield);
         textTime = (TextView)view.findViewById(R.id.txttime);
         title = (TextView) view.findViewById(R.id.title);
-       // title.setTypeface(fontFace);
-
-//        String field = getArguments().getString("field");
-//        textField.setText(field);
 
         String time = getArguments().getString("timeBooking");
         textTime.setText(time);
@@ -53,12 +43,13 @@ public class FragmentBooking extends RootFragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new MainTabBooking();
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.layoutBooking, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                Toast.makeText(getActivity(),"Booking successful!",Toast.LENGTH_SHORT).show();
+//                Fragment fragment = new MainTabBooking();
+//                FragmentManager fragmentManager = getChildFragmentManager();
+//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                fragmentTransaction.replace(R.id.layoutBooking, fragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
 
             }
         });

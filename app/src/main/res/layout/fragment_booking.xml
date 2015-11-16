@@ -51,7 +51,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="0dp"
-        android:background="#e6e6e6"
+        android:background="#f4f4f4"
         android:layout_marginBottom="20dp"
         android:padding="3dp"
         android:orientation="horizontal"
@@ -199,7 +199,7 @@
                         android:textColor="#000"
                         android:textColorHint="#999fa9"
                         android:hint="Select Day"
-                        android:layout_marginTop="18dp"
+                        android:layout_marginTop="22dp"
                         android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />

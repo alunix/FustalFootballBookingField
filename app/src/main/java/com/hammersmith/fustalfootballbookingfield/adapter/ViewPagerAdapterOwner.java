@@ -7,9 +7,6 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hammersmith.fustalfootballbookingfield.TabOwner.TabSetting;
-import com.hammersmith.fustalfootballbookingfield.TabOwner.TabConfirm;
-
 /**
  * Created by USER on 9/28/2015.
  */
@@ -32,16 +29,16 @@ public class ViewPagerAdapterOwner extends FragmentStatePagerAdapter {
     //This method return the fragment for the every position in the View Pager
     @Override
     public Fragment getItem(int position) {
-
-        if (position == 0) // if the position is 0 we are returning the First tab
-        {
-            TabConfirm confirm = new TabConfirm();
-            return confirm;
-        }
-        if(position == 1){
-            TabSetting setting = new TabSetting();
-            return setting;
-        }
+//
+//        if (position == 0) // if the position is 0 we are returning the First tab
+//        {
+//            TabConfirm confirm = new TabConfirm();
+//            return confirm;
+//        }
+//        if(position == 1){
+//            TabSetting setting = new TabSetting();
+//            return setting;
+//        }
         return null;
     }
 

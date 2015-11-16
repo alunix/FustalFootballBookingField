@@ -31,6 +31,10 @@
         </LinearLayout>
 
         <CalendarView
+            android:layout_marginTop="2dp"
+            android:background="#50ffffff"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:selectedDateVerticalBar="@color/wallet_highlighted_text_holo_dark"
             android:dateTextAppearance="@android:style/TextAppearance.Medium"
             android:id="@+id/calendarView1"

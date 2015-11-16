@@ -32,10 +32,13 @@
 
             </LinearLayout>
             <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal"
-                android:background="#90acff"
+                android:background="#4b0000"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="35dp">
                 <TextView
                     android:layout_marginLeft="20dp"
                     android:textStyle="bold"
@@ -49,7 +52,10 @@
             </LinearLayout>
 
             <LinearLayout
-                android:background="#c7dcff"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#ffffff"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="120dp">
@@ -90,10 +96,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal"
-                android:background="#90acff"
+                android:background="#4b0000"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="35dp">
                 <TextView
                     android:layout_marginLeft="20dp"
                     android:textStyle="bold"
@@ -106,7 +115,10 @@
 
             </LinearLayout>
             <LinearLayout
-                android:background="#c7dcff"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#fff"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="140dp">
@@ -148,10 +160,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="horizontal"
-                android:background="#90acff"
+                android:background="#4b0000"
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="35dp">
                 <TextView
                     android:layout_marginLeft="20dp"
                     android:textStyle="bold"
@@ -164,10 +179,14 @@
 
             </LinearLayout>
             <LinearLayout
-                android:background="#c7dcff"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#fff"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="170dp">
+                android:layout_height="150dp">
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="wrap_content"

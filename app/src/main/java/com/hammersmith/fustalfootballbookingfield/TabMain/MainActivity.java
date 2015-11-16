@@ -24,8 +24,8 @@ public class MainActivity extends RootFragment {
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayoutText tabs;
-    CharSequence Titles[]={"Home","Map","League","Setting"};
-    int Numboftabs =4;
+    CharSequence Titles[]={"Home","Map","League"};
+    int Numboftabs =3;
     public MainActivity(){
     }
 
