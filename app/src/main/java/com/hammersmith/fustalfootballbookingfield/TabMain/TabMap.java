@@ -1,72 +1,43 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 
-import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.view.InflateException;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 
 /**
  * Created by USER on 10/1/2015.
  */
-public class TabMap extends RootFragment implements OnMapReadyCallback {
-    private GoogleMap mMap;
-    private SupportMapFragment supportMapFragment;
-    private static View view;
-    MapView mMapView;
-    Marker mMarker;
+public class TabMap extends Fragment implements OnMapReadyCallback{
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if(view != null){
-            ViewGroup parent = (ViewGroup) view.getParent();
-            if (parent != null)
-                parent.removeView(view);
-        }
-        try{
-            view = inflater.inflate(R.layout.tab_map,container,false);
-        }catch (InflateException e){
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.tab_map,container,false);
+        SupportMapFragment mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMap();
+        mapFragment.getMapAsync(this);
 
-        }
         return view;
     }
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
 
-        FragmentManager fm = getChildFragmentManager();
-        supportMapFragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
-        if(supportMapFragment == null){
-            supportMapFragment = SupportMapFragment.newInstance();
-            fm.beginTransaction().replace(R.id.map,supportMapFragment).commit();
-        }
-    }
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap=googleMap;
-        LatLng loc = new LatLng(0,0);
-        mMap.addMarker(new MarkerOptions().position(loc).title("My Location"));
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(loc).zoom(15).build();
-        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+        LatLng latLng = new LatLng(11.5500, 104.9167);
+        googleMap.setMyLocationEnabled(true);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        googleMap.addMarker(new MarkerOptions().title("My Location").snippet("Google Map").position(latLng));
+        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        }
     }
-}
 

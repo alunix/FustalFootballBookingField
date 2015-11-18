@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentSmall;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.BookingViewPager;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentCalendarBooking;
@@ -42,6 +43,7 @@ public class ActivityBooking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+
         cover = (ImageView) findViewById(R.id.image_field);
         mCoordinator = (CoordinatorLayout) findViewById(R.id.root_coordinator);
         mCollapsingToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
@@ -63,7 +65,6 @@ public class ActivityBooking extends AppCompatActivity {
 
         mCollapsingToolBarLayout.setTitle(title);
         cover.setImageResource(field);
-
     }
 
     public static class MyFragment extends Fragment{
@@ -90,7 +91,7 @@ public class ActivityBooking extends AppCompatActivity {
             buttonSmall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Fragment fragment = new FragmentCalendarBooking();
+                    Fragment fragment = new FragmentSmall();
 
                     Bundle argument = new Bundle();
                     argument.putString("field",small);
@@ -98,8 +99,8 @@ public class ActivityBooking extends AppCompatActivity {
 
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.layoutAllField,fragment);
-                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.replace(R.id.layoutAllField, fragment);
+//                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             });
@@ -108,7 +109,7 @@ public class ActivityBooking extends AppCompatActivity {
             buttonMedium.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Fragment fragment = new FragmentCalendarBooking();
+                    Fragment fragment = new FragmentSmall();
 
                     Bundle argument = new Bundle();
                     argument.putString("field",medium);
@@ -126,7 +127,7 @@ public class ActivityBooking extends AppCompatActivity {
             buttonLarge.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Fragment fragment = new FragmentCalendarBooking();
+                    Fragment fragment = new FragmentSmall();
 
                     Bundle argument = new Bundle();
                     argument.putString("field",large);
@@ -135,11 +136,22 @@ public class ActivityBooking extends AppCompatActivity {
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.layoutAllField,fragment);
-                    fragmentTransaction.addToBackStack(null);
+//                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             });
             return v;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        int count = getFragmentManager().getBackStackEntryCount();
+        if(count == 0){
+            super.onBackPressed();
+        }
+        else{
+            getFragmentManager().popBackStack();
         }
     }
 }

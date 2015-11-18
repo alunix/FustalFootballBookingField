@@ -3,6 +3,7 @@ package com.hammersmith.fustalfootballbookingfield.TabMain;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,12 +16,11 @@ import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerHomeAdapter;
-import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 
 /**
  * Created by USER on 10/29/2015.
  */
-public class TabHome extends RootFragment implements RecyclerHomeAdapter.ClickListener{
+public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListener{
     RecyclerView recyclerView;
     RecyclerHomeAdapter adapter;
     View root;
@@ -52,9 +52,6 @@ public class TabHome extends RootFragment implements RecyclerHomeAdapter.ClickLi
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         adapter.setClickListener(this);
-
-
-
 
         return root;
     }

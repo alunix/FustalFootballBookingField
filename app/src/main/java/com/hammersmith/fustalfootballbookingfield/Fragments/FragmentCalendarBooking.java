@@ -10,25 +10,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 
 /**
  * Created by USER on 11/5/2015.
  */
-public class FragmentCalendarBooking extends RootFragment {
+public class FragmentCalendarBooking extends Fragment {
     CalendarView calendar;
     String str;
+    TextView textView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar_booking, container, false);
-
+        textView = (TextView) view.findViewById(R.id.typeField);
         String field = getArguments().getString("field");
         str = field;
+//        textView.setText(field);
+
         calendar = (CalendarView)view.findViewById(R.id.calendarView1);
         inilializeCalendar();
         return view;
@@ -58,7 +59,7 @@ public class FragmentCalendarBooking extends RootFragment {
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.layoutCalendarBooking,fragment);
-                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
             }

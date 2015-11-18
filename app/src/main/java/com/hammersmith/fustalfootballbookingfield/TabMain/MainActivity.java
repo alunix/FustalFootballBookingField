@@ -1,23 +1,20 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.ViewPagerAdapter;
-import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
-import com.hammersmith.fustalfootballbookingfield.widget.OnBackPressListener;
 import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 
 
-public class MainActivity extends RootFragment {
+public class MainActivity extends Fragment {
 
     // Declaring Your View and Variables
     Context context;
@@ -74,11 +71,11 @@ public class MainActivity extends RootFragment {
 
 
 
-    public boolean onBackPress() {
-        OnBackPressListener currentFragment = (OnBackPressListener)adapter.getRegisterFragment(pager.getCurrentItem());
-        if(currentFragment != null){
-            return currentFragment.onBackPress();
-        }
-        return false;
-    }
+//    public boolean onBackPress() {
+//        OnBackPressListener currentFragment = (OnBackPressListener)adapter.getRegisterFragment(pager.getCurrentItem());
+//        if(currentFragment != null){
+//            return currentFragment.onBackPress();
+//        }
+//        return false;
+//    }
 }

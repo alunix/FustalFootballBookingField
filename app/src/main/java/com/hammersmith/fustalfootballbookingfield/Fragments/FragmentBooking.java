@@ -2,6 +2,7 @@ package com.hammersmith.fustalfootballbookingfield.Fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 
-public class FragmentBooking extends RootFragment {
+public class FragmentBooking extends Fragment {
     Button button;
     String dateBooking;
     String date;

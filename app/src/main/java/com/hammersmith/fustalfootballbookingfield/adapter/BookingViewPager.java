@@ -14,13 +14,11 @@ public class BookingViewPager extends FragmentPagerAdapter {
     public BookingViewPager(FragmentManager fm) {
         super(fm);
     }
-
     @Override
     public Fragment getItem(int position) {
         ActivityBooking.MyFragment fragment = ActivityBooking.MyFragment.newInstance(position);
         return fragment;
     }
-
     @Override
     public int getCount() {
         return 1;

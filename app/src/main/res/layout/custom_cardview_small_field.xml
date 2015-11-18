@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/layoutSmallField"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            card_view:cardCornerRadius="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:padding="5dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:layout_weight="0.8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:src="@drawable/img_field"
+                        android:layout_width="80dp"
+                        android:layout_height="60dp" />
+                    <LinearLayout
+                        android:paddingLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textColor="#000"
+                            android:text="Field:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/numField"
+                            android:textColor="#000"
+                            android:text=""
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:textStyle="bold"
+                        android:textColor="#fff"
+                        android:background="@drawable/button_radius_blue"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Booking"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="2.5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp">
+                    <LinearLayout
+                        android:background="#99ff99"
+                        android:layout_marginRight="2dp"
+                        android:orientation="vertical"
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:textColor="#000"
+                            android:gravity="center"
+                            android:text="Day"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="#99ff99"
+                        android:layout_marginRight="2dp"
+                        android:orientation="vertical"
+                        android:layout_weight="1.2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:textColor="#000"
+                            android:gravity="center"
+                            android:text="Time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:background="#99ff99"
+                        android:orientation="vertical"
+                        android:layout_weight="0.9"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:textColor="#000"
+                            android:gravity="center"
+                            android:text="Price/h"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:background="#e7ffc1"
+                            android:layout_marginRight="2dp"
+                            android:paddingLeft="5dp"
+                            android:orientation="vertical"
+                            android:layout_weight="2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/dayMonFri"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:text="Monday - Friday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/daySatSun"
+                                android:layout_marginTop="25dp"
+                                android:textColor="#000"
+                                android:text="Saturday - Sunday"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:paddingBottom="5dp"
+                            android:background="#e7ffc1"
+                            android:layout_marginRight="2dp"
+                            android:paddingLeft="5dp"
+                            android:orientation="vertical"
+                            android:layout_weight="1.2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/timeMonFriMorn"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:text="6 - 14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/timeMonFriEven"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:text="14 - 22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/timeSatSunMorn"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:text="6 - 14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/timeSatSunEven"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:text="14 - 22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:background="#e7ffc1"
+                            android:paddingLeft="5dp"
+                            android:orientation="vertical"
+                            android:layout_weight="0.9"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/priceMonFriMorn"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#ff0000"
+                                android:text="$5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/priceMonFriEven"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#ff0000"
+                                android:text="$10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/priceSatSunMorn"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#ff0000"
+                                android:text="$8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/priceSatSunEven"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#ff0000"
+                                android:text="$15"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</FrameLayout>

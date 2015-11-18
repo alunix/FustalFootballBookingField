@@ -71,8 +71,6 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
             name = (TextView) itemView.findViewById(R.id.nameField);
             location = (TextView) itemView.findViewById(R.id.locationField);
             imgField = (ImageView)itemView.findViewById(R.id.cover);
-  //          name.setTypeface(typeface);
-    //        location.setTypeface(typeface);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }

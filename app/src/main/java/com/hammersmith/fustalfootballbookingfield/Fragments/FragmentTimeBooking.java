@@ -11,15 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.widget.RootFragment;
 
 /**
  * Created by USER on 11/5/2015.
  */
-public class FragmentTimeBooking extends RootFragment{
+public class FragmentTimeBooking extends Fragment{
 //    CharSequence[] time =  {"Time 6 To 7 AM",
 //                            "Time 7 To 8 AM",
 //                            "Time 8 To 9 AM",
@@ -30,46 +28,273 @@ public class FragmentTimeBooking extends RootFragment{
              ,time3_4pm,time4_5pm,time5_6pm,time6_7pm,time7_8pm,time8_9pm,time9_10pm;
     TextView dayBooking;
     Button buttonBooking;
-    String time6to7AM = "6 - 7 AM ";
-    String time7to8AM = "7 - 8 AM ";
-    String time8to9AM = "8 - 9 AM ";
-    String time9to10AM = "9 - 10 AM ";
-    String time10to11AM = "10 - 11 AM ";
-    String time11to12PM = "11 - 12 PM ";
-    String time12to1PM = "12 - 1 PM ";
-    String time1to2PM = "1 - 2 PM ";
-    String time2to3PM = "2 - 3 PM ";
-    String time3to4PM = "3 - 4 PM ";
-    String time4to5PM = "4 - 5 PM ";
-    String time5to6PM = "5 - 6 PM ";
-    String time6to7PM = "6 - 7 PM ";
-    String time7to8PM = "7 - 8 PM ";
-    String time8to9PM = "8 - 9 PM ";
-    String time9to10PM = "9 - 10 PM ";
+    String time6to7AM = "6 - 7, ";
+    String time7to8AM = "7 - 8, ";
+    String time8to9AM = "8 - 9, ";
+    String time9to10AM = "9 - 10, ";
+    String time10to11AM = "10 - 11, ";
+    String time11to12PM = "11 - 12, ";
+    String time12to1PM = "12 - 13, ";
+    String time1to2PM = "13 - 14, ";
+    String time2to3PM = "14 - 15, ";
+    String time3to4PM = "15 - 16, ";
+    String time4to5PM = "16 - 17, ";
+    String time5to6PM = "17 - 18, ";
+    String time6to7PM = "18 - 19, ";
+    String time7to8PM = "19 - 20, ";
+    String time8to9PM = "20 - 21, ";
+    String time9to10PM = "21 - 22, ";
+
+    String strTime = "";
+    String str6am = "";
+    String str7am = "";
+    String str8am = "";
+    String str9am = "";
+    String str10am = "";
+    String str11am = "";
+    String str12pm = "";
+    String str1pm = "";
+    String str2pm = "";
+    String str3pm = "";
+    String str4pm = "";
+    String str5pm = "";
+    String str6pm = "";
+    String str7pm = "";
+    String str8pm = "";
+    String str9pm = "";
 
     CheckBox ch6am,ch7am,ch8am,ch9am,ch10am,ch11am,ch12pm,ch1pm,ch2pm,ch3pm,ch4pm,ch5pm,ch6pm,ch7pm,ch8pm,ch9pm;
-
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_time_booking, container, false);
+
+
         ch6am = (CheckBox) view.findViewById(R.id.ch6am);
+        ch6am.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time6_7am.setText("Not Available");
+                    time6_7am.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time6_7am.setText("Available Booking");
+                    time6_7am.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch7am = (CheckBox) view.findViewById(R.id.ch7am);
+        ch7am.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time7_8am.setText("Not Available");
+                    time7_8am.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time7_8am.setText("Available Booking");
+                    time7_8am.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch8am = (CheckBox) view.findViewById(R.id.ch8am);
+        ch8am.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time8_9am.setText("Not Available");
+                    time8_9am.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time8_9am.setText("Available Booking");
+                    time8_9am.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch9am = (CheckBox) view.findViewById(R.id.ch9am);
+        ch9am.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time9_10am.setText("Not Available");
+                    time9_10am.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time9_10am.setText("Available Booking");
+                    time9_10am.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch10am = (CheckBox) view.findViewById(R.id.ch10am);
+        ch10am.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time10_11am.setText("Not Available");
+                    time10_11am.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time10_11am.setText("Available Booking");
+                    time10_11am.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch11am = (CheckBox) view.findViewById(R.id.ch11am);
+        ch11am.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time11_12pm.setText("Not Available");
+                    time11_12pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time11_12pm.setText("Available Booking");
+                    time11_12pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch12pm = (CheckBox) view.findViewById(R.id.ch12pm);
+        ch12pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time12_1pm.setText("Not Available");
+                    time12_1pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time12_1pm.setText("Available Booking");
+                    time12_1pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch1pm = (CheckBox) view.findViewById(R.id.ch1pm);
+        ch1pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time1_2pm.setText("Not Available");
+                    time1_2pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time1_2pm.setText("Available Booking");
+                    time1_2pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch2pm = (CheckBox) view.findViewById(R.id.ch2pm);
+        ch2pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time2_3pm.setText("Not Available");
+                    time2_3pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time2_3pm.setText("Available Booking");
+                    time2_3pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch3pm = (CheckBox) view.findViewById(R.id.ch3pm);
+        ch3pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time3_4pm.setText("Not Available");
+                    time3_4pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time3_4pm.setText("Available Booking");
+                    time3_4pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch4pm = (CheckBox) view.findViewById(R.id.ch4pm);
+        ch4pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time4_5pm.setText("Not Available");
+                    time4_5pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time4_5pm.setText("Available Booking");
+                    time4_5pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch5pm = (CheckBox) view.findViewById(R.id.ch5pm);
+        ch5pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time5_6pm.setText("Not Available");
+                    time5_6pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time5_6pm.setText("Available Booking");
+                    time5_6pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch6pm = (CheckBox) view.findViewById(R.id.ch6pm);
+        ch6pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time6_7pm.setText("Not Available");
+                    time6_7pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time6_7pm.setText("Available Booking");
+                    time6_7pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch7pm = (CheckBox) view.findViewById(R.id.ch7pm);
+        ch7pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time7_8pm.setText("Not Available");
+                    time7_8pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time7_8pm.setText("Available Booking");
+                    time7_8pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch8pm = (CheckBox) view.findViewById(R.id.ch8pm);
+        ch8pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time8_9pm.setText("Not Available");
+                    time8_9pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time8_9pm.setText("Available Booking");
+                    time8_9pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
         ch9pm = (CheckBox) view.findViewById(R.id.ch9pm);
+        ch9pm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (((CheckBox)v).isChecked()){
+                    time9_10pm.setText("Not Available");
+                    time9_10pm.setBackgroundResource(R.color.bgBooking);
+                }
+                else{
+                    time9_10pm.setText("Available Booking");
+                    time9_10pm.setBackgroundResource(R.color.bgUnChecked);
+                }
+            }
+        });
 
         time6_7am = (TextView) view.findViewById(R.id.time6to7am);
         time7_8am = (TextView) view.findViewById(R.id.time7to8am);
@@ -94,113 +319,12 @@ public class FragmentTimeBooking extends RootFragment{
         final String field = getArguments().getString("field");
         final String date = getArguments().getString("dateBooking");
 
-
         buttonBooking = (Button) view.findViewById(R.id.btnBooking);
         buttonBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                StringBuffer timeBooking = new StringBuffer();
-//                timeBooking.append(time10_11am).append(ch10am.isChecked());
-
-                String strTime = "";
-                String str6am = "";
-                String str7am = "";
-                String str8am = "";
-                String str9am = "";
-                String str10am = "";
-                String str11am = "";
-                String str12pm = "";
-                String str1pm = "";
-                String str2pm = "";
-                String str3pm = "";
-                String str4pm = "";
-                String str5pm = "";
-                String str6pm = "";
-                String str7pm = "";
-                String str8pm = "";
-                String str9pm = "";
-
-                if (ch6am.isChecked()){
-                    time6_7am.setText("Not Available");
-                    time6_7am.setBackgroundResource(R.drawable.bgbooking);
-                    str6am = time6to7AM;
-                }
-                if (ch7am.isChecked()){
-                    time7_8am.setText("Not Available");
-                    time7_8am.setBackgroundResource(R.drawable.bgbooking);
-                    str7am = time7to8AM;
-                }
-                if (ch8am.isChecked()){
-                    time8_9am.setText("Not Available");
-                    time8_9am.setBackgroundResource(R.drawable.bgbooking);
-                    str8am = time8to9AM;
-                }
-                if (ch9am.isChecked()){
-                    time9_10am.setText("Not Available");
-                    time9_10am.setBackgroundResource(R.drawable.bgbooking);
-                    str9am = time9to10AM;
-                }
-                if (ch10am.isChecked()){
-                    time10_11am.setText("Not Available");
-                    time10_11am.setBackgroundResource(R.drawable.bgbooking);
-                    str10am = time10to11AM;
-                }
-                if (ch11am.isChecked()){
-                    time11_12pm.setText("Not Available");
-                    time11_12pm.setBackgroundResource(R.drawable.bgbooking);
-                    str11am = time11to12PM;
-                }
-                if (ch12pm.isChecked()){
-                    time12_1pm.setText("Not Available");
-                    time12_1pm.setBackgroundResource(R.drawable.bgbooking);
-                    str12pm = time12to1PM;
-                }
-                if (ch1pm.isChecked()){
-                    time1_2pm.setText("Not Available");
-                    time1_2pm.setBackgroundResource(R.drawable.bgbooking);
-                    str1pm = time1to2PM;
-                }
-                if (ch2pm.isChecked()){
-                    time2_3pm.setText("Not Available");
-                    time2_3pm.setBackgroundResource(R.drawable.bgbooking);
-                    str2pm = time2to3PM;
-                }
-                if (ch3pm.isChecked()){
-                    time3_4pm.setText("Not Available");
-                    time3_4pm.setBackgroundResource(R.drawable.bgbooking);
-                    str3pm = time3to4PM;
-                }
-                if (ch4pm.isChecked()){
-                    time4_5pm.setText("Not Available");
-                    time4_5pm.setBackgroundResource(R.drawable.bgbooking);
-                    str4pm = time4to5PM;
-                }
-                if (ch5pm.isChecked()){
-                    time5_6pm.setText("Not Available");
-                    time5_6pm.setBackgroundResource(R.drawable.bgbooking);
-                    str5pm = time5to6PM;
-                }
-                if (ch6pm.isChecked()){
-                    time6_7pm.setText("Not Available");
-                    time6_7pm.setBackgroundResource(R.drawable.bgbooking);
-                    str6pm = time6to7PM;
-                }
-                if (ch7pm.isChecked()){
-                    time7_8pm.setText("Not Available");
-                    time7_8pm.setBackgroundResource(R.drawable.bgbooking);
-                    str7pm = time7to8PM;
-                }
-                if (ch8pm.isChecked()){
-                    time8_9pm.setText("Not Available");
-                    time8_9pm.setBackgroundResource(R.drawable.bgbooking);
-                    str8pm = time8to9PM;
-                }
-                if (ch9pm.isChecked()){
-                    time9_10pm.setText("Not Available");
-                    time9_10pm.setBackgroundResource(R.drawable.bgbooking);
-                    str9pm = time9to10PM;
-                }
-                    strTime = str6am+str7am+str8am+str9am+str10am+str11am+str12pm+str1pm
+                checkBox();
+                strTime = str6am+str7am+str8am+str9am+str10am+str11am+str12pm+str1pm
                                 +str2pm+str3pm+str4pm+str5pm+str6pm+str7pm+str8pm+str9pm;
                 Fragment fragment = new FragmentBooking();
                 Bundle bundle = new Bundle();
@@ -212,11 +336,70 @@ public class FragmentTimeBooking extends RootFragment{
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.layoutTimeBooking,fragment);
-                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 }
             });
         return view;
         }
 
+    public void checkBox(){
+        if (ch6am.isChecked()){
+            str6am = time6to7AM;
+        }
+        if (ch7am.isChecked()){
+            str7am = time7to8AM;
+        }
+        if (ch8am.isChecked()){
+            str8am = time8to9AM;
+        }
+        if (ch9am.isChecked()){
+            str9am = time9to10AM;
+        }
+        if (ch10am.isChecked()){
+            str10am = time10to11AM;
+        }
+        if (ch11am.isChecked()){
+            str11am = time11to12PM;
+        }
+        if (ch12pm.isChecked()){
+            str12pm = time12to1PM;
+        }
+        if (ch1pm.isChecked()){
+            str1pm = time1to2PM;
+        }
+        if (ch2pm.isChecked()){
+            str2pm = time2to3PM;
+        }
+        if (ch3pm.isChecked()){
+            str3pm = time3to4PM;
+        }
+        if (ch4pm.isChecked()){
+            str4pm = time4to5PM;
+        }
+        if (ch5pm.isChecked()){
+            str5pm = time5to6PM;
+        }
+        if (ch6pm.isChecked()){
+            str6pm = time6to7PM;
+        }
+        if (ch7pm.isChecked()){
+            str7pm = time7to8PM;
+        }
+        if (ch8pm.isChecked()){
+            str8pm = time8to9PM;
+        }
+        if (ch9pm.isChecked()){
+            str9pm = time9to10PM;
+        }
+    }
+//    public void selectItem(View v){
+//            boolean checked = ((CheckBox)v).isChecked();
+//            switch (v.getId()){
+//                case R.id.ch6am:
+//                    if(checked){
+//
+//                    }
+//            }
+//    }
 }

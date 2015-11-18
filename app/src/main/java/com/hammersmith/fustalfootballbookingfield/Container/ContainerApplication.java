@@ -45,24 +45,13 @@ public class ContainerApplication extends AppCompatActivity {
         }
     }
     private void initScreen() {
-        containTab = new MainActivity(getApplicationContext());
+        containTab = new MainActivity();
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.continer_framelayout,containTab).commit();
-    }
-    @Override
-    public void onBackPressed() {
-        if(!containTab.onBackPress()){
-            finish();
-        }
-        else {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.continer_framelayout,containTab);
+//        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
-        }
-    }
-    public void switchContent(int id, Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(id,fragment,null);
-        transaction.addToBackStack(null);
-        transaction.commit();
     }
 
     @Override
@@ -76,4 +65,15 @@ public class ContainerApplication extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
         searchView.setQuery(query, false); // leave query text in SearchView
     }
+    @Override
+    public void onBackPressed() {
+        int count = getFragmentManager().getBackStackEntryCount();
+        if(count == 0){
+            super.onBackPressed();
+        }
+        else{
+            getFragmentManager().popBackStack();
+        }
+    }
 }
+
