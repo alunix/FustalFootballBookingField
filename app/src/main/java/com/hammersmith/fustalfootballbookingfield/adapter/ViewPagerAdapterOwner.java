@@ -43,7 +43,6 @@ public class ViewPagerAdapterOwner extends FragmentStatePagerAdapter {
     }
 
 
-
 // This method return the titles for the Tabs in the Tab Strip
 
     @Override
@@ -60,7 +59,7 @@ public class ViewPagerAdapterOwner extends FragmentStatePagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        Fragment fragment = (Fragment)super.instantiateItem(container,position);
+        Fragment fragment = (Fragment) super.instantiateItem(container, position);
         registerFragmentFiled.put(position, fragment);
         return super.instantiateItem(container, position);
     }

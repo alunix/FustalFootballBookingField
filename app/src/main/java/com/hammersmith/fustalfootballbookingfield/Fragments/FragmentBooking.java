@@ -17,17 +17,17 @@ public class FragmentBooking extends Fragment {
     String dateBooking;
     String date;
     TextView title;
-    public static TextView textDate,textTime,textField;
+    public static TextView textDate, textTime, textField;
 
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_booking,container,false);
+        View view = inflater.inflate(R.layout.fragment_booking, container, false);
 
         textDate = (TextView) view.findViewById(R.id.txtday);
-        textField = (TextView)view.findViewById(R.id.txtfield);
-        textTime = (TextView)view.findViewById(R.id.txttime);
+        textField = (TextView) view.findViewById(R.id.txtfield);
+        textTime = (TextView) view.findViewById(R.id.txttime);
         title = (TextView) view.findViewById(R.id.title);
 
         String time = getArguments().getString("timeBooking");
@@ -39,11 +39,11 @@ public class FragmentBooking extends Fragment {
         String field = getArguments().getString("field");
         textField.setText(field);
 
-        button = (Button)view.findViewById(R.id.btnBooking);
+        button = (Button) view.findViewById(R.id.btnBooking);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Booking successful!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Booking successful!", Toast.LENGTH_SHORT).show();
 //                Fragment fragment = new MainTabBooking();
 //                FragmentManager fragmentManager = getChildFragmentManager();
 //                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

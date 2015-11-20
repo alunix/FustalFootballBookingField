@@ -4,14 +4,14 @@ import android.content.SearchRecentSuggestionsProvider;
 
 public class SuggestionProvider extends SearchRecentSuggestionsProvider {
 
-  public final static String AUTHORITY = SuggestionProvider.class.getName();
-  public final static int MODE = SearchRecentSuggestionsProvider.DATABASE_MODE_2LINES
-      | SearchRecentSuggestionsProvider.DATABASE_MODE_QUERIES;
+    public final static String AUTHORITY = SuggestionProvider.class.getName();
+    public final static int MODE = SearchRecentSuggestionsProvider.DATABASE_MODE_2LINES
+            | SearchRecentSuggestionsProvider.DATABASE_MODE_QUERIES;
 
-  public SuggestionProvider() {
-    super();
-    setupSuggestions(AUTHORITY, MODE);
-  }
+    public SuggestionProvider() {
+        super();
+        setupSuggestions(AUTHORITY, MODE);
+    }
 
 //  public static final String[] sCheeseStrings = { "Any New Zealand Cheese",
 //      "Abbaye de Belloc", "Abbaye du Mont des Cats", "Abertam", "Abondance",

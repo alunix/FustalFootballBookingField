@@ -20,7 +20,7 @@ import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerHomeAdapter;
 /**
  * Created by USER on 10/29/2015.
  */
-public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListener{
+public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListener {
     RecyclerView recyclerView;
     RecyclerHomeAdapter adapter;
     View root;
@@ -37,9 +37,11 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
             R.drawable.imgdowntown,
             R.drawable.imgemperia
     };
-    public TabHome(){
+
+    public TabHome() {
 
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,7 +50,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerHomeAdapter(getActivity(),new ContainerApplication());
+        adapter = new RecyclerHomeAdapter(getActivity(), new ContainerApplication());
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         adapter.setClickListener(this);
@@ -67,10 +69,10 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
 
         //Toast.makeText(getActivity(), "Click Item" + position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), ActivityBooking.class);
-        intent.putExtra("title",title[position]);
+        intent.putExtra("title", title[position]);
         Bundle bundle = new Bundle();
 
-        bundle.putInt("field",field[position]);
+        bundle.putInt("field", field[position]);
         intent.putExtras(bundle);
         startActivity(intent);
 

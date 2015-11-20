@@ -17,15 +17,14 @@ import com.hammersmith.fustalfootballbookingfield.R;
 /**
  * Created by USER on 11/5/2015.
  */
-public class FragmentTimeBooking extends Fragment{
+public class FragmentTimeBooking extends Fragment {
 //    CharSequence[] time =  {"Time 6 To 7 AM",
 //                            "Time 7 To 8 AM",
 //                            "Time 8 To 9 AM",
 //                            "Time 9 To 10 AM"};
 //    int count = time.length;
 
-    TextView time6_7am,time7_8am,time8_9am,time9_10am,time10_11am,time11_12pm,time12_1pm,time1_2pm,time2_3pm
-             ,time3_4pm,time4_5pm,time5_6pm,time6_7pm,time7_8pm,time8_9pm,time9_10pm;
+    TextView time6_7am, time7_8am, time8_9am, time9_10am, time10_11am, time11_12pm, time12_1pm, time1_2pm, time2_3pm, time3_4pm, time4_5pm, time5_6pm, time6_7pm, time7_8pm, time8_9pm, time9_10pm;
     TextView dayBooking;
     Button buttonBooking;
     String time6to7AM = "6 - 7, ";
@@ -63,7 +62,7 @@ public class FragmentTimeBooking extends Fragment{
     String str8pm = "";
     String str9pm = "";
 
-    CheckBox ch6am,ch7am,ch8am,ch9am,ch10am,ch11am,ch12pm,ch1pm,ch2pm,ch3pm,ch4pm,ch5pm,ch6pm,ch7pm,ch8pm,ch9pm;
+    CheckBox ch6am, ch7am, ch8am, ch9am, ch10am, ch11am, ch12pm, ch1pm, ch2pm, ch3pm, ch4pm, ch5pm, ch6pm, ch7pm, ch8pm, ch9pm;
 
     @Nullable
     @Override
@@ -75,11 +74,10 @@ public class FragmentTimeBooking extends Fragment{
         ch6am.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time6_7am.setText("Not Available");
                     time6_7am.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time6_7am.setText("Available Booking");
                     time6_7am.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -89,11 +87,10 @@ public class FragmentTimeBooking extends Fragment{
         ch7am.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time7_8am.setText("Not Available");
                     time7_8am.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time7_8am.setText("Available Booking");
                     time7_8am.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -103,11 +100,10 @@ public class FragmentTimeBooking extends Fragment{
         ch8am.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time8_9am.setText("Not Available");
                     time8_9am.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time8_9am.setText("Available Booking");
                     time8_9am.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -117,11 +113,10 @@ public class FragmentTimeBooking extends Fragment{
         ch9am.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time9_10am.setText("Not Available");
                     time9_10am.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time9_10am.setText("Available Booking");
                     time9_10am.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -131,11 +126,10 @@ public class FragmentTimeBooking extends Fragment{
         ch10am.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time10_11am.setText("Not Available");
                     time10_11am.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time10_11am.setText("Available Booking");
                     time10_11am.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -145,11 +139,10 @@ public class FragmentTimeBooking extends Fragment{
         ch11am.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time11_12pm.setText("Not Available");
                     time11_12pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time11_12pm.setText("Available Booking");
                     time11_12pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -159,11 +152,10 @@ public class FragmentTimeBooking extends Fragment{
         ch12pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time12_1pm.setText("Not Available");
                     time12_1pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time12_1pm.setText("Available Booking");
                     time12_1pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -173,11 +165,10 @@ public class FragmentTimeBooking extends Fragment{
         ch1pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time1_2pm.setText("Not Available");
                     time1_2pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time1_2pm.setText("Available Booking");
                     time1_2pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -187,11 +178,10 @@ public class FragmentTimeBooking extends Fragment{
         ch2pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time2_3pm.setText("Not Available");
                     time2_3pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time2_3pm.setText("Available Booking");
                     time2_3pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -201,11 +191,10 @@ public class FragmentTimeBooking extends Fragment{
         ch3pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time3_4pm.setText("Not Available");
                     time3_4pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time3_4pm.setText("Available Booking");
                     time3_4pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -215,11 +204,10 @@ public class FragmentTimeBooking extends Fragment{
         ch4pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time4_5pm.setText("Not Available");
                     time4_5pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time4_5pm.setText("Available Booking");
                     time4_5pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -229,11 +217,10 @@ public class FragmentTimeBooking extends Fragment{
         ch5pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time5_6pm.setText("Not Available");
                     time5_6pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time5_6pm.setText("Available Booking");
                     time5_6pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -243,11 +230,10 @@ public class FragmentTimeBooking extends Fragment{
         ch6pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time6_7pm.setText("Not Available");
                     time6_7pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time6_7pm.setText("Available Booking");
                     time6_7pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -257,11 +243,10 @@ public class FragmentTimeBooking extends Fragment{
         ch7pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time7_8pm.setText("Not Available");
                     time7_8pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time7_8pm.setText("Available Booking");
                     time7_8pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -271,11 +256,10 @@ public class FragmentTimeBooking extends Fragment{
         ch8pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time8_9pm.setText("Not Available");
                     time8_9pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time8_9pm.setText("Available Booking");
                     time8_9pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -285,11 +269,10 @@ public class FragmentTimeBooking extends Fragment{
         ch9pm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((CheckBox)v).isChecked()){
+                if (((CheckBox) v).isChecked()) {
                     time9_10pm.setText("Not Available");
                     time9_10pm.setBackgroundResource(R.color.bgBooking);
-                }
-                else{
+                } else {
                     time9_10pm.setText("Available Booking");
                     time9_10pm.setBackgroundResource(R.color.bgUnChecked);
                 }
@@ -324,72 +307,72 @@ public class FragmentTimeBooking extends Fragment{
             @Override
             public void onClick(View v) {
                 checkBox();
-                strTime = str6am+str7am+str8am+str9am+str10am+str11am+str12pm+str1pm
-                                +str2pm+str3pm+str4pm+str5pm+str6pm+str7pm+str8pm+str9pm;
+                strTime = str6am + str7am + str8am + str9am + str10am + str11am + str12pm + str1pm
+                        + str2pm + str3pm + str4pm + str5pm + str6pm + str7pm + str8pm + str9pm;
                 Fragment fragment = new FragmentBooking();
                 Bundle bundle = new Bundle();
-                bundle.putString("timeBooking",strTime);
+                bundle.putString("timeBooking", strTime);
                 bundle.putString("date", date);
                 bundle.putString("field", field);
                 fragment.setArguments(bundle);
 
                 FragmentManager fragmentManager = getChildFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.layoutTimeBooking,fragment);
+                fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
 //                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-                }
-            });
+            }
+        });
         return view;
-        }
+    }
 
-    public void checkBox(){
-        if (ch6am.isChecked()){
+    public void checkBox() {
+        if (ch6am.isChecked()) {
             str6am = time6to7AM;
         }
-        if (ch7am.isChecked()){
+        if (ch7am.isChecked()) {
             str7am = time7to8AM;
         }
-        if (ch8am.isChecked()){
+        if (ch8am.isChecked()) {
             str8am = time8to9AM;
         }
-        if (ch9am.isChecked()){
+        if (ch9am.isChecked()) {
             str9am = time9to10AM;
         }
-        if (ch10am.isChecked()){
+        if (ch10am.isChecked()) {
             str10am = time10to11AM;
         }
-        if (ch11am.isChecked()){
+        if (ch11am.isChecked()) {
             str11am = time11to12PM;
         }
-        if (ch12pm.isChecked()){
+        if (ch12pm.isChecked()) {
             str12pm = time12to1PM;
         }
-        if (ch1pm.isChecked()){
+        if (ch1pm.isChecked()) {
             str1pm = time1to2PM;
         }
-        if (ch2pm.isChecked()){
+        if (ch2pm.isChecked()) {
             str2pm = time2to3PM;
         }
-        if (ch3pm.isChecked()){
+        if (ch3pm.isChecked()) {
             str3pm = time3to4PM;
         }
-        if (ch4pm.isChecked()){
+        if (ch4pm.isChecked()) {
             str4pm = time4to5PM;
         }
-        if (ch5pm.isChecked()){
+        if (ch5pm.isChecked()) {
             str5pm = time5to6PM;
         }
-        if (ch6pm.isChecked()){
+        if (ch6pm.isChecked()) {
             str6pm = time6to7PM;
         }
-        if (ch7pm.isChecked()){
+        if (ch7pm.isChecked()) {
             str7pm = time7to8PM;
         }
-        if (ch8pm.isChecked()){
+        if (ch8pm.isChecked()) {
             str8pm = time8to9PM;
         }
-        if (ch9pm.isChecked()){
+        if (ch9pm.isChecked()) {
             str9pm = time9to10PM;
         }
     }

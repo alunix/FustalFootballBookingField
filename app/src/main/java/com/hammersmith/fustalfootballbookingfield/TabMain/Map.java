@@ -19,21 +19,21 @@ import com.hammersmith.fustalfootballbookingfield.R;
  * Created by USER on 11/17/2015.
  */
 public class Map extends Fragment {
-    static final LatLng testMaps = new LatLng(11.5500,104.9167);
+    static final LatLng testMaps = new LatLng(11.5500, 104.9167);
     private GoogleMap googleMap;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.map,container,false);
-        try{
-            if(googleMap == null){
-                googleMap = ((SupportMapFragment)getActivity().getSupportFragmentManager().findFragmentById(R.id.maps)).getMap();
+        View view = inflater.inflate(R.layout.map, container, false);
+        try {
+            if (googleMap == null) {
+                googleMap = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.maps)).getMap();
             }
             googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             Marker TP = googleMap.addMarker(new MarkerOptions().
                     position(testMaps).title("Phnom Penh"));
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return view;

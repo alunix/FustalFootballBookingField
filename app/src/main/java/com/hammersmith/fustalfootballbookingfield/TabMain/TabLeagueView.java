@@ -15,14 +15,15 @@ import com.hammersmith.fustalfootballbookingfield.R;
  */
 public class TabLeagueView extends Fragment {
 
-    public TabLeagueView(){
+    public TabLeagueView() {
 
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View leagueView = inflater.inflate(R.layout.tab_league_view,container,false);
-        WebView viewLeague = (WebView)leagueView.findViewById(R.id.webView);
+        View leagueView = inflater.inflate(R.layout.tab_league_view, container, false);
+        WebView viewLeague = (WebView) leagueView.findViewById(R.id.webView);
 //        viewLeague.getSettings().setJavaScriptEnabled(true);
 //        viewLeague.setWebViewClient(new WebViewClient());
         viewLeague.loadUrl("http://m.premierleague.com/en-gb/fixtures.html");

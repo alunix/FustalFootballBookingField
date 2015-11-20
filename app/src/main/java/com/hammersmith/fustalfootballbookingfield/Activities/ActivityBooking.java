@@ -67,15 +67,17 @@ public class ActivityBooking extends AppCompatActivity {
         cover.setImageResource(field);
     }
 
-    public static class MyFragment extends Fragment{
+    public static class MyFragment extends Fragment {
         String small = "Small Field";
         String medium = "Medium Field";
         String large = "Large Field";
         private static final java.lang.String ARG_PAGE = "arg_page";
-        public MyFragment(){
+
+        public MyFragment() {
 
         }
-        public static MyFragment newInstance(int pageNumber){
+
+        public static MyFragment newInstance(int pageNumber) {
             MyFragment myFragment = new MyFragment();
             Bundle arguments = new Bundle();
             arguments.putInt(ARG_PAGE, pageNumber + 1);
@@ -86,15 +88,15 @@ public class ActivityBooking extends AppCompatActivity {
         @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.fragment_chosing_field,container,false);
-            Button buttonSmall = (Button)v.findViewById(R.id.btnSmall);
+            View v = inflater.inflate(R.layout.fragment_chosing_field, container, false);
+            Button buttonSmall = (Button) v.findViewById(R.id.btnSmall);
             buttonSmall.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new FragmentSmall();
 
                     Bundle argument = new Bundle();
-                    argument.putString("field",small);
+                    argument.putString("field", small);
                     fragment.setArguments(argument);
 
                     FragmentManager fragmentManager = getChildFragmentManager();
@@ -105,37 +107,37 @@ public class ActivityBooking extends AppCompatActivity {
                 }
             });
 
-            Button buttonMedium = (Button)v.findViewById(R.id.btnMedium);
+            Button buttonMedium = (Button) v.findViewById(R.id.btnMedium);
             buttonMedium.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new FragmentSmall();
 
                     Bundle argument = new Bundle();
-                    argument.putString("field",medium);
+                    argument.putString("field", medium);
                     fragment.setArguments(argument);
 
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.layoutAllField,fragment);
+                    fragmentTransaction.replace(R.id.layoutAllField, fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             });
 
-            Button buttonLarge = (Button)v.findViewById(R.id.btnLarge);
+            Button buttonLarge = (Button) v.findViewById(R.id.btnLarge);
             buttonLarge.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Fragment fragment = new FragmentSmall();
 
                     Bundle argument = new Bundle();
-                    argument.putString("field",large);
+                    argument.putString("field", large);
                     fragment.setArguments(argument);
 
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.layoutAllField,fragment);
+                    fragmentTransaction.replace(R.id.layoutAllField, fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
@@ -147,10 +149,9 @@ public class ActivityBooking extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         int count = getFragmentManager().getBackStackEntryCount();
-        if(count == 0){
+        if (count == 0) {
             super.onBackPressed();
-        }
-        else{
+        } else {
             getFragmentManager().popBackStack();
         }
     }

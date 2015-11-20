@@ -21,26 +21,28 @@ public class MainActivity extends Fragment {
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayoutText tabs;
-    CharSequence Titles[]={"Home","Map","League"};
-    int Numboftabs =3;
-    public MainActivity(){
+    CharSequence Titles[] = {"Home", "Map", "League"};
+    int Numboftabs = 3;
+
+    public MainActivity() {
     }
 
-    public MainActivity(Context context){
+    public MainActivity(Context context) {
         this.context = context;
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_main,container,false);
+        View view = inflater.inflate(R.layout.activity_main, container, false);
 
 
-        pager = (ViewPager)view.findViewById(R.id.pager);
-        tabs = (SlidingTabLayoutText)view.findViewById(R.id.tabs);
+        pager = (ViewPager) view.findViewById(R.id.pager);
+        tabs = (SlidingTabLayoutText) view.findViewById(R.id.tabs);
         tabs.setTabBackgroundColor(getResources().getColor(R.color.selectors));
         //tabs.setSelectedIndicatorColors(getResources().getColor(R.color.selectors));
         tabs.setCustomTabView(R.layout.custom_tab_text, R.id.textCustomTab);
-       // TextView textView = (TextView) view.findViewById(R.id.textCustomTab);
+        // TextView textView = (TextView) view.findViewById(R.id.textCustomTab);
         //textView.setTypeface(fontFace);
         tabs.setDistributeEvenly(true);
 
@@ -53,9 +55,9 @@ public class MainActivity extends Fragment {
         });
         return view;
     }
+
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
         android.os.Process.killProcess(android.os.Process.myPid());
         super.onDestroy();
     }
@@ -64,11 +66,10 @@ public class MainActivity extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //adapter =  new ViewPagerAdapterSubLeague(getActivity().getSupportFragmentManager(),Titles,NumbOfTabs);
-        adapter = new ViewPagerAdapter(getChildFragmentManager(),Titles,Numboftabs);
+        adapter = new ViewPagerAdapter(getChildFragmentManager(), Titles, Numboftabs);
         pager.setAdapter(adapter);
         tabs.setViewPager(pager);
     }
-
 
 
 //    public boolean onBackPress() {

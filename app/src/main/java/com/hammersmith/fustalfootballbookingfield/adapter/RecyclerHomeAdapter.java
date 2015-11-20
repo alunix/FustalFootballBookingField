@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by USER on 11/2/2015.
  */
-public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapter.MyViewHolder>{
+public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapter.MyViewHolder> {
     ClickListener clickListener;
     Context context;
     //Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/KrinkesDecorPERSONAL.ttf");
@@ -25,16 +25,19 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
     public ArrayList<Integer> img = new ArrayList<>();
     public ArrayList<String> nameField = new ArrayList<>();
     public ArrayList<String> location = new ArrayList<>();
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View root = LayoutInflater.from(context).inflate(R.layout.custom_cardview_list,parent,false);
+        View root = LayoutInflater.from(context).inflate(R.layout.custom_cardview_list, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(root);
 
         return myViewHolder;
     }
-    RecyclerHomeAdapter(){}
 
-    public RecyclerHomeAdapter(Context context,ContainerApplication ma){
+    RecyclerHomeAdapter() {
+    }
+
+    public RecyclerHomeAdapter(Context context, ContainerApplication ma) {
         img.add(R.drawable.imgnaga);
         img.add(R.drawable.imgdowntown);
         img.add(R.drawable.imgemperia);
@@ -63,14 +66,15 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
         return img.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView imgField;
-        TextView name,location;
+        TextView name, location;
+
         public MyViewHolder(View itemView) {
             super(itemView);
             name = (TextView) itemView.findViewById(R.id.nameField);
             location = (TextView) itemView.findViewById(R.id.locationField);
-            imgField = (ImageView)itemView.findViewById(R.id.cover);
+            imgField = (ImageView) itemView.findViewById(R.id.cover);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }
@@ -78,15 +82,17 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
         @Override
         public void onClick(View v) {
 
-            if (clickListener != null){
+            if (clickListener != null) {
                 clickListener.itemClicked(v, getLayoutPosition());
             }
         }
     }
-    public interface ClickListener{
+
+    public interface ClickListener {
         public void itemClicked(View view, int position);
     }
-    public void setClickListener(ClickListener clickListener){
+
+    public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
     }
 }

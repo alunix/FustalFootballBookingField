@@ -1,4 +1,5 @@
 package com.hammersmith.fustalfootballbookingfield.adapter;
+
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -14,7 +15,7 @@ import com.hammersmith.fustalfootballbookingfield.TabMain.TabMap;
 /**
  * Created by hp1 on 21-01-2015.
  */
-public class ViewPagerAdapter extends FragmentStatePagerAdapter{
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
     CharSequence Titles[]; // This will Store the Titles of the Tabs which are Going to be passed when ViewPagerAdapter is created
     //int iconTab[];
@@ -24,7 +25,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
 
 
     // Build a Constructor and assign the passed Values to appropriate values in the class
-    public ViewPagerAdapter(FragmentManager fm, CharSequence[] mTitles,int mNumbOfTabsumb) {
+    public ViewPagerAdapter(FragmentManager fm, CharSequence[] mTitles, int mNumbOfTabsumb) {
         super(fm);
 
         this.Titles = mTitles;
@@ -37,7 +38,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
     //This method return the fragment for the every position in the View Pager
     @Override
     public Fragment getItem(int position) {
-        switch (position){
+        switch (position) {
             case 0:
                 return new TabHome();
             case 1:
@@ -47,7 +48,6 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
             default:
                 return null;
         }
-
 
 
     }
@@ -67,15 +67,14 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter{
     }
 
 
-
     public Fragment getRegisterFragment(int position) {
         return registerFragment.get(position);
     }
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        Fragment fragment = (Fragment)super.instantiateItem(container,position);
-        registerFragment.put(position,fragment);
+        Fragment fragment = (Fragment) super.instantiateItem(container, position);
+        registerFragment.put(position, fragment);
         return super.instantiateItem(container, position);
     }
 

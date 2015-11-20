@@ -19,22 +19,24 @@ import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerAdapterSmallFi
 /**
  * Created by USER on 11/17/2015.
  */
-public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField.ClickListener{
+public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField.ClickListener {
     TextView typeField;
     RecyclerView recyclerView;
     RecyclerAdapterSmallField adapter;
     String strTypeField;
-    public FragmentSmall(){
+
+    public FragmentSmall() {
 
     }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_small,container,false);
+        View view = inflater.inflate(R.layout.fragment_small, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerAdapterSmallField(getActivity(),new ContainerApplication());
+        adapter = new RecyclerAdapterSmallField(getActivity(), new ContainerApplication());
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         adapter.setClickListener(this);
@@ -45,17 +47,18 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
 
         return view;
     }
+
     @Override
     public void itemClicked(View view, int position) {
         Fragment fragment = new FragmentCalendarBooking();
         //Toast.makeText(getActivity(),"Item Click "+position,Toast.LENGTH_SHORT ).show();
         Bundle bundle = new Bundle();
-        bundle.putString("field",strTypeField);
+        bundle.putString("field", strTypeField);
         fragment.setArguments(bundle);
 
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.layoutSmall,fragment);
+        fragmentTransaction.replace(R.id.layoutSmall, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
