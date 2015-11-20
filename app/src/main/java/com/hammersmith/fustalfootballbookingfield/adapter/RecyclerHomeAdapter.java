@@ -1,7 +1,8 @@
 package com.hammersmith.fustalfootballbookingfield.adapter;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,72 +10,39 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.controller.AppController;
+import com.hammersmith.fustalfootballbookingfield.model.Field;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by USER on 11/2/2015.
  */
 public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapter.MyViewHolder> {
-    ClickListener clickListener;
-    Context context;
-    //Typeface typeface = Typeface.createFromAsset(context.getAssets(),"fonts/KrinkesDecorPERSONAL.ttf");
-    ContainerApplication main;
-    public ArrayList<Integer> img = new ArrayList<>();
-    public ArrayList<String> nameField = new ArrayList<>();
-    public ArrayList<String> location = new ArrayList<>();
+    private static final String TAG = "CustomAdapter";
+    private Activity activity;
+    private List<Field> fields;
+    Field field;
+    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
-    @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View root = LayoutInflater.from(context).inflate(R.layout.custom_cardview_list, parent, false);
-        MyViewHolder myViewHolder = new MyViewHolder(root);
-
-        return myViewHolder;
-    }
-
-    RecyclerHomeAdapter() {
-    }
-
-    public RecyclerHomeAdapter(Context context, ContainerApplication ma) {
-        img.add(R.drawable.imgnaga);
-        img.add(R.drawable.imgdowntown);
-        img.add(R.drawable.imgemperia);
-
-        nameField.add("Imperial Stadium");
-        nameField.add("Down Town Sport");
-        nameField.add("Sport Club");
-
-        location.add("Phnom Penh");
-        location.add("Kompong Cham");
-        location.add("Batdom Bong");
-
-        this.context = context;
-        main = ma;
-    }
-
-    @Override
-    public void onBindViewHolder(RecyclerHomeAdapter.MyViewHolder holder, int position) {
-        holder.imgField.setImageResource(img.get(position));
-        holder.location.setText(location.get(position));
-        holder.name.setText(nameField.get(position));
-    }
-
-    @Override
-    public int getItemCount() {
-        return img.size();
-    }
+    private ClickListener clickListener;
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView imgField;
+        CardView cv;
+        NetworkImageView imgField;
         TextView name, location;
 
         public MyViewHolder(View itemView) {
             super(itemView);
+            cv = (CardView) itemView.findViewById(R.id.cv);
+            imgField = (NetworkImageView) itemView.findViewById(R.id.cover);
             name = (TextView) itemView.findViewById(R.id.nameField);
             location = (TextView) itemView.findViewById(R.id.locationField);
-            imgField = (ImageView) itemView.findViewById(R.id.cover);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }
@@ -87,6 +55,36 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
             }
         }
     }
+    public RecyclerHomeAdapter(Activity activity, List<Field> fields) {
+        this.activity = activity;
+        this.fields = fields;
+    }
+
+    @Override
+    public RecyclerHomeAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_cardview_list, parent, false);
+        MyViewHolder myViewHolder = new MyViewHolder(v);
+
+        return myViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(final RecyclerHomeAdapter.MyViewHolder holder, int position) {
+        if(imageLoader == null){
+             imageLoader = AppController.getInstance().getImageLoader();
+            field = fields.get(position);
+            holder.imgField.setImageUrl(field.getImage(),imageLoader);
+            holder.name.setText(field.getName());
+            holder.location.setText(field.getLocation());
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return fields.size();
+    }
+
+
 
     public interface ClickListener {
         public void itemClicked(View view, int position);
