@@ -56,7 +56,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         FragmentManager fragmentManager = getChildFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.layoutSmall,fragment);
-//        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }

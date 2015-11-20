@@ -136,7 +136,7 @@ public class ActivityBooking extends AppCompatActivity {
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.layoutAllField,fragment);
-//                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
                 }
             });
