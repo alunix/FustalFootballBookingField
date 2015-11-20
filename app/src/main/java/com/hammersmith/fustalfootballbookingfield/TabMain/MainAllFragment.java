@@ -14,7 +14,7 @@ import com.hammersmith.fustalfootballbookingfield.adapter.ViewPagerAdapter;
 import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 
 
-public class MainActivity extends Fragment {
+public class MainAllFragment extends Fragment {
 
     // Declaring Your View and Variables
     Context context;
@@ -24,17 +24,17 @@ public class MainActivity extends Fragment {
     CharSequence Titles[] = {"Home", "Map", "League"};
     int Numboftabs = 3;
 
-    public MainActivity() {
+    public MainAllFragment() {
     }
 
-    public MainActivity(Context context) {
+    public MainAllFragment(Context context) {
         this.context = context;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_main, container, false);
+        View view = inflater.inflate(R.layout.main_all_fragment, container, false);
 
 
         pager = (ViewPager) view.findViewById(R.id.pager);

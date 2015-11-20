@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.SearchRecentSuggestions;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +12,7 @@ import android.support.v7.widget.SearchView;
 import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider;
-import com.hammersmith.fustalfootballbookingfield.TabMain.MainActivity;
+import com.hammersmith.fustalfootballbookingfield.TabMain.MainAllFragment;
 import com.hammersmith.fustalfootballbookingfield.R;
 
 /**
@@ -21,7 +20,7 @@ import com.hammersmith.fustalfootballbookingfield.R;
  */
 public class ContainerApplication extends AppCompatActivity {
     Context context;
-    private MainActivity containTab;
+    private MainAllFragment containTab;
     SearchView searchView;
     SearchRecentSuggestions recentSuggestions;
     @Override
@@ -41,11 +40,11 @@ public class ContainerApplication extends AppCompatActivity {
         if(savedInstanceState == null){
             initScreen();
         }else {
-            containTab = (MainActivity)getSupportFragmentManager().getFragments().get(0);
+            containTab = (MainAllFragment)getSupportFragmentManager().getFragments().get(0);
         }
     }
     private void initScreen() {
-        containTab = new MainActivity();
+        containTab = new MainAllFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.continer_framelayout,containTab);
