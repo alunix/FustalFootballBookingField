@@ -26,16 +26,7 @@ public class Map extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.map, container, false);
-        try {
-            if (googleMap == null) {
-                googleMap = ((SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.maps)).getMap();
-            }
-            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-            Marker TP = googleMap.addMarker(new MarkerOptions().
-                    position(testMaps).title("Phnom Penh"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
         return view;
 
     }
