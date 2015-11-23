@@ -44,7 +44,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
     List<Field> fields = new ArrayList<Field>();
     Field field;
 
-
+    String image;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,12 +69,15 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
                         try {
                             JSONObject obj = jsonArray.getJSONObject(i);
                             field = new Field();
-                            field.setImage(obj.getString("image_path"));
+                            field.setImage(Constant.URL_HOME + obj.getString("image_path"));
                             field.setName(obj.getString("name"));
                             field.setLocation(obj.getString("address"));
                             id[i] = obj.getInt("id");
                             title[i] = obj.getString("name");
                             fields.add(field);
+
+                            Toast.makeText(getActivity(),obj.getString("image_path"),Toast.LENGTH_SHORT).show();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -102,11 +105,12 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
 
     @Override
     public void itemClicked(View view, int position) {
-
+        image = ((Field)fields.get(position)).getImage();
         //Toast.makeText(getActivity(), "Click Item" + position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), ActivityBooking.class);
         intent.putExtra("title", title[position]);
 
+        intent.putExtra("field",image);
         intent.putExtra("ID", id[position]);
         startActivity(intent);
 

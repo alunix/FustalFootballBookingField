@@ -19,10 +19,13 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentSmall;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.BookingViewPager;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentCalendarBooking;
+import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 
 public class ActivityBooking extends AppCompatActivity {
 
@@ -34,7 +37,7 @@ public class ActivityBooking extends AppCompatActivity {
     private BookingViewPager mAdapter;
     private TabLayout mTabLayout;
 
-    ImageView cover;
+    NetworkImageView cover;
     String title;
     int field;
 
@@ -44,7 +47,7 @@ public class ActivityBooking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
-        cover = (ImageView) findViewById(R.id.image_field);
+        cover = (NetworkImageView) findViewById(R.id.image_field);
         mCoordinator = (CoordinatorLayout) findViewById(R.id.root_coordinator);
         mCollapsingToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -58,13 +61,16 @@ public class ActivityBooking extends AppCompatActivity {
 
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+
+        ImageLoader imageLoader = AppController.getInstance().getImageLoader();
         title = getIntent().getStringExtra("title");
+        String image = getIntent().getStringExtra("field");
 
         Bundle bundle = this.getIntent().getExtras();
-        field = bundle.getInt("field");
+        field = bundle.getInt("ID");
 
         mCollapsingToolBarLayout.setTitle(title);
-        cover.setImageResource(field);
+        cover.setImageUrl(image,imageLoader);
     }
 
     public static class MyFragment extends Fragment {

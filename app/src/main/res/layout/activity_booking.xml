@@ -24,7 +24,7 @@
                 app:contentScrim="@color/ColorToolbar"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <ImageView
+                <com.android.volley.toolbox.NetworkImageView
                     android:id="@+id/image_field"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"

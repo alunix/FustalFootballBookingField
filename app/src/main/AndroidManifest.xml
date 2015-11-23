@@ -30,6 +30,7 @@
         android:required="true" />
 
     <application
+        android:name=".controller.AppController"
         android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
