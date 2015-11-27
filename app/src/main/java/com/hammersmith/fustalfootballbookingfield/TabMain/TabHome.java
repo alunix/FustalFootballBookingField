@@ -76,7 +76,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
                             title[i] = obj.getString("name");
                             fields.add(field);
 
-                            Toast.makeText(getActivity(),obj.getString("image_path"),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(),obj.getString("name"),Toast.LENGTH_SHORT).show();
 
                         } catch (JSONException e) {
                             e.printStackTrace();

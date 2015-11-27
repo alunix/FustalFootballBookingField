@@ -140,20 +140,6 @@ public class RecyclerAdapterSmallField extends RecyclerView.Adapter<RecyclerAdap
             strField = String.valueOf(i);
         }
         holder.numField.setText(strField);
-
-//        holder.buttonBooking.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-
-
-//                Fragment fragment = new FragmentCalendarBooking();
-//                FragmentManager fragmentManager = getChildFragmentManager();
-//                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                fragmentTransaction.replace(R.id.layoutSmall,fragment);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-//            }
-//        });
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

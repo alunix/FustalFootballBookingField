@@ -12,20 +12,40 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.NetworkImageView;
+import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentSmall;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.BookingViewPager;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentCalendarBooking;
+import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerAdapterSmallField;
+import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerHomeAdapter;
+import com.hammersmith.fustalfootballbookingfield.adapter.RecylerCateFieldAdapter;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
+import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
+import com.hammersmith.fustalfootballbookingfield.model.Field;
+import com.hammersmith.fustalfootballbookingfield.utils.Constant;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ActivityBooking extends AppCompatActivity {
 
@@ -73,7 +93,15 @@ public class ActivityBooking extends AppCompatActivity {
         cover.setImageUrl(image,imageLoader);
     }
 
-    public static class MyFragment extends Fragment {
+    public static class MyFragment extends Fragment implements RecylerCateFieldAdapter.ClickListener{
+        RecyclerView recyclerView;
+        RecylerCateFieldAdapter adapter;
+        int[] id;
+        String[] title;
+
+        List<CategoryField> categoryFields = new ArrayList<CategoryField>();
+        CategoryField categoryField;
+
         String small = "Small Field";
         String medium = "Medium Field";
         String large = "Large Field";
@@ -95,70 +123,67 @@ public class ActivityBooking extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.fragment_chosing_field, container, false);
-            Button buttonSmall = (Button) v.findViewById(R.id.btnSmall);
-            buttonSmall.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Fragment fragment = new FragmentSmall();
 
-                    Bundle argument = new Bundle();
-                    argument.putString("field", small);
-                    fragment.setArguments(argument);
+            recyclerView = (RecyclerView) v.findViewById(R.id.recylcerview);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+            recyclerView.setLayoutManager(linearLayoutManager);
+            adapter = new RecylerCateFieldAdapter(getActivity(), new ContainerApplication());
+            recyclerView.setAdapter(adapter);
+            recyclerView.setHasFixedSize(true);
+            adapter.setClickListener(this);
 
-                    FragmentManager fragmentManager = getChildFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.layoutAllField, fragment);
-//                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-            });
+//            if (categoryFields.size() <= 0) {
+//                // Creating volley request obj
+//                JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_CATEGORY, new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray jsonArray) {
+//                        id = new int[jsonArray.length()];
+//                        title = new String[jsonArray.length()];
+//                        for (int i = 0; i < jsonArray.length(); i++) {
+//                            try {
+//                                JSONObject obj = jsonArray.getJSONObject(i);
+//                                categoryField = new CategoryField();
+//                                categoryField.setName(obj.getString("name"));
+//                                id[i] = obj.getInt("id");
+//                                title[i] = obj.getString("name");
+//                                categoryFields.add(categoryField);
+//
+//                                Toast.makeText(getActivity(),obj.getString("name"),Toast.LENGTH_SHORT).show();
+//
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//
+//                    }
+//                }, new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError volleyError) {
+//                        Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//                AppController.getInstance().addToRequestQueue(fieldReq);
+//
+//            }
 
-            Button buttonMedium = (Button) v.findViewById(R.id.btnMedium);
-            buttonMedium.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Fragment fragment = new FragmentSmall();
 
-                    Bundle argument = new Bundle();
-                    argument.putString("field", medium);
-                    fragment.setArguments(argument);
-
-                    FragmentManager fragmentManager = getChildFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.layoutAllField, fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-            });
-
-            Button buttonLarge = (Button) v.findViewById(R.id.btnLarge);
-            buttonLarge.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Fragment fragment = new FragmentSmall();
-
-                    Bundle argument = new Bundle();
-                    argument.putString("field", large);
-                    fragment.setArguments(argument);
-
-                    FragmentManager fragmentManager = getChildFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.layoutAllField, fragment);
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-            });
             return v;
         }
-    }
 
-    @Override
-    public void onBackPressed() {
-        int count = getFragmentManager().getBackStackEntryCount();
-        if (count == 0) {
-            super.onBackPressed();
-        } else {
-            getFragmentManager().popBackStack();
+        @Override
+        public void itemClicked(View view, int position) {
+            Toast.makeText(getActivity(),"Click Item "+position,Toast.LENGTH_SHORT).show();
+            Fragment fragment = new FragmentSmall();
+            Bundle bundle = new Bundle();
+            bundle.putString("field","Small");
+            fragment.setArguments(bundle);
+
+            FragmentManager fragmentManager = getChildFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.layoutTypeField, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         }
     }
-}
+
+   }
