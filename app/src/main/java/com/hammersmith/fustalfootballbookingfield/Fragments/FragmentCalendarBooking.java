@@ -47,6 +47,7 @@ public class FragmentCalendarBooking extends Fragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 //Toast.makeText(getActivity(),dayOfMonth+" / "+month+" / "+year,Toast.LENGTH_SHORT).show();
+                month = month+1;
                 Fragment fragment = new FragmentTimeBooking();
 
                 Bundle bundle = new Bundle();

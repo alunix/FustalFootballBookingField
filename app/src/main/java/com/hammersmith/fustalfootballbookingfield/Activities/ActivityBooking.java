@@ -14,12 +14,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -90,21 +92,17 @@ public class ActivityBooking extends AppCompatActivity {
         field = bundle.getInt("ID");
 
         mCollapsingToolBarLayout.setTitle(title);
-        cover.setImageUrl(image,imageLoader);
+        cover.setImageUrl(image, imageLoader);
     }
 
-    public static class MyFragment extends Fragment implements RecylerCateFieldAdapter.ClickListener{
+    public static class MyFragment extends Fragment implements RecylerCateFieldAdapter.ClickListener {
         RecyclerView recyclerView;
         RecylerCateFieldAdapter adapter;
         int[] id;
         String[] title;
 
-        List<CategoryField> categoryFields = new ArrayList<CategoryField>();
+        List<CategoryField> categoryFields = new ArrayList<>();
         CategoryField categoryField;
-
-        String small = "Small Field";
-        String medium = "Medium Field";
-        String large = "Large Field";
         private static final java.lang.String ARG_PAGE = "arg_page";
 
         public MyFragment() {
@@ -123,59 +121,66 @@ public class ActivityBooking extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.fragment_chosing_field, container, false);
+            categoryField = new CategoryField();
 
             recyclerView = (RecyclerView) v.findViewById(R.id.recylcerview);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
             recyclerView.setLayoutManager(linearLayoutManager);
-            adapter = new RecylerCateFieldAdapter(getActivity(), new ContainerApplication());
+//            ------This one create for JsonArray-----/
+            adapter = new RecylerCateFieldAdapter(getActivity(), categoryFields);
             recyclerView.setAdapter(adapter);
             recyclerView.setHasFixedSize(true);
             adapter.setClickListener(this);
 
-//            if (categoryFields.size() <= 0) {
-//                // Creating volley request obj
-//                JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_CATEGORY, new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray jsonArray) {
-//                        id = new int[jsonArray.length()];
-//                        title = new String[jsonArray.length()];
-//                        for (int i = 0; i < jsonArray.length(); i++) {
-//                            try {
-//                                JSONObject obj = jsonArray.getJSONObject(i);
-//                                categoryField = new CategoryField();
-//                                categoryField.setName(obj.getString("name"));
-//                                id[i] = obj.getInt("id");
-//                                title[i] = obj.getString("name");
-//                                categoryFields.add(categoryField);
-//
-//                                Toast.makeText(getActivity(),obj.getString("name"),Toast.LENGTH_SHORT).show();
-//
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-//
-//                    }
-//                }, new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError volleyError) {
-//                        Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//                AppController.getInstance().addToRequestQueue(fieldReq);
-//
-//            }
+            if (categoryFields.size() <= 0) {
+                // Creating volley request obj
+                JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_CATEGORY, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray jsonArray) {
+                        id = new int[jsonArray.length()];
+                        title = new String[jsonArray.length()];
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            try {
+                                JSONObject obj = jsonArray.getJSONObject(i);
+                                categoryField = new CategoryField();
+                                categoryField.setName(obj.getString("name"));
+                                id[i] = obj.getInt("id");
+                                title[i] = obj.getString("name");
+                                categoryFields.add(categoryField);
 
-
+                                Toast.makeText(getActivity(), obj.getString("name"), Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                AppController.getInstance().addToRequestQueue(fieldReq);
+            }
             return v;
         }
 
         @Override
         public void itemClicked(View view, int position) {
-            Toast.makeText(getActivity(),"Click Item "+position,Toast.LENGTH_SHORT).show();
+            String strField = "";
+            if (position == 0) {
+                strField = "Small Field";
+            } else if (position == 1) {
+                strField = "Medium Field";
+            } else {
+                strField = "Large Field";
+            }
+
+            Toast.makeText(getActivity(), "Click Item " + position, Toast.LENGTH_SHORT).show();
             Fragment fragment = new FragmentSmall();
             Bundle bundle = new Bundle();
-            bundle.putString("field","Small");
+            bundle.putString("field", strField);
             fragment.setArguments(bundle);
 
             FragmentManager fragmentManager = getChildFragmentManager();
@@ -186,4 +191,4 @@ public class ActivityBooking extends AppCompatActivity {
         }
     }
 
-   }
+}

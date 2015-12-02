@@ -10,13 +10,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
 import com.hammersmith.fustalfootballbookingfield.model.Field;
+import com.hammersmith.fustalfootballbookingfield.utils.Constant;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,60 +38,59 @@ public class RecylerCateFieldAdapter extends RecyclerView.Adapter<RecylerCateFie
     Context context;
     private List<CategoryField> categoryFields;
     CategoryField categoryField;
-    public ArrayList<String> typeField = new ArrayList<>();
-
     private ClickListener clickListener;
 
-    @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View root = LayoutInflater.from(context).inflate(R.layout.custom_type_field,parent,false);
-        MyViewHolder myViewHolder = new MyViewHolder(root);
-        return myViewHolder;
-    }
-    public RecylerCateFieldAdapter(){
-
-    }
-    public RecylerCateFieldAdapter(Context context,ContainerApplication ma){
-        typeField.add("Small");
-        typeField.add("Medium");
-        typeField.add("Large");
-
-        this.context = context;
-    }
-
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
-        holder.name.setText(typeField.get(position));
-    }
-
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
+        Context mContext;
+
         public MyViewHolder(View itemView) {
             super(itemView);
+            mContext = context;
             name = (TextView) itemView.findViewById(R.id.typeField);
 
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }
+
         @Override
         public void onClick(View v) {
-            if (clickListener != null){
+            if (clickListener != null) {
                 clickListener.itemClicked(v, getLayoutPosition());
-
             }
         }
     }
 
-    @Override
-    public int getItemCount() {
-        return typeField.size();
+    public RecylerCateFieldAdapter(Activity activity, List<CategoryField> categoryFields) {
+        this.activity = activity;
+        this.categoryFields = categoryFields;
     }
 
-    public interface ClickListener{
+    @Override
+    public RecylerCateFieldAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_type_field, parent, false);
+        MyViewHolder myViewHolder = new MyViewHolder(view);
+        return myViewHolder;
+    }
+
+    //------This one create for JsonArray-----/
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
+        categoryField = categoryFields.get(position);
+        holder.name.setText(categoryField.getName());
+    }
+
+    @Override
+    public int getItemCount() {
+        return categoryFields.size();
+    }
+
+    public interface ClickListener {
         public void itemClicked(View view, int position);
     }
-    public void setClickListener(ClickListener clickListener){
+
+    public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
     }
+
 }
