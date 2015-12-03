@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_marginRight="2dp"
-                    android:background="#90b6cdff"
+                    android:background="#90ffffff"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:layout_weight="0.8"
@@ -73,14 +73,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="25dp">
                     <LinearLayout
-                        android:background="#902b3dff"
+                        android:background="#df053f"
                         android:layout_marginRight="2dp"
                         android:orientation="vertical"
                         android:layout_weight="2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent">
                         <TextView
-                            android:textColor="#000"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
                             android:gravity="center"
                             android:text="Day"
                             android:layout_width="match_parent"
@@ -88,27 +89,29 @@
 
                     </LinearLayout>
                     <LinearLayout
-                        android:background="#902b3dff"
+                        android:background="#df053f"
                         android:layout_marginRight="2dp"
                         android:orientation="vertical"
                         android:layout_weight="1.2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent">
                         <TextView
-                            android:textColor="#000"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
                             android:gravity="center"
                             android:text="Time"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent" />
                     </LinearLayout>
                     <LinearLayout
-                        android:background="#902b3dff"
+                        android:background="#df053f"
                         android:orientation="vertical"
                         android:layout_weight="0.9"
                         android:layout_width="0dp"
                         android:layout_height="match_parent">
                         <TextView
-                            android:textColor="#000"
+                            android:textColor="#fff"
+                            android:textStyle="bold"
                             android:gravity="center"
                             android:text="Price/h"
                             android:layout_width="match_parent"
@@ -122,7 +125,7 @@
                         android:layout_height="wrap_content">
 
                         <LinearLayout
-                            android:background="#90b6cdff"
+                            android:background="#90ffffff"
                             android:layout_marginRight="2dp"
                             android:paddingLeft="5dp"
                             android:orientation="vertical"
@@ -147,7 +150,7 @@
                         </LinearLayout>
                         <LinearLayout
                             android:paddingBottom="5dp"
-                            android:background="#90b6cdff"
+                            android:background="#90ffffff"
                             android:layout_marginRight="2dp"
                             android:paddingLeft="5dp"
                             android:orientation="vertical"
@@ -183,42 +186,86 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
+
                         <LinearLayout
-                            android:background="#90b6cdff"
+                            android:background="#90ffffff"
                             android:paddingLeft="5dp"
                             android:orientation="vertical"
                             android:layout_weight="0.9"
                             android:layout_width="0dp"
                             android:layout_height="match_parent">
-                            <TextView
-                                android:id="@+id/priceMonFriMorn"
-                                android:layout_marginTop="5dp"
-                                android:textColor="#ff0000"
-                                android:text="$5"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <TextView
-                                android:id="@+id/priceMonFriEven"
-                                android:layout_marginTop="5dp"
-                                android:textColor="#ff0000"
-                                android:text="$10"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <TextView
-                                android:id="@+id/priceSatSunMorn"
-                                android:layout_marginTop="5dp"
-                                android:textColor="#ff0000"
-                                android:text="$8"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <TextView
-                                android:id="@+id/priceSatSunEven"
-                                android:layout_marginTop="5dp"
-                                android:textColor="#ff0000"
-                                android:text="$15"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                        </LinearLayout>
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <LinearLayout
+                                    android:paddingRight="3dp"
+                                    android:gravity="right"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:text="$"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                    <TextView
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:text="$"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                    <TextView
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:text="$"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                    <TextView
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:text="$"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_weight="2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+                                    <TextView
+                                        android:id="@+id/priceMonFriMorn"
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                    <TextView
+                                        android:id="@+id/priceMonFriEven"
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                    <TextView
+                                        android:id="@+id/priceSatSunMorn"
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                    <TextView
+                                        android:id="@+id/priceSatSunEven"
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#ff0000"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            </LinearLayout>
+
+
 
                     </LinearLayout>
 

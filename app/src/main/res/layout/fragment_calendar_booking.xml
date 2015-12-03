@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:background="#52a9f5"
+            android:background="#df053f"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="45dp">
@@ -33,7 +33,7 @@
 
         <CalendarView
             android:layout_marginTop="2dp"
-            android:background="#50ffffff"
+            android:background="#30ffffff"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:selectedDateVerticalBar="@color/wallet_highlighted_text_holo_dark"

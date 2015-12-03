@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.hammersmith.fustalfootballbookingfield.TabMain.Map;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabHome;
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeague;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeagueView;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabMap;
 
@@ -44,7 +45,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 1:
                 return new TabMap();
             case 2:
-                return new TabLeagueView();
+                return new TabLeague();
             default:
                 return null;
         }

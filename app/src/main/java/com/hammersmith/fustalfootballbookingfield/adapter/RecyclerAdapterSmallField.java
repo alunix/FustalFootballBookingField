@@ -3,6 +3,7 @@ package com.hammersmith.fustalfootballbookingfield.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
@@ -34,6 +35,10 @@ public class RecyclerAdapterSmallField extends RecyclerView.Adapter<RecyclerAdap
     private List<FieldDetail> fieldDetails;
     FieldDetail fieldDetail;
 
+    public RecyclerAdapterSmallField(FragmentActivity activity) {
+
+    }
+
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView nameField, priceMonFriMorn, priceMonFriEven, priceSatSunMorn, priceSatSunEven;
 
@@ -52,7 +57,6 @@ public class RecyclerAdapterSmallField extends RecyclerView.Adapter<RecyclerAdap
         public void onClick(View v) {
             if (clickListener != null) {
                 clickListener.itemClicked(v, getLayoutPosition());
-
             }
         }
     }

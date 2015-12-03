@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
-            android:background="#52a9f5"
+            android:background="#df053f"
             android:layout_width="match_parent"
             android:layout_height="45dp">
             <TextView
@@ -18,7 +18,6 @@
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Small Field"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
