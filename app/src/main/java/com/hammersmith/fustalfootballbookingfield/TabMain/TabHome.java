@@ -76,6 +76,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
                             title[i] = obj.getString("name");
                             fields.add(field);
 
+//                            Toast.makeText(getActivity(),"ID location "+id[i],Toast.LENGTH_SHORT).show();
                             Toast.makeText(getActivity(),obj.getString("image_path"),Toast.LENGTH_SHORT).show();
 
                         } catch (JSONException e) {
@@ -112,6 +113,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
 
         intent.putExtra("field",image);
         intent.putExtra("ID", id[position]);
+        Toast.makeText(getActivity(),"ID Location "+id[position],Toast.LENGTH_SHORT).show();
         startActivity(intent);
 
     }

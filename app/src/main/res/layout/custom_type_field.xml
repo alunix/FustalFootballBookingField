@@ -4,27 +4,26 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/cv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        card_view:cardCornerRadius="0dp">
+    <!--<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/cv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--card_view:cardCornerRadius="0dp">-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="0dp"
-            android:background="#70ffffff"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginTop="2dp"
-                android:background="#590b0b"
+                android:layout_marginTop="0dp"
+                android:background="#902b3dff"
                 android:orientation="horizontal">
 
                 <TextView
@@ -33,7 +32,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp"
                     android:gravity="center"
-                    android:text="Small Field"
                     android:textColor="#fff"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -41,6 +39,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:background="#30ffffff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -86,6 +85,6 @@
 
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    <!--</android.support.v7.widget.CardView>-->
 
 </LinearLayout>

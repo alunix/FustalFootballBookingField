@@ -61,7 +61,9 @@ public class ActivityBooking extends AppCompatActivity {
 
     NetworkImageView cover;
     String title;
-    int field;
+
+    public static int field;
+
 
 
     @Override
@@ -90,6 +92,8 @@ public class ActivityBooking extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
         field = bundle.getInt("ID");
+
+//        Toast.makeText(getApplicationContext(),field+"",Toast.LENGTH_SHORT).show();
 
         mCollapsingToolBarLayout.setTitle(title);
         cover.setImageUrl(image, imageLoader);
@@ -148,7 +152,7 @@ public class ActivityBooking extends AppCompatActivity {
                                 title[i] = obj.getString("name");
                                 categoryFields.add(categoryField);
 
-                                Toast.makeText(getActivity(), obj.getString("name"), Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(), "ID category "+id[i], Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -168,19 +172,20 @@ public class ActivityBooking extends AppCompatActivity {
 
         @Override
         public void itemClicked(View view, int position) {
-            String strField = "";
-            if (position == 0) {
-                strField = "Small Field";
-            } else if (position == 1) {
-                strField = "Medium Field";
-            } else {
-                strField = "Large Field";
-            }
+//            String strField = field+"";
+//            if (position == 0) {
+//                strField = "Small Field";
+//            } else if (position == 1) {
+//                strField = "Medium Field";
+//            } else {
+//                strField = "Large Field";
+//            }
 
-            Toast.makeText(getActivity(), "Click Item " + position, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "ID Category " + id[position], Toast.LENGTH_SHORT).show();
             Fragment fragment = new FragmentSmall();
             Bundle bundle = new Bundle();
-            bundle.putString("field", strField);
+            bundle.putString("field",field+"/"+id[position]);
+            bundle.putString("title",title[position]);
             fragment.setArguments(bundle);
 
             FragmentManager fragmentManager = getChildFragmentManager();
