@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,10 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeague;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerAdapterSmallField;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
@@ -43,9 +46,11 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
     int id[];
     String title[];
     FieldDetail fieldDetail;
+
     public FragmentSmall() {
 
     }
+
     List<FieldDetail> fieldDetails = new ArrayList<>();
 
     @Nullable
@@ -55,7 +60,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         recyclerView = (RecyclerView) view.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerAdapterSmallField(getActivity(),fieldDetails);
+        adapter = new RecyclerAdapterSmallField(getActivity(), fieldDetails);
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
         adapter.setClickListener(this);
@@ -67,7 +72,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
 
         if (fieldDetails.size() <= 0) {
             // Creating volley request obj
-            JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_FIELD_DETAIL+strTypeField, new Response.Listener<JSONArray>() {
+            JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_FIELD_DETAIL + strTypeField, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray jsonArray) {
                     id = new int[jsonArray.length()];
@@ -84,8 +89,6 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
                             id[i] = obj.getInt("id");
                             title[i] = obj.getString("name");
                             fieldDetails.add(fieldDetail);
-
-//                            Toast.makeText(getActivity(), obj.getString("name"), Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -100,6 +103,24 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
             });
             AppController.getInstance().addToRequestQueue(fieldReq);
         }
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    Fragment fragment = new ActivityBooking.MyFragment();
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.addToBackStack(null);
+                    transaction.replace(R.id.layoutSmall, fragment).commit();
+
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
         return view;
     }
 
@@ -108,14 +129,14 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         Fragment fragment = new FragmentCalendarBooking();
         //Toast.makeText(getActivity(),"Item Click "+position,Toast.LENGTH_SHORT ).show();
         Bundle bundle = new Bundle();
-        bundle.putString("field", catField);
+        bundle.putString("title", catField);
+        bundle.putString("field", strTypeField);
         fragment.setArguments(bundle);
 
-        FragmentManager fragmentManager = getChildFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.layoutSmall, fragment);
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        fragmentTransaction.replace(R.id.layoutSmall, fragment).commit();
+
     }
 }
 

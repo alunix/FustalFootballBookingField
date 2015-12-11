@@ -5,12 +5,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 import com.hammersmith.fustalfootballbookingfield.R;
 
 /**
@@ -18,7 +21,7 @@ import com.hammersmith.fustalfootballbookingfield.R;
  */
 public class FragmentCalendarBooking extends Fragment {
     CalendarView calendar;
-    String str;
+    String str, fields;
     TextView textView;
 
     @Nullable
@@ -26,12 +29,36 @@ public class FragmentCalendarBooking extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar_booking, container, false);
         textView = (TextView) view.findViewById(R.id.typeField);
-        String field = getArguments().getString("field");
-        str = field;
-//        textView.setText(field);
+        final String title = getArguments().getString("title");
+        final String field = getArguments().getString("field");
+        fields = field;
+        str = title;
+        textView.setText(title);
 
-        calendar = (CalendarView)view.findViewById(R.id.calendarView1);
+        calendar = (CalendarView) view.findViewById(R.id.calendarView1);
         inilializeCalendar();
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    Fragment fragment = new FragmentSmall();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", str);
+                    bundle.putString("field", fields);
+                    fragment.setArguments(bundle);
+
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.addToBackStack(null);
+                    transaction.replace(R.id.layoutCalendarBooking, fragment).commit();
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
         return view;
     }
 
@@ -47,26 +74,22 @@ public class FragmentCalendarBooking extends Fragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 //Toast.makeText(getActivity(),dayOfMonth+" / "+month+" / "+year,Toast.LENGTH_SHORT).show();
-                month = month+1;
+                month = month + 1;
                 Fragment fragment = new FragmentTimeBooking();
 
                 Bundle bundle = new Bundle();
-                bundle.putString("dateBooking",dayOfMonth+"/"+month+"/"+year);
-                bundle.putString("field",str);
+                bundle.putString("dateBooking", dayOfMonth + "/" + month + "/" + year);
+                bundle.putString("title", str);
+                bundle.putString("field", fields);
                 fragment.setArguments(bundle);
-//                bundle.putString("field", str);
-//                fragment.setArguments(bundle);
 
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.layoutCalendarBooking,fragment);
+                FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
                 fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                fragmentTransaction.replace(R.id.layoutCalendarBooking, fragment).commit();
 
             }
         });
 
-
-
     }
+
 }

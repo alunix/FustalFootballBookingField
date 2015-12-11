@@ -2,16 +2,20 @@ package com.hammersmith.fustalfootballbookingfield.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeague;
+import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeagueView;
 import com.hammersmith.fustalfootballbookingfield.model.FieldDetail;
 import com.hammersmith.fustalfootballbookingfield.model.League;
 
@@ -24,6 +28,7 @@ import java.util.List;
 public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHolder>{
     private ClickListener clickListener;
     List<League> leagues;
+    Context context;
 
     public AdapterLeague(){
         super();
@@ -45,11 +50,15 @@ public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHold
         leagues.add(league);
 
         league = new League();
-        league.setImage(R.drawable.championleague);
+        league.setImage(R.drawable.championleagues);
         leagues.add(league);
 
         league = new League();
-        league.setImage(R.drawable.footballleaguejpg);
+        league.setImage(R.drawable.footballleague);
+        leagues.add(league);
+
+        league = new League();
+        league.setImage(R.drawable.cambodialeague);
         leagues.add(league);
 
     }
@@ -94,6 +103,8 @@ public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHold
         public void onClick(View v) {
             if (clickListener != null) {
                 clickListener.itemClicked(v, getLayoutPosition());
+//                Toast.makeText(context,"Item "+getPosition(),Toast.LENGTH_SHORT).show();
+
             }
         }
     }

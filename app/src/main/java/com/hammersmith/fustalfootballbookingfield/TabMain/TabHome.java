@@ -6,17 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
@@ -41,10 +39,10 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
     int[] id;
     String[] title;
 
-    List<Field> fields = new ArrayList<Field>();
+    List<Field> fields = new ArrayList<>();
     Field field;
 
-    String image;
+    String image = "";
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,9 +74,6 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
                             title[i] = obj.getString("name");
                             fields.add(field);
 
-//                            Toast.makeText(getActivity(),"ID location "+id[i],Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getActivity(),obj.getString("image_path"),Toast.LENGTH_SHORT).show();
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -94,28 +89,30 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
             AppController.getInstance().addToRequestQueue(fieldReq);
 
         }
+        root.setFocusableInTouchMode(true);
+        root.requestFocus();
+        root.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    getActivity().finish();
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        });
 
         return root;
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public void itemClicked(View view, int position) {
         image = ((Field)fields.get(position)).getImage();
-        //Toast.makeText(getActivity(), "Click Item" + position, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), ActivityBooking.class);
         intent.putExtra("title", title[position]);
-
         intent.putExtra("field",image);
         intent.putExtra("ID", id[position]);
-        Toast.makeText(getActivity(),"ID Location "+id[position],Toast.LENGTH_SHORT).show();
         startActivity(intent);
-
     }
-
 }

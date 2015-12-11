@@ -266,7 +266,7 @@
                     <TextView
                         android:id="@+id/time6to7am"
                         android:textStyle="bold"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -278,7 +278,7 @@
                         android:textStyle="bold"
                         android:background="#87ff7f"
                         android:id="@+id/time7to8am"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -289,7 +289,7 @@
                         android:textStyle="bold"
                         android:background="#87ff7f"
                         android:id="@+id/time8to9am"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -299,7 +299,7 @@
                     <TextView
                         android:id="@+id/time9to10am"
                         android:textStyle="bold"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -310,7 +310,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time10to11am"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -321,7 +321,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time11to12pm"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -332,7 +332,7 @@
                     <TextView
                         android:id="@+id/time12to1pm"
                         android:textStyle="bold"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -343,7 +343,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time1to2pm"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -354,7 +354,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time2to3pm"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -365,7 +365,7 @@
                     <TextView
                         android:id="@+id/time3to4pm"
                         android:textStyle="bold"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -376,7 +376,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time4to5pm"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -387,7 +387,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time5to6pm"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -398,7 +398,7 @@
                     <TextView
                         android:id="@+id/time6to7pm"
                         android:textStyle="bold"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -409,7 +409,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time7to8pm"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -420,7 +420,7 @@
                     <TextView
                         android:textStyle="bold"
                         android:id="@+id/time8to9pm"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
@@ -431,7 +431,7 @@
                     <TextView
                         android:id="@+id/time9to10pm"
                         android:textStyle="bold"
-                        android:textColor="#595959"
+                        android:textColor="#fff"
                         android:textSize="14sp"
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"

@@ -3,6 +3,9 @@ package com.hammersmith.fustalfootballbookingfield.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 

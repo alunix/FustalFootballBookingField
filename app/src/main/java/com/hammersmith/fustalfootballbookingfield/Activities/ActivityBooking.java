@@ -1,6 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -14,14 +14,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -30,16 +27,14 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.NetworkImageView;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
+import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentBooking;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentSmall;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
 import com.hammersmith.fustalfootballbookingfield.adapter.BookingViewPager;
-import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentCalendarBooking;
-import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerAdapterSmallField;
-import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerHomeAdapter;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecylerCateFieldAdapter;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
-import com.hammersmith.fustalfootballbookingfield.model.Field;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 
 import org.json.JSONArray;
@@ -50,20 +45,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ActivityBooking extends AppCompatActivity {
-
+    FragmentManager fragmentManager;
+    private Fragment contentFragment;
     private CoordinatorLayout mCoordinator;
     private CollapsingToolbarLayout mCollapsingToolBarLayout;
     private Toolbar mToolbar;
-    private ViewPager mPager;
+    public static ViewPager mPager;
     private DrawerLayout mDrawerLayout;
-    private BookingViewPager mAdapter;
+    public static BookingViewPager mAdapter;
     private TabLayout mTabLayout;
 
     NetworkImageView cover;
     String title;
 
     public static int field;
-
 
 
     @Override
@@ -152,7 +147,6 @@ public class ActivityBooking extends AppCompatActivity {
                                 title[i] = obj.getString("name");
                                 categoryFields.add(categoryField);
 
-//                                Toast.makeText(getActivity(), "ID category "+id[i], Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -167,33 +161,41 @@ public class ActivityBooking extends AppCompatActivity {
                 });
                 AppController.getInstance().addToRequestQueue(fieldReq);
             }
+
+            v.setFocusableInTouchMode(true);
+            v.requestFocus();
+            v.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                        getActivity().finish();
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
             return v;
         }
 
         @Override
         public void itemClicked(View view, int position) {
-//            String strField = field+"";
-//            if (position == 0) {
-//                strField = "Small Field";
-//            } else if (position == 1) {
-//                strField = "Medium Field";
-//            } else {
-//                strField = "Large Field";
-//            }
 
-            Toast.makeText(getActivity(), "ID Category " + id[position], Toast.LENGTH_SHORT).show();
             Fragment fragment = new FragmentSmall();
             Bundle bundle = new Bundle();
-            bundle.putString("field",field+"/"+id[position]);
-            bundle.putString("title",title[position]);
+            bundle.putString("field", field + "/" + id[position]);
+            bundle.putString("title", title[position]);
             fragment.setArguments(bundle);
 
-            FragmentManager fragmentManager = getChildFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.layoutTypeField, fragment);
+            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
             fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            fragmentTransaction.replace(R.id.layoutTypeField, fragment).commit();
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

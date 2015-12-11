@@ -5,12 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 
@@ -297,10 +299,10 @@ public class FragmentTimeBooking extends Fragment {
         time9_10pm = (TextView) view.findViewById(R.id.time9to10pm);
 
         dayBooking = (TextView) view.findViewById(R.id.dayBooking);
-        String day = getArguments().getString("dateBooking");
+        final String day = getArguments().getString("dateBooking");
         dayBooking.setText(day);
+        final String title = getArguments().getString("title");
         final String field = getArguments().getString("field");
-        final String date = getArguments().getString("dateBooking");
 
         buttonBooking = (Button) view.findViewById(R.id.btnBooking);
         buttonBooking.setOnClickListener(new View.OnClickListener() {
@@ -312,15 +314,35 @@ public class FragmentTimeBooking extends Fragment {
                 Fragment fragment = new FragmentBooking();
                 Bundle bundle = new Bundle();
                 bundle.putString("timeBooking", strTime);
-                bundle.putString("date", date);
+                bundle.putString("date", day);
+                bundle.putString("title", title);
                 bundle.putString("field", field);
                 fragment.setArguments(bundle);
 
-                FragmentManager fragmentManager = getChildFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
-//                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+            }
+        });
+
+        view.setFocusableInTouchMode(true);
+        view.requestFocus();
+        view.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    Fragment fragment = new FragmentCalendarBooking();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", title);
+                    bundle.putString("field", field);
+                    fragment.setArguments(bundle);
+                    FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.addToBackStack(null);
+                    transaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                    return true;
+                } else {
+                    return false;
+                }
             }
         });
         return view;
@@ -376,13 +398,4 @@ public class FragmentTimeBooking extends Fragment {
             str9pm = time9to10PM;
         }
     }
-//    public void selectItem(View v){
-//            boolean checked = ((CheckBox)v).isChecked();
-//            switch (v.getId()){
-//                case R.id.ch6am:
-//                    if(checked){
-//
-//                    }
-//            }
-//    }
 }

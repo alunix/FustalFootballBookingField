@@ -14,7 +14,7 @@ import com.hammersmith.fustalfootballbookingfield.adapter.ViewPagerAdapter;
 import com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText;
 
 
-public class MainAllFragment extends Fragment {
+public class ContainerFragment extends Fragment {
 
     // Declaring Your View and Variables
     Context context;
@@ -24,10 +24,10 @@ public class MainAllFragment extends Fragment {
     CharSequence Titles[] = {"Home", "Map", "League"};
     int Numboftabs = 3;
 
-    public MainAllFragment() {
+    public ContainerFragment() {
     }
 
-    public MainAllFragment(Context context) {
+    public ContainerFragment(Context context) {
         this.context = context;
     }
 
@@ -70,13 +70,4 @@ public class MainAllFragment extends Fragment {
         pager.setAdapter(adapter);
         tabs.setViewPager(pager);
     }
-
-
-//    public boolean onBackPress() {
-//        OnBackPressListener currentFragment = (OnBackPressListener)adapter.getRegisterFragment(pager.getCurrentItem());
-//        if(currentFragment != null){
-//            return currentFragment.onBackPress();
-//        }
-//        return false;
-//    }
 }

@@ -36,8 +36,8 @@
     <item name="grey" type="color">#555555</item>
     <item name="green" type="color">#4499CC00</item>
     <item name="darkgreen" type="color">#FF669900</item>
-    <item name="bgBooking" type="color">#90ff2929</item>
-    <item name="bgUnChecked" type="color">#902436ff</item>
+    <item name="bgBooking" type="color">#df053f</item>
+    <item name="bgUnChecked" type="color">#87ff7f</item>
 
 
 </resources>

@@ -2,26 +2,16 @@ package com.hammersmith.fustalfootballbookingfield.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.maps.SupportMapFragment;
-import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
-import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentCalendarBooking;
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.model.Field;
 import com.hammersmith.fustalfootballbookingfield.model.FieldDetail;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -68,7 +58,7 @@ public class RecyclerAdapterSmallField extends RecyclerView.Adapter<RecyclerAdap
 
     @Override
     public RecyclerAdapterSmallField.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_cardview_small_field, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_field_detail, parent, false);
         MyViewHolder myViewHolder = new MyViewHolder(view);
         return myViewHolder;
     }
