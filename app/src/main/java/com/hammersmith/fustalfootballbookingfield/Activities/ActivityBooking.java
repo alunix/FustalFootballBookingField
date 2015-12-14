@@ -133,7 +133,7 @@ public class ActivityBooking extends AppCompatActivity {
 
             if (categoryFields.size() <= 0) {
                 // Creating volley request obj
-                JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_CATEGORY, new Response.Listener<JSONArray>() {
+                JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_CATEGORY + field, new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray jsonArray) {
                         id = new int[jsonArray.length()];

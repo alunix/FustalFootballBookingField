@@ -37,7 +37,7 @@ public class FragmentBooking extends Fragment {
 
         String day = getArguments().getString("dateBooking");
 
-        String time = getArguments().getString("timeBooking");
+        final String time = getArguments().getString("timeBooking");
         textTime.setText(time);
 
         String date = getArguments().getString("date");
@@ -69,6 +69,7 @@ public class FragmentBooking extends Fragment {
                     bundle.putString("title", titles);
                     bundle.putString("field", fields);
                     bundle.putString("dateBooking", days);
+                    bundle.putString("timeBooking",time);
                     fragment.setArguments(bundle);
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
