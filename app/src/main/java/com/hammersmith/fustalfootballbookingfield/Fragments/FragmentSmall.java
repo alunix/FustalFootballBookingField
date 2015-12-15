@@ -69,6 +69,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         strTypeField = getArguments().getString("field");
         catField = getArguments().getString("title");
         typeField.setText(catField);
+        Toast.makeText(getActivity(),strTypeField+"",Toast.LENGTH_SHORT).show();
 
         if (fieldDetails.size() <= 0) {
             // Creating volley request obj
@@ -126,7 +127,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
 
     @Override
     public void itemClicked(View view, int position) {
-        Fragment fragment = new FragmentCalendarBooking();
+        Fragment fragment = new FragmentCustomCalendar();
         //Toast.makeText(getActivity(),"Item Click "+position,Toast.LENGTH_SHORT ).show();
         Bundle bundle = new Bundle();
         bundle.putString("title", catField);

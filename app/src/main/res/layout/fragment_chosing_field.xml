@@ -20,8 +20,8 @@
                 android:gravity="center"
                 android:textColor="#fff"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="Choose Type of Field"
+                android:textSize="16sp"
+                android:text="Choose Field Type"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

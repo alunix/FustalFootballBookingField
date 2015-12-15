@@ -6,6 +6,7 @@
     android:background="@drawable/bgblur"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +26,7 @@
                 android:gravity="center"
                 android:textColor="#fff"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:text="Choose Time For Booking"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -271,12 +272,12 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
                         android:textStyle="bold"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:id="@+id/time7to8am"
                         android:textColor="#fff"
                         android:textSize="14sp"
@@ -287,7 +288,7 @@
                         android:layout_height="25dp" />
                     <TextView
                         android:textStyle="bold"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:id="@+id/time8to9am"
                         android:textColor="#fff"
                         android:textSize="14sp"
@@ -304,7 +305,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -315,7 +316,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -326,7 +327,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -337,7 +338,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -348,7 +349,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -359,7 +360,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -370,7 +371,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -381,7 +382,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -392,7 +393,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -403,7 +404,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -414,7 +415,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -425,7 +426,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
                     <TextView
@@ -436,7 +437,7 @@
                         android:text="Available Booking"
                         android:layout_marginTop="2dp"
                         android:gravity="center"
-                        android:background="#87ff7f"
+                        android:background="#0fa728"
                         android:layout_width="match_parent"
                         android:layout_height="25dp" />
 

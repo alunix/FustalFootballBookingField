@@ -33,7 +33,7 @@
                     android:layout_marginLeft="20dp"
                     android:gravity="center"
                     android:textColor="#fff"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -51,12 +51,13 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <com.android.volley.toolbox.NetworkImageView
+                        android:id="@+id/imageField"
                         android:layout_width="120dp"
                         android:layout_height="80dp"
+                        android:scaleType="centerCrop"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:src="@drawable/img_field" />
+                        android:layout_marginTop="20dp"/>
 
                 </LinearLayout>
 
@@ -68,14 +69,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="80dp"
-                        android:layout_height="25dp"
+                        android:layout_width="100dp"
+                        android:layout_height="28dp"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/button_radius_blue"
                         android:gravity="center"
-                        android:text="View all"
+                        android:text="Show all Field"
                         android:textColor="#fff"
                         android:textStyle="bold" />
 

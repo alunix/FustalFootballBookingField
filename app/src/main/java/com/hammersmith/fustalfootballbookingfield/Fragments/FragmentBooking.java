@@ -41,6 +41,7 @@ public class FragmentBooking extends Fragment {
         textTime.setText(time);
 
         String date = getArguments().getString("date");
+        days = date;
         textDate.setText(date);
 
         String title = getArguments().getString("title");

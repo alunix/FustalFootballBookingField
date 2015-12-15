@@ -1,6 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
-import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -26,11 +26,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.NetworkImageView;
-import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
-import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentBooking;
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentSmall;
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
 import com.hammersmith.fustalfootballbookingfield.adapter.BookingViewPager;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecylerCateFieldAdapter;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
@@ -54,6 +51,7 @@ public class ActivityBooking extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     public static BookingViewPager mAdapter;
     private TabLayout mTabLayout;
+    Typeface typeface;
 
     NetworkImageView cover;
     String title;
@@ -87,9 +85,11 @@ public class ActivityBooking extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
         field = bundle.getInt("ID");
+        Toast.makeText(getApplication(),field+"",Toast.LENGTH_SHORT).show();
 
-//        Toast.makeText(getApplicationContext(),field+"",Toast.LENGTH_SHORT).show();
+        typeface = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Sports EA Sports.ttf");
 
+        mCollapsingToolBarLayout.setExpandedTitleTypeface(typeface);
         mCollapsingToolBarLayout.setTitle(title);
         cover.setImageUrl(image, imageLoader);
     }
@@ -143,10 +143,11 @@ public class ActivityBooking extends AppCompatActivity {
                                 JSONObject obj = jsonArray.getJSONObject(i);
                                 categoryField = new CategoryField();
                                 categoryField.setName(obj.getString("name"));
+                                categoryField.setImage(Constant.URL_HOME + obj.getString("path"));
                                 id[i] = obj.getInt("id");
                                 title[i] = obj.getString("name");
                                 categoryFields.add(categoryField);
-
+//                                Toast.makeText(getContext(),Constant.URL_HOME + obj.getString("path"),Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

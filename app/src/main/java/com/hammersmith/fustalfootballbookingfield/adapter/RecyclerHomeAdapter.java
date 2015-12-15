@@ -55,6 +55,7 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
             }
         }
     }
+
     public RecyclerHomeAdapter(Activity activity, List<Field> fields) {
         this.activity = activity;
         this.fields = fields;
@@ -70,11 +71,11 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
 
     @Override
     public void onBindViewHolder(final RecyclerHomeAdapter.MyViewHolder holder, int position) {
-        if(imageLoader == null)
-             imageLoader = AppController.getInstance().getImageLoader();
+        if (imageLoader == null)
+            imageLoader = AppController.getInstance().getImageLoader();
 
         field = fields.get(position);
-        holder.imgField.setImageUrl(field.getImage(),imageLoader);
+        holder.imgField.setImageUrl(field.getImage(), imageLoader);
         holder.name.setText(field.getName());
         holder.location.setText(field.getLocation());
     }

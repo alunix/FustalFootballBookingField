@@ -20,6 +20,7 @@
                 android:id="@+id/collapsing_toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:expandedTitleMarginStart="30dp"
                 app:expandedTitleTextAppearance="@style/HeaderTitleStyle"
                 app:contentScrim="@color/ColorToolbar"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">

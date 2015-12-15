@@ -38,16 +38,19 @@ public class RecylerCateFieldAdapter extends RecyclerView.Adapter<RecylerCateFie
     Context context;
     private List<CategoryField> categoryFields;
     CategoryField categoryField;
+    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
     private ClickListener clickListener;
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
         Context mContext;
+        NetworkImageView imageField;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             mContext = context;
             name = (TextView) itemView.findViewById(R.id.typeField);
+            imageField = (NetworkImageView) itemView.findViewById(R.id.imageField);
 
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
@@ -76,8 +79,13 @@ public class RecylerCateFieldAdapter extends RecyclerView.Adapter<RecylerCateFie
     //------This one create for JsonArray-----/
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
-        categoryField = categoryFields.get(position);
-        holder.name.setText(categoryField.getName());
+//        if (imageLoader == null) {
+//            imageLoader = AppController.getInstance().getImageLoader();
+
+            categoryField = categoryFields.get(position);
+            holder.name.setText(categoryField.getName());
+            holder.imageField.setImageUrl(categoryField.getImage(), imageLoader);
+//        }
     }
 
     @Override

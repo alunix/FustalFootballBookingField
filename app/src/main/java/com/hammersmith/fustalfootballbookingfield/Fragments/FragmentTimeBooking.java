@@ -331,7 +331,7 @@ public class FragmentTimeBooking extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    Fragment fragment = new FragmentCalendarBooking();
+                    Fragment fragment = new FragmentCustomCalendar();
                     Bundle bundle = new Bundle();
                     bundle.putString("title", title);
                     bundle.putString("field", field);

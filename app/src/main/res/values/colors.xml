@@ -37,7 +37,15 @@
     <item name="green" type="color">#4499CC00</item>
     <item name="darkgreen" type="color">#FF669900</item>
     <item name="bgBooking" type="color">#df053f</item>
-    <item name="bgUnChecked" type="color">#87ff7f</item>
+    <item name="bgUnChecked" type="color">#0fa728</item>
 
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="off_white">#FAFAFA</color>
+    <color name="background">#E0E0E0</color>
+    <color name="indigo">#3F51B5</color>
+    <color name="blue">#03A7E9</color>
+    <color name="pink">#f7d6f6</color>
 
 </resources>
