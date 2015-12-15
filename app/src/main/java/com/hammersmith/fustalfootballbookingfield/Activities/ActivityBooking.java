@@ -85,9 +85,8 @@ public class ActivityBooking extends AppCompatActivity {
 
         Bundle bundle = this.getIntent().getExtras();
         field = bundle.getInt("ID");
-        Toast.makeText(getApplication(),field+"",Toast.LENGTH_SHORT).show();
 
-        typeface = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Sports EA Sports.ttf");
+        typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Sports EA Sports.ttf");
 
         mCollapsingToolBarLayout.setExpandedTitleTypeface(typeface);
         mCollapsingToolBarLayout.setTitle(title);

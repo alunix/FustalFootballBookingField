@@ -31,7 +31,7 @@ import java.util.Random;
 public class FragmentCustomCalendar extends Fragment{
     CustomCalendarView calendarView;
     CalendarView calendar;
-    String str, fields;
+    String catField, fields;
     TextView textView;
     @Nullable
     @Override
@@ -40,9 +40,10 @@ public class FragmentCustomCalendar extends Fragment{
 
         textView = (TextView) rootView.findViewById(R.id.typeField);
         final String title = getArguments().getString("title");
+        catField = title;
         final String field = getArguments().getString("field");
+        final int id = getArguments().getInt("ID");
         fields = field;
-        str = title;
 
         calendarView = (CustomCalendarView) rootView.findViewById(R.id.calendar_view);
         Calendar currentCalendar = Calendar.getInstance(Locale.getDefault());
@@ -53,14 +54,17 @@ public class FragmentCustomCalendar extends Fragment{
             @Override
             public void onDateSelected(Date date) {
                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-                Toast.makeText(getActivity(), df.format(date), Toast.LENGTH_SHORT).show();
+                SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
 
                 Fragment fragment = new FragmentTimeBooking();
 
                 Bundle bundle = new Bundle();
                 bundle.putString("dateBooking", df.format(date));
-                bundle.putString("title", str);
+                bundle.putString("dayBooking", id + "/" + df1.format(date));
+                bundle.putString("title", catField);
                 bundle.putString("field", fields);
+                bundle.putInt("ID", id);
+
                 fragment.setArguments(bundle);
 
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -83,7 +87,7 @@ public class FragmentCustomCalendar extends Fragment{
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     Fragment fragment = new FragmentSmall();
                     Bundle bundle = new Bundle();
-                    bundle.putString("title", str);
+                    bundle.putString("title", catField);
                     bundle.putString("field", fields);
                     fragment.setArguments(bundle);
 

@@ -69,7 +69,6 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         strTypeField = getArguments().getString("field");
         catField = getArguments().getString("title");
         typeField.setText(catField);
-        Toast.makeText(getActivity(),strTypeField+"",Toast.LENGTH_SHORT).show();
 
         if (fieldDetails.size() <= 0) {
             // Creating volley request obj
@@ -132,6 +131,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         Bundle bundle = new Bundle();
         bundle.putString("title", catField);
         bundle.putString("field", strTypeField);
+        bundle.putInt("ID",id[position]);
         fragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();

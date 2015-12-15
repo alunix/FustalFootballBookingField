@@ -21,7 +21,7 @@ public class FragmentBooking extends Fragment {
     String dateBooking;
     String date;
     TextView title;
-    String fields, titles, days;
+    String fields, catField, days;
     public static TextView textDate, textTime, textField;
 
 
@@ -46,10 +46,14 @@ public class FragmentBooking extends Fragment {
 
         String title = getArguments().getString("title");
         textField.setText(title);
-        titles = title;
+        catField = title;
 
         String field = getArguments().getString("field");
         fields = field;
+
+        final String dayBooking = getArguments().getString("dayBooking");
+
+        final int id = getArguments().getInt("ID");
 
         button = (Button) view.findViewById(R.id.btnBooking);
         button.setOnClickListener(new View.OnClickListener() {
@@ -67,10 +71,12 @@ public class FragmentBooking extends Fragment {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     Fragment fragment = new FragmentTimeBooking();
                     Bundle bundle = new Bundle();
-                    bundle.putString("title", titles);
+                    bundle.putString("title", catField);
                     bundle.putString("field", fields);
                     bundle.putString("dateBooking", days);
                     bundle.putString("timeBooking",time);
+                    bundle.putString("dayBooking",dayBooking);
+                    bundle.putInt("ID",id);
                     fragment.setArguments(bundle);
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
