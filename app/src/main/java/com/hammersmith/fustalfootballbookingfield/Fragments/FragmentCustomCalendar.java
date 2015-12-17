@@ -56,7 +56,7 @@ public class FragmentCustomCalendar extends Fragment{
                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
                 SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
 
-                Fragment fragment = new FragmentTimeBooking();
+                Fragment fragment = new FragmentTime();
 
                 Bundle bundle = new Bundle();
                 bundle.putString("dateBooking", df.format(date));

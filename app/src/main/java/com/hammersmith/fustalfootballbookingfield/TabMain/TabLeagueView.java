@@ -29,7 +29,7 @@ public class TabLeagueView extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View leagueView = inflater.inflate(R.layout.tab_league_view, container, false);
+        View leagueView = inflater.inflate(R.layout.custom_league_view, container, false);
         WebView viewLeague = (WebView) leagueView.findViewById(R.id.webView);
 
         url = getArguments().getString("url");

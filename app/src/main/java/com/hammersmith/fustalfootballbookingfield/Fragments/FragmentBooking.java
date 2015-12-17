@@ -69,7 +69,7 @@ public class FragmentBooking extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-                    Fragment fragment = new FragmentTimeBooking();
+                    Fragment fragment = new FragmentTime();
                     Bundle bundle = new Bundle();
                     bundle.putString("title", catField);
                     bundle.putString("field", fields);

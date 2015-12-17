@@ -20,5 +20,37 @@
     <string name="title_activity_team_football">TeamFootball</string>
     <string name="title_activity_team_group">TeamGroup</string>
     <string name="search_hint">Search</string>
+    <string name="time6">6 To 7 AM</string>
+    <string name="time7">7 To 8 AM</string>
+    <string name="time8">8 To 9 AM</string>
+    <string name="time9">9 To 10 AM</string>
+    <string name="time10">10 To 11 AM</string>
+    <string name="time11">11 To 12 AM</string>
+    <string name="time12">12 To 1 PM</string>
+    <string name="time13">1 To 2 PM</string>
+    <string name="time14">2 To 3 PM</string>
+    <string name="time15">3 To 4 PM</string>
+    <string name="time16">4 To 5 PM</string>
+    <string name="time17">5 To 6 PM</string>
+    <string name="time18">6 To 7 PM</string>
+    <string name="time19">7 To 8 PM</string>
+    <string name="time20">8 To 9 PM</string>
+    <string name="time21">9 To 10 PM</string>
+    <string name="book6">Available Booking</string>
+    <string name="book7">Available Booking</string>
+    <string name="book8">Available Booking</string>
+    <string name="book9">Available Booking</string>
+    <string name="book10">Available Booking</string>
+    <string name="book11">Available Booking</string>
+    <string name="book12">Available Booking</string>
+    <string name="book13">Available Booking</string>
+    <string name="book14">Available Booking</string>
+    <string name="book15">Available Booking</string>
+    <string name="book16">Available Booking</string>
+    <string name="book17">Available Booking</string>
+    <string name="book18">Available Booking</string>
+    <string name="book19">Available Booking</string>
+    <string name="book20">Available Booking</string>
+    <string name="book21">Available Booking</string>
 
 </resources>

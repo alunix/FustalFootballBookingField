@@ -39,7 +39,9 @@
             </LinearLayout>
 
             <LinearLayout
-                android:background="#90ffffff"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="#bef0f9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -65,20 +67,41 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="bottom"
                     android:orientation="vertical">
 
+                    <!--<TextView-->
+                        <!--android:layout_width="100dp"-->
+                        <!--android:layout_height="28dp"-->
+                        <!--android:layout_marginLeft="5dp"-->
+                        <!--android:layout_marginRight="5dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:background="@drawable/button_radius_blue"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="Show all Field"-->
+                        <!--android:textColor="#fff"-->
+                        <!--android:textStyle="bold" />-->
+                    <!--<TextView-->
+                        <!--android:layout_marginRight="5dp"-->
+                        <!--android:gravity="center"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:text="Tel : 096 2008 259"-->
+                        <!--android:background="#50ffffff"-->
+                        <!--android:layout_marginTop="10dp"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:layout_height="0dp" />-->
                     <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="28dp"
-                        android:layout_marginLeft="5dp"
+                        android:textSize="14sp"
                         android:layout_marginRight="5dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/button_radius_blue"
                         android:gravity="center"
-                        android:text="Show all Field"
                         android:textColor="#fff"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:text="Show field detail..."
+                        android:background="@drawable/button_radius_blue"
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp" />
 
 
                 </LinearLayout>

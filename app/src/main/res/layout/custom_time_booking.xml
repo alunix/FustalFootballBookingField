@@ -18,15 +18,15 @@
 
             <TextView
                 android:id="@+id/timeBooking"
-                android:textSize="12sp"
-                android:textColor="#ff2323"
-                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="#000"
+                android:textStyle="normal"
                 android:layout_marginTop="2dp"
                 android:text="6 To 7 AM"
                 android:gravity="center"
-                android:background="#fdff83"
+                android:background="#bef0f9"
                 android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                android:layout_height="30dp" />
 
         </LinearLayout>
         <LinearLayout
@@ -39,15 +39,15 @@
 
             <TextView
                 android:id="@+id/time6to7am"
-                android:textStyle="bold"
-                android:textColor="#fff"
+                android:textStyle="normal"
+                android:textColor="#000"
                 android:textSize="14sp"
                 android:text="Available Booking"
                 android:layout_marginTop="2dp"
                 android:gravity="center"
-                android:background="#0fa728"
+                android:background="#bef0f9"
                 android:layout_width="match_parent"
-                android:layout_height="25dp" />
+                android:layout_height="30dp" />
 
         </LinearLayout>
 
