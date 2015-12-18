@@ -34,27 +34,19 @@ public class FragmentBooking extends Fragment {
         textField = (TextView) view.findViewById(R.id.txtfield);
         textTime = (TextView) view.findViewById(R.id.txttime);
         title = (TextView) view.findViewById(R.id.title);
-
         String day = getArguments().getString("dateBooking");
-
         final String time = getArguments().getString("timeBooking");
         textTime.setText(time);
-
         String date = getArguments().getString("date");
         days = date;
         textDate.setText(date);
-
         String title = getArguments().getString("title");
         textField.setText(title);
         catField = title;
-
         String field = getArguments().getString("field");
         fields = field;
-
         final String dayBooking = getArguments().getString("dayBooking");
-
         final int id = getArguments().getInt("ID");
-
         button = (Button) view.findViewById(R.id.btnBooking);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
