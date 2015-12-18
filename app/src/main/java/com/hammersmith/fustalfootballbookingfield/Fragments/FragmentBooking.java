@@ -28,7 +28,7 @@ public class FragmentBooking extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_booking, container, false);
+        View view = inflater.inflate(R.layout.fragment_booking_field, container, false);
 
         textDate = (TextView) view.findViewById(R.id.txtday);
         textField = (TextView) view.findViewById(R.id.txtfield);

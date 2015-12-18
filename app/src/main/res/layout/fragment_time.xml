@@ -81,7 +81,7 @@
                             android:layout_height="35dp"
                             android:background="#df053f"
                             android:gravity="center"
-                            android:text="12/10/2015"
+                            android:text="00/00/2015"
                             android:textColor="#fff"
                             android:textSize="16sp"
                             android:textStyle="bold" />
