@@ -1,13 +1,20 @@
 package com.hammersmith.fustalfootballbookingfield.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.League;
 
 import java.util.ArrayList;
@@ -16,42 +23,38 @@ import java.util.List;
 /**
  * Created by USER on 12/3/2015.
  */
-public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHolder>{
+public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHolder> {
     private ClickListener clickListener;
     List<League> leagues;
     Context context;
+    League league;
+    Activity activity;
+    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
 
-    public AdapterLeague(){
-        super();
-        leagues = new ArrayList<League>();
-        League league = new League();
-        league.setImage(R.drawable.logofield);
-        leagues.add(league);
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        NetworkImageView imageLeague;
+        TextView title;
+        CardView cv;
 
-        league = new League();
-        league.setImage(R.drawable.league);
-        leagues.add(league);
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            cv = (CardView) itemView.findViewById(R.id.cv);
+            imageLeague = (NetworkImageView) itemView.findViewById(R.id.imageLeague);
+            itemView.setClickable(true);
+            itemView.setOnClickListener(this);
+        }
 
-        league = new League();
-        league.setImage(R.drawable.germanyleague);
-        leagues.add(league);
+        @Override
+        public void onClick(View v) {
+            if (clickListener != null) {
+                clickListener.itemClicked(v, getLayoutPosition());
+            }
+        }
+    }
 
-        league = new League();
-        league.setImage(R.drawable.italyleague);
-        leagues.add(league);
-
-        league = new League();
-        league.setImage(R.drawable.championleagues);
-        leagues.add(league);
-
-        league = new League();
-        league.setImage(R.drawable.footballleague);
-        leagues.add(league);
-
-        league = new League();
-        league.setImage(R.drawable.cambodialeague);
-        leagues.add(league);
-
+    public AdapterLeague(Activity activity, List<League> leagues) {
+        this.activity = activity;
+        this.leagues = leagues;
     }
 
     @Override
@@ -61,11 +64,13 @@ public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHold
         return myViewHolder;
     }
 
-
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        League league = leagues.get(position);
-        holder.imageView.setImageResource(league.getImage());
+        if(imageLoader == null)
+            imageLoader = AppController.getInstance().getImageLoader();
+            league = leagues.get(position);
+            holder.imageLeague.setImageUrl(league.getImage(), imageLoader);
+//        holder.title.setText(league.getTitle());
 
     }
 
@@ -74,29 +79,16 @@ public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHold
         return leagues.size();
     }
 
-    public interface ClickListener{
+    public interface ClickListener {
         public void itemClicked(View view, int position);
     }
-    public void setClickListener(ClickListener clickListener){
+
+    public void setClickListener(ClickListener clickListener) {
         this.clickListener = clickListener;
     }
-    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        ImageView imageView;
 
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.imageLeague);
-            itemView.setClickable(true);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (clickListener != null) {
-                clickListener.itemClicked(v, getLayoutPosition());
-//                Toast.makeText(context,"Item "+getPosition(),Toast.LENGTH_SHORT).show();
-
-            }
-        }
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
 }

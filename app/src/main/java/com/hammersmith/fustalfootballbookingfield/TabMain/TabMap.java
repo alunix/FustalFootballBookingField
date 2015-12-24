@@ -19,25 +19,18 @@ import com.google.android.gms.maps.SupportMapFragment;
 /**
  * Created by USER on 10/1/2015.
  */
-public class TabMap extends Fragment implements OnMapReadyCallback {
+public class TabMap extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_map, container, false);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMap();
-        mapFragment.getMapAsync(this);
+//        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+//        mapFragment.getMap();
+//        mapFragment.getMapAsync(this);
 
         return view;
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        LatLng latLng = new LatLng(11.5500, 104.9167);
-        googleMap.setMyLocationEnabled(true);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
-        googleMap.addMarker(new MarkerOptions().title("My Location").snippet("Google Map").position(latLng));
-        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-    }
+
 }
 

@@ -132,6 +132,7 @@ public class FragmentTime extends Fragment {
 
                             if (timeBooking6.getText().equals(timeBook)) {
                                 time6.setText("Booked");
+                                time6.setTextColor(getResources().getColor(R.color.white));
                                 time6.setEnabled(false);
                                 time6.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {

@@ -143,6 +143,7 @@ public class ActivityBooking extends AppCompatActivity {
                                 categoryField = new CategoryField();
                                 categoryField.setName(obj.getString("name"));
                                 categoryField.setImage(Constant.URL_HOME + obj.getString("path"));
+                                Toast.makeText(getActivity(),obj.getString("path"),Toast.LENGTH_SHORT).show();
                                 id[i] = obj.getInt("id");
                                 title[i] = obj.getString("name");
                                 categoryFields.add(categoryField);
