@@ -132,10 +132,11 @@ public class FragmentTime extends Fragment {
 
                             if (timeBooking6.getText().equals(timeBook)) {
                                 time6.setText("Booked");
+                                time6.setBackgroundColor(getResources().getColor(R.color.red));
                                 time6.setTextColor(getResources().getColor(R.color.white));
                                 time6.setEnabled(false);
-                                time6.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time6.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time6.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -158,9 +159,11 @@ public class FragmentTime extends Fragment {
 
                             if (timeBooking7.getText().equals(timeBook)) {
                                 time7.setText("Booked");
+                                time7.setTextColor(getResources().getColor(R.color.white));
                                 time7.setEnabled(false);
                                 time7.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time7.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time7.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -182,10 +185,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking8.getText().equals(timeBook)) {
+                                time8.setTextColor(getResources().getColor(R.color.white));
                                 time8.setText("Booked");
                                 time8.setEnabled(false);
                                 time8.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time8.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time8.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -209,9 +214,11 @@ public class FragmentTime extends Fragment {
 
                             if (timeBooking9.getText().equals(timeBook)) {
                                 time9.setText("Booked");
+                                time9.setTextColor(getResources().getColor(R.color.white));
                                 time9.setEnabled(false);
                                 time9.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time9.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time9.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -234,10 +241,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking10.getText().equals(timeBook)) {
+                                time10.setTextColor(getResources().getColor(R.color.white));
                                 time10.setText("Booked");
                                 time10.setEnabled(false);
                                 time10.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time10.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time10.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -260,10 +269,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking11.getText().equals(timeBook)) {
+                                time11.setTextColor(getResources().getColor(R.color.white));
                                 time11.setText("Booked");
                                 time11.setEnabled(false);
                                 time11.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time11.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time11.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -287,9 +298,11 @@ public class FragmentTime extends Fragment {
 
                             if (timeBooking12.getText().equals(timeBook)) {
                                 time12.setText("Booked");
+                                time12.setTextColor(getResources().getColor(R.color.white));
                                 time12.setEnabled(false);
                                 time12.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time12.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time12.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -312,10 +325,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking13.getText().equals(timeBook)) {
+                                time13.setTextColor(getResources().getColor(R.color.white));
                                 time13.setText("Booked");
                                 time13.setEnabled(false);
                                 time13.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time13.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time13.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -338,10 +353,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking14.getText().equals(timeBook)) {
+                                time14.setTextColor(getResources().getColor(R.color.white));
                                 time14.setText("Booked");
                                 time14.setEnabled(false);
                                 time14.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time14.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time14.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -364,10 +381,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking15.getText().equals(timeBook)) {
+                                time15.setTextColor(getResources().getColor(R.color.white));
                                 time15.setText("Booked");
                                 time15.setEnabled(false);
                                 time15.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time15.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time15.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -392,8 +411,10 @@ public class FragmentTime extends Fragment {
                             if (timeBooking16.getText().equals(timeBook)) {
                                 time16.setText("Booked");
                                 time16.setEnabled(false);
+                                time16.setTextColor(getResources().getColor(R.color.white));
                                 time16.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time16.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time16.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -416,10 +437,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking17.getText().equals(timeBook)) {
+                                time17.setTextColor(getResources().getColor(R.color.white));
                                 time17.setText("Booked");
                                 time17.setEnabled(false);
                                 time17.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time17.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time17.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -442,10 +465,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking18.getText().equals(timeBook)) {
+//                                time18.setTextColor(getResources().getColor(R.color.white));
                                 time18.setText("Booked");
                                 time18.setEnabled(false);
                                 time18.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+                                time18.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time18.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -468,10 +493,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking19.getText().equals(timeBook)) {
+                                time19.setTextColor(getResources().getColor(R.color.white));
                                 time19.setText("Booked");
                                 time19.setEnabled(false);
                                 time19.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time19.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time19.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -494,10 +521,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking20.getText().equals(timeBook)) {
+                                time20.setTextColor(getResources().getColor(R.color.white));
                                 time20.setText("Booked");
                                 time20.setEnabled(false);
                                 time20.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time20.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time20.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -520,10 +549,12 @@ public class FragmentTime extends Fragment {
                             }
 
                             if (timeBooking21.getText().equals(timeBook)) {
+                                time21.setTextColor(getResources().getColor(R.color.white));
                                 time21.setText("Booked");
                                 time21.setEnabled(false);
                                 time21.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
+//                                time21.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time21.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -549,7 +580,6 @@ public class FragmentTime extends Fragment {
                             e.printStackTrace();
                         }
                     }
-//                    adapter.notifyDataSetChanged();
                 }
             }, new Response.ErrorListener() {
                 @Override

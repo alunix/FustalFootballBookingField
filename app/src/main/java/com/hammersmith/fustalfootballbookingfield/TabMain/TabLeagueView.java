@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.hammersmith.fustalfootballbookingfield.R;
 
@@ -33,6 +34,7 @@ public class TabLeagueView extends Fragment {
         WebView viewLeague = (WebView) leagueView.findViewById(R.id.webView);
 
         url = getArguments().getString("url");
+        Toast.makeText(getContext(),url,Toast.LENGTH_SHORT).show();
         WebSettings settings = viewLeague.getSettings();
         settings.setJavaScriptEnabled(true);
         mProgress = ProgressDialog.show(getActivity(), "Loading",

@@ -104,6 +104,14 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
 
     @Override
     public void itemClicked(View view, int position) {
+        Fragment fragment = new TabLeagueView();
+        Bundle bundle = new Bundle();
+        bundle.putString("url","http://news.sabay.com.kh/article/574306");
+        fragment.setArguments(bundle);
+
+        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.addToBackStack(null);
+        transaction.replace(R.id.layoutLeague, fragment).commit();
 
     }
 
