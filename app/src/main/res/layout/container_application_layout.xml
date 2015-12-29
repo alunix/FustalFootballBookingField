@@ -14,7 +14,7 @@
         app:iconifiedByDefault="false"
         android:iconifiedByDefault="false"
         android:visibility="visible"
-        android:background="#df053f"/>
+        android:background="@color/bgheader"/>
 
     <FrameLayout
         android:id="@+id/continer_framelayout"

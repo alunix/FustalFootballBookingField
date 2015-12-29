@@ -25,7 +25,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="#df053f"
+                android:background="#F50057"
                 android:orientation="vertical">
 
                 <TextView
@@ -345,17 +345,17 @@
 
                     <Button
                         android:id="@+id/btnBooking"
-                        android:layout_width="100dp"
-                        android:layout_height="28dp"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="0dp"
                         android:layout_marginTop="0dp"
-                        android:background="@drawable/button_radius_blue"
+                        android:background="@drawable/bgheadertimebook"
                         android:text="Booking Now"
                         android:textAllCaps="false"
                         android:textColor="#fff"
                         android:textSize="14sp"
-                        android:textStyle="normal" />
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 

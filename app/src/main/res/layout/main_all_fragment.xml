@@ -13,13 +13,12 @@
         <!--android:layout_width="match_parent"-->
         <!--/>-->
 
-m
-
     <com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText
         android:layout_gravity="bottom"
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/bgheader"
         android:elevation="2dp"
         />
 

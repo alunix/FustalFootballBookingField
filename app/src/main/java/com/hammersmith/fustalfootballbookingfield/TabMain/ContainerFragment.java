@@ -39,8 +39,7 @@ public class ContainerFragment extends Fragment {
 
         pager = (ViewPager) view.findViewById(R.id.pager);
         tabs = (SlidingTabLayoutText) view.findViewById(R.id.tabs);
-        tabs.setTabBackgroundColor(getResources().getColor(R.color.selectors));
-        //tabs.setSelectedIndicatorColors(getResources().getColor(R.color.selectors));
+//        tabs.setTabBackgroundColor(getResources().getColor(R.color.selectors));
         tabs.setCustomTabView(R.layout.custom_tab_text, R.id.textCustomTab);
         // TextView textView = (TextView) view.findViewById(R.id.textCustomTab);
         //textView.setTypeface(fontFace);

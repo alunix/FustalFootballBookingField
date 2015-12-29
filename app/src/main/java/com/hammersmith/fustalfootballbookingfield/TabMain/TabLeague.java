@@ -38,6 +38,7 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
     LinearLayoutManager mLayoutManager;
     AdapterLeague mAdapter;
     int[] id;
+    String[] url;
     List<League> leagues = new ArrayList<>();
     League league;
     @Nullable
@@ -59,15 +60,15 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
                 @Override
                 public void onResponse(JSONArray jsonArray) {
                     id = new int[jsonArray.length()];
+                    url = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++) {
                         try {
                             JSONObject obj = jsonArray.getJSONObject(i);
                             league = new League();
                             league.setImage(Constant.URL_HOME + obj.getString("image_path"));
-//                            league.setTitle(obj.getString("title"));
                             id[i] = obj.getInt("id");
+                            url[i] = obj.getString("url");
                             leagues.add(league);
-//                            Toast.makeText(getActivity(),Constant.URL_HOME+obj.getString("image_path"),Toast.LENGTH_SHORT).show();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -106,7 +107,7 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
     public void itemClicked(View view, int position) {
         Fragment fragment = new TabLeagueView();
         Bundle bundle = new Bundle();
-        bundle.putString("url","http://news.sabay.com.kh/article/574306");
+        bundle.putString("url",url[position]);
         fragment.setArguments(bundle);
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();

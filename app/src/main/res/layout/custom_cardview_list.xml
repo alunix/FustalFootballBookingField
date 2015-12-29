@@ -83,7 +83,7 @@
                             android:id="@+id/bookingfield"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#90ac0030"
+                            android:background="#90f71d5a"
                             android:gravity="center"
                             android:padding="10dp"
                             android:text="Booking"
