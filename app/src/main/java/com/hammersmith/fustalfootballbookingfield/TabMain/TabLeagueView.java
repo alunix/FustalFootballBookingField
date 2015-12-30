@@ -67,6 +67,7 @@ public class TabLeagueView extends Fragment {
                     Fragment fragment = new TabLeague();
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
                     fragmentTransaction.replace(R.id.layoutLeagueView,fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();

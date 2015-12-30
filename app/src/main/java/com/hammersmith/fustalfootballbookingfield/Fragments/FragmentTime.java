@@ -108,7 +108,7 @@ public class FragmentTime extends Fragment {
         dayBooking.setText(day);
         final String dayBookToService = getArguments().getString("dayBooking");
         dayBookingService = dayBookToService;
-        Toast.makeText(getActivity(),dayBookingService,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), dayBookingService, Toast.LENGTH_SHORT).show();
         final String title = getArguments().getString("title");
         catField = title;
         final String field = getArguments().getString("field");
@@ -129,6 +129,472 @@ public class FragmentTime extends Fragment {
                             time.setTime(obj.getString("time"));
                             timeBook = titles[i] = obj.getString("time");
                             times.add(time);
+
+//                            if (timeBooking6.getText().equals(timeBook)) {
+//                                time6.setText("Booked");
+//                                time6.setBackgroundColor(getResources().getColor(R.color.red));
+//                                time6.setTextColor(getResources().getColor(R.color.white));
+//                                time6.setEnabled(false);
+//
+//                                if (!timeBooking6.getText().equals(timeBook)) {
+//                                    time6.setEnabled(true);
+//                                    time6.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time6.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook6);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking7.getText().equals(timeBook)) {
+//                                time7.setText("Booked");
+//                                time7.setTextColor(getResources().getColor(R.color.white));
+//                                time7.setEnabled(false);
+//                                time7.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking7.getText().equals(timeBook)) {
+//                                    time7.setEnabled(true);
+//                                    time7.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time7.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook7);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking8.getText().equals(timeBook)) {
+//                                time8.setTextColor(getResources().getColor(R.color.white));
+//                                time8.setText("Booked");
+//                                time8.setEnabled(false);
+//                                time8.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking8.getText().equals(timeBook)) {
+//                                    time8.setEnabled(true);
+//                                    time8.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time8.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook8);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking9.getText().equals(timeBook)) {
+//                                time9.setTextColor(getResources().getColor(R.color.white));
+//                                time9.setText("Booked");
+//                                time9.setEnabled(false);
+//                                time9.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking9.getText().equals(timeBook)) {
+//                                    time9.setEnabled(true);
+//                                    time9.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time9.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook9);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking10.getText().equals(timeBook)) {
+//                                time10.setTextColor(getResources().getColor(R.color.white));
+//                                time10.setText("Booked");
+//                                time10.setEnabled(false);
+//                                time10.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking10.getText().equals(timeBook)) {
+//                                    time10.setEnabled(true);
+//                                    time10.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time10.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook10);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking11.getText().equals(timeBook)) {
+//                                time11.setTextColor(getResources().getColor(R.color.white));
+//                                time11.setText("Booked");
+//                                time11.setEnabled(false);
+//                                time11.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking11.getText().equals(timeBook)) {
+//                                    time11.setEnabled(true);
+//                                    time11.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time11.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook11);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking12.getText().equals(timeBook)) {
+//                                time12.setTextColor(getResources().getColor(R.color.white));
+//                                time12.setText("Booked");
+//                                time12.setEnabled(false);
+//                                time12.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking12.getText().equals(timeBook)) {
+//                                    time12.setEnabled(true);
+//                                    time12.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time12.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook12);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking13.getText().equals(timeBook)) {
+//                                time13.setTextColor(getResources().getColor(R.color.white));
+//                                time13.setText("Booked");
+//                                time13.setEnabled(false);
+//                                time13.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking13.getText().equals(timeBook)) {
+//                                    time13.setEnabled(true);
+//                                    time13.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time13.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook13);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking14.getText().equals(timeBook)) {
+//                                time14.setTextColor(getResources().getColor(R.color.white));
+//                                time14.setText("Booked");
+//                                time14.setEnabled(false);
+//                                time14.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking14.getText().equals(timeBook)) {
+//                                    time14.setEnabled(true);
+//                                    time14.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time14.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook14);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking15.getText().equals(timeBook)) {
+//                                time15.setTextColor(getResources().getColor(R.color.white));
+//                                time15.setText("Booked");
+//                                time15.setEnabled(false);
+//                                time15.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking15.getText().equals(timeBook)) {
+//                                    time15.setEnabled(true);
+//                                    time15.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time15.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook15);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking16.getText().equals(timeBook)) {
+//                                time16.setTextColor(getResources().getColor(R.color.white));
+//                                time16.setText("Booked");
+//                                time16.setEnabled(false);
+//                                time16.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking16.getText().equals(timeBook)) {
+//                                    time16.setEnabled(true);
+//                                    time16.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time16.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook16);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking17.getText().equals(timeBook)) {
+//                                time17.setTextColor(getResources().getColor(R.color.white));
+//                                time17.setText("Booked");
+//                                time17.setEnabled(false);
+//                                time17.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking17.getText().equals(timeBook)) {
+//                                    time17.setEnabled(true);
+//                                    time17.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time17.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook17);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking19.getText().equals(timeBook)) {
+//                                time19.setTextColor(getResources().getColor(R.color.white));
+//                                time19.setText("Booked");
+//                                time19.setEnabled(false);
+//                                time19.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking19.getText().equals(timeBook)) {
+//                                    time19.setEnabled(true);
+//                                    time19.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time19.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook19);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking20.getText().equals(timeBook)) {
+//                                time20.setTextColor(getResources().getColor(R.color.white));
+//                                time20.setText("Booked");
+//                                time20.setEnabled(false);
+//                                time20.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking20.getText().equals(timeBook)) {
+//                                    time20.setEnabled(true);
+//                                    time20.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time20.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook20);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            } else if (timeBooking21.getText().equals(timeBook)) {
+//                                time21.setTextColor(getResources().getColor(R.color.white));
+//                                time21.setText("Booked");
+//                                time21.setEnabled(false);
+//                                time21.setBackgroundColor(getResources().getColor(R.color.red));
+//
+//                                if (!timeBooking21.getText().equals(timeBook)) {
+//                                    time21.setEnabled(true);
+//                                    time21.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                    time21.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//
+//                                            Fragment fragment = new FragmentBooking();
+//                                            Bundle bundle = new Bundle();
+//                                            bundle.putString("timeBooking", timeBook21);
+//                                            bundle.putString("date", bookingDay);
+//                                            bundle.putString("title", catField);
+//                                            bundle.putString("field", fieldBooking);
+//                                            bundle.putString("dayBooking", dayBookingService);
+//                                            bundle.putInt("ID", ids);
+//                                            fragment.setArguments(bundle);
+//
+//                                            FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+//                                            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                                            fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
+//                                            fragmentTransaction.addToBackStack(null);
+//                                            fragmentTransaction.commit();
+//                                        }
+//                                    });
+//                                }
+//                            }
+
 
                             if (timeBooking6.getText().equals(timeBook)) {
                                 time6.setText("Booked");
@@ -151,8 +617,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -178,8 +646,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -206,8 +676,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -234,8 +706,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -262,8 +736,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -290,8 +766,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -318,8 +796,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -346,8 +826,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -374,8 +856,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -402,8 +886,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -430,8 +916,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -458,19 +946,21 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
 
                             if (timeBooking18.getText().equals(timeBook)) {
-//                                time18.setTextColor(getResources().getColor(R.color.white));
+                                time18.setTextColor(getResources().getColor(R.color.white));
                                 time18.setText("Booked");
                                 time18.setEnabled(false);
                                 time18.setBackgroundColor(getResources().getColor(R.color.red));
                             } else {
-                                time18.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
+//                                time18.setBackgroundColor(getResources().getColor(R.color.bookAvailable));
                                 time18.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -486,8 +976,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -514,8 +1006,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -542,8 +1036,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -570,8 +1066,10 @@ public class FragmentTime extends Fragment {
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                                        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment);
                                         fragmentTransaction.addToBackStack(null);
-                                        fragmentTransaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                                        fragmentTransaction.commit();
                                     }
                                 });
                             }
@@ -606,8 +1104,10 @@ public class FragmentTime extends Fragment {
                     bundle.putString("title", catField);
                     fragment.setArguments(bundle);
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                    transaction.replace(R.id.layoutTimeBooking, fragment);
                     transaction.addToBackStack(null);
-                    transaction.replace(R.id.layoutTimeBooking, fragment).commit();
+                    transaction.commit();
                     return true;
                 } else {
                     return false;

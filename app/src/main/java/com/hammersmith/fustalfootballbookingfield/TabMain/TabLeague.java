@@ -111,8 +111,10 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
         fragment.setArguments(bundle);
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
+        transaction.replace(R.id.layoutLeague, fragment);
         transaction.addToBackStack(null);
-        transaction.replace(R.id.layoutLeague, fragment).commit();
+        transaction.commit();
 
     }
 

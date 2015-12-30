@@ -68,8 +68,10 @@ public class FragmentCustomCalendar extends Fragment{
                 fragment.setArguments(bundle);
 
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+                fragmentTransaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
+                fragmentTransaction.replace(R.id.layoutCalendarBooking, fragment);
                 fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.replace(R.id.layoutCalendarBooking, fragment).commit();
+                fragmentTransaction.commit();
             }
 
             @Override
@@ -92,8 +94,10 @@ public class FragmentCustomCalendar extends Fragment{
                     fragment.setArguments(bundle);
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
+                    transaction.replace(R.id.layoutCalendarBooking, fragment);
                     transaction.addToBackStack(null);
-                    transaction.replace(R.id.layoutCalendarBooking, fragment).commit();
+                    transaction.commit();
                     return true;
                 } else {
                     return false;

@@ -3,7 +3,6 @@ package com.hammersmith.fustalfootballbookingfield.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,12 +17,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
-import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
-import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeague;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerAdapterSmallField;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
-import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
 import com.hammersmith.fustalfootballbookingfield.model.FieldDetail;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 
@@ -56,7 +52,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_small, container, false);
+        View view = inflater.inflate(R.layout.fragment_field_detail, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -67,7 +63,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
 
         typeField = (TextView) view.findViewById(R.id.typeField);
         strTypeField = getArguments().getString("field");
-        Toast.makeText(getActivity(),strTypeField,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), strTypeField, Toast.LENGTH_SHORT).show();
         catField = getArguments().getString("title");
         typeField.setText(catField);
 
@@ -113,8 +109,10 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     Fragment fragment = new ActivityBooking.MyFragment();
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                    transaction.replace(R.id.layoutSmall, fragment);
                     transaction.addToBackStack(null);
-                    transaction.replace(R.id.layoutSmall, fragment).commit();
+                    transaction.commit();
 
                     return true;
                 } else {
@@ -132,13 +130,25 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         Bundle bundle = new Bundle();
         bundle.putString("title", catField);
         bundle.putString("field", strTypeField);
-        bundle.putInt("ID",id[position]);
+        bundle.putInt("ID", id[position]);
         fragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        fragmentTransaction.replace(R.id.layoutSmall, fragment);
         fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.replace(R.id.layoutSmall, fragment).commit();
+        fragmentTransaction.commit();
 
     }
-}
+    public void backToMyFragment(){
+        Toast.makeText(getActivity(),"hello",Toast.LENGTH_SHORT).show();
+//        if (getActivity().getCurrentFocus().getId() == R.id.layoutSmall) {
+//            Fragment fragment = new ActivityBooking.MyFragment();
+//            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+//            transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//            transaction.replace(R.id.layoutSmall, fragment);
+//            transaction.addToBackStack(null);
+//            transaction.commit();
+        }
 
+    }

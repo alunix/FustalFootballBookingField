@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 app:expandedTitleMarginStart="30dp"
                 app:expandedTitleTextAppearance="@style/HeaderTitleStyle"
-                app:contentScrim="@color/ColorToolbar"
+                app:contentScrim="@color/bgheader"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <com.android.volley.toolbox.NetworkImageView

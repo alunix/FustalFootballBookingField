@@ -22,7 +22,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:background="#df053f"
+                android:background="@color/bgheader"
                 android:orientation="vertical">
 
                 <TextView
@@ -312,6 +312,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time6"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -324,6 +325,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time7"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -336,6 +338,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time8"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -348,6 +351,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time9"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -360,6 +364,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time10"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -372,6 +377,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time11"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -384,6 +390,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time12"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -396,6 +403,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time13"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -408,6 +416,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time14"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -420,6 +429,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time15"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -432,6 +442,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time16"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -444,6 +455,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time17"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -456,6 +468,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time18"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -468,6 +481,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time19"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -480,6 +494,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time20"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
@@ -492,6 +507,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:clickable="true"
                             android:id="@+id/time21"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"

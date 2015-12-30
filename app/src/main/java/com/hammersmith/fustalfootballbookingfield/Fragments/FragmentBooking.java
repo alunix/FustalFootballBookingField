@@ -67,13 +67,15 @@ public class FragmentBooking extends Fragment {
                     bundle.putString("field", fields);
                     bundle.putString("dateBooking", days);
                     bundle.putString("timeBooking",time);
-                    bundle.putString("dayBooking",dayBooking);
-                    bundle.putInt("ID",id);
+                    bundle.putString("dayBooking", dayBooking);
+                    bundle.putInt("ID", id);
                     fragment.setArguments(bundle);
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                    transaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
+                    transaction.replace(R.id.layoutBooking, fragment);
                     transaction.addToBackStack(null);
-                    transaction.replace(R.id.layoutBooking, fragment).commit();
+                    transaction.commit();
                     return true;
                 } else {
                     return false;
