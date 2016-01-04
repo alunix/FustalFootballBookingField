@@ -15,6 +15,7 @@
 
     <com.hammersmith.fustalfootballbookingfield.widget.SlidingTabLayoutText
         android:layout_gravity="bottom"
+        android:background="@color/ColorPrimary"
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="50dp"

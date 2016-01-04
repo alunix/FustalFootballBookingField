@@ -27,6 +27,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.hammersmith.fustalfootballbookingfield.BuildConfig;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.model.User;
+import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +37,7 @@ import java.util.Arrays;
 
 import static com.hammersmith.fustalfootballbookingfield.R.id.login_button;
 import static com.hammersmith.fustalfootballbookingfield.R.id.logout;
+import static com.hammersmith.fustalfootballbookingfield.R.id.useLogo;
 
 /**
  * Created by minea2015 on 11/18/2015.
@@ -54,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
     private AccessToken accessToken;
     ProfileTracker profileTracker;
     private GraphResponse response;
+    User user;
 
 
     public static final String FACEBOOK_ID = "facebookId";
@@ -73,8 +77,8 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
         setContentView(R.layout.activity_register);
         callbackManager = CallbackManager.Factory.create();
 
-        Profile profile = Profile.getCurrentProfile();
-        if (profile!=null){
+
+        if (PrefUtils.getCurrentUser(RegisterActivity.this)!=null){
             Intent home = new Intent(RegisterActivity.this,ContainerApplication.class);
             startActivity(home);
             finish();
@@ -100,19 +104,19 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
 
     private void setProfileToview(JSONObject object) {
             try {
+
                 if (object!=null){
-                    fbId = object.getString("id");
-                    fullname = object.getString("name");
-                    email = object.getString("email");
-                    gender = object.getString("gender");
+                    user = new User();
+                    user.facebookID = object.getString("id");
+                    user.name = object.getString("name");
+                    user.email = object.getString("email");
+                    user.gender = object.getString("gender");
+                    PrefUtils.setCurrentUser(user,RegisterActivity.this);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         Intent main = new Intent(RegisterActivity.this,ContainerApplication.class);
-        main.putExtra(FACEBOOK_ID,fbId);
-        main.putExtra(FULL_NAME,fullname);
-        main.putExtra(EMAIL,email);
         startActivity(main);
         finish();
     }

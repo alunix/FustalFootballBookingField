@@ -39,6 +39,8 @@ import com.hammersmith.fustalfootballbookingfield.adapter.MyAdapter;
 import com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider;
 import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.model.User;
+import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 import com.hammersmith.fustalfootballbookingfield.widget.CircleTransform;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -83,6 +85,7 @@ public class ContainerApplication extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    User user;
 
 
 //    SearchView searchView;
@@ -93,6 +96,7 @@ public class ContainerApplication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_application_layout);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        user= PrefUtils.getCurrentUser(ContainerApplication.this);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Futsal Booking");
@@ -104,18 +108,18 @@ public class ContainerApplication extends AppCompatActivity {
         View header = LayoutInflater.from(this).inflate(R.layout.header, null);
         mNavigationView.addHeaderView(header);
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra(FragmentFb_Google.FULL_NAME);
-        String image_url = intent.getStringExtra(FragmentFb_Google.FACEBOOK_ID);
-        String email = intent.getStringExtra(FragmentFb_Google.EMAIL);
+//        Intent intent = getIntent();
+//        String name = intent.getStringExtra(user.name);
+//        String image_url = intent.getStringExtra(user.facebookID);
+//        String email = intent.getStringExtra(user.email);
 
 
         profile = (ImageView) header.findViewById(R.id.imgPro);
         txtName = (TextView) header.findViewById(R.id.txtPro);
         txtEmail = (TextView) header.findViewById(R.id.txtEmail);
-        txtName.setText(name);
-        txtEmail.setText(email);
-        Picasso.with(context).load("https://graph.facebook.com/" + image_url + "/picture?type=large").transform(new CircleTransform()).into(profile);
+        txtName.setText(user.name);
+        txtEmail.setText(user.email);
+        Picasso.with(context).load("https://graph.facebook.com/" + user.facebookID + "/picture?type=large").transform(new CircleTransform()).into(profile);
 
 
 
@@ -135,6 +139,7 @@ public class ContainerApplication extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.logout) {
                     FacebookSdk.sdkInitialize(getApplicationContext());
+                    PrefUtils.clearCurrentUser(ContainerApplication.this);
                     LoginManager.getInstance().logOut();
                     Intent intent = new Intent(ContainerApplication.this, RegisterActivity.class);
                     startActivity(intent);
