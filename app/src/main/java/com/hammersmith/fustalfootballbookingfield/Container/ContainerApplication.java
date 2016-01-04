@@ -93,6 +93,7 @@ public class ContainerApplication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_application_layout);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Futsal Booking");
 
