@@ -58,7 +58,6 @@ public class ActivityBooking extends AppCompatActivity {
 
     public static int field;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +70,7 @@ public class ActivityBooking extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.app_bar);
 
         setSupportActionBar(mToolbar);
+        mCollapsingToolBarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
 
         mAdapter = new BookingViewPager(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.view_pager);
@@ -79,6 +79,49 @@ public class ActivityBooking extends AppCompatActivity {
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
+//        Bundle argument = getIntent().getExtras();
+//        final String catField = argument.getString("title");
+//        final String fields = argument.getString("field");
+//
+//        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
+//        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (getCurrentFocus().getId() == R.id.layoutTypeField) {
+//                    finish();
+//                } else if (getCurrentFocus().getId() == R.id.layoutSmall) {
+////                    FragmentSmall small = new FragmentSmall();
+////                    small.backToMyFragment();
+//                    Fragment fragment = new ActivityBooking.MyFragment();
+//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+//                    transaction.replace(R.id.layoutSmall, fragment);
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
+//                } else if (getCurrentFocus().getId() == R.id.layoutCalendarBooking) {
+////                    Fragment fragment = new FragmentSmall();
+////                    Bundle bundle = new Bundle();
+////                    bundle.putString("title", catField);
+////                    bundle.putString("field", fields);
+////                    fragment.setArguments(bundle);
+////                    Toast.makeText(getBaseContext(),catField,Toast.LENGTH_SHORT).show();
+////                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+////                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+////                    transaction.replace(R.id.layoutCalendarBooking, fragment);
+////                    transaction.addToBackStack(null);
+////                    transaction.commit();
+//                } else if (getCurrentFocus().getId() == R.id.layoutTimeBooking) {
+//                    Toast.makeText(getBaseContext(), "Fragment time", Toast.LENGTH_SHORT).show();
+//                } else if (getCurrentFocus().getId() == R.id.layoutTimeBooking) {
+//                    Toast.makeText(getBaseContext(), "Fragment time", Toast.LENGTH_SHORT).show();
+//                } else if (getCurrentFocus().getId() == R.id.layoutBooking) {
+//                    Toast.makeText(getBaseContext(), "Fragment booking", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(getBaseContext(), "Sorry have any problem", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+
         ImageLoader imageLoader = AppController.getInstance().getImageLoader();
         title = getIntent().getStringExtra("title");
         String image = getIntent().getStringExtra("field");
@@ -86,7 +129,7 @@ public class ActivityBooking extends AppCompatActivity {
         Bundle bundle = this.getIntent().getExtras();
         field = bundle.getInt("ID");
 
-        typeface = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/Sports EA Sports.ttf");
+        typeface = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Armegoe.ttf");
 
         mCollapsingToolBarLayout.setExpandedTitleTypeface(typeface);
         mCollapsingToolBarLayout.setTitle(title);
@@ -189,8 +232,10 @@ public class ActivityBooking extends AppCompatActivity {
             fragment.setArguments(bundle);
 
             FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+            fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+            fragmentTransaction.replace(R.id.layoutTypeField, fragment);
             fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.replace(R.id.layoutTypeField, fragment).commit();
+            fragmentTransaction.commit();
         }
     }
 
