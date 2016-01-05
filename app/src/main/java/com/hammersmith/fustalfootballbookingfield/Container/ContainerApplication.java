@@ -121,12 +121,6 @@ public class ContainerApplication extends AppCompatActivity {
         txtEmail.setText(user.email);
         Picasso.with(context).load("https://graph.facebook.com/" + user.facebookID + "/picture?type=large").transform(new CircleTransform()).into(profile);
 
-
-
-
-
-
-
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -158,7 +152,7 @@ public class ContainerApplication extends AppCompatActivity {
 //        mRecyclerView.setHasFixedSize(true);
 
 
-        Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
 
         // mAdapter = new MyAdapter(TITLES,ICONS,EMAIL,NAME,PROFILE,this);
 
@@ -286,4 +280,3 @@ public class ContainerApplication extends AppCompatActivity {
 //        client.disconnect();
     }
 }
-

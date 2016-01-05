@@ -26,7 +26,7 @@ public class RecyclerAdapterTime extends RecyclerView.Adapter<RecyclerAdapterTim
         TextView timeBooking;
         public MyViewHolder(View itemView) {
             super(itemView);
-            timeBooking = (TextView) itemView.findViewById(R.id.timeBooking);
+            timeBooking = (TextView) itemView.findViewById(R.id.dayBooking);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }

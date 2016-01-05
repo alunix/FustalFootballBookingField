@@ -64,8 +64,8 @@ public class ContainerFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        //adapter =  new ViewPagerAdapterSubLeague(getActivity().getSupportFragmentManager(),Titles,NumbOfTabs);
         adapter = new ViewPagerAdapter(getChildFragmentManager(), Titles, Numboftabs);
+        pager.setOffscreenPageLimit(3);
         pager.setAdapter(adapter);
         tabs.setViewPager(pager);
     }

@@ -73,7 +73,6 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
                             id[i] = obj.getInt("id");
                             title[i] = obj.getString("name");
                             fields.add(field);
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

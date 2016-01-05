@@ -1,55 +1,530 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutTimeBooking"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:orientation="horizontal"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:orientation="vertical"
-            android:layout_weight="0.69"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <TextView
-                android:id="@+id/timeBooking"
-                android:textSize="14sp"
-                android:textColor="#000"
-                android:textStyle="normal"
-                android:layout_marginTop="2dp"
-                android:text="6 To 7 AM"
-                android:gravity="center"
-                android:background="#bef0f9"
+        <LinearLayout
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="40dp"
+                android:background="@color/bgheader"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Choose Time For Booking"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:paddingBottom="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="0.69"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@drawable/bgheadersub"
+                            android:gravity="center"
+                            android:text="Time/Day"
+                            android:textColor="#fff"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/dayBooking"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="@drawable/bgheadersub"
+                            android:gravity="center"
+                            android:text="00/00/2015"
+                            android:textColor="#fff"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="0.69"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/timeBooking6"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time6"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking7"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time7"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking8"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time8"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking9"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time9"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking10"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time10"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking11"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time11"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking12"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time12"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking13"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time13"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking14"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time14"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking15"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time15"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBookin16"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time16"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking17"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time17"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking18"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time18"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking19"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time19"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking20"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time20"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/timeBooking21"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/bgheadertime"
+                            android:gravity="center"
+                            android:text="@string/time21"
+                            android:textColor="#000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time6"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book6"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time7"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book7"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time8"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book8"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time9"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book9"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time10"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book10"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time11"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book11"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time12"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book12"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time13"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book13"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time14"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book14"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time15"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book15"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time16"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book16"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time17"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book17"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time18"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book18"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time19"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book19"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time20"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book20"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:clickable="true"
+                            android:id="@+id/time21"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/bookAvailable"
+                            android:gravity="center"
+                            android:text="@string/book21"
+                            android:textColor="#fff"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
 
         </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="2dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/time6to7am"
-                android:textStyle="normal"
-                android:textColor="#000"
-                android:textSize="14sp"
-                android:text="Available Booking"
-                android:layout_marginTop="2dp"
-                android:gravity="center"
-                android:background="#bef0f9"
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-</LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>

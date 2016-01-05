@@ -79,49 +79,6 @@ public class ActivityBooking extends AppCompatActivity {
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-//        Bundle argument = getIntent().getExtras();
-//        final String catField = argument.getString("title");
-//        final String fields = argument.getString("field");
-//
-//        mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
-//        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (getCurrentFocus().getId() == R.id.layoutTypeField) {
-//                    finish();
-//                } else if (getCurrentFocus().getId() == R.id.layoutSmall) {
-////                    FragmentSmall small = new FragmentSmall();
-////                    small.backToMyFragment();
-//                    Fragment fragment = new ActivityBooking.MyFragment();
-//                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-//                    transaction.replace(R.id.layoutSmall, fragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//                } else if (getCurrentFocus().getId() == R.id.layoutCalendarBooking) {
-////                    Fragment fragment = new FragmentSmall();
-////                    Bundle bundle = new Bundle();
-////                    bundle.putString("title", catField);
-////                    bundle.putString("field", fields);
-////                    fragment.setArguments(bundle);
-////                    Toast.makeText(getBaseContext(),catField,Toast.LENGTH_SHORT).show();
-////                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-////                    transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-////                    transaction.replace(R.id.layoutCalendarBooking, fragment);
-////                    transaction.addToBackStack(null);
-////                    transaction.commit();
-//                } else if (getCurrentFocus().getId() == R.id.layoutTimeBooking) {
-//                    Toast.makeText(getBaseContext(), "Fragment time", Toast.LENGTH_SHORT).show();
-//                } else if (getCurrentFocus().getId() == R.id.layoutTimeBooking) {
-//                    Toast.makeText(getBaseContext(), "Fragment time", Toast.LENGTH_SHORT).show();
-//                } else if (getCurrentFocus().getId() == R.id.layoutBooking) {
-//                    Toast.makeText(getBaseContext(), "Fragment booking", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(getBaseContext(), "Sorry have any problem", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
-
         ImageLoader imageLoader = AppController.getInstance().getImageLoader();
         title = getIntent().getStringExtra("title");
         String image = getIntent().getStringExtra("field");
@@ -186,7 +143,6 @@ public class ActivityBooking extends AppCompatActivity {
                                 categoryField = new CategoryField();
                                 categoryField.setName(obj.getString("name"));
                                 categoryField.setImage(Constant.URL_HOME + obj.getString("path"));
-                                Toast.makeText(getActivity(),obj.getString("path"),Toast.LENGTH_SHORT).show();
                                 id[i] = obj.getInt("id");
                                 title[i] = obj.getString("name");
                                 categoryFields.add(categoryField);

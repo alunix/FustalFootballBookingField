@@ -108,7 +108,7 @@ public class FragmentTime extends Fragment {
         dayBooking.setText(day);
         final String dayBookToService = getArguments().getString("dayBooking");
         dayBookingService = dayBookToService;
-        Toast.makeText(getActivity(),dayBookingService,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(),dayBookingService,Toast.LENGTH_SHORT).show();
         final String title = getArguments().getString("title");
         catField = title;
         final String field = getArguments().getString("field");

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class FragmentBooking extends Fragment {
     String dateBooking;
     String date;
     TextView title;
+    EditText name,phone,email;
     String fields, catField, days;
     public static TextView textDate, textTime, textField;
 
@@ -30,10 +32,14 @@ public class FragmentBooking extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_booking_field, container, false);
 
+        name = (EditText) view.findViewById(R.id.name);
+        phone = (EditText) view.findViewById(R.id.phone);
+        email = (EditText) view.findViewById(R.id.email);
         textDate = (TextView) view.findViewById(R.id.txtday);
         textField = (TextView) view.findViewById(R.id.txtfield);
         textTime = (TextView) view.findViewById(R.id.txttime);
         title = (TextView) view.findViewById(R.id.title);
+
         String day = getArguments().getString("dateBooking");
         final String time = getArguments().getString("timeBooking");
         textTime.setText(time);
@@ -52,6 +58,12 @@ public class FragmentBooking extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Booking successful!", Toast.LENGTH_SHORT).show();
+                name.setText("");
+                phone.setText("");
+                email.setText("");
+                textDate.setText("");
+                textField.setText("");
+                textTime.setText("");
             }
         });
 

@@ -103,19 +103,19 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
     }
 
     private void setProfileToview(JSONObject object) {
-            try {
+        try {
 
-                if (object!=null){
-                    user = new User();
-                    user.facebookID = object.getString("id");
-                    user.name = object.getString("name");
-                    user.email = object.getString("email");
-                    user.gender = object.getString("gender");
-                    PrefUtils.setCurrentUser(user,RegisterActivity.this);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (object!=null){
+                user = new User();
+                user.facebookID = object.getString("id");
+                user.name = object.getString("name");
+                user.email = object.getString("email");
+                user.gender = object.getString("gender");
+                PrefUtils.setCurrentUser(user,RegisterActivity.this);
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         Intent main = new Intent(RegisterActivity.this,ContainerApplication.class);
         startActivity(main);
         finish();
@@ -135,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                     new GraphRequest.GraphJSONObjectCallback() {
                         @Override
                         public void onCompleted(JSONObject object, GraphResponse response) {
-                           // Profile profile = Profile.getCurrentProfile();
+                            // Profile profile = Profile.getCurrentProfile();
                             setProfileToview(object);
                         }
                     });

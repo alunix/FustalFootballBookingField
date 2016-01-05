@@ -63,7 +63,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
 
         typeField = (TextView) view.findViewById(R.id.typeField);
         strTypeField = getArguments().getString("field");
-        Toast.makeText(getActivity(), strTypeField, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), strTypeField, Toast.LENGTH_SHORT).show();
         catField = getArguments().getString("title");
         typeField.setText(catField);
 

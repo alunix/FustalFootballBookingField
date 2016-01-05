@@ -77,7 +77,7 @@ public class FragmentCustomCalendar extends Fragment{
             @Override
             public void onMonthChanged(Date time) {
                 SimpleDateFormat df = new SimpleDateFormat("MM-yyyy");
-                Toast.makeText(getActivity(), df.format(time), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), df.format(time), Toast.LENGTH_SHORT).show();
             }
         });
 
