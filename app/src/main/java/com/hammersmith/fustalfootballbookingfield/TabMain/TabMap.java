@@ -44,7 +44,5 @@ public class TabMap extends Fragment{
 
         return view;
     }
-
-
 }
 
