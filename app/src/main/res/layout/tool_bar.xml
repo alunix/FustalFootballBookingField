@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/ColorPrimary"
+    android:background="@color/bgheader"
     android:theme="@style/AlertDialog.AppCompat.Light"
     android:elevation="4dp"
     android:layout_width="match_parent"
