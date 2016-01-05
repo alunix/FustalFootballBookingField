@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
@@ -21,120 +22,243 @@ import android.view.ViewGroup;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.hammersmith.fustalfootballbookingfield.R;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DecimalFormat;
 
 /**
  * Created by USER on 11/17/2015.
  */
 public class Map extends Fragment {
-    private GoogleMap mMap;
-    private SupportMapFragment supportMapFragment;
-    private static View view;
+    // private GoogleApiClient googleApiClient;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        if (view != null) {
-            ViewGroup parent = (ViewGroup) view.getParent();
-            if (parent != null) ;
-        }
-        try {
-            view = inflater.inflate(R.layout.map, container, false);
-        } catch (InflateException e) {
+    protected GoogleMap googleMap;
 
-        }
-        return view;
+
+//    private HashMap<Marker,MyMarker> markerMyMarkerHashMap;
+//    private ArrayList<MyMarker>myMarkerArrayList = new ArrayList<MyMarker>();
+
+
+    public Map() {
+
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        FragmentManager fm = getChildFragmentManager();
-        supportMapFragment = (SupportMapFragment) fm.findFragmentById(R.id.map);
-        if (supportMapFragment == null) {
-            supportMapFragment = SupportMapFragment.newInstance();
-            fm.beginTransaction().replace(R.id.map, supportMapFragment).commit();
-        }
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUpMapIfNeeded();
+
+
+
+    }
     @Override
     public void onStart() {
         super.onStart();
-        if (mMap == null) {
-            mMap = supportMapFragment.getMap();
-//            mMap.getUiSettings().setCompassEnabled(true);
-            if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
+//        googleApiClient.connect();
+    }
+
+
+
+    private void setUpMapIfNeeded() {
+        if (googleMap == null) {
+            googleMap = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map)).getMap();
+            if (googleMap != null) {
+                // googleMap.setMyLocationEnabled(true);
+
+
+                UiSettings mapSettings;
+                mapSettings = googleMap.getUiSettings();
+                mapSettings.setZoomControlsEnabled(true);
+                mapSettings.setScrollGesturesEnabled(true);
+                mapSettings.setTiltGesturesEnabled(true);
+                mapSettings.setRotateGesturesEnabled(true);
+                //  setUpMap();
+                new MarkerTask().execute();
+
+
             }
-            mMap.setMyLocationEnabled(true);
-            mMap.getUiSettings().setMyLocationButtonEnabled(true);
-            mMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
-                @Override
-                public boolean onMyLocationButtonClick() {
-                    AlertDialog.Builder mAlertDialog = new AlertDialog.Builder(getActivity());
-                    mAlertDialog.setTitle("Location not available, Open GPS?")
-                            .setMessage("Activate GPS to use location service?")
-                            .setPositiveButton("Open Setting", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-                                    getActivity().startActivity(intent);
-                                }
-                            })
-                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.cancel();
-                                }
-                            }).show();
-                    return false;
-                }
-            });
-            mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
-                @Override
-                public void onMyLocationChange(Location location) {
-                    LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("My location"));
-                    CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(15).build();
-                    mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                }
-            });
+
         }
     }
-    public double CalculationByDistance(LatLng StartP, LatLng EndP){
-        int Radius = 6371;
-        double lat1 = StartP.latitude;
-        double lat2 = EndP.latitude;
-        double lon1 = StartP.longitude;
-        double lon2 = EndP.longitude;
-        double dLat = Math.toRadians(lat2 - lat1);
-        double dLon = Math.toRadians(lon2 - lon1);
-        double a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
-                + Math.cos(Math.toRadians(lat1))
-                * Math.cos(Math.toRadians(lat2))
-                * Math.sin(dLon / 2);
-        double c = 2 * Math.asin(Math.sqrt(a));
-        double valueResult = Radius * c;
-        double km = valueResult / 1;
-        DecimalFormat newFormate = new DecimalFormat("####");
-        int kmInDec = Integer.valueOf(newFormate.format(km));
-        double meter = valueResult % 1000;
-        double meterinDec = Integer.valueOf(newFormate.format(meter));
-        Log.i("Radius Value", ""+valueResult+ " KM "+ kmInDec
-                + " Meter "+meterinDec);
 
-        return Radius * c;
+//    private void setUpMap() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    retrieveAndAddCities();
+//                } catch (IOException e) {
+//                   // Log.e(LOG_TAG,"Cannot retrive cities",e);
+//                }
+//            }
+//        }).start();
+//    }
+//
+//    protected void retrieveAndAddCities() throws IOException {
+//        HttpURLConnection connection = null;
+//        final StringBuilder json = new StringBuilder();
+//        try {
+//            URL url = new URL(SERVICE_URL);
+//            connection = (HttpURLConnection) url.openConnection();
+//            InputStreamReader in = new InputStreamReader(connection.getInputStream());
+//            int read;
+//            char[] buff = new char[1024];
+//            while ((read = in.read(buff))!= -1){
+//                json.append(buff,0,read);
+//            }
+//        }catch (IOException e){
+//            Log.e(LOG_TAG,"Error connecting to service",e);
+//            throw new IOException("Error connecting to service",e);
+//        }finally {
+//            if (connection!=null){
+//                connection.disconnect();
+//            }
+//        }
+//
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    createMarkerFromJson(json.toString());
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//        });
+//
+//        }
+
+    private void createMarkerFromJson(String json) throws JSONException {
+
+        JSONArray jsonArray = new JSONArray(json);
+        for (int i = 0; i<jsonArray.length();i++){
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            googleMap.addMarker(new MarkerOptions()
+                    .title(jsonObject.getString("name"))
+                    .snippet(Integer.toString(jsonObject.getInt("population")))
+                    .position(new LatLng(
+                            jsonObject.getJSONArray("latlng").getDouble(0),
+                            jsonObject.getJSONArray("latlng").getDouble(1)
+                    ))
+            );
+        }
     }
+
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View viewMap = inflater.inflate(R.layout.map, container, false);
+
+        setUpMapIfNeeded();
+        // handleIntent(getActivity().getIntent());
+        return viewMap;
+    }
+
+    private class MarkerTask extends AsyncTask<Void,Void,String> {
+        private static final String LOG_TAG ="ExampleApp";
+        private static final String SERVICE_URL = "https://api.myjson.com/bins/4jb09";
+
+        @Override
+        protected String doInBackground(Void... params) {
+
+            HttpURLConnection conn = null;
+            final StringBuilder json = new StringBuilder();
+            try {
+                URL url = new URL(SERVICE_URL);
+                conn = (HttpURLConnection) url.openConnection();
+                InputStreamReader in = new InputStreamReader(conn.getInputStream());
+
+                int read;
+                char[] buff = new char[1024];
+                while ((read = in.read(buff))!=-1){
+                    json.append(buff,0,read);
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                Log.e(LOG_TAG,"Error connecting to service",e);
+            }finally {
+                if (conn!= null){
+                    conn.disconnect();
+                }
+            }
+            return json.toString();
+        }
+
+        @Override
+        protected void onPostExecute(String json) {
+            try {
+                JSONArray jsonArray = new JSONArray(json);
+                for (int i = 0;i<jsonArray.length();i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                    LatLng latLng = new LatLng(jsonObject.getJSONArray("latlng").getDouble(0),
+                            jsonObject.getJSONArray("latlng").getDouble(1));
+
+                    if (i==1){
+                        CameraPosition cameraPosition = new CameraPosition.Builder()
+                                .target(latLng).zoom(18).build();
+
+                        googleMap.animateCamera(CameraUpdateFactory
+                                .newCameraPosition(cameraPosition));
+                        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+                    }
+                    googleMap.addMarker(new MarkerOptions()
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                            .title(jsonObject.getString("name"))
+                            .snippet(Integer.toString(jsonObject.getInt("population")))
+                            .position(latLng));
+
+
+                }
+            } catch (JSONException e) {
+                Log.e(LOG_TAG,"Error processing JSON",e);
+            }
+            super.onPostExecute(json);
+        }
+    }
+
+//    private void handleIntent(Intent intent) {
+//        if (intent.getAction().equals(Intent.ACTION_SEARCH)){
+//            doSearch(intent.getStringExtra(SearchManager.QUERY));
+//        }else if (intent.getAction().equals(Intent.ACTION_VIEW)){
+//            getPlace(intent.getStringExtra(SearchManager.EXTRA_DATA_KEY));
+//        }
+//    }
+//
+//    private void doSearch(String query) {
+//        Bundle data = new Bundle();
+//        data.putString("query",query);
+//        getActivity().getSupportLoaderManager().restartLoader(0,data,this);
+//    }
+//
+//    private void getPlace(String query) {
+//        Bundle data = new Bundle();
+//        getActivity().getSupportLoaderManager().restartLoader(1,data,this);
+//
+//    }
+
 }
