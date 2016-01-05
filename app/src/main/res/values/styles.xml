@@ -53,7 +53,7 @@
         <item name="colorControlNormal">#0288D1</item>
     </style>
     <style name="ActionBarThemeOverlay">
-        <item name="colorControlNormal">#f7003a</item>
+        <item name="colorControlNormal">#ffffff</item>
     </style>
     <style name="HeaderTitleStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">#FFFFFF</item>

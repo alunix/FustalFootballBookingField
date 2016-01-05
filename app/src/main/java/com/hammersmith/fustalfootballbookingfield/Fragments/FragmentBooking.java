@@ -64,6 +64,9 @@ public class FragmentBooking extends Fragment {
                 textDate.setText("");
                 textField.setText("");
                 textTime.setText("");
+                name.clearFocus();
+                phone.clearFocus();
+                email.clearFocus();
             }
         });
 
