@@ -3,7 +3,6 @@ package com.hammersmith.fustalfootballbookingfield.TabMain;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +18,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.AdapterLeague;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
-import com.hammersmith.fustalfootballbookingfield.model.Field;
 import com.hammersmith.fustalfootballbookingfield.model.League;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 
@@ -66,10 +64,9 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
                             JSONObject obj = jsonArray.getJSONObject(i);
                             league = new League();
                             league.setImage(Constant.URL_HOME + obj.getString("image_path"));
-//                            league.setTitle(obj.getString("title"));
                             id[i] = obj.getInt("id");
+                            url[i] = obj.getString("url");
                             leagues.add(league);
-//                            Toast.makeText(getActivity(),Constant.URL_HOME+obj.getString("image_path"),Toast.LENGTH_SHORT).show();
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -116,6 +113,7 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
         transaction.replace(R.id.layoutLeague, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
     }
 
 }

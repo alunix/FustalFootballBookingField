@@ -1,51 +1,35 @@
 package com.hammersmith.fustalfootballbookingfield.Container;
 
-import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.provider.SearchRecentSuggestions;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
-import com.facebook.Profile;
 import com.facebook.login.LoginManager;
-import com.facebook.login.widget.ProfilePictureView;
-import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.hammersmith.fustalfootballbookingfield.Activities.RegisterActivity;
-import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentBooking;
-import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentFb_Google;
-import com.hammersmith.fustalfootballbookingfield.adapter.MyAdapter;
-import com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider;
-import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
 import com.hammersmith.fustalfootballbookingfield.model.User;
 import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 import com.hammersmith.fustalfootballbookingfield.widget.CircleTransform;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -53,10 +37,13 @@ import org.json.JSONObject;
  */
 public class ContainerApplication extends AppCompatActivity {
 
+    public ContainerFragment containTab;
+    //    RecyclerView mRecyclerView;
+//    RecyclerView.Adapter mAdapter;
+//    public RecyclerView.LayoutManager mLayoutManager;
+    public DrawerLayout mDrawer;
     JSONObject response, profile_pic_url, pro_pic_data;
     Fragment contentFragment;
-    Context context = ContainerApplication.this;
-    public ContainerFragment containTab;
 
 //    String EMAIL;
 //    String NAME;
@@ -65,27 +52,22 @@ public class ContainerApplication extends AppCompatActivity {
 
 //    String TITLES[] ={"Home","Events","Mail","Shop","Travel","Logout"};
 //    int ICONS[]={R.drawable.ic_home,R.drawable.ic_event,R.drawable.ic_mail,R.drawable.ic_shop,R.drawable.ic_travel,R.drawable.ic_action_logout};
-
-
-    private Toolbar toolbar;
-
-    //    RecyclerView mRecyclerView;
-//    RecyclerView.Adapter mAdapter;
-//    public RecyclerView.LayoutManager mLayoutManager;
-    public DrawerLayout mDrawer;
+Context context = ContainerApplication.this;
     NavigationView mNavigationView;
-
     ImageView profile;
     TextView txtName, txtEmail;
     Context cotext;
-
+    EditText searchView;
+    ImageView clearSearch;
+    LinearLayout searchContainer;
     ActionBarDrawerToggle mDrawerToggle;
+    User user;
+    private Toolbar toolbar;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    User user;
 
 
 //    SearchView searchView;
@@ -96,6 +78,17 @@ public class ContainerApplication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.container_application_layout);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        searchView = (EditText) findViewById(R.id.search_view);
+        clearSearch = (ImageView) findViewById(R.id.search_clear);
+
+        clearSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchView.setText("");
+            }
+        });
+
+
         user= PrefUtils.getCurrentUser(ContainerApplication.this);
 
         setSupportActionBar(toolbar);

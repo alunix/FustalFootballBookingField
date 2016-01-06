@@ -1,20 +1,10 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
-import android.Manifest;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +28,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.DecimalFormat;
 
 /**
  * Created by USER on 11/17/2015.
@@ -102,53 +91,6 @@ public class Map extends Fragment {
         }
     }
 
-//    private void setUpMap() {
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    retrieveAndAddCities();
-//                } catch (IOException e) {
-//                   // Log.e(LOG_TAG,"Cannot retrive cities",e);
-//                }
-//            }
-//        }).start();
-//    }
-//
-//    protected void retrieveAndAddCities() throws IOException {
-//        HttpURLConnection connection = null;
-//        final StringBuilder json = new StringBuilder();
-//        try {
-//            URL url = new URL(SERVICE_URL);
-//            connection = (HttpURLConnection) url.openConnection();
-//            InputStreamReader in = new InputStreamReader(connection.getInputStream());
-//            int read;
-//            char[] buff = new char[1024];
-//            while ((read = in.read(buff))!= -1){
-//                json.append(buff,0,read);
-//            }
-//        }catch (IOException e){
-//            Log.e(LOG_TAG,"Error connecting to service",e);
-//            throw new IOException("Error connecting to service",e);
-//        }finally {
-//            if (connection!=null){
-//                connection.disconnect();
-//            }
-//        }
-//
-//        runOnUiThread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    createMarkerFromJson(json.toString());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//
-//        });
-//
-//        }
 
     private void createMarkerFromJson(String json) throws JSONException {
 
@@ -156,12 +98,12 @@ public class Map extends Fragment {
         for (int i = 0; i<jsonArray.length();i++){
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             googleMap.addMarker(new MarkerOptions()
-                    .title(jsonObject.getString("name"))
-                    .snippet(Integer.toString(jsonObject.getInt("population")))
-                    .position(new LatLng(
-                            jsonObject.getJSONArray("latlng").getDouble(0),
-                            jsonObject.getJSONArray("latlng").getDouble(1)
-                    ))
+                            .title(jsonObject.getString("name"))
+                            .snippet(Integer.toString(jsonObject.getInt("population")))
+                            .position(new LatLng(
+                                    jsonObject.getJSONArray("latlng").getDouble(0),
+                                    jsonObject.getJSONArray("latlng").getDouble(1)
+                            ))
             );
         }
     }
@@ -220,7 +162,7 @@ public class Map extends Fragment {
 
                     if (i==1){
                         CameraPosition cameraPosition = new CameraPosition.Builder()
-                                .target(latLng).zoom(18).build();
+                                .target(latLng).zoom(0).build();
 
                         googleMap.animateCamera(CameraUpdateFactory
                                 .newCameraPosition(cameraPosition));
@@ -240,25 +182,5 @@ public class Map extends Fragment {
             super.onPostExecute(json);
         }
     }
-
-//    private void handleIntent(Intent intent) {
-//        if (intent.getAction().equals(Intent.ACTION_SEARCH)){
-//            doSearch(intent.getStringExtra(SearchManager.QUERY));
-//        }else if (intent.getAction().equals(Intent.ACTION_VIEW)){
-//            getPlace(intent.getStringExtra(SearchManager.EXTRA_DATA_KEY));
-//        }
-//    }
-//
-//    private void doSearch(String query) {
-//        Bundle data = new Bundle();
-//        data.putString("query",query);
-//        getActivity().getSupportLoaderManager().restartLoader(0,data,this);
-//    }
-//
-//    private void getPlace(String query) {
-//        Bundle data = new Bundle();
-//        getActivity().getSupportLoaderManager().restartLoader(1,data,this);
-//
-//    }
 
 }

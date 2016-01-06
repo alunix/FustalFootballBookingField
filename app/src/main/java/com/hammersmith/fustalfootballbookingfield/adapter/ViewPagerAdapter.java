@@ -7,11 +7,8 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentCustomCalendar;
-import com.hammersmith.fustalfootballbookingfield.TabMain.Map;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabHome;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeague;
-import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeagueView;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabMap;
 
 /**
