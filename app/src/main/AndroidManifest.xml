@@ -75,7 +75,7 @@
             android:authorities="com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider"
             android:exported="false" />
 
-        <activity android:name=".Activities.ActivityBooking"></activity>
+        <activity android:name=".Activities.ActivityBooking" />
         <activity android:name=".Activities.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -92,9 +92,13 @@
         </activity>
         <activity android:name=".Activities.SearchActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activities.ActivitySetting">
+
         </activity>
     </application>
 

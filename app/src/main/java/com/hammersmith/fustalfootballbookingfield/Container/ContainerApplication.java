@@ -35,7 +35,9 @@ import com.facebook.login.LoginManager;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
+import com.hammersmith.fustalfootballbookingfield.Activities.ActivitySetting;
 import com.hammersmith.fustalfootballbookingfield.Activities.RegisterActivity;
+import com.hammersmith.fustalfootballbookingfield.Activities.SearchActivity;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabHome;
@@ -78,7 +80,7 @@ public class ContainerApplication extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     ListView listView;
     EditText editText;
-
+    ImageView clearText;
     private GoogleApiClient client;
 
     public ContainerApplication(){
@@ -92,6 +94,13 @@ public class ContainerApplication extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         editText = (EditText)findViewById(R.id.editText);
         listView = (ListView)findViewById(R.id.listView);
+        clearText = (ImageView) findViewById(R.id.search_clear);
+        clearText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editText.setText("");
+            }
+        });
 //        initList();
 //        editText.addTextChangedListener(new TextWatcher() {
 //            @Override
@@ -135,12 +144,19 @@ public class ContainerApplication extends AppCompatActivity {
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
-                item.setChecked(true);
+                item.setChecked(false);
                 mDrawer.closeDrawers();
 
                 if (item.getItemId() == R.id.nav_item_home) {
 
                 }
+
+                if(item.getItemId() == R.id.nav_item_setting){
+//                    Toast.makeText(getApplicationContext(),"Setting",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ContainerApplication.this, ActivitySetting.class);
+                    startActivity(intent);
+                }
+
                 if (item.getItemId() == R.id.logout) {
                     FacebookSdk.sdkInitialize(getApplicationContext());
                     PrefUtils.clearCurrentUser(ContainerApplication.this);
