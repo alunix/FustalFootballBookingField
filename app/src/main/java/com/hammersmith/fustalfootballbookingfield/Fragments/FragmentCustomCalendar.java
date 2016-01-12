@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -33,6 +34,12 @@ public class FragmentCustomCalendar extends Fragment{
     CalendarView calendar;
     String catField, fields;
     TextView textView;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -114,5 +121,15 @@ public class FragmentCustomCalendar extends Fragment{
             int color = Color.argb(255, rnd.nextInt(256),rnd.nextInt(256),rnd.nextInt(256));
             cell.setBackgroundColor(color);
         }
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 }

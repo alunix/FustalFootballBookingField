@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,7 +36,7 @@ import java.util.List;
  */
 public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListener {
     RecyclerView recyclerView;
-    RecyclerHomeAdapter adapter;
+    public static RecyclerHomeAdapter adapter;
     int[] id;
     String[] title;
 
@@ -43,19 +44,20 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
     Field field;
 
     String image = "";
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.tab_home, container, false);
-
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerHomeAdapter(getActivity(), fields);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
-        adapter.setClickListener(this);
-
+        initList();
+        ContainerApplication mainClass = new ContainerApplication();
+        mainClass.testMethod();
         if (fields.size() <= 0) {
             // Creating volley request obj
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
@@ -105,6 +107,15 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         return root;
     }
 
+    public void initList(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        adapter = new RecyclerHomeAdapter(getActivity(), fields);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
+        adapter.setClickListener(this);
+    }
+
     @Override
     public void itemClicked(View view, int position) {
         image = ((Field)fields.get(position)).getImage();
@@ -113,5 +124,15 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         intent.putExtra("field",image);
         intent.putExtra("ID", id[position]);
         startActivity(intent);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 }

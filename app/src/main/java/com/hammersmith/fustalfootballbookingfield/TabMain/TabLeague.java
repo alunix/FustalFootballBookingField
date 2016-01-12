@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -39,6 +40,12 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
     String[] url;
     List<League> leagues = new ArrayList<>();
     League league;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -99,8 +106,7 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
         });
         return view;
     }
-
-
+    
     @Override
     public void itemClicked(View view, int position) {
         Fragment fragment = new TabLeagueView();
@@ -116,4 +122,13 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
 
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 }

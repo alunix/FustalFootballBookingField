@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hammersmith.fustalfootballbookingfield"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -15,6 +15,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="com.google.android.gms.maps.SupportMapFragment" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <uses-library android:name="com.google.android.maps" />
 
@@ -30,17 +32,15 @@
 
     <application
         android:name=".controller.AppController"
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_new_app"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/NoActionBarTheme">
-
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_key" />
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/app_id" />
@@ -52,16 +52,15 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".Container.ContainerApplication"
+            android:icon="@mipmap/ic_new_app"
             android:label="@string/title_activity_main"
             android:launchMode="singleTop"
-            android:icon="@mipmap/ic_new_app"
-            android:windowSoftInputMode="adjustPan|adjustNothing">
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -76,26 +75,27 @@
             android:authorities="com.hammersmith.fustalfootballbookingfield.app.SuggestionProvider"
             android:exported="false" />
 
-        <activity android:name=".Activities.ActivityBooking">
-
-        </activity>
-
+        <activity android:name=".Activities.ActivityBooking"></activity>
         <activity android:name=".Activities.Splash">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Activities.RegisterActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".Activities.SearchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

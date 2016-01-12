@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +26,11 @@ public class TabLeagueView extends Fragment {
     ProgressDialog mProgress;
     public TabLeagueView() {
 
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Nullable
@@ -78,5 +84,15 @@ public class TabLeagueView extends Fragment {
             }
         });
         return leagueView;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 }

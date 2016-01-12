@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
@@ -32,6 +33,11 @@ public class TabMap extends Fragment {
     private static View view;
     private GoogleMap mMap;
     private SupportMapFragment supportMapFragment;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -127,5 +133,15 @@ public class TabMap extends Fragment {
                 + " Meter   " + meterInDec);
 
         return Radius * c;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 }

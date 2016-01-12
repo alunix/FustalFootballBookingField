@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -26,6 +27,11 @@ public class FragmentBooking extends Fragment {
     String fields, catField, days;
     public static TextView textDate, textTime, textField;
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -101,4 +107,13 @@ public class FragmentBooking extends Fragment {
         return view;
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 }

@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,10 +39,8 @@ import java.util.Arrays;
  */
 public class FragmentFb_Google extends Fragment {
 
-
-
-   private CallbackManager callbackManager = null;
-   private   AccessTokenTracker accessTokenTracker = null;
+    private CallbackManager callbackManager = null;
+    private AccessTokenTracker accessTokenTracker = null;
     private ProfileTracker profileTracker = null;
     private Profile profile;
     LoginButton loginButton;
@@ -49,33 +48,15 @@ public class FragmentFb_Google extends Fragment {
 
     public static final String FACEBOOK_ID = "facebookId";
     public static final String FULL_NAME = "fullname";
-    public static String IMAGE ="images";
-    public static final String EMAIL ="email";
-    public static final String GENDER ="gender";
-  //  private String FB_AUTHTOKEN;
-    public String fbId, fullname, email, gender,photo;
+    public static String IMAGE = "images";
+    public static final String EMAIL = "email";
+    public static final String GENDER = "gender";
+    //  private String FB_AUTHTOKEN;
+    public String fbId, fullname, email, gender, photo;
 
-    public FragmentFb_Google(){
+    public FragmentFb_Google() {
 
     }
-//    private FacebookCallback<LoginResult>mCallback = new FacebookCallback<LoginResult>() {
-//        @Override
-//        public void onSuccess(LoginResult loginResult) {
-//            RequestData(loginResult);
-//
-//        }
-//
-//        @Override
-//        public void onCancel() {
-//
-//        }
-//
-//        @Override
-//        public void onError(FacebookException error) {
-//
-//        }
-//    };
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -83,28 +64,6 @@ public class FragmentFb_Google extends Fragment {
         FacebookSdk.sdkInitialize(getActivity().getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         getLoginDetails(loginButton);
-
-//        accessTokenTracker = new AccessTokenTracker() {
-//            @Override
-//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-//                Log.v("AccessTokenTracker","oldAccessToken="+oldAccessToken+"||"+"CurrentAccessToken"
-//                +currentAccessToken);
-//            }
-//        };
-//
-//        profileTracker = new ProfileTracker() {
-//            @Override
-//            protected void onCurrentProfileChanged(Profile oldProfile, Profile currentProfile) {
-//                Log.v("Session Tracker","oldProfile="+oldProfile+"||"+"currenProfile"+currentProfile);
-//                           if (currentProfile!=null){
-//                               RequestData();
-//                           }
-//
-//            }
-//        };
-//
-//        accessTokenTracker.startTracking();
-//        profileTracker.startTracking();
     }
 
     private void getLoginDetails(LoginButton loginButton) {
@@ -130,7 +89,7 @@ public class FragmentFb_Google extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fbFragment = inflater.inflate(R.layout.google_facebook_layout,container,false);
+        View fbFragment = inflater.inflate(R.layout.google_facebook_layout, container, false);
 
         return fbFragment;
     }
@@ -141,34 +100,22 @@ public class FragmentFb_Google extends Fragment {
 
         loginButton = (LoginButton) getActivity().findViewById(R.id.login_button);
         loginButton.setFragment(this);
-       // loginButton.registerCallback(callbackManager,mCallback);
-
-
+        // loginButton.registerCallback(callbackManager,mCallback);
     }
-
-
-
-
-//    @Override
-//    public void onDestroy() {
-//        super.onDestroy();
-//        accessTokenTracker.stopTracking();
-//        profileTracker.stopTracking();
-//    }
 
     private void RequestData(LoginResult loginResult) {
         GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(),
                 new GraphRequest.GraphJSONObjectCallback() {
                     @Override
                     public void onCompleted(JSONObject object, GraphResponse response) {
-                        Intent intent = new Intent(getActivity().getApplicationContext(),ContainerApplication.class);
-                        intent.putExtra("jsondata",object.toString());
-                        intent.putExtra("image",object.toString());
+                        Intent intent = new Intent(getActivity().getApplicationContext(), ContainerApplication.class);
+                        intent.putExtra("jsondata", object.toString());
+                        intent.putExtra("image", object.toString());
                         startActivity(intent);
                     }
                 });
         Bundle parameters = new Bundle();
-       parameters.putString("fields", "id,name,link,email,gender,picture.width(120).height(120)");
+        parameters.putString("fields", "id,name,link,email,gender,picture.width(120).height(120)");
         request.setParameters(parameters);
         request.executeAsync();
 
@@ -178,7 +125,7 @@ public class FragmentFb_Google extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-AppEventsLogger.activateApp(getActivity());
+        AppEventsLogger.activateApp(getActivity());
 
     }
 
@@ -190,10 +137,19 @@ AppEventsLogger.activateApp(getActivity());
     }
 
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode,resultCode,data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 }

@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -62,6 +63,11 @@ public class FragmentTime extends Fragment {
 
     TextView time6, time7, time8, time9, time10, time11, time12, time13, time14, time15, time16, time17, time18, time19, time20, time21;
     TextView timeBooking6, timeBooking7, timeBooking8, timeBooking9, timeBooking10, timeBooking11, timeBooking12, timeBooking13, timeBooking14, timeBooking15, timeBooking16, timeBooking17, timeBooking18, timeBooking19, timeBooking20, timeBooking21;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -586,5 +592,15 @@ public class FragmentTime extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 }

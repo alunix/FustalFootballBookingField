@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -48,6 +49,11 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
     }
 
     List<FieldDetail> fieldDetails = new ArrayList<>();
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Nullable
     @Override
@@ -140,15 +146,14 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         fragmentTransaction.commit();
 
     }
-    public void backToMyFragment(){
-        Toast.makeText(getActivity(),"hello",Toast.LENGTH_SHORT).show();
-//        if (getActivity().getCurrentFocus().getId() == R.id.layoutSmall) {
-//            Fragment fragment = new ActivityBooking.MyFragment();
-//            FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-//            transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-//            transaction.replace(R.id.layoutSmall, fragment);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
-        }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
     }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+}
