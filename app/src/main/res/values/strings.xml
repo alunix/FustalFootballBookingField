@@ -53,5 +53,10 @@
     <string name="book19">Available Booking</string>
     <string name="book20">Available Booking</string>
     <string name="book21">Available Booking</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="phone">Phone Number</string>
+    <string name="gander">Gander</string>
+    <string name="place">Place</string>
 
 </resources>

@@ -6,7 +6,7 @@
           android:id="@+id/nav_item_home"
           android:icon="@drawable/ic_home"/>
 
-    <item android:title="Setting"
+    <item android:title="Profile"
           android:id="@+id/nav_item_setting"
           android:icon="@drawable/ic_event"/>
 
