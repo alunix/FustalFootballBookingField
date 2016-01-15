@@ -21,7 +21,6 @@ public class ActivitySetting extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_setting);
         user = PrefUtils.getCurrentUser(ActivitySetting.this);
         imageUser = (ImageView) findViewById(R.id.imgUser);
