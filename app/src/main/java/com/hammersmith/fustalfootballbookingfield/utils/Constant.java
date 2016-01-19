@@ -10,4 +10,5 @@ public class Constant {
     public static final String URL_FIELD_DETAIL = "http://192.168.56.1:81/futsal/public/field/";
     public static final String URL_BOOK_DETAIL = "http://192.168.56.1:81/futsal/public/field/book/";
     public static final String URL_LEAGUE = "http://192.168.56.1:81/futsal/public/league";
+    public static final String URL_MAP = "http://192.168.56.1:81/futsal/public/map";
 }

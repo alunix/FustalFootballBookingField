@@ -56,8 +56,6 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         View root = inflater.inflate(R.layout.tab_home, container, false);
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
         initList();
-        ContainerApplication mainClass = new ContainerApplication();
-        mainClass.testMethod();
         if (fields.size() <= 0) {
             // Creating volley request obj
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
