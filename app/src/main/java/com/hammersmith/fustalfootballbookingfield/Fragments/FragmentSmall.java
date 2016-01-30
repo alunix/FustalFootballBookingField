@@ -92,6 +92,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
                             id[i] = obj.getInt("id");
                             title[i] = obj.getString("name");
                             fieldDetails.add(fieldDetail);
+//                            Toast.makeText(getActivity(),obj.getString("name"),Toast.LENGTH_SHORT).show();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -137,6 +138,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         bundle.putString("title", catField);
         bundle.putString("field", strTypeField);
         bundle.putInt("ID", id[position]);
+        bundle.putString("catField",title[position]);
         fragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();

@@ -82,7 +82,6 @@ public class ActivityBooking extends AppCompatActivity {
         ImageLoader imageLoader = AppController.getInstance().getImageLoader();
         title = getIntent().getStringExtra("title");
         String image = getIntent().getStringExtra("field");
-
         Bundle bundle = this.getIntent().getExtras();
         field = bundle.getInt("ID");
 

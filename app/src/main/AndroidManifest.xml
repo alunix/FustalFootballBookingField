@@ -17,6 +17,8 @@
     <uses-permission android:name="com.google.android.gms.maps.SupportMapFragment" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <uses-library android:name="com.google.android.maps" />
 
@@ -97,9 +99,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.ActivitySetting">
-
-        </activity>
+        <activity
+            android:name=".Activities.ActivitySetting"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".Activities.GooglePlus"></activity>
     </application>
 
 </manifest>

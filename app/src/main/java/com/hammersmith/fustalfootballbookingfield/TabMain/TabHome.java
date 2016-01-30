@@ -1,6 +1,7 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,6 +38,7 @@ import java.util.List;
 public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListener {
     RecyclerView recyclerView;
     public static RecyclerHomeAdapter adapter;
+    private ProgressDialog pDialog;
     int[] id;
     String[] title;
 
@@ -56,11 +58,18 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         View root = inflater.inflate(R.layout.tab_home, container, false);
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
         initList();
+
+        pDialog = new ProgressDialog(getActivity());
+        // Showing progress dialog before making http request
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+
         if (fields.size() <= 0) {
             // Creating volley request obj
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray jsonArray) {
+                    hidePDialog();
                     id = new int[jsonArray.length()];
                     title = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -83,6 +92,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
                     Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                    hidePDialog();
                 }
             });
             AppController.getInstance().addToRequestQueue(fieldReq);
@@ -119,7 +129,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         image = ((Field)fields.get(position)).getImage();
         Intent intent = new Intent(getActivity(), ActivityBooking.class);
         intent.putExtra("title", title[position]);
-        intent.putExtra("field",image);
+        intent.putExtra("field", image);
         intent.putExtra("ID", id[position]);
         startActivity(intent);
     }
@@ -132,5 +142,18 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
+
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
     }
 }

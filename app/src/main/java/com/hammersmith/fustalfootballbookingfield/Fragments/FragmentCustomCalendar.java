@@ -32,7 +32,7 @@ import java.util.Random;
 public class FragmentCustomCalendar extends Fragment{
     CustomCalendarView calendarView;
     CalendarView calendar;
-    String catField, fields;
+    String catField, fields, catFieldDetail;
     TextView textView;
 
     @Override
@@ -51,6 +51,9 @@ public class FragmentCustomCalendar extends Fragment{
         final String field = getArguments().getString("field");
         final int id = getArguments().getInt("ID");
         fields = field;
+        final String typeField = getArguments().getString("catField");
+        catFieldDetail = typeField;
+//        Toast.makeText(getActivity(),catFieldDetail,Toast.LENGTH_SHORT).show();
 
         calendarView = (CustomCalendarView) rootView.findViewById(R.id.calendar_view);
         Calendar currentCalendar = Calendar.getInstance(Locale.getDefault());
@@ -64,16 +67,14 @@ public class FragmentCustomCalendar extends Fragment{
                 SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
 
                 Fragment fragment = new FragmentTime();
-
                 Bundle bundle = new Bundle();
                 bundle.putString("dateBooking", df.format(date));
                 bundle.putString("dayBooking", id + "/" + df1.format(date));
                 bundle.putString("title", catField);
                 bundle.putString("field", fields);
                 bundle.putInt("ID", id);
-
+                bundle.putString("catField",catFieldDetail);
                 fragment.setArguments(bundle);
-
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
                 fragmentTransaction.replace(R.id.layoutCalendarBooking, fragment);

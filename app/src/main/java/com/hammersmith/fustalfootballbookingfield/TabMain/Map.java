@@ -15,6 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -22,8 +25,12 @@ import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.controller.AppController;
+import com.hammersmith.fustalfootballbookingfield.model.Field;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 
 import org.json.JSONArray;
@@ -35,12 +42,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by USER on 11/17/2015.
  */
 public class Map extends Fragment {
+    int[] id;
+    String[] title;
+
+    List<Field> fields = new ArrayList<>();
+    Field field;
     protected GoogleMap googleMap;
+    String image = "";
+    String nameField;
+    Marker marker;
 
     public Map() {
 
@@ -56,6 +73,64 @@ public class Map extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View viewMap = inflater.inflate(R.layout.map, container, false);
         setUpMapIfNeeded();
+
+        if (fields.size() <= 0) {
+            // Creating volley request obj
+            JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray jsonArray) {
+                    id = new int[jsonArray.length()];
+                    title = new String[jsonArray.length()];
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            JSONObject obj = jsonArray.getJSONObject(i);
+                            field = new Field();
+                            field.setImage(Constant.URL_HOME + obj.getString("image_path"));
+                            field.setName(obj.getString("name"));
+                            field.setLocation(obj.getString("address"));
+                            id[i] = obj.getInt("id");
+                            nameField = title[i] = obj.getString("name");
+                            fields.add(field);
+//                            Toast.makeText(getActivity(),nameField,Toast.LENGTH_SHORT).show();
+
+                                googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                                    @Override
+                                    public void onInfoWindowClick(Marker marker) {
+                                        if (marker.getTitle().equals(nameField)) {
+                                            Toast.makeText(getActivity(), marker.getTitle(), Toast.LENGTH_SHORT).show();
+                                        }else{
+                                            Toast.makeText(getActivity(),"Not Found"+nameField,Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError volleyError) {
+                    Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                }
+            });
+            AppController.getInstance().addToRequestQueue(fieldReq);
+
+        }
+
+        googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+
+//                for (int i = 0; i < fields.size(); i++) {
+//                    if (marker.getTitle().equals(nameField)) {
+//                        Toast.makeText(getActivity(), marker.getTitle(), Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Toast.makeText(getActivity(), "Not found", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+            }
+        });
 
         googleMap.setMyLocationEnabled(true);
         googleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
@@ -74,7 +149,7 @@ public class Map extends Fragment {
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
-                                directLocation();
+//                                directLocation();
                             }
                         }).show();
                 return true;
@@ -130,11 +205,12 @@ public class Map extends Fragment {
                                 .newCameraPosition(cameraPosition));
                         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                     }
-                    googleMap.addMarker(new MarkerOptions()
+                    Marker marker = googleMap.addMarker(new MarkerOptions()
                             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                             .title(jsonObject.getString("name"))
                             .snippet(jsonObject.getString("address"))
                             .position(latLng));
+                    marker.showInfoWindow();
                     CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12).build();
                     googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
@@ -168,7 +244,7 @@ public class Map extends Fragment {
                 LatLng lat = new LatLng(location.getLatitude(),location.getLongitude());
 //                LatLng lat = new LatLng(11.3343,104.5222);
                 googleMap.addMarker(new MarkerOptions().position(lat).title("Current Location"));
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(lat).zoom(15).build();
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(lat).zoom(12).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                 Log.d("Latitude ", "" + location.getLatitude());
                 Log.d("Longitude ",""+location.getLongitude());
@@ -199,7 +275,6 @@ public class Map extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-//        googleApiClient.connect();
     }
 
 }

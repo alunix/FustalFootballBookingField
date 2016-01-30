@@ -71,21 +71,21 @@
                     android:layout_weight="1.7"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:background="@android:color/transparent"
-                        android:id="@+id/name"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:hint="Input your name"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        <TextView
+                            android:background="@android:color/transparent"
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:hint="Name"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
 
                 </LinearLayout>
 
@@ -121,21 +121,21 @@
                     android:layout_weight="1.7"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:focusable="true"
-                        android:background="@android:color/transparent"
-                        android:id="@+id/phone"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="Enter your phone number"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        <TextView
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:gravity="center_vertical"
+                            android:hint="Phone Number"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
 
                 </LinearLayout>
 
@@ -171,21 +171,21 @@
                     android:layout_weight="1.7"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:focusable="true"
-                        android:background="@android:color/transparent"
-                        android:id="@+id/email"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="Input your e-mail"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        <TextView
+                            android:focusable="true"
+                            android:background="@android:color/transparent"
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:gravity="center_vertical"
+                            android:hint="Email"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
 
                 </LinearLayout>
 
@@ -227,7 +227,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="0dp"
                         android:gravity="center_vertical"
-                        android:hint="Type Field"
+                        android:hint="Field"
                         android:singleLine="true"
                         android:textColor="#000"
                         android:textColorHint="#898888"
@@ -276,7 +276,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="0dp"
                         android:gravity="center_vertical"
-                        android:hint="Select Day"
+                        android:hint="Day"
                         android:singleLine="true"
                         android:textColor="#000"
                         android:textColorHint="#898888"
@@ -323,7 +323,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="0dp"
                         android:gravity="center_vertical"
-                        android:hint="Select Time"
+                        android:hint="Time"
                         android:singleLine="true"
                         android:textColor="#000"
                         android:textColorHint="#898888"

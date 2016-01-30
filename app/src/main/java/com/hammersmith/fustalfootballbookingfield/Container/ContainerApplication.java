@@ -16,6 +16,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -101,27 +102,6 @@ public class ContainerApplication extends AppCompatActivity {
                 editText.setText("");
             }
         });
-//        initList();
-//        editText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                if (s.toString().equals("")) {
-//                    initList();
-//                } else {
-//                    searchItem(s.toString());
-//                }
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable ed) {
-//
-//            }
-//        });
 
         user = PrefUtils.getCurrentUser(ContainerApplication.this);
 
@@ -213,28 +193,5 @@ public class ContainerApplication extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-    }
-    public void searchItem(String textToSearch){
-        for(String item:items){
-            if(!item.toLowerCase().contains(textToSearch.toLowerCase())){
-                listItems.remove(item);
-            }
-        }
-        adapter.notifyDataSetChanged();
-    }
-    public void initList(){
-        items = new String[]{"Imperial Stadium","Down Town Sport","CG 7","T-Sport"};
-        listItems = new ArrayList<>(Arrays.asList(items));
-        adapter = new ArrayAdapter<String>(this,R.layout.custom_list,R.id.textView,listItems);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(getApplicationContext(),""+ listItems.get(position),Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ContainerApplication.this, ActivityBooking.class);
-//                intent.putExtra("key",listItems.get(position));
-                startActivity(intent);
-            }
-        });
     }
 }

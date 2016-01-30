@@ -13,7 +13,7 @@
         android:layout_height="0dp">
 
         <ImageView
-            android:src="@drawable/ball"
+            android:src="@drawable/ic_new_app"
             android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="100dp" />
@@ -28,6 +28,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="20dp"
         android:orientation="vertical"
         android:layout_weight="2"
         android:gravity="center"
@@ -40,8 +41,9 @@
             android:layout_height="wrap_content">
 
             <com.facebook.login.widget.LoginButton
+                android:layout_margin="4dp"
                 android:id="@+id/login_button"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_alignParentBottom="true"
@@ -54,11 +56,19 @@
             android:layout_height="wrap_content">
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/google"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
-                android:layout_height="wrap_content" />
+                android:layout_height="35dp" />
+            <Button
+                android:id="@+id/btn_sign_out"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Log out"
+                android:visibility="gone"
+                android:layout_marginBottom="10dp"/>
+
         </LinearLayout>
 
         <!--<FrameLayout-->

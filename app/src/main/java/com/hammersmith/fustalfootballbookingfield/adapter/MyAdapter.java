@@ -60,21 +60,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         TextView textView;
         ImageView imageView;
         ImageView profile;
-         TextView Name;
+        TextView Name;
         TextView email;
 
-        public ViewHolder(View itemView,int ViewType,Context context) {                 // Creating ViewHolder Constructor with View and viewType As a parameter
+        public ViewHolder(View itemView, int ViewType, Context context) {                 // Creating ViewHolder Constructor with View and viewType As a parameter
             super(itemView);
             this.context = context;
             itemView.setOnClickListener(this);
             // Here we set the appropriate view in accordance with the the view type as passed when the holder object is created
 
-            if(ViewType == TYPE_ITEM) {
+            if (ViewType == TYPE_ITEM) {
                 textView = (TextView) itemView.findViewById(R.id.rowText); // Creating TextView object with the id of textView from item_row.xml
                 imageView = (ImageView) itemView.findViewById(R.id.rowIcon);// Creating ImageView object with the id of ImageView from item_row.xml
                 Holderid = 1;                                               // setting holder id as 1 as the object being populated are of type item row
-            }
-            else{
+            } else {
 
 
                 Name = (TextView) itemView.findViewById(R.id.txtPro);         // Creating Text View object from header.xml for name
@@ -92,34 +91,33 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             mainActivity.mDrawer.closeDrawers();
             FragmentTransaction fragmentTransaction = mainActivity.getSupportFragmentManager().beginTransaction();
             //ContainerFragment containFragment;
-            switch (getPosition()){
+            switch (getPosition()) {
                 case 1:
                     Fragment containFragment = new ContainerFragment();
-                   fragmentTransaction.replace(R.id.continer_framelayout,containFragment).commit();
+                    fragmentTransaction.replace(R.id.continer_framelayout, containFragment).commit();
                     break;
                 case 2:
                     Fragment contain = new ContainerFragment();
-                    fragmentTransaction.replace(R.id.continer_framelayout,contain).commit();
+                    fragmentTransaction.replace(R.id.continer_framelayout, contain).commit();
                     break;
                 case 3:
                     Fragment contains = new ContainerFragment();
-                    fragmentTransaction.replace(R.id.continer_framelayout,contains).commit();
+                    fragmentTransaction.replace(R.id.continer_framelayout, contains).commit();
                     break;
                 case 4:
                     Fragment contains_f = new ContainerFragment();
-                    fragmentTransaction.replace(R.id.continer_framelayout,contains_f).commit();
+                    fragmentTransaction.replace(R.id.continer_framelayout, contains_f).commit();
                     break;
                 case 5:
                     Fragment contain_ff = new ContainerFragment();
-                    fragmentTransaction.replace(R.id.continer_framelayout,contain_ff).commit();
+                    fragmentTransaction.replace(R.id.continer_framelayout, contain_ff).commit();
                     break;
                 case 6:
 
                     FacebookSdk.sdkInitialize(context.getApplicationContext());
                     LoginManager.getInstance().logOut();
-                    Intent intent = new Intent(context,RegisterActivity.class);
+                    Intent intent = new Intent(context, RegisterActivity.class);
                     context.startActivity(intent);
-
 
 
                     break;
@@ -129,22 +127,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
 
-
-public MyAdapter(String Titles[], int Icons[], String Name, String Email, String Profile, Context context){ // MyAdapter Constructor with titles and icons parameter
+    public MyAdapter(String Titles[], int Icons[], String Name, String Email, String Profile, Context context) { // MyAdapter Constructor with titles and icons parameter
         // titles, icons, name, email, profile pic are passed from the main activity as we
-       this.mNavTitles = Titles;                //have seen earlier
-       this.mIcons = Icons;
+        this.mNavTitles = Titles;                //have seen earlier
+        this.mIcons = Icons;
 
-       this.name = Name;
-       this.email = Email;
+        this.name = Name;
+        this.email = Email;
         this.profile = Profile;                     //here we assign those passed values to the values we declared here
         this.context = context;
         //in adapter
 
 
-
     }
-
 
 
     //Below first we ovverride the method onCreateViewHolder which is called when the ViewHolder is
@@ -154,10 +149,10 @@ public MyAdapter(String Titles[], int Icons[], String Name, String Email, String
 
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-LayoutInflater layoutInflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row,parent,false); //Inflating the layout
-            ViewHolder vhItem = new ViewHolder(v,viewType,context); //Creating ViewHolder and passing the object of type view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row, parent, false); //Inflating the layout
+            ViewHolder vhItem = new ViewHolder(v, viewType, context); //Creating ViewHolder and passing the object of type view
 
             return vhItem; // Returning the created object
 
@@ -165,8 +160,8 @@ LayoutInflater layoutInflater = (LayoutInflater) parent.getContext().getSystemSe
 
         } else if (viewType == TYPE_HEADER) {
 
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.header,parent,false); //Inflating the layout
-            ViewHolder vhHeader = new ViewHolder(v,viewType,context); //Creating ViewHolder and passing the object of type view
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.header, parent, false); //Inflating the layout
+            ViewHolder vhHeader = new ViewHolder(v, viewType, context); //Creating ViewHolder and passing the object of type view
 
             return vhHeader; //returning the object created
 
@@ -181,16 +176,15 @@ LayoutInflater layoutInflater = (LayoutInflater) parent.getContext().getSystemSe
     // which view type is being created 1 for item row
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
-        if(holder.Holderid == 1) {                              // as the list view is going to be called after the header view so we decrement the
+        if (holder.Holderid == 1) {                              // as the list view is going to be called after the header view so we decrement the
             // position by 1 and pass it to the holder while setting the text and image
             holder.textView.setText(mNavTitles[position - 1]); // Setting the Text with the array of our Titles
-            holder.imageView.setImageResource(mIcons[position -1]);// Settimg the image with array of our icons
-        }
-        else{
-           // Picasso.with(context).load("https://graph.facebook.com/" + position + "/picture?type=large").transform(new CircleTransform()).into(holder.profile);
+            holder.imageView.setImageResource(mIcons[position - 1]);// Settimg the image with array of our icons
+        } else {
+            // Picasso.with(context).load("https://graph.facebook.com/" + position + "/picture?type=large").transform(new CircleTransform()).into(holder.profile);
             holder.profile.setImageResource(Integer.parseInt(profile));
             holder.Name.setText(name);
-                holder.email.setText(email);
+            holder.email.setText(email);
 
         }
     }
@@ -198,7 +192,7 @@ LayoutInflater layoutInflater = (LayoutInflater) parent.getContext().getSystemSe
     // This method returns the number of items present in the list
     @Override
     public int getItemCount() {
-        return mNavTitles.length+1; // the number of items in the list will be +1 the titles including the header view.
+        return mNavTitles.length + 1; // the number of items in the list will be +1 the titles including the header view.
     }
 
 

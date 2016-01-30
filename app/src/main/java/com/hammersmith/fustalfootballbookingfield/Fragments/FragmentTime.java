@@ -39,6 +39,7 @@ public class FragmentTime extends Fragment {
     String catField;
     String fieldBooking;
     String dayBookingService;
+    String typeFieldDetail;
     int ids;
     List<Time> times = new ArrayList<>();
     Time time;
@@ -121,6 +122,9 @@ public class FragmentTime extends Fragment {
         fieldBooking = field;
         final int id = getArguments().getInt("ID");
         ids = id;
+        final String catFieldDetail = getArguments().getString("catField");
+        typeFieldDetail = catFieldDetail;
+
         if (times.size() <= 0) {
             // Creating volley request obj
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_BOOK_DETAIL + dayBookToService, new Response.Listener<JSONArray>() {
@@ -153,6 +157,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField",typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -178,6 +183,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -204,6 +210,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -230,6 +237,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -256,6 +264,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -282,6 +291,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -308,6 +318,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -334,6 +345,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -360,6 +372,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -386,6 +399,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -412,6 +426,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -438,6 +453,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -464,6 +480,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -490,6 +507,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -516,6 +534,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField", typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -542,6 +561,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("field", fieldBooking);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
+                                        bundle.putString("catField",typeFieldDetail);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();

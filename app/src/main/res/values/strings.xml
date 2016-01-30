@@ -58,5 +58,10 @@
     <string name="phone">Phone Number</string>
     <string name="gander">Gander</string>
     <string name="place">Place</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="btn_logout_from_google">Logout from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
+
 
 </resources>

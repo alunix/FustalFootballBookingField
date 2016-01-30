@@ -23,6 +23,7 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.hammersmith.fustalfootballbookingfield.BuildConfig;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
@@ -43,17 +44,18 @@ import static com.hammersmith.fustalfootballbookingfield.R.id.useLogo;
  * Created by minea2015 on 11/18/2015.
  */
 public class RegisterActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
-        View.OnClickListener{
+        View.OnClickListener {
 
 
-    private static final String TAG ="RegisterActivity";
+    private static final String TAG = "RegisterActivity";
     private static final int RC_SIGN_IN = 9001;
     private GoogleApiClient mGoogleApiClient;
+    private SignInButton signInButton;
 
 
     LoginButton loginButton;
     private CallbackManager callbackManager;
-    private   AccessTokenTracker accessTokenTracker;
+    private AccessTokenTracker accessTokenTracker;
     private AccessToken accessToken;
     ProfileTracker profileTracker;
     private GraphResponse response;
@@ -62,37 +64,40 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
 
     public static final String FACEBOOK_ID = "facebookId";
     public static final String FULL_NAME = "fullname";
-    public static final String EMAIL ="email";
-    public static final String GENDER ="gender";
-    public String fbId, fullname, email, gender,photo;
-
-
+    public static final String EMAIL = "email";
+    public static final String GENDER = "gender";
+    public String fbId, fullname, email, gender, photo;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
-
         setContentView(R.layout.activity_register);
         callbackManager = CallbackManager.Factory.create();
 
 
-        if (PrefUtils.getCurrentUser(RegisterActivity.this)!=null){
-            Intent home = new Intent(RegisterActivity.this,ContainerApplication.class);
+        if (PrefUtils.getCurrentUser(RegisterActivity.this) != null) {
+            Intent home = new Intent(RegisterActivity.this, ContainerApplication.class);
             startActivity(home);
             finish();
         }
+        signInButton = (SignInButton) findViewById(R.id.google);
         loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("public_profile,email,user_birthday"));
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginButton.registerCallback(callbackManager,mCallback);
+                loginButton.registerCallback(callbackManager, mCallback);
             }
         });
 
-
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this,GooglePlus.class));
+            }
+        });
     }
 
     @Override
@@ -105,18 +110,18 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
     private void setProfileToview(JSONObject object) {
         try {
 
-            if (object!=null){
+            if (object != null) {
                 user = new User();
                 user.facebookID = object.getString("id");
                 user.name = object.getString("name");
                 user.email = object.getString("email");
                 user.gender = object.getString("gender");
-                PrefUtils.setCurrentUser(user,RegisterActivity.this);
+                PrefUtils.setCurrentUser(user, RegisterActivity.this);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Intent main = new Intent(RegisterActivity.this,ContainerApplication.class);
+        Intent main = new Intent(RegisterActivity.this, ContainerApplication.class);
         startActivity(main);
         finish();
     }
@@ -125,10 +130,10 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode,resultCode,data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    private FacebookCallback<LoginResult>mCallback = new FacebookCallback<LoginResult>() {
+    private FacebookCallback<LoginResult> mCallback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
             GraphRequest request = GraphRequest.newMeRequest(loginResult.getAccessToken(),
@@ -140,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                         }
                     });
             Bundle parameters = new Bundle();
-            parameters.putString("fields","id,name,email,gender,birthday");
+            parameters.putString("fields", "id,name,email,gender,birthday");
             request.setParameters(parameters);
             request.executeAsync();
         }
@@ -155,7 +160,6 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
 
         }
     };
-
 
 
     @Override

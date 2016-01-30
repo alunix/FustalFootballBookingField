@@ -1,6 +1,7 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,18 +16,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hammersmith.fustalfootballbookingfield.Activities.ActivitySetting;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.TabMain.TabLeague;
+import com.hammersmith.fustalfootballbookingfield.model.User;
+import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
+
+import junit.framework.Test;
 
 public class FragmentBooking extends Fragment {
     Button button;
     String dateBooking;
     String date;
     TextView title;
-    EditText name,phone,email;
-    String fields, catField, days;
+    TextView name,phone,email;
+    String fields, catField, days, typeFieldDetail;
     public static TextView textDate, textTime, textField;
-
+    User user;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,14 +43,17 @@ public class FragmentBooking extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_booking_field, container, false);
-
-        name = (EditText) view.findViewById(R.id.name);
-        phone = (EditText) view.findViewById(R.id.phone);
-        email = (EditText) view.findViewById(R.id.email);
+        user = PrefUtils.getCurrentUser(getContext());
+        name = (TextView) view.findViewById(R.id.name);
+        phone = (TextView) view.findViewById(R.id.phone);
+        email = (TextView) view.findViewById(R.id.email);
         textDate = (TextView) view.findViewById(R.id.txtday);
         textField = (TextView) view.findViewById(R.id.txtfield);
         textTime = (TextView) view.findViewById(R.id.txttime);
         title = (TextView) view.findViewById(R.id.title);
+
+        name.setText(user.name);
+        email.setText(user.email);
 
         String day = getArguments().getString("dateBooking");
         final String time = getArguments().getString("timeBooking");
@@ -53,12 +62,15 @@ public class FragmentBooking extends Fragment {
         days = date;
         textDate.setText(date);
         String title = getArguments().getString("title");
-        textField.setText(title);
+        final String catFieldDetail = getArguments().getString("catField");
+        typeFieldDetail = catFieldDetail;
+        textField.setText(title+" ("+typeFieldDetail+")");
         catField = title;
         String field = getArguments().getString("field");
         fields = field;
         final String dayBooking = getArguments().getString("dayBooking");
         final int id = getArguments().getInt("ID");
+
         button = (Button) view.findViewById(R.id.btnBooking);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
