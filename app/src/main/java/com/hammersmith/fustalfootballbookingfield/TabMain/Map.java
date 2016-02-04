@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Location;
@@ -277,4 +278,13 @@ public class Map extends Fragment {
         super.onStart();
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
 }

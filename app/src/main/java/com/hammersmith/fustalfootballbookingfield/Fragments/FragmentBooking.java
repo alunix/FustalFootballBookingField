@@ -52,8 +52,8 @@ public class FragmentBooking extends Fragment {
         textTime = (TextView) view.findViewById(R.id.txttime);
         title = (TextView) view.findViewById(R.id.title);
 
-        name.setText(user.name);
-        email.setText(user.email);
+        name.setText(user.getName());
+        email.setText(user.getEmail());
 
         String day = getArguments().getString("dateBooking");
         final String time = getArguments().getString("timeBooking");

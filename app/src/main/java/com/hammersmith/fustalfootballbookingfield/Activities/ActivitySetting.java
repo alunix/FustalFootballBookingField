@@ -47,6 +47,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.hammersmith.fustalfootballbookingfield.R.id.edUsername;
+import static com.hammersmith.fustalfootballbookingfield.R.id.editPhone;
 import static com.hammersmith.fustalfootballbookingfield.R.id.tool_bar;
 
 public class ActivitySetting extends AppCompatActivity {
@@ -84,13 +85,10 @@ public class ActivitySetting extends AppCompatActivity {
         address = (EditText) findViewById(R.id.edPlace);
         dob = (EditText) findViewById(R.id.eddob);
 
-        Picasso.with(context).load("https://graph.facebook.com/" + user.facebookID + "/picture?type=large").into(imageUser);
-        userName.setText(user.name);
-        email.setText(user.email);
-        phone.setText("096 2008 259");
-        gender.setText("Male");
-        address.setText("Phnom Pehn");
-        dob.setText("2016-01-16");
+        Picasso.with(context).load("https://graph.facebook.com/" + user.getFacebookID() + "/picture?type=large").into(imageUser);
+        userName.setText(user.getName());
+        email.setText(user.getEmail());
+
     }
 
     @Override
@@ -127,41 +125,17 @@ public class ActivitySetting extends AppCompatActivity {
                                 @Override
                                 public void onErrorResponse(VolleyError volleyError) {
                                 Toast.makeText(getApplicationContext(),volleyError.toString(),Toast.LENGTH_SHORT).show();
-                                    NetworkResponse networkResponse = volleyError.networkResponse;
-                                    if (networkResponse != null) {
-                                        Log.e("Volley", "Error. HTTP Status Code:" + networkResponse.statusCode);
-                                    }
-                                    if (volleyError instanceof TimeoutError) {
-                                        Log.e("Volley", "TimeoutError");
-                                    }else if(volleyError instanceof NoConnectionError){
-                                        Log.e("Volley", "NoConnectionError");
-                                    } else if (volleyError instanceof AuthFailureError) {
-                                        Log.e("Volley", "AuthFailureError");
-                                    } else if (volleyError instanceof ServerError) {
-                                        Log.e("Volley", "ServerError");
-                                    } else if (volleyError instanceof NetworkError) {
-                                        Log.e("Volley", "NetworkError");
-                                    } else if (volleyError instanceof ParseError) {
-                                        Log.e("Volley", "ParseError");
-                                    }
                                 }
                             }) {
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> params = new HashMap<>();
-                            params.put("id", "1");
-                            params.put("name", "Thuon");
-                            params.put("email", "thuon@gmail.com");
-                            params.put("phone", "0962008259");
-                            params.put("gender", "Male");
-                            params.put("address", "Phnom Penh");
-                            params.put("dob", "2016-01-16");
-
-                            return params;
-                        }
-                        @Override
-                        public Map<String, String> getHeaders() throws AuthFailureError {
-                            Map<String,String> params = new HashMap<String, String>();
+                            params.put("name", userName.getText().toString());
+                            params.put("email", email.getText().toString());
+                            params.put("phone", phone.getText().toString());
+                            params.put("gender", gender.getText().toString());
+                            params.put("address", address.getText().toString());
+                            params.put("dob", dob.getText().toString());
 
                             return params;
                         }
@@ -170,7 +144,7 @@ public class ActivitySetting extends AppCompatActivity {
                     break;
 
                 case R.id.action_cancel:
-                    Toast.makeText(getApplicationContext(), "Cancelled", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
             }
 
             return false;

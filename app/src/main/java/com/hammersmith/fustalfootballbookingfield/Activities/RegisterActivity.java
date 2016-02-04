@@ -4,10 +4,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -28,14 +34,19 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.hammersmith.fustalfootballbookingfield.BuildConfig;
 import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
+import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.User;
+import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
+import static com.hammersmith.fustalfootballbookingfield.R.id.edit_query;
 import static com.hammersmith.fustalfootballbookingfield.R.id.login_button;
 import static com.hammersmith.fustalfootballbookingfield.R.id.logout;
 import static com.hammersmith.fustalfootballbookingfield.R.id.useLogo;
@@ -52,22 +63,9 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
     private GoogleApiClient mGoogleApiClient;
     private SignInButton signInButton;
 
-
     LoginButton loginButton;
     private CallbackManager callbackManager;
-    private AccessTokenTracker accessTokenTracker;
-    private AccessToken accessToken;
-    ProfileTracker profileTracker;
-    private GraphResponse response;
     User user;
-
-
-    public static final String FACEBOOK_ID = "facebookId";
-    public static final String FULL_NAME = "fullname";
-    public static final String EMAIL = "email";
-    public static final String GENDER = "gender";
-    public String fbId, fullname, email, gender, photo;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +73,6 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_register);
         callbackManager = CallbackManager.Factory.create();
-
 
         if (PrefUtils.getCurrentUser(RegisterActivity.this) != null) {
             Intent home = new Intent(RegisterActivity.this, ContainerApplication.class);
@@ -95,37 +92,10 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(RegisterActivity.this,GooglePlus.class));
+                startActivity(new Intent(RegisterActivity.this, GooglePlus.class));
             }
         });
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-
-    }
-
-    private void setProfileToview(JSONObject object) {
-        try {
-
-            if (object != null) {
-                user = new User();
-                user.facebookID = object.getString("id");
-                user.name = object.getString("name");
-                user.email = object.getString("email");
-                user.gender = object.getString("gender");
-                PrefUtils.setCurrentUser(user, RegisterActivity.this);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Intent main = new Intent(RegisterActivity.this, ContainerApplication.class);
-        startActivity(main);
-        finish();
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -140,8 +110,23 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                     new GraphRequest.GraphJSONObjectCallback() {
                         @Override
                         public void onCompleted(JSONObject object, GraphResponse response) {
-                            // Profile profile = Profile.getCurrentProfile();
-                            setProfileToview(object);
+                            JSONObject obj = response.getJSONObject();
+//                            setProfileToview(obj);
+                            try {
+                                if (obj != null) {
+                                    user = new User();
+                                    user.setFacebookID(obj.getString("id"));
+                                    user.setName(obj.getString("name"));
+                                    user.setEmail(obj.getString("email"));
+                                    PrefUtils.setCurrentUser(user, RegisterActivity.this);
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            Intent main = new Intent(RegisterActivity.this, ContainerApplication.class);
+                            saveUserSocial();
+                            startActivity(main);
+                            finish();
                         }
                     });
             Bundle parameters = new Bundle();
@@ -161,21 +146,47 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
         }
     };
 
+    public void saveUserSocial() {
+        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_ADDDATA, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-
+                Toast.makeText(getApplicationContext(), "Data uploaded...", Toast.LENGTH_SHORT).show();
+            }
+        },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Toast.makeText(getApplicationContext(), volleyError.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("social_type","1");
+                params.put("link", user.getFacebookID());
+                params.put("username", user.getName());
+                params.put("email", user.getEmail());
+                Log.d("facebook id",user.getFacebookID());
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(userReq);
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+
 
     }
 }

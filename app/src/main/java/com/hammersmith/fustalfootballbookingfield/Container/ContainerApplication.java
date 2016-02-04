@@ -117,9 +117,9 @@ public class ContainerApplication extends AppCompatActivity {
         profile = (ImageView) header.findViewById(R.id.imgPro);
         txtName = (TextView) header.findViewById(R.id.txtPro);
         txtEmail = (TextView) header.findViewById(R.id.txtEmail);
-        txtName.setText(user.name);
-        txtEmail.setText(user.email);
-        Picasso.with(context).load("https://graph.facebook.com/" + user.facebookID + "/picture?type=large").transform(new CircleTransform()).into(profile);
+        txtName.setText(user.getName());
+        txtEmail.setText(user.getEmail());
+        Picasso.with(context).load("https://graph.facebook.com/" + user.getFacebookID() + "/picture?type=large").transform(new CircleTransform()).into(profile);
 
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -168,10 +168,6 @@ public class ContainerApplication extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.addToBackStack(null);
         transaction.add(R.id.continer_framelayout, containTab).commit();
-    }
-
-    public void testMethod(){
-        Log.d("Test", "Searching");
     }
 
     @Override
