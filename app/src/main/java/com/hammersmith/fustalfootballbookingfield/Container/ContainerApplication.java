@@ -9,55 +9,32 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
-import com.hammersmith.fustalfootballbookingfield.Activities.ActivitySetting;
 import com.hammersmith.fustalfootballbookingfield.Activities.RegisterActivity;
-import com.hammersmith.fustalfootballbookingfield.Activities.SearchActivity;
+import com.hammersmith.fustalfootballbookingfield.Activities.ViewProfile;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
-import com.hammersmith.fustalfootballbookingfield.TabMain.TabHome;
-import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerHomeAdapter;
-import com.hammersmith.fustalfootballbookingfield.controller.AppController;
-import com.hammersmith.fustalfootballbookingfield.model.Field;
 import com.hammersmith.fustalfootballbookingfield.model.User;
-import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 import com.hammersmith.fustalfootballbookingfield.widget.CircleTransform;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by USER on 9/25/2015.
@@ -133,7 +110,7 @@ public class ContainerApplication extends AppCompatActivity {
 
                 if(item.getItemId() == R.id.nav_item_setting){
 //                    Toast.makeText(getApplicationContext(),"Setting",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ContainerApplication.this, ActivitySetting.class);
+                    Intent intent = new Intent(ContainerApplication.this, ViewProfile.class);
                     startActivity(intent);
                 }
 

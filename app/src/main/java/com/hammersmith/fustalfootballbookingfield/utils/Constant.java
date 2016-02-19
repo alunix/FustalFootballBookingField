@@ -11,4 +11,5 @@ public class Constant {
     public static final String URL_BOOK_DETAIL = "http://192.168.123.13:81/futsal/public/field/book/";
     public static final String URL_LEAGUE = "http://192.168.123.13:81/futsal/public/league";
     public static final String URL_ADDDATA = "http://192.168.123.13:81/futsal/public/users/login";
+    public static final String URL_UPDATE = "http://192.168.123.13:81/futsal/public/user/";
 }

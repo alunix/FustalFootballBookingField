@@ -15,21 +15,11 @@
     <color name="white">#ffffff</color>
     <color name="bgTableLeague">#add1d1</color>
 
-        <!--<color name="ColorPrimary">#ff2c36</color>-->
-        <!--<color name="ColorPrimaryDark">#c31c13</color>-->
-        <!--<color name="tabsScrollColor">#ffffff</color>-->
-        <!--<color name="subTabsScrollColor">#3d59ff</color>-->
-        <!--<color name="tabColorTest">#fff</color>-->
-
     <color name="ColorPrimary">#df053f</color>
     <color name="ColorPrimaryDark">#00695C</color>
     <color name="tabsScrollColor">#ffffff</color>
     <color name="subTabsScrollColor">#3d59ff</color>
     <color name="tabColorTest">#fff</color>
-
-
-    <!--<color name="ColorPrimarys">#3498db</color>-->
-    <!--<color name="ColorPrimaryDarks">#00695C</color>-->
     <color name="tabsScrollColors">#000</color>
 
     <item name="transparent" type="color">#00FFFFFF</item>
@@ -38,16 +28,23 @@
     <item name="darkgreen" type="color">#FF669900</item>
     <item name="bgBooking" type="color">#df053f</item>
     <item name="bgUnChecked" type="color">#0fa728</item>
-
     <color name="colorAccent">#FF4081</color>
 
-
     <color name="off_white">#FAFAFA</color>
-    <color name="background">#E0E0E0</color>
+    <color name="background">#eaeaea</color>
     <color name="indigo">#3F51B5</color>
     <color name="blue">#03A7E9</color>
     <color name="pink">#f7d6f6</color>
     <color name="red">#dc0f19</color>
     <color name="bgheader">#F50057</color>
     <color name="bookAvailable">#3590f9</color>
+
+    <color name="primary">#E91E63</color>
+    <color name="primary_dark">#C2185B</color>
+    <color name="primary_light">#F8BBD0</color>
+    <color name="accent">#448AFF</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
 </resources>

@@ -123,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                            Intent main = new Intent(RegisterActivity.this, ContainerApplication.class);
+                            Intent main = new Intent(RegisterActivity.this, EditUsers.class);
                             saveUserSocial();
                             startActivity(main);
                             finish();

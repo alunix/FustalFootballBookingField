@@ -99,10 +99,16 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activities.ActivitySetting"
-            android:windowSoftInputMode="stateHidden"></activity>
-        <activity android:name=".Activities.GooglePlus"></activity>
+        <activity android:name=".Activities.GooglePlus" />
+        <activity android:name=".Activities.ViewProfile">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activities.ActivityUpdate" />
+        <activity android:name=".Activities.EditUsers"></activity>
     </application>
 
 </manifest>
