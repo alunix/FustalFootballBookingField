@@ -207,7 +207,7 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
     }
     public void setTabBackgroundColor(int color){
         mTabStrip.setBackgroundColor(color);
-        //this.setBackgroundColor(getResources().getColor(R.color.selectors));
+//        this.setBackgroundColor(getResources().getColor(R.color.selectors));
     }
 
     public void setContentDescription(int i, String desc) {

@@ -12,4 +12,10 @@ public class Constant {
     public static final String URL_LEAGUE = "http://192.168.123.13:81/futsal/public/league";
     public static final String URL_ADDDATA = "http://192.168.123.13:81/futsal/public/users/login";
     public static final String URL_UPDATE = "http://192.168.123.13:81/futsal/public/user/";
+    public static final String URL_CHECKUSERLOGIN = "http://192.168.123.13:81/futsal/public/user_social/";
+    public static final String URL_GETDATA = "http://192.168.123.13:81/futsal/public/user/";
+    public static final String URL_CHECKDATE = "http://192.168.123.13:81/futsal/public/checkdate/";
+    public static final String URL_BOOKING = "http://192.168.123.13:81/futsal/public/book/";
+    public static final String URL_ADDHISTORY = "http://192.168.123.13:81/futsal/public/users/history/";
+    public static final String URL_HISTORY = "http://192.168.123.13:81/futsal/public/history/";
 }

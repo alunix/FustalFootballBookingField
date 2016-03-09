@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -28,7 +30,6 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.Field;
@@ -49,7 +50,7 @@ import java.util.List;
 /**
  * Created by USER on 11/17/2015.
  */
-public class Map extends Fragment {
+public class Map extends Fragment implements OnMapReadyCallback {
     int[] id;
     String[] title;
 
@@ -59,6 +60,9 @@ public class Map extends Fragment {
     String image = "";
     String nameField;
     Marker marker;
+    LatLng lat;
+    private ProgressDialog pDialog;
+    ArrayList<String> listNames = new ArrayList<>();
 
     public Map() {
 
@@ -73,66 +77,68 @@ public class Map extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View viewMap = inflater.inflate(R.layout.map, container, false);
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
         setUpMapIfNeeded();
-
-        if (fields.size() <= 0) {
-            // Creating volley request obj
-            JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
-                @Override
-                public void onResponse(JSONArray jsonArray) {
-                    id = new int[jsonArray.length()];
-                    title = new String[jsonArray.length()];
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        try {
-                            JSONObject obj = jsonArray.getJSONObject(i);
-                            field = new Field();
-                            field.setImage(Constant.URL_HOME + obj.getString("image_path"));
-                            field.setName(obj.getString("name"));
-                            field.setLocation(obj.getString("address"));
-                            id[i] = obj.getInt("id");
-                            nameField = title[i] = obj.getString("name");
-                            fields.add(field);
-//                            Toast.makeText(getActivity(),nameField,Toast.LENGTH_SHORT).show();
-
-                                googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-                                    @Override
-                                    public void onInfoWindowClick(Marker marker) {
-                                        if (marker.getTitle().equals(nameField)) {
-                                            Toast.makeText(getActivity(), marker.getTitle(), Toast.LENGTH_SHORT).show();
-                                        }else{
-                                            Toast.makeText(getActivity(),"Not Found"+nameField,Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError volleyError) {
-                    Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
-                }
-            });
-            AppController.getInstance().addToRequestQueue(fieldReq);
-
-        }
-
-        googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-
-//                for (int i = 0; i < fields.size(); i++) {
-//                    if (marker.getTitle().equals(nameField)) {
-//                        Toast.makeText(getActivity(), marker.getTitle(), Toast.LENGTH_SHORT).show();
-//                    } else {
-//                        Toast.makeText(getActivity(), "Not found", Toast.LENGTH_SHORT).show();
+//        if (fields.size() <= 0) {
+//            // Creating volley request obj
+//            JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
+//                @Override
+//                public void onResponse(JSONArray jsonArray) {
+//                    id = new int[jsonArray.length()];
+//                    title = new String[jsonArray.length()];
+//                    for (int i = 0; i < jsonArray.length(); i++) {
+//                        try {
+//                            JSONObject obj = jsonArray.getJSONObject(i);
+//                            field = new Field();
+//                            field.setImage(Constant.URL_HOME + obj.getString("image_path"));
+//                            field.setName(obj.getString("name"));
+//                            field.setLocation(obj.getString("address"));
+//                            id[i] = obj.getInt("id");
+//                            nameField = title[i] = obj.getString("name");
+//                            lat = new LatLng(Double.parseDouble(obj.getString("latitude")),
+//                                    Double.parseDouble(obj.getString("longitude")));
+//                            fields.add(field);
+//                            listNames.add(obj.getString("name"));
+//                            Marker marker = googleMap.addMarker(new MarkerOptions()
+//                                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+//                                    .title(obj.getString("name"))
+//                                    .snippet(obj.getString("address"))
+//                                    .position(lat));
+//                            marker.showInfoWindow();
+//                            for (int n = 0; n < listNames.size(); n++) {
+//                                final String latl = listNames.get(n);
+//                                if (marker.getTitle().equals(latl)) {
+//                                    Log.d("latlng",""+latl+""+lat);
+//                                    googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//                                        @Override
+//                                        public void onInfoWindowClick(Marker marker) {
+//                                            Toast.makeText(getActivity(), latl + " = " + marker.getTitle(), Toast.LENGTH_SHORT).show();
+////                                            CameraPosition cameraPosition = new CameraPosition.Builder().target(lat).zoom(18).build();
+////                                            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+//                                        }
+//                                    });
+//                                }
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
 //                    }
 //                }
-            }
-        });
+//            }, new Response.ErrorListener() {
+//                @Override
+//                public void onErrorResponse(VolleyError volleyError) {
+//                    Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//            AppController.getInstance().addToRequestQueue(fieldReq);
+//        }
+        return viewMap;
+    }
 
+    @Override
+    public void onMapReady(GoogleMap mMap) {
         googleMap.setMyLocationEnabled(true);
         googleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
             @Override
@@ -157,7 +163,6 @@ public class Map extends Fragment {
             }
         });
 
-        return viewMap;
     }
 
     private class MarkerTask extends AsyncTask<Void, Void, String> {
@@ -192,11 +197,11 @@ public class Map extends Fragment {
 
         @Override
         protected void onPostExecute(String json) {
+            hidePDialog();
             try {
                 JSONArray jsonArray = new JSONArray(json);
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
-
                     LatLng latLng = new LatLng(Double.parseDouble(jsonObject.getString("latitude")),
                             Double.parseDouble(jsonObject.getString("longitude")));
                     if (i == 1) {
@@ -218,6 +223,7 @@ public class Map extends Fragment {
                 }
             } catch (JSONException e) {
                 Log.e(LOG_TAG, "Error processing JSON", e);
+                hidePDialog();
             }
             super.onPostExecute(json);
         }
@@ -238,34 +244,19 @@ public class Map extends Fragment {
         }
     }
 
-    public void directLocation(){
+    public void directLocation() {
         googleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
             @Override
             public void onMyLocationChange(Location location) {
-                LatLng lat = new LatLng(location.getLatitude(),location.getLongitude());
-//                LatLng lat = new LatLng(11.3343,104.5222);
+                LatLng lat = new LatLng(location.getLatitude(), location.getLongitude());
                 googleMap.addMarker(new MarkerOptions().position(lat).title("Current Location"));
                 CameraPosition cameraPosition = new CameraPosition.Builder().target(lat).zoom(12).build();
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                 Log.d("Latitude ", "" + location.getLatitude());
-                Log.d("Longitude ",""+location.getLongitude());
+                Log.d("Longitude ", "" + location.getLongitude());
             }
         });
     }
-
-//    private void createMarkerFromJson(String json) throws JSONException {
-//
-//        JSONArray jsonArray = new JSONArray(json);
-//        for (int i = 0; i < jsonArray.length(); i++) {
-//            JSONObject jsonObject = jsonArray.getJSONObject(i);
-//            googleMap.addMarker(new MarkerOptions()
-//                            .title(jsonObject.getString("name"))
-//                            .snippet(Integer.toString(jsonObject.getInt("id")))
-//                            .position(new LatLng(Double.parseDouble(jsonObject.getString("latitude")), Double.parseDouble(jsonObject.getString("longitude"))
-//                            ))
-//            );
-//        }
-//    }
 
     @Override
     public void onResume() {
@@ -286,5 +277,31 @@ public class Map extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+    }
+    //    private void createMarkerFromJson(String json) throws JSONException {
+//
+//        JSONArray jsonArray = new JSONArray(json);
+//        for (int i = 0; i < jsonArray.length(); i++) {
+//            JSONObject jsonObject = jsonArray.getJSONObject(i);
+//            googleMap.addMarker(new MarkerOptions()
+//                            .title(jsonObject.getString("name"))
+//                            .snippet(Integer.toString(jsonObject.getInt("id")))
+//                            .position(new LatLng(Double.parseDouble(jsonObject.getString("latitude")), Double.parseDouble(jsonObject.getString("longitude"))
+//                            ))
+//            );
+//        }
+//    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
+
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
     }
 }

@@ -14,10 +14,10 @@
         app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
         <LinearLayout
-            android:paddingBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,10 +56,10 @@
                         android:layout_weight="0.69"
                         android:orientation="vertical">
 
-                        <TextView
+                        -<TextView
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
-                            android:background="@drawable/bgheadersub"
+                            android:background="@color/gold"
                             android:gravity="center"
                             android:text="Time/Day"
                             android:textColor="#fff"
@@ -79,7 +79,7 @@
                             android:id="@+id/dayBooking"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
-                            android:background="@drawable/bgheadersub"
+                            android:background="@color/gold"
                             android:gravity="center"
                             android:text="00/00/2015"
                             android:textColor="#fff"
@@ -312,12 +312,12 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time6"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book6"
                             android:textColor="#fff"
@@ -325,12 +325,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time7"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book7"
                             android:textColor="#fff"
@@ -338,12 +338,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time8"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book8"
                             android:textColor="#fff"
@@ -351,12 +351,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time9"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book9"
                             android:textColor="#fff"
@@ -364,12 +364,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time10"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book10"
                             android:textColor="#fff"
@@ -377,12 +377,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time11"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book11"
                             android:textColor="#fff"
@@ -390,12 +390,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time12"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book12"
                             android:textColor="#fff"
@@ -403,12 +403,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time13"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book13"
                             android:textColor="#fff"
@@ -416,12 +416,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time14"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book14"
                             android:textColor="#fff"
@@ -429,12 +429,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time15"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book15"
                             android:textColor="#fff"
@@ -442,12 +442,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time16"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book16"
                             android:textColor="#fff"
@@ -455,12 +455,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time17"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book17"
                             android:textColor="#fff"
@@ -468,12 +468,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time18"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book18"
                             android:textColor="#fff"
@@ -481,12 +481,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time19"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book19"
                             android:textColor="#fff"
@@ -494,12 +494,12 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time20"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book20"
                             android:textColor="#fff"
@@ -507,24 +507,21 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:clickable="true"
                             android:id="@+id/time21"
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="2dp"
                             android:background="@color/bookAvailable"
+                            android:clickable="true"
                             android:gravity="center"
                             android:text="@string/book21"
                             android:textColor="#fff"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
-
                     </LinearLayout>
-
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </FrameLayout>

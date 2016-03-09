@@ -18,8 +18,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp" />
         <TextView
-            android:text="Futsal Booking Field"
-            android:textSize="30dp"
+            android:id="@+id/title"
+            android:text="@string/futsalbooking"
+            android:textSize="20dp"
             android:textColor="#fff"
             android:gravity="center"
             android:layout_width="match_parent"
@@ -46,6 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true" />
 
@@ -55,19 +58,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.gms.common.SignInButton
-                android:id="@+id/google"
+                android:id="@+id/sign_in_button"
                 android:layout_width="match_parent"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:layout_height="35dp" />
+                android:layout_height="wrap_content" />
             <Button
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@drawable/btn_google_signin_light_normal"
+                android:textAllCaps="false"
+                android:textColor="@color/bright_foreground_disabled_material_light"
                 android:id="@+id/btn_sign_out"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log out"
                 android:visibility="gone"
-                android:layout_marginBottom="10dp"/>
+                android:text="@string/btn_logout_from_google" />
 
         </LinearLayout>
 

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="0dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:padding="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:paddingTop="1dp"
+                    android:background="@color/divider"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_weight="0.5"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:paddingLeft="1dp"
+                                android:layout_marginTop="1dp"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <TextView
+                                    android:background="@color/color"
+                                    android:text="No"
+                                    android:gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:paddingBottom="1dp"
+                                android:paddingLeft="1dp"
+                                android:layout_marginTop="1dp"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <TextView
+                                    android:id="@+id/no"
+                                    android:background="@color/color"
+                                    android:text="1"
+                                    android:gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="1dp">
+
+                                <LinearLayout
+                                    android:background="@color/divider"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="40dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:background="@color/color"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Name" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:background="@color/color"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_weight="2"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical"
+                                        android:paddingLeft="10dp">
+
+                                        <TextView
+                                            android:id="@+id/name"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="1dp"
+                                    android:minHeight="40dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:background="@color/white"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Location" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_weight="2"
+                                        android:background="@color/white"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical"
+                                        android:paddingLeft="10dp">
+
+                                        <TextView
+                                            android:id="@+id/location"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_marginTop="1dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:minHeight="40dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:background="@color/white"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Type" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:background="@color/white"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_weight="2"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical"
+                                        android:paddingLeft="10dp">
+
+                                        <TextView
+                                            android:id="@+id/type"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="1dp"
+                                    android:minHeight="40dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:background="@color/white"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Field" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:background="@color/white"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_weight="2"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical"
+                                        android:paddingLeft="10dp">
+
+                                        <TextView
+                                            android:id="@+id/field"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="1dp"
+                                    android:minHeight="40dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:background="@color/white"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Date" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_weight="2"
+                                        android:background="@color/white"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical"
+                                        android:paddingLeft="10dp">
+
+                                        <TextView
+                                            android:id="@+id/date"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"/>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="1dp"
+                                    android:minHeight="40dp"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:background="@color/white"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Time" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginLeft="1dp"
+                                        android:layout_weight="2"
+                                        android:background="@color/white"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical"
+                                        android:paddingLeft="10dp">
+
+                                        <TextView
+                                            android:id="@+id/time"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                                <!--<LinearLayout-->
+                                    <!--android:layout_width="match_parent"-->
+                                    <!--android:layout_height="wrap_content"-->
+                                    <!--android:layout_marginTop="1dp"-->
+                                    <!--android:minHeight="40dp"-->
+                                    <!--android:orientation="horizontal">-->
+
+                                    <!--<LinearLayout-->
+                                        <!--android:background="@color/white"-->
+                                        <!--android:layout_width="0dp"-->
+                                        <!--android:layout_height="match_parent"-->
+                                        <!--android:layout_weight="1"-->
+                                        <!--android:gravity="center"-->
+                                        <!--android:orientation="vertical">-->
+
+                                        <!--<TextView-->
+                                            <!--android:layout_width="wrap_content"-->
+                                            <!--android:layout_height="wrap_content"-->
+                                            <!--android:text="Price" />-->
+
+                                    <!--</LinearLayout>-->
+
+                                    <!--<LinearLayout-->
+                                        <!--android:layout_width="0dp"-->
+                                        <!--android:layout_height="match_parent"-->
+                                        <!--android:layout_marginLeft="1dp"-->
+                                        <!--android:layout_weight="2"-->
+                                        <!--android:background="@color/white"-->
+                                        <!--android:gravity="center_vertical"-->
+                                        <!--android:orientation="vertical"-->
+                                        <!--android:paddingLeft="10dp">-->
+
+                                        <!--<TextView-->
+                                            <!--android:id="@+id/price"-->
+                                            <!--android:layout_width="wrap_content"-->
+                                            <!--android:layout_height="wrap_content"-->
+                                            <!--android:text="$ 12.00" />-->
+
+                                    <!--</LinearLayout>-->
+
+                                <!--</LinearLayout>-->
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

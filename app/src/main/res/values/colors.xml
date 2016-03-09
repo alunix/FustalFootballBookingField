@@ -31,13 +31,13 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="off_white">#FAFAFA</color>
-    <color name="background">#eaeaea</color>
+    <color name="background">#ffffff</color>
     <color name="indigo">#3F51B5</color>
     <color name="blue">#03A7E9</color>
     <color name="pink">#f7d6f6</color>
     <color name="red">#dc0f19</color>
-    <color name="bgheader">#F50057</color>
-    <color name="bookAvailable">#3590f9</color>
+    <color name="bgheader">#e65100</color>
+    <color name="bookAvailable">#facd8a</color>
 
     <color name="primary">#E91E63</color>
     <color name="primary_dark">#C2185B</color>
@@ -47,4 +47,9 @@
     <color name="secondary_text">#727272</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
+    <color name="gold">#faa934</color>
+    <color name="goldbooking">#8efabd38</color>
+    <color name="goldbackground">#ffc97b</color>
+    <color name="goldwhite">#05ffffff</color>
+    <color name="color">#f5efc2</color>
 </resources>

@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
-import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
+import com.hammersmith.fustalfootballbookingfield.model.UserHistory;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerHomeAdapter;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
@@ -29,7 +30,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -41,10 +46,8 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
     private ProgressDialog pDialog;
     int[] id;
     String[] title;
-
     List<Field> fields = new ArrayList<>();
     Field field;
-
     String image = "";
 
     @Override
@@ -58,7 +61,6 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         View root = inflater.inflate(R.layout.tab_home, container, false);
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
         initList();
-
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
         pDialog.setMessage("Loading...");
@@ -69,7 +71,6 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray jsonArray) {
-                    hidePDialog();
                     id = new int[jsonArray.length()];
                     title = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -82,6 +83,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
                             id[i] = obj.getInt("id");
                             title[i] = obj.getString("name");
                             fields.add(field);
+                            hidePDialog();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -128,7 +130,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
     public void itemClicked(View view, int position) {
         image = ((Field)fields.get(position)).getImage();
         Intent intent = new Intent(getActivity(), ActivityBooking.class);
-        intent.putExtra("title", title[position]);
+        intent.putExtra("location", title[position]);
         intent.putExtra("field", image);
         intent.putExtra("ID", id[position]);
         startActivity(intent);

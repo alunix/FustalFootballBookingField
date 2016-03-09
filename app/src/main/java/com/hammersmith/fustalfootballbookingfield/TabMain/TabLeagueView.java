@@ -37,7 +37,7 @@ public class TabLeagueView extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View leagueView = inflater.inflate(R.layout.custom_league_view, container, false);
-        WebView viewLeague = (WebView) leagueView.findViewById(R.id.webView);
+        final WebView viewLeague = (WebView) leagueView.findViewById(R.id.webView);
 
         url = getArguments().getString("url");
         WebSettings settings = viewLeague.getSettings();
@@ -48,7 +48,6 @@ public class TabLeagueView extends Fragment {
         viewLeague.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
                 view.loadUrl(url);
                 return true;
             }
@@ -61,6 +60,24 @@ public class TabLeagueView extends Fragment {
                 }
             }
         });
+        viewLeague.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((keyCode == KeyEvent.KEYCODE_BACK) && viewLeague.canGoBack()) {
+                    viewLeague.goBack();
+                    return true;
+                }else{
+                    Fragment fragment = new TabLeague();
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
+                    fragmentTransaction.replace(R.id.layoutLeagueView,fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+                return false;
+            }
+        });
 
         leagueView.setFocusableInTouchMode(true);
         leagueView.requestFocus();
@@ -68,8 +85,6 @@ public class TabLeagueView extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
-//                    Toast.makeText(getActivity(), "BackPress Working", Toast.LENGTH_SHORT).show();
-
                     Fragment fragment = new TabLeague();
                     FragmentManager fragmentManager = getChildFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

@@ -1,43 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:background="@color/bgheader"
     android:orientation="vertical">
 
     <LinearLayout
-        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_marginLeft="20dp"
-            android:id="@+id/imgPro"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/default_male_avatar" />
-
-        <TextView
-            android:layout_marginTop="5dp"
-            android:id="@+id/txtPro"
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="User Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#fff"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_height="match_parent"
+            android:layout_gravity="left">
 
-        <TextView
-            android:layout_marginTop="0dp"
-            android:id="@+id/txtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="example@gmail.com"
-            android:textColor="#fff"
-            android:textSize="14sp" />
+            <com.facebook.login.widget.ProfilePictureView
+                android:elevation="5dp"
+                android:background="@color/white"
+                android:padding="1dp"
+                android:id="@+id/profilePic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="left"
+                app:com_facebook_preset_size="normal" />
+
+            <ImageView
+                android:src="@drawable/default_male_avatar"
+                android:elevation="5dp"
+                android:background="@color/white"
+                android:padding="1dp"
+                android:layout_gravity="left"
+                android:id="@+id/imageUserGoogel"
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+
+            <TextView
+                android:id="@+id/txtPro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="User Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:text="example@gmail.com"
+                android:textColor="#fff"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+        <!--<com.facebook.login.widget.ProfilePictureView-->
+        <!--android:id="@+id/profilePic"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--app:com_facebook_preset_size="normal" />-->
+        <!--<ImageView-->
+        <!--android:layout_marginLeft="20dp"-->
+        <!--android:id="@+id/imgProGoogle"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"/>-->
+
+        <!--<TextView-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:id="@+id/txtPro"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="User Name"-->
+        <!--android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+        <!--android:textColor="#fff"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textStyle="bold" />-->
+
+        <!--<TextView-->
+        <!--android:layout_marginTop="0dp"-->
+        <!--android:id="@+id/txtEmail"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="example@gmail.com"-->
+        <!--android:textColor="#fff"-->
+        <!--android:textSize="14sp" />-->
     </LinearLayout>
 
 
-</FrameLayout>
+</LinearLayout>

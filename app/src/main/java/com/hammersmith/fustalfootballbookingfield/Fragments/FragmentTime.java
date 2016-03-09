@@ -1,10 +1,12 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -37,13 +44,13 @@ public class FragmentTime extends Fragment {
     String titles[];
     String bookingDay;
     String catField;
-    String fieldBooking;
     String dayBookingService;
-    String typeFieldDetail;
     int ids;
     List<Time> times = new ArrayList<>();
     Time time;
     String timeBook;
+    String location;
+    private ProgressDialog pDialog;
 
     String timeBook6 = "6 To 7 AM";
     String timeBook7 = "7 To 8 AM";
@@ -74,6 +81,9 @@ public class FragmentTime extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_time, container, false);
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
 
         timeBooking6 = (TextView) rootView.findViewById(R.id.timeBooking6);
         timeBooking7 = (TextView) rootView.findViewById(R.id.timeBooking7);
@@ -109,27 +119,46 @@ public class FragmentTime extends Fragment {
         time20 = (TextView) rootView.findViewById(R.id.time20);
         time21 = (TextView) rootView.findViewById(R.id.time21);
 
+        String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+        final String dateselected = getArguments().getString("dateselected");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        Date curr = null;
+        Date sele = null;
+        try {
+            curr = sdf.parse(mydate);
+            sele = sdf.parse(dateselected);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        if (sele.before(curr)) {
+            Toast.makeText(getActivity(),"before",Toast.LENGTH_SHORT).show();
+            disableTime();
+        }else if (sele.after(curr)){
+            Toast.makeText(getActivity(),"after",Toast.LENGTH_SHORT).show();
+        }
+        if (curr.equals(sele)){
+            Toast.makeText(getActivity(),"equal",Toast.LENGTH_SHORT).show();
+        }
+
         dayBooking = (TextView) rootView.findViewById(R.id.dayBooking);
         final String day = getArguments().getString("dateBooking");
         bookingDay = day;
         dayBooking.setText(day);
         final String dayBookToService = getArguments().getString("dayBooking");
         dayBookingService = dayBookToService;
-//        Toast.makeText(getActivity(),dayBookingService,Toast.LENGTH_SHORT).show();
         final String title = getArguments().getString("title");
         catField = title;
         final String field = getArguments().getString("field");
-        fieldBooking = field;
         final int id = getArguments().getInt("ID");
         ids = id;
         final String catFieldDetail = getArguments().getString("catField");
-        typeFieldDetail = catFieldDetail;
-
+        location = getArguments().getString("location");
         if (times.size() <= 0) {
             // Creating volley request obj
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_BOOK_DETAIL + dayBookToService, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray jsonArray) {
+                    hidePDialog();
 //                    id = new int[jsonArray.length()];
                     titles = new String[jsonArray.length()];
                     for (i = 0; i < jsonArray.length(); i++) {
@@ -139,7 +168,6 @@ public class FragmentTime extends Fragment {
                             time.setTime(obj.getString("time"));
                             timeBook = titles[i] = obj.getString("time");
                             times.add(time);
-
                             if (timeBooking6.getText().equals(timeBook)) {
                                 time6.setText("Booked");
                                 time6.setTextColor(getResources().getColor(R.color.white));
@@ -154,10 +182,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook6);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField",typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -180,10 +209,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook7);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -207,10 +237,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook8);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -234,10 +265,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook9);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -261,10 +293,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook10);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -288,10 +321,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook11);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -315,10 +349,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook12);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -342,10 +377,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook13);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -369,10 +405,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook14);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -396,10 +433,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook15);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -423,10 +461,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook16);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -450,10 +489,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook17);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -477,10 +517,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook18);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -504,10 +545,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook19);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -531,10 +573,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook20);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField", typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -558,10 +601,11 @@ public class FragmentTime extends Fragment {
                                         bundle.putString("timeBooking", timeBook21);
                                         bundle.putString("date", bookingDay);
                                         bundle.putString("title", catField);
-                                        bundle.putString("field", fieldBooking);
+                                        bundle.putString("field", field);
                                         bundle.putString("dayBooking", dayBookingService);
                                         bundle.putInt("ID", ids);
-                                        bundle.putString("catField",typeFieldDetail);
+                                        bundle.putString("catField", catFieldDetail);
+                                        bundle.putString("location", location);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -581,6 +625,8 @@ public class FragmentTime extends Fragment {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
                     Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                    hidePDialog();
+                    Log.e("Fragment", volleyError + "");
                 }
             });
             AppController.getInstance().addToRequestQueue(fieldReq);
@@ -600,6 +646,8 @@ public class FragmentTime extends Fragment {
                     bundle.putString("field", field);
                     bundle.putInt("ID", ids);
                     bundle.putString("title", catField);
+                    bundle.putString("catField", catFieldDetail);
+                    bundle.putString("location", location);
                     fragment.setArguments(bundle);
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                     transaction.addToBackStack(null);
@@ -622,5 +670,100 @@ public class FragmentTime extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
+
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
+    }
+
+    public void disableTime(){
+        time6.setText("Booked");
+        time6.setTextColor(getResources().getColor(R.color.white));
+        time6.setEnabled(false);
+        time6.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time7.setText("Booked");
+        time7.setTextColor(getResources().getColor(R.color.white));
+        time7.setEnabled(false);
+        time7.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time8.setText("Booked");
+        time8.setTextColor(getResources().getColor(R.color.white));
+        time8.setEnabled(false);
+        time8.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time9.setText("Booked");
+        time9.setTextColor(getResources().getColor(R.color.white));
+        time9.setEnabled(false);
+        time9.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time10.setText("Booked");
+        time10.setTextColor(getResources().getColor(R.color.white));
+        time10.setEnabled(false);
+        time10.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time11.setText("Booked");
+        time11.setTextColor(getResources().getColor(R.color.white));
+        time11.setEnabled(false);
+        time11.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time12.setText("Booked");
+        time12.setTextColor(getResources().getColor(R.color.white));
+        time12.setEnabled(false);
+        time12.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time13.setText("Booked");
+        time13.setTextColor(getResources().getColor(R.color.white));
+        time13.setEnabled(false);
+        time13.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time14.setText("Booked");
+        time14.setTextColor(getResources().getColor(R.color.white));
+        time14.setEnabled(false);
+        time14.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time15.setText("Booked");
+        time15.setTextColor(getResources().getColor(R.color.white));
+        time15.setEnabled(false);
+        time15.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time16.setText("Booked");
+        time16.setTextColor(getResources().getColor(R.color.white));
+        time16.setEnabled(false);
+        time16.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time17.setText("Booked");
+        time17.setTextColor(getResources().getColor(R.color.white));
+        time17.setEnabled(false);
+        time17.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time18.setText("Booked");
+        time18.setTextColor(getResources().getColor(R.color.white));
+        time18.setEnabled(false);
+        time18.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time19.setText("Booked");
+        time19.setTextColor(getResources().getColor(R.color.white));
+        time19.setEnabled(false);
+        time19.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time20.setText("Booked");
+        time20.setTextColor(getResources().getColor(R.color.white));
+        time20.setEnabled(false);
+        time20.setBackgroundColor(getResources().getColor(R.color.red));
+
+        time21.setText("Booked");
+        time21.setTextColor(getResources().getColor(R.color.white));
+        time21.setEnabled(false);
+        time21.setBackgroundColor(getResources().getColor(R.color.red));
     }
 }

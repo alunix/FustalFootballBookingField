@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginTop="0dp"
-                android:background="@drawable/bgheadersub"
+                android:background="@color/gold"
                 android:orientation="horizontal">
 
                 <TextView
@@ -79,13 +79,13 @@
 
                     <TextView
                         android:textSize="14sp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginRight="0dp"
                         android:gravity="center"
                         android:textColor="#fff"
                         android:textStyle="bold"
-                        android:text="Show field detail..."
+                        android:text="Show all"
                         android:background="@drawable/bgheadertimebook"
-                        android:layout_width="130dp"
+                        android:layout_width="100dp"
                         android:layout_height="30dp" />
 
 

@@ -7,12 +7,12 @@
           android:icon="@drawable/ic_home"/>
 
     <item android:title="Profile"
-          android:id="@+id/nav_item_setting"
+          android:id="@+id/nav_item_profile"
           android:icon="@drawable/ic_event"/>
 
-    <item android:title="Mail"
-          android:id="@+id/nav_item_mail"
-          android:icon="@drawable/ic_mail"/>
+    <!--<item android:title="Mail"-->
+          <!--android:id="@+id/nav_item_mail"-->
+          <!--android:icon="@drawable/ic_mail"/>-->
     <item android:title="Logout"
         android:icon="@drawable/ic_action_logout"
         android:id="@+id/logout"
@@ -21,13 +21,10 @@
     <item android:title="Others">
         <menu>
             <item
-                android:title="Shop"
-                android:id="@+id/nav_item_shop"
-                android:icon="@drawable/ic_shop"/>
-            <item
-                android:title="Travel"
-                android:id="@+id/nav_item_travel"
-                android:icon="@drawable/ic_travel"/>
+                android:title="History"
+                android:id="@+id/nav_item_history"
+                android:icon="@drawable/ic_action_restore"/>
+
         </menu>
     </item>
 

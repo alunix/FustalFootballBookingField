@@ -25,6 +25,8 @@ import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication
 import com.hammersmith.fustalfootballbookingfield.Fragments.FragmentFb_Google;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
+import com.hammersmith.fustalfootballbookingfield.model.User;
+import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 import com.hammersmith.fustalfootballbookingfield.widget.CircleTransform;
 import com.squareup.picasso.Picasso;
 
@@ -40,9 +42,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     // IF the view under inflation and population is header or Item
     private static final int TYPE_ITEM = 1;
 
-    private String mNavTitles[]; // String Array to store the passed titles Value from MainActivity.java
-    private int mIcons[];       // Int Array to store the passed icons resource value from MainActivity.java
-
+    private String mNavTitles[]; // String Array to store the passed titles Value from
+    private int mIcons[];       // Int Array to store the passed icons resource value from
     Context context;
     String name;        //String Resource for header View Name
     String profile;        //int Resource for header view profile picture
@@ -59,7 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         Context context;
         TextView textView;
         ImageView imageView;
-        ImageView profile;
+        ProfilePictureView profilePictureView;
         TextView Name;
         TextView email;
 
@@ -78,7 +79,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
                 Name = (TextView) itemView.findViewById(R.id.txtPro);         // Creating Text View object from header.xml for name
                 email = (TextView) itemView.findViewById(R.id.txtEmail);       // Creating Text View object from header.xml for email
-                profile = (ImageView) itemView.findViewById(R.id.imgPro);// Creating Image view object from header.xml for profile pic
+                profilePictureView = (ProfilePictureView) itemView.findViewById(R.id.profilePic);// Creating Image view object from header.xml for profile pic
                 Holderid = 0;                                                // Setting holder id = 0 as the object being populated are of type header view
             }
         }
@@ -182,7 +183,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             holder.imageView.setImageResource(mIcons[position - 1]);// Settimg the image with array of our icons
         } else {
             // Picasso.with(context).load("https://graph.facebook.com/" + position + "/picture?type=large").transform(new CircleTransform()).into(holder.profile);
-            holder.profile.setImageResource(Integer.parseInt(profile));
+//            holder.profile.setImageResource(Integer.parseInt(profile));
+            User user;
+            user = PrefUtils.getCurrentUser(context);
+            holder.profilePictureView.setProfileId(user.getFacebookID());
             holder.Name.setText(name);
             holder.email.setText(email);
 

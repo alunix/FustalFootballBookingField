@@ -1,6 +1,7 @@
 package com.hammersmith.fustalfootballbookingfield.Fragments;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -43,6 +44,8 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
     int id[];
     String title[];
     FieldDetail fieldDetail;
+    String location;
+    private ProgressDialog pDialog;
 
     public FragmentSmall() {
 
@@ -67,10 +70,14 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         recyclerView.setHasFixedSize(true);
         adapter.setClickListener(this);
 
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+
         typeField = (TextView) view.findViewById(R.id.typeField);
         strTypeField = getArguments().getString("field");
-//        Toast.makeText(getActivity(), strTypeField, Toast.LENGTH_SHORT).show();
         catField = getArguments().getString("title");
+        location = getArguments().getString("location");
         typeField.setText(catField);
 
         if (fieldDetails.size() <= 0) {
@@ -92,7 +99,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
                             id[i] = obj.getInt("id");
                             title[i] = obj.getString("name");
                             fieldDetails.add(fieldDetail);
-//                            Toast.makeText(getActivity(),obj.getString("name"),Toast.LENGTH_SHORT).show();
+                            hidePDialog();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -103,6 +110,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
                     Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                    hidePDialog();
                 }
             });
             AppController.getInstance().addToRequestQueue(fieldReq);
@@ -115,6 +123,9 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     Fragment fragment = new ActivityBooking.MyFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("location", location);
+                    fragment.setArguments(bundle);
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                     transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
                     transaction.replace(R.id.layoutSmall, fragment);
@@ -138,7 +149,8 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         bundle.putString("title", catField);
         bundle.putString("field", strTypeField);
         bundle.putInt("ID", id[position]);
-        bundle.putString("catField",title[position]);
+        bundle.putString("catField", title[position]);
+        bundle.putString("location", location);
         fragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -157,5 +169,18 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
+
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
     }
 }

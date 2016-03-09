@@ -60,8 +60,9 @@
     <string name="place">Address</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
-    <string name="btn_logout_from_google">Logout from Google</string>
+    <string name="btn_logout_from_google">Sign out</string>
     <string name="btn_revoke_access">Revoke Access</string>
+    <string name="futsalbooking">Futsal Booking Field</string>
 
 
 </resources>

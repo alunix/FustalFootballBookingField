@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
+import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -32,6 +33,7 @@ import com.hammersmith.fustalfootballbookingfield.adapter.BookingViewPager;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecylerCateFieldAdapter;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
+import com.hammersmith.fustalfootballbookingfield.model.UserHistory;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 
 import org.json.JSONArray;
@@ -52,9 +54,8 @@ public class ActivityBooking extends AppCompatActivity {
     public static BookingViewPager mAdapter;
     private TabLayout mTabLayout;
     Typeface typeface;
-
     NetworkImageView cover;
-    String title;
+    static String location;
 
     public static int field;
 
@@ -62,7 +63,6 @@ public class ActivityBooking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
-
         cover = (NetworkImageView) findViewById(R.id.image_field);
         mCoordinator = (CoordinatorLayout) findViewById(R.id.root_coordinator);
         mCollapsingToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
@@ -80,15 +80,13 @@ public class ActivityBooking extends AppCompatActivity {
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
         ImageLoader imageLoader = AppController.getInstance().getImageLoader();
-        title = getIntent().getStringExtra("title");
+        location = getIntent().getStringExtra("location");
         String image = getIntent().getStringExtra("field");
         Bundle bundle = this.getIntent().getExtras();
         field = bundle.getInt("ID");
-
         typeface = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Armegoe.ttf");
-
         mCollapsingToolBarLayout.setExpandedTitleTypeface(typeface);
-        mCollapsingToolBarLayout.setTitle(title);
+        mCollapsingToolBarLayout.setTitle(location);
         cover.setImageUrl(image, imageLoader);
     }
 
@@ -97,6 +95,7 @@ public class ActivityBooking extends AppCompatActivity {
         RecylerCateFieldAdapter adapter;
         int[] id;
         String[] title;
+        private ProgressDialog pDialog;
 
         List<CategoryField> categoryFields = new ArrayList<>();
         CategoryField categoryField;
@@ -119,7 +118,6 @@ public class ActivityBooking extends AppCompatActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View v = inflater.inflate(R.layout.fragment_chosing_field, container, false);
             categoryField = new CategoryField();
-
             recyclerView = (RecyclerView) v.findViewById(R.id.recylcerview);
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
             recyclerView.setLayoutManager(linearLayoutManager);
@@ -128,6 +126,10 @@ public class ActivityBooking extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
             recyclerView.setHasFixedSize(true);
             adapter.setClickListener(this);
+            pDialog = new ProgressDialog(getActivity());
+            // Showing progress dialog before making http request
+            pDialog.setMessage("Loading...");
+            pDialog.show();
 
             if (categoryFields.size() <= 0) {
                 // Creating volley request obj
@@ -145,6 +147,7 @@ public class ActivityBooking extends AppCompatActivity {
                                 id[i] = obj.getInt("id");
                                 title[i] = obj.getString("name");
                                 categoryFields.add(categoryField);
+                                hidePDialog();
 //                                Toast.makeText(getContext(),Constant.URL_HOME + obj.getString("path"),Toast.LENGTH_SHORT).show();
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -156,6 +159,7 @@ public class ActivityBooking extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                        hidePDialog();
                     }
                 });
                 AppController.getInstance().addToRequestQueue(fieldReq);
@@ -184,6 +188,7 @@ public class ActivityBooking extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putString("field", field + "/" + id[position]);
             bundle.putString("title", title[position]);
+            bundle.putString("location", location);
             fragment.setArguments(bundle);
 
             FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -191,6 +196,18 @@ public class ActivityBooking extends AppCompatActivity {
             fragmentTransaction.replace(R.id.layoutTypeField, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
+        }
+
+        private void hidePDialog() {
+            if (pDialog != null) {
+                pDialog.dismiss();
+                pDialog = null;
+            }
+        }
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            hidePDialog();
         }
     }
 

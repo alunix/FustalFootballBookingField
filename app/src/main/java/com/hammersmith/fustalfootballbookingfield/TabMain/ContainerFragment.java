@@ -44,9 +44,9 @@ public class ContainerFragment extends Fragment {
         tabs = (SlidingTabLayoutText) view.findViewById(R.id.tabs);
         tabs.setCustomTabView(R.layout.custom_tab_text, R.id.textCustomTab);
         tabs.setDistributeEvenly(true);
-
+        tabs.setSelected(true);
+        tabs.setSelectedIndicatorColors(getResources().getColor(R.color.selectors));
         tabs.setCustomTabColorizer(new SlidingTabLayoutText.TabColorizer() {
-
             @Override
             public int getIndicatorColor(int position) {
                 return getResources().getColor(R.color.tabColorTest);

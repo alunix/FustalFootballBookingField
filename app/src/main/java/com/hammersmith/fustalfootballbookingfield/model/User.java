@@ -7,8 +7,67 @@ public class User {
     private String name;
     private String email;
     private String facebookID;
-    private String gender;
+    private String socialType;
     private String imageProfile;
+    private String phone;
+    private String gender;
+    private String address;
+    private String dob;
+
+    public User() {
+    }
+
+    public String getSocialType() {
+        return socialType;
+    }
+
+    public void setSocialType(String socialType) {
+        this.socialType = socialType;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public User(String name, String email, String facebookID, String socialType, String imageProfile, String phone, String gender, String address, String dob) {
+        this.name = name;
+        this.email = email;
+        this.facebookID = facebookID;
+        this.socialType = socialType;
+        this.imageProfile = imageProfile;
+        this.phone = phone;
+        this.gender = gender;
+        this.address = address;
+        this.dob = dob;
+    }
 
     public String getName() {
         return name;
@@ -18,12 +77,12 @@ public class User {
         this.name = name;
     }
 
-    public String getGender() {
-        return gender;
+    public String getsocialType() {
+        return socialType;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setsocialType(String socialType) {
+        this.socialType = socialType;
     }
 
     public String getFacebookID() {

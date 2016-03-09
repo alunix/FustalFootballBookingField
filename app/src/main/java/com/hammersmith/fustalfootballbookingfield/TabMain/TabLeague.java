@@ -1,6 +1,7 @@
 package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -40,6 +41,7 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
     String[] url;
     List<League> leagues = new ArrayList<>();
     League league;
+    private ProgressDialog pDialog;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,12 +51,14 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_league_list,container,false);
-
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.recylcerview);
+        View view = inflater.inflate(R.layout.tab_league_list, container, false);
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        mAdapter = new AdapterLeague(getActivity(),leagues);
+        mAdapter = new AdapterLeague(getActivity(), leagues);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
         mAdapter.setClickListener(this);
@@ -74,7 +78,7 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
                             id[i] = obj.getInt("id");
                             url[i] = obj.getString("url");
                             leagues.add(league);
-
+                            hidePDialog();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -85,6 +89,7 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
                     Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                    hidePDialog();
                 }
             });
             AppController.getInstance().addToRequestQueue(leagueReq);
@@ -106,20 +111,19 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
         });
         return view;
     }
-    
+
     @Override
     public void itemClicked(View view, int position) {
         Fragment fragment = new TabLeagueView();
         Bundle bundle = new Bundle();
-        bundle.putString("url",url[position]);
+        bundle.putString("url", url[position]);
         fragment.setArguments(bundle);
 
         FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.slide_in_left,R.anim.slide_out_right);
+        transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
         transaction.replace(R.id.layoutLeague, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
-
     }
 
     @Override
@@ -130,5 +134,18 @@ public class TabLeague extends Fragment implements AdapterLeague.ClickListener {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        hidePDialog();
+    }
+
+    private void hidePDialog() {
+        if (pDialog != null) {
+            pDialog.dismiss();
+            pDialog = null;
+        }
     }
 }

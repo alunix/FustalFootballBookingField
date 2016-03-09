@@ -1,13 +1,16 @@
 package com.hammersmith.fustalfootballbookingfield.Container;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -18,20 +21,31 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
+import com.facebook.login.widget.ProfilePictureView;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.hammersmith.fustalfootballbookingfield.Activities.CustomProfile;
+import com.hammersmith.fustalfootballbookingfield.Activities.HistoryUser;
 import com.hammersmith.fustalfootballbookingfield.Activities.RegisterActivity;
 import com.hammersmith.fustalfootballbookingfield.Activities.ViewProfile;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
+import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.User;
+import com.hammersmith.fustalfootballbookingfield.model.UserUpdate;
+import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 import com.hammersmith.fustalfootballbookingfield.widget.CircleTransform;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -46,12 +60,14 @@ public class ContainerApplication extends AppCompatActivity {
     Fragment contentFragment;
     Context context = ContainerApplication.this;
     NavigationView mNavigationView;
-    ImageView profile;
+    ImageView profile, proGoogle;
     TextView txtName, txtEmail;
     ActionBarDrawerToggle mDrawerToggle;
     User user;
+    UserUpdate userUpdate;
     private Toolbar toolbar;
     String str = "imperial";
+    View view;
 
     String[] items;
     ArrayList<String> listItems;
@@ -60,18 +76,20 @@ public class ContainerApplication extends AppCompatActivity {
     EditText editText;
     ImageView clearText;
     private GoogleApiClient client;
+    ProfilePictureView profilePictureView;
 
-    public ContainerApplication(){
+    public ContainerApplication() {
 
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.container_application_layout);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        editText = (EditText)findViewById(R.id.editText);
-        listView = (ListView)findViewById(R.id.listView);
+        editText = (EditText) findViewById(R.id.editText);
+        listView = (ListView) findViewById(R.id.listView);
         clearText = (ImageView) findViewById(R.id.search_clear);
         clearText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,24 +97,46 @@ public class ContainerApplication extends AppCompatActivity {
                 editText.setText("");
             }
         });
-
         user = PrefUtils.getCurrentUser(ContainerApplication.this);
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Futsal Booking");
-
         mDrawer = (DrawerLayout) findViewById(R.id.DrawerLayout);
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-
         View header = LayoutInflater.from(this).inflate(R.layout.header, null);
         mNavigationView.addHeaderView(header);
-
-        profile = (ImageView) header.findViewById(R.id.imgPro);
+//        profile = (ImageView) header.findViewById(R.id.imgPro);
         txtName = (TextView) header.findViewById(R.id.txtPro);
         txtEmail = (TextView) header.findViewById(R.id.txtEmail);
-        txtName.setText(user.getName());
-        txtEmail.setText(user.getEmail());
-        Picasso.with(context).load("https://graph.facebook.com/" + user.getFacebookID() + "/picture?type=large").transform(new CircleTransform()).into(profile);
+        proGoogle = (ImageView) header.findViewById(R.id.imageUserGoogel);
+        profilePictureView = (ProfilePictureView) header.findViewById(R.id.profilePic);
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                try {
+                    txtName.setText(jsonObject.getString("username"));
+                    txtEmail.setText(jsonObject.getString("email"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getApplicationContext(), volleyError + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AppController.getInstance().addToRequestQueue(objectRequest);
+        if (user.getImageProfile() != null) {
+            profilePictureView.setVisibility(View.GONE);
+            Picasso.with(context).load(user.getImageProfile()).into(proGoogle);
+            if (proGoogle.getDrawable() == null) {
+                profilePictureView.setVisibility(View.GONE);
+                proGoogle.setImageResource(R.drawable.default_male_avatar);
+            }
+        } else {
+            proGoogle.setVisibility(View.GONE);
+            profilePictureView.setProfileId(user.getFacebookID());
+        }
 
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -108,9 +148,8 @@ public class ContainerApplication extends AppCompatActivity {
 
                 }
 
-                if(item.getItemId() == R.id.nav_item_setting){
-//                    Toast.makeText(getApplicationContext(),"Setting",Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(ContainerApplication.this, ViewProfile.class);
+                if (item.getItemId() == R.id.nav_item_profile) {
+                    Intent intent = new Intent(ContainerApplication.this, CustomProfile.class);
                     startActivity(intent);
                 }
 
@@ -120,7 +159,11 @@ public class ContainerApplication extends AppCompatActivity {
                     LoginManager.getInstance().logOut();
                     Intent intent = new Intent(ContainerApplication.this, RegisterActivity.class);
                     startActivity(intent);
+                }
 
+                if (item.getItemId() == R.id.nav_item_history) {
+                    Intent intent = new Intent(ContainerApplication.this, HistoryUser.class);
+                    startActivity(intent);
                 }
                 return false;
             }
@@ -153,12 +196,6 @@ public class ContainerApplication extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
-    }
-
-    @Override
     public void onStart() {
         super.onStart();
     }
@@ -166,5 +203,28 @@ public class ContainerApplication extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        showDialog();
+    }
+
+    public void showDialog() {
+        new AlertDialog.Builder(context)
+                .setTitle("Quite App")
+                .setMessage("Are you sure want to quite this app?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finishAffinity();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 }
