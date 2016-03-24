@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,7 +52,7 @@ public class FragmentCustomCalendar extends Fragment {
     String strdate;
     int fid;
     User user;
-    String userid;
+    String userID;
     String location;
 
     @Override
@@ -63,7 +64,6 @@ public class FragmentCustomCalendar extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.custom_calendar, container, false);
-
         user = PrefUtils.getCurrentUser(getContext());
         textView = (TextView) rootView.findViewById(R.id.typeField);
         final String title = getArguments().getString("title");
@@ -72,27 +72,9 @@ public class FragmentCustomCalendar extends Fragment {
         fid = id;
         final String typeField = getArguments().getString("catField");
         location = getArguments().getString("location");
+        userID = getArguments().getString("userid");
         calendarView = (CustomCalendarView) rootView.findViewById(R.id.calendar_view);
         Calendar currentCalendar = Calendar.getInstance(Locale.getDefault());
-
-
-
-        JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject jsonObject) {
-                try {
-                    userid = jsonObject.getString("id");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
-            }
-        });
-        AppController.getInstance().addToRequestQueue(objectRequest);
 
         calendarView.setFirstDayOfWeek(Calendar.MONDAY);
         calendarView.setShowOverflowDate(false);
@@ -105,13 +87,6 @@ public class FragmentCustomCalendar extends Fragment {
                 SimpleDateFormat df2 = new SimpleDateFormat("dd MMM yyyy");
                 strdate = df1.format(date);
                 String strdate = df2.format(date);
-//                String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance());
-//                if (strdate.compareTo(mydate)>0){
-//                    Toast.makeText(getActivity(),"hello",Toast.LENGTH_SHORT).show();
-//                }else {
-//                    Toast.makeText(getActivity(), df2.format(date), Toast.LENGTH_SHORT).show();
-//                }
-//                Toast.makeText(getActivity(),strdate,Toast.LENGTH_SHORT).show();
                 Fragment fragment = new FragmentTime();
                 Bundle bundle = new Bundle();
                 bundle.putString("dateBooking", df.format(date));
@@ -120,8 +95,8 @@ public class FragmentCustomCalendar extends Fragment {
                 bundle.putString("field", field);
                 bundle.putInt("ID", id);
                 bundle.putString("catField", typeField);
-                bundle.putString("location",location);
-                bundle.putString("dateselected",strdate);
+                bundle.putString("location", location);
+                bundle.putString("dateselected", strdate);
                 fragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
@@ -129,6 +104,7 @@ public class FragmentCustomCalendar extends Fragment {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
                 saveDataBooking();
+//                Toast.makeText(getActivity(), "id" + userID + "fid" + fid + "date" + strdate, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -148,7 +124,7 @@ public class FragmentCustomCalendar extends Fragment {
                     Bundle bundle = new Bundle();
                     bundle.putString("title", title);
                     bundle.putString("field", field);
-                    bundle.putString("location",location);
+                    bundle.putString("location", location);
                     fragment.setArguments(bundle);
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
@@ -186,24 +162,24 @@ public class FragmentCustomCalendar extends Fragment {
     }
 
     public void saveDataBooking() {
-        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_CHECKDATE + fid + "/" + strdate + "/new", new Response.Listener<String>() {
+        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_CHECKDATE + fid + "/" + strdate , new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-
 //                Toast.makeText(getActivity(), "Data uploaded...", Toast.LENGTH_SHORT).show();
             }
         },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getActivity(), volleyError.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "add date "+volleyError.toString(), Toast.LENGTH_SHORT).show();
+                        Log.d("calendar1", "" + volleyError);
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("booking_date", strdate);
-                params.put("uid", userid);
+                params.put("uid", userID);
                 params.put("fid", String.valueOf(fid));
                 return params;
             }

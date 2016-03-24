@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -52,16 +54,21 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
     String strstatus;
     String strname, stremail, strgenders, straddress, strdob, strphone;
     private ProgressDialog mProgressDialog;
+    private AppBarLayout appBarLayout;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Edit Profile");
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
+
         userUpdate = new UserUpdate();
         user = PrefUtils.getCurrentUser(EditUserActivity.this);
+        getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         profilePictureView = (ProfilePictureView) findViewById(R.id.profilePic);
@@ -69,22 +76,6 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
         Bundle bundle = getIntent().getExtras();
         final String status = bundle.getString("status");
         strstatus = status;
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (status.equals("0")) {
-                    showDialog();
-                } else if (status.equals("user_not_existed")) {
-                    showDialog();
-                } else {
-                    Intent intent1 = new Intent(EditUserActivity.this, ContainerApplication.class);
-                    startActivity(intent1);
-                    finish();
-                }
-            }
-        });
-
         profilePictureView = (ProfilePictureView) findViewById(R.id.profilePic);
         name = (EditText) findViewById(R.id.edname);
         email = (EditText) findViewById(R.id.edemail);
@@ -108,6 +99,40 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
             imageProGoogle.setVisibility(View.GONE);
             profilePictureView.setProfileId(user.getFacebookID());
         }
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (status.equals("0")) {
+                    showDialog();
+                } else if (status.equals("user_not_existed")) {
+                    showDialog();
+                } else {
+                    Intent intent1 = new Intent(EditUserActivity.this, ContainerApplication.class);
+                    startActivity(intent1);
+                    finish();
+                }
+            }
+        });
+
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbarLayout.setTitle("Edit Profile");
+                    isShow = true;
+                } else if (isShow) {
+                    collapsingToolbarLayout.setTitle("");
+                    isShow = false;
+                }
+            }
+        });
 
         JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
             @Override
@@ -219,6 +244,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
                                 public void onClick(DialogInterface dialog, int id) {
                                     gender.setText(strgender);
                                     gender.clearFocus();
+                                    phone.setFocusable(true);
                                 }
                             })
                             .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -226,6 +252,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
                                     gender.setFocusable(false);
+                                    phone.setFocusable(true);
                                 }
                             });
 
@@ -249,8 +276,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
         StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_UPDATE + user.getFacebookID() + "/update", new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-
-//                Toast.makeText(getApplicationContext(), "Data updated", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Data updated", Toast.LENGTH_SHORT).show();
             }
         },
                 new Response.ErrorListener() {
@@ -262,7 +288,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("name", name.getText().toString());
+                params.put("username", name.getText().toString());
                 params.put("email", email.getText().toString());
                 params.put("phone", phone.getText().toString());
                 params.put("gender", gender.getText().toString());

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -64,6 +65,7 @@ import java.util.Map;
 import static com.hammersmith.fustalfootballbookingfield.R.id.edit_query;
 import static com.hammersmith.fustalfootballbookingfield.R.id.login_button;
 import static com.hammersmith.fustalfootballbookingfield.R.id.logout;
+import static com.hammersmith.fustalfootballbookingfield.R.id.time10;
 import static com.hammersmith.fustalfootballbookingfield.R.id.useLogo;
 
 /**
@@ -220,11 +222,11 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
     };
 
     public void saveUserSocial() {
-        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_ADDDATA, new Response.Listener<String>() {
+        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_LOGIN, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
 
-//                Toast.makeText(getApplicationContext(), "Data uploaded...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Data uploaded...", Toast.LENGTH_SHORT).show();
             }
         },
                 new Response.ErrorListener() {
@@ -240,7 +242,6 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                 params.put("link", user.getFacebookID());
                 params.put("username", user.getName());
                 params.put("email", user.getEmail());
-                Log.d("facebook id", user.getFacebookID());
                 return params;
             }
         };
@@ -326,7 +327,7 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                 }
             });
             AppController.getInstance().addToRequestQueue(objectRequest);
-
+//            objectRequest.setRetryPolicy(new DefaultRetryPolicy(5000, 20, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             updateUI(true);
         } else {
             updateUI(false);
@@ -393,17 +394,17 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
     }
 
     public void saveUserGoogle() {
-        StringRequest googleRequest = new StringRequest(Request.Method.POST, Constant.URL_ADDDATA,
+        StringRequest googleRequest = new StringRequest(Request.Method.POST, Constant.URL_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-//                        Toast.makeText(getApplicationContext(), "Data uploaded", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Data uploaded", Toast.LENGTH_SHORT).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-//                        Toast.makeText(getApplicationContext(), "upload data "+volleyError, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),""+volleyError, Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
@@ -416,7 +417,6 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                 return params;
             }
         };
-
         AppController.getInstance().addToRequestQueue(googleRequest);
     }
 

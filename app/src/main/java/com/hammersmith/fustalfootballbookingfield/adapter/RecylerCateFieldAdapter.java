@@ -2,11 +2,13 @@ package com.hammersmith.fustalfootballbookingfield.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
 import com.hammersmith.fustalfootballbookingfield.model.Field;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,19 +41,18 @@ public class RecylerCateFieldAdapter extends RecyclerView.Adapter<RecylerCateFie
     Context context;
     private List<CategoryField> categoryFields;
     CategoryField categoryField;
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
     private ClickListener clickListener;
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
         Context mContext;
-        NetworkImageView imageField;
+        ImageView imageField;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             mContext = context;
             name = (TextView) itemView.findViewById(R.id.typeField);
-            imageField = (NetworkImageView) itemView.findViewById(R.id.imageField);
+            imageField = (ImageView) itemView.findViewById(R.id.imageField);
 
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
@@ -82,9 +84,11 @@ public class RecylerCateFieldAdapter extends RecyclerView.Adapter<RecylerCateFie
 //        if (imageLoader == null) {
 //            imageLoader = AppController.getInstance().getImageLoader();
 
-            categoryField = categoryFields.get(position);
-            holder.name.setText(categoryField.getName());
-            holder.imageField.setImageUrl(categoryField.getImage(), imageLoader);
+        categoryField = categoryFields.get(position);
+        Uri uri = Uri.parse(categoryField.getImage());
+        context = holder.imageField.getContext();
+        Picasso.with(context).load(uri).into(holder.imageField);
+        holder.name.setText(categoryField.getName());
 //        }
     }
 

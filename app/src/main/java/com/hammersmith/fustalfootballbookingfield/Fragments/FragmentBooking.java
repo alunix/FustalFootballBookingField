@@ -5,14 +5,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
-import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
+import com.hammersmith.fustalfootballbookingfield.Activities.ViewHistory;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.Time;
@@ -38,11 +40,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FragmentBooking extends Fragment {
-    Button button;
+    FloatingActionButton button;
     String dateBooking;
     String date;
     TextView title;
-    TextView name, phone, email, gender, address, dob;
+    TextView name, phone, email, gender, address;
     String fields, catField, days, typeFieldDetail;
     public static TextView textDate, textTime, textField;
     User user;
@@ -54,6 +56,10 @@ public class FragmentBooking extends Fragment {
     String type;
     String catFieldDetail;
     private ProgressDialog pDialog;
+    String selecteddate;
+    private boolean clicked = false;
+    private LinearLayout layout;
+    private FrameLayout frameLayout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,48 +69,20 @@ public class FragmentBooking extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_booking_field, container, false);
-
-        pDialog = new ProgressDialog(getActivity());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
-
+        final View view = inflater.inflate(R.layout.fragment_booking_field, container, false);
+        showpDialog();
         user = PrefUtils.getCurrentUser(getContext());
         name = (TextView) view.findViewById(R.id.name);
         phone = (TextView) view.findViewById(R.id.phone);
         email = (TextView) view.findViewById(R.id.email);
         address = (TextView) view.findViewById(R.id.address);
         gender = (TextView) view.findViewById(R.id.gender);
-        dob = (TextView) view.findViewById(R.id.dob);
         textDate = (TextView) view.findViewById(R.id.txtday);
         textField = (TextView) view.findViewById(R.id.txtfield);
         textTime = (TextView) view.findViewById(R.id.txttime);
         title = (TextView) view.findViewById(R.id.title);
-
-        JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject jsonObject) {
-                try {
-                    name.setText(jsonObject.getString("username"));
-                    email.setText(jsonObject.getString("email"));
-                    gender.setText(jsonObject.getString("gender"));
-                    address.setText(jsonObject.getString("address"));
-                    phone.setText(jsonObject.getString("phone"));
-                    dob.setText(jsonObject.getString("dob"));
-                    hidePDialog();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
-                hidePDialog();
-            }
-        });
-        AppController.getInstance().addToRequestQueue(objectRequest);
-
+        layout = (LinearLayout) view.findViewById(R.id.layoutone);
+        frameLayout = (FrameLayout) view.findViewById(R.id.layouttwo);
         String day = getArguments().getString("dateBooking");
         final String time = getArguments().getString("timeBooking");
         strtime = time;
@@ -119,11 +97,11 @@ public class FragmentBooking extends Fragment {
         final String dayBooking = getArguments().getString("dayBooking");
         final int id = getArguments().getInt("ID");
         location = getArguments().getString("location");
-
-        JsonObjectRequest objRequest = new JsonObjectRequest(Constant.URL_CHECKDATE + dayBooking + "/new", null, new Response.Listener<JSONObject>() {
+        selecteddate = getArguments().getString("dateselected");
+        bid = getArguments().getString("bid");
+        JsonObjectRequest objRequest = new JsonObjectRequest(Constant.URL_CHECKDATE + dayBooking, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject jsonObject) {
-                hidePDialog();
                 try {
                     bid = jsonObject.getString("id");
                 } catch (JSONException e) {
@@ -133,20 +111,81 @@ public class FragmentBooking extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                hidePDialog();
-                Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "get bid " + volleyError, Toast.LENGTH_SHORT).show();
             }
         });
         AppController.getInstance().addToRequestQueue(objRequest);
 
-        button = (Button) view.findViewById(R.id.btnBooking);
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                hidePDialog();
+                try {
+                    name.setText(jsonObject.getString("username"));
+                    email.setText(jsonObject.getString("email"));
+                    gender.setText(jsonObject.getString("gender"));
+                    address.setText(jsonObject.getString("address"));
+                    phone.setText(jsonObject.getString("phone"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getActivity(), "booking " + volleyError, Toast.LENGTH_SHORT).show();
+            }
+        });
+        AppController.getInstance().addToRequestQueue(objectRequest);
+        button = (FloatingActionButton) view.findViewById(R.id.fab);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Booking successful!", Toast.LENGTH_SHORT).show();
-                saveTimeBooking();
-                addHistory();
-                getActivity().finish();
+//                Toast.makeText(getActivity(), "Booking successful!", Toast.LENGTH_SHORT).show();
+                if (clicked) {
+                    Toast.makeText(getActivity(), "You already booking!", Toast.LENGTH_SHORT).show();
+                } else {
+                    saveTimeBooking();
+                    addHistory();
+                    Snackbar snackbar = Snackbar
+                            .make(view, "Booking successful!", Snackbar.LENGTH_INDEFINITE)
+                            .setAction("OPEN", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+//                                Snackbar snackbar1 = Snackbar.make(view, "Message is restored!", Snackbar.LENGTH_SHORT);
+//                                snackbar1.show();
+                                    Intent intent = new Intent(getActivity(), ViewHistory.class);
+                                    startActivity(intent);
+                                    getActivity().finish();
+                                }
+                            });
+                    snackbar.show();
+                    name.setText("");
+                    email.setText("");
+                    phone.setText("");
+                    address.setText("");
+                    gender.setText("");
+                    textDate.setText("");
+                    textField.setText("");
+                    textTime.setText("");
+                    button.setVisibility(View.GONE);
+                    layout.setVisibility(View.GONE);
+                    frameLayout.setVisibility(View.VISIBLE);
+                }
+                clicked = true;
+                view.setFocusableInTouchMode(true);
+                view.requestFocus();
+                view.setOnKeyListener(new View.OnKeyListener() {
+                    @Override
+                    public boolean onKey(View v, int keyCode, KeyEvent event) {
+                        if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                            getActivity().finish();
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                });
             }
         });
 
@@ -156,6 +195,7 @@ public class FragmentBooking extends Fragment {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+                    button.setVisibility(View.GONE);
                     Fragment fragment = new FragmentTime();
                     Bundle bundle = new Bundle();
                     bundle.putString("title", type);
@@ -166,6 +206,7 @@ public class FragmentBooking extends Fragment {
                     bundle.putString("catField", catFieldDetail);
                     bundle.putInt("ID", id);
                     bundle.putString("location", location);
+                    bundle.putString("dateselected", selecteddate);
                     fragment.setArguments(bundle);
 
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
@@ -194,16 +235,18 @@ public class FragmentBooking extends Fragment {
     }
 
     public void saveTimeBooking() {
+        showpDialog();
         StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_BOOKING + bid, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
+                hidePDialog();
 //                Toast.makeText(getActivity(), "Data uploaded...", Toast.LENGTH_SHORT).show();
             }
         },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getActivity(), volleyError.toString(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "fragment booking "+volleyError.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
@@ -228,8 +271,7 @@ public class FragmentBooking extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getActivity(), volleyError.toString(), Toast.LENGTH_SHORT).show();
-                        hidePDialog();
+                        Toast.makeText(getActivity(), "fragment booking " + volleyError.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override
@@ -252,7 +294,13 @@ public class FragmentBooking extends Fragment {
         hidePDialog();
     }
 
-    private void hidePDialog() {
+    public void showpDialog() {
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Loading...");
+        pDialog.show();
+    }
+
+    public void hidePDialog() {
         if (pDialog != null) {
             pDialog.dismiss();
             pDialog = null;

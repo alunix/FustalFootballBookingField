@@ -1,7 +1,9 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -20,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Response;
@@ -35,6 +38,7 @@ import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.CategoryField;
 import com.hammersmith.fustalfootballbookingfield.model.UserHistory;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,7 +58,8 @@ public class ActivityBooking extends AppCompatActivity {
     public static BookingViewPager mAdapter;
     private TabLayout mTabLayout;
     Typeface typeface;
-    NetworkImageView cover;
+    ImageView cover;
+    Context context;
     static String location;
 
     public static int field;
@@ -63,7 +68,7 @@ public class ActivityBooking extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
-        cover = (NetworkImageView) findViewById(R.id.image_field);
+        cover = (ImageView) findViewById(R.id.image_field);
         mCoordinator = (CoordinatorLayout) findViewById(R.id.root_coordinator);
         mCollapsingToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -79,7 +84,6 @@ public class ActivityBooking extends AppCompatActivity {
         mPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
 
-        ImageLoader imageLoader = AppController.getInstance().getImageLoader();
         location = getIntent().getStringExtra("location");
         String image = getIntent().getStringExtra("field");
         Bundle bundle = this.getIntent().getExtras();
@@ -87,7 +91,10 @@ public class ActivityBooking extends AppCompatActivity {
         typeface = Typeface.createFromAsset(getApplicationContext().getAssets(), "fonts/Armegoe.ttf");
         mCollapsingToolBarLayout.setExpandedTitleTypeface(typeface);
         mCollapsingToolBarLayout.setTitle(location);
-        cover.setImageUrl(image, imageLoader);
+
+        Uri uri = Uri.parse(image);
+        context = cover.getContext();
+        Picasso.with(context).load(uri).into(cover);
     }
 
     public static class MyFragment extends Fragment implements RecylerCateFieldAdapter.ClickListener {
@@ -158,7 +165,7 @@ public class ActivityBooking extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                        Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "activity booking "+volleyError, Toast.LENGTH_SHORT).show();
                         hidePDialog();
                     }
                 });

@@ -62,7 +62,6 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
         recyclerView = (RecyclerView) root.findViewById(R.id.recylcerview);
         initList();
         pDialog = new ProgressDialog(getActivity());
-        // Showing progress dialog before making http request
         pDialog.setMessage("Loading...");
         pDialog.show();
 
@@ -71,6 +70,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_LOCATION, new Response.Listener<JSONArray>() {
                 @Override
                 public void onResponse(JSONArray jsonArray) {
+                    hidePDialog();
                     id = new int[jsonArray.length()];
                     title = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -93,12 +93,12 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
-                    Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "tab home" +volleyError, Toast.LENGTH_SHORT).show();
+                    Log.d("error",""+volleyError);
                     hidePDialog();
                 }
             });
             AppController.getInstance().addToRequestQueue(fieldReq);
-
         }
         root.setFocusableInTouchMode(true);
         root.requestFocus();

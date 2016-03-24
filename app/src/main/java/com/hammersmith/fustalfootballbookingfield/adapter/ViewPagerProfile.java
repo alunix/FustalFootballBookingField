@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.hammersmith.fustalfootballbookingfield.Activities.ViewProfile;
+import com.hammersmith.fustalfootballbookingfield.Activities.ViewHistory;
 
 /**
  * Created by Thuon on 2/11/2016.
@@ -16,7 +16,7 @@ public class ViewPagerProfile extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        ViewProfile.MyFragment fragment = ViewProfile.MyFragment.newInstance(position);
+        ViewHistory.MyFragment fragment = ViewHistory.MyFragment.newInstance(position);
         return fragment;
     }
 

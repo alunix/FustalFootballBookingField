@@ -4,17 +4,17 @@
 
     <item android:title="Home"
           android:id="@+id/nav_item_home"
-          android:icon="@drawable/ic_home"/>
+          android:icon="@drawable/ic_action_action_home"/>
 
     <item android:title="Profile"
           android:id="@+id/nav_item_profile"
-          android:icon="@drawable/ic_event"/>
+          android:icon="@drawable/ic_action_action_account"/>
 
     <!--<item android:title="Mail"-->
           <!--android:id="@+id/nav_item_mail"-->
           <!--android:icon="@drawable/ic_mail"/>-->
     <item android:title="Logout"
-        android:icon="@drawable/ic_action_logout"
+        android:icon="@drawable/ic_action_action_settings_power"
         android:id="@+id/logout"
         />
 
@@ -23,7 +23,7 @@
             <item
                 android:title="History"
                 android:id="@+id/nav_item_history"
-                android:icon="@drawable/ic_action_restore"/>
+                android:icon="@drawable/ic_action_action_restore"/>
 
         </menu>
     </item>

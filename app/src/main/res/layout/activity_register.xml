@@ -1,89 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bgfootbal"
-    >
-    <LinearLayout
-        android:orientation="vertical"
-        android:paddingTop="70dp"
-        android:layout_weight="3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-        <ImageView
-            android:src="@drawable/ic_new_app"
-            android:layout_gravity="center"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
-        <TextView
-            android:id="@+id/title"
-            android:text="@string/futsalbooking"
-            android:textSize="20dp"
-            android:textColor="#fff"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_margin="20dp"
         android:orientation="vertical"
-        android:layout_weight="2"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="match_parent">
+
         <LinearLayout
-            android:orientation="vertical"
-            android:paddingBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            android:paddingTop="70dp">
 
-            <com.facebook.login.widget.LoginButton
-                android:layout_margin="4dp"
-                android:id="@+id/login_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerInParent="true" />
+                android:src="@drawable/ic_new_app"
+                android:visibility="visible" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <Button
-                android:textSize="14dp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:background="@drawable/btn_google_signin_light_normal"
-                android:textAllCaps="false"
-                android:textColor="@color/bright_foreground_disabled_material_light"
-                android:id="@+id/btn_sign_out"
+            <TextView
+                android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:text="@string/btn_logout_from_google" />
+                android:gravity="center"
+                android:text="@string/futsalbooking"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:visibility="visible" />
 
         </LinearLayout>
 
-        <!--<FrameLayout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:padding="20dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="10dp">
+
+                <com.facebook.login.widget.LoginButton
+                    android:id="@+id/login_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/btn_sign_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_google_signin_light_normal"
+                    android:gravity="center"
+                    android:text="@string/btn_logout_from_google"
+                    android:textAllCaps="false"
+                    android:textColor="@color/bright_foreground_disabled_material_light"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <!--<FrameLayout-->
             <!--android:id="@+id/containRegister"-->
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content">-->
             <!--&lt;!&ndash;<include layout="@layout/google_facebook_layout"/>&ndash;&gt;-->
 
-        <!--</FrameLayout>-->
+            <!--</FrameLayout>-->
 
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>

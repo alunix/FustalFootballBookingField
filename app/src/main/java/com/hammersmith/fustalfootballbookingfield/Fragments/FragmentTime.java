@@ -17,10 +17,13 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.Time;
+import com.hammersmith.fustalfootballbookingfield.model.User;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
+import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -51,7 +54,10 @@ public class FragmentTime extends Fragment {
     String timeBook;
     String location;
     private ProgressDialog pDialog;
-
+    String dateselected;
+    private String userID;
+    User user;
+    String bid;
     String timeBook6 = "6 To 7 AM";
     String timeBook7 = "7 To 8 AM";
     String timeBook8 = "8 To 9 AM";
@@ -81,6 +87,7 @@ public class FragmentTime extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_time, container, false);
+        user = PrefUtils.getCurrentUser(getContext());
         pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -119,27 +126,6 @@ public class FragmentTime extends Fragment {
         time20 = (TextView) rootView.findViewById(R.id.time20);
         time21 = (TextView) rootView.findViewById(R.id.time21);
 
-        String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
-        final String dateselected = getArguments().getString("dateselected");
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
-        Date curr = null;
-        Date sele = null;
-        try {
-            curr = sdf.parse(mydate);
-            sele = sdf.parse(dateselected);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        if (sele.before(curr)) {
-            Toast.makeText(getActivity(),"before",Toast.LENGTH_SHORT).show();
-            disableTime();
-        }else if (sele.after(curr)){
-            Toast.makeText(getActivity(),"after",Toast.LENGTH_SHORT).show();
-        }
-        if (curr.equals(sele)){
-            Toast.makeText(getActivity(),"equal",Toast.LENGTH_SHORT).show();
-        }
-
         dayBooking = (TextView) rootView.findViewById(R.id.dayBooking);
         final String day = getArguments().getString("dateBooking");
         bookingDay = day;
@@ -153,6 +139,37 @@ public class FragmentTime extends Fragment {
         ids = id;
         final String catFieldDetail = getArguments().getString("catField");
         location = getArguments().getString("location");
+        String mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().getTime());
+        final String dateselected = getArguments().getString("dateselected");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+        Date curr = null;
+        Date sele = null;
+        try {
+            curr = sdf.parse(mydate);
+            sele = sdf.parse(dateselected);
+            if (sele.before(curr)) {
+                disableTime();
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                try {
+                    userID = jsonObject.getString("id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getActivity(),"get user id "+volleyError, Toast.LENGTH_SHORT).show();
+            }
+        });
+        AppController.getInstance().addToRequestQueue(objectRequest);
+
         if (times.size() <= 0) {
             // Creating volley request obj
             JsonArrayRequest fieldReq = new JsonArrayRequest(Constant.URL_BOOK_DETAIL + dayBookToService, new Response.Listener<JSONArray>() {
@@ -187,6 +204,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -214,6 +232,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -242,6 +261,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -270,6 +290,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -298,6 +319,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -326,6 +348,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -354,6 +377,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -382,6 +406,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -410,6 +435,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -438,6 +464,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -466,6 +493,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -494,6 +522,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -522,6 +551,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -550,6 +580,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -578,6 +609,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -606,6 +638,7 @@ public class FragmentTime extends Fragment {
                                         bundle.putInt("ID", ids);
                                         bundle.putString("catField", catFieldDetail);
                                         bundle.putString("location", location);
+                                        bundle.putString("dateselected",dateselected);
                                         fragment.setArguments(bundle);
 
                                         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
@@ -624,7 +657,7 @@ public class FragmentTime extends Fragment {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
-                    Toast.makeText(getActivity(), volleyError + "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),"fragment time "+volleyError, Toast.LENGTH_SHORT).show();
                     hidePDialog();
                     Log.e("Fragment", volleyError + "");
                 }
@@ -648,6 +681,8 @@ public class FragmentTime extends Fragment {
                     bundle.putString("title", catField);
                     bundle.putString("catField", catFieldDetail);
                     bundle.putString("location", location);
+                    bundle.putString("dateselected",dateselected);
+                    bundle.putString("userid",userID);
                     fragment.setArguments(bundle);
                     FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                     transaction.addToBackStack(null);

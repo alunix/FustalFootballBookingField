@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layoutBooking"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    android:id="@+id/layoutBooking"
+    tools:context=".Activities.CustomProfile">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/NoActionBarTheme.AppBarOverlay"/>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -41,42 +48,49 @@
 
             </LinearLayout>
 
+
             <LinearLayout
+                android:id="@+id/layoutone"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_create_black_24dp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_action_account_circle" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:background="@android:color/transparent"
                             android:id="@+id/name"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="0dp"
+                            android:background="@android:color/transparent"
                             android:focusable="true"
                             android:gravity="center_vertical"
                             android:hint="Name"
@@ -87,47 +101,47 @@
                             android:textStyle="normal"
                             android:theme="@style/MyEditTextTheme" />
 
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_phone_black_24dp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_communication_call" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
 
                         <TextView
-                            android:focusable="true"
-                            android:background="@android:color/transparent"
                             android:id="@+id/phone"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="0dp"
+                            android:background="@android:color/transparent"
+                            android:focusable="true"
                             android:gravity="center_vertical"
                             android:hint="Phone Number"
                             android:singleLine="true"
@@ -137,383 +151,301 @@
                             android:textStyle="normal"
                             android:theme="@style/MyEditTextTheme" />
 
+                    </LinearLayout>
+
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="0.5dp"
-            android:background="#fff"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="0dp"
-                android:layout_marginTop="1dp"
-                android:layout_weight="0.50"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_email_black_24dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="2dp"
-                android:layout_weight="1.7"
-                android:orientation="vertical">
-
-                <TextView
-                    android:focusable="true"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/email"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="0dp"
-                    android:gravity="center_vertical"
-                    android:hint="Email"
-                    android:singleLine="true"
-                    android:textColor="#000"
-                    android:textColorHint="#898888"
-                    android:textSize="14sp"
-                    android:textStyle="normal"
-                    android:theme="@style/MyEditTextTheme" />
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
-
-        </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_email_black_24dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:focusable="true"
-                        android:background="@android:color/transparent"
-                        android:id="@+id/address"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="address"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_communication_email" />
 
-            </LinearLayout>
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_email_black_24dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:focusable="true"
-                        android:background="@android:color/transparent"
-                        android:id="@+id/gender"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="gender"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:background="@android:color/transparent"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:hint="Email"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_email_black_24dp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:focusable="true"
-                        android:background="@android:color/transparent"
-                        android:id="@+id/dob"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="dob"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_maps_pin_drop" />
 
-            </LinearLayout>
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_soccer" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtfield"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="Field"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:background="@android:color/transparent"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:hint="address"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
 
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_date_range_black_24dp" />
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/txtday"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="Day"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_action_account_child" />
 
-            </LinearLayout>
+                    </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="1dp"
-                    android:layout_weight="0.50"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_access_time_black_24dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_weight="1.7"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txttime"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="0dp"
-                        android:gravity="center_vertical"
-                        android:hint="Time"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textColorHint="#898888"
-                        android:textSize="14sp"
-                        android:textStyle="normal"
-                        android:theme="@style/MyEditTextTheme" />
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/gender"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:background="@android:color/transparent"
+                            android:focusable="true"
+                            android:gravity="center_vertical"
+                            android:hint="gender"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="0.5dp"
-                android:background="#fff"
-                android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_communication_stay_current_landscape" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtfield"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:gravity="center_vertical"
+                            android:hint="Field"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btnBooking"
-                        android:layout_width="100dp"
-                        android:layout_height="28dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="0dp"
-                        android:layout_marginTop="0dp"
-                        android:background="@drawable/bgheadertimebook"
-                        android:text="Booking Now"
-                        android:textAllCaps="false"
-                        android:textColor="#fff"
-                        android:textSize="14sp"
-                        android:textStyle="normal" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_editor_insert_invitation" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtday"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:gravity="center_vertical"
+                            android:hint="Day"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="0.5dp"
+                    android:background="#fff"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="0dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="0.50"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_action_query_builder" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1.7"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txttime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="0dp"
+                            android:gravity="center_vertical"
+                            android:hint="Time"
+                            android:singleLine="true"
+                            android:textColor="#000"
+                            android:textColorHint="#898888"
+                            android:textSize="14sp"
+                            android:textStyle="normal"
+                            android:theme="@style/MyEditTextTheme" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -522,4 +454,32 @@
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
-</FrameLayout>
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/layouttwo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="Thanks for Booking" />
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:elevation="5dp"
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_action_action_done"
+        app:backgroundTint="@color/bgheader" />
+
+</android.support.design.widget.CoordinatorLayout>

@@ -2,6 +2,7 @@ package com.hammersmith.fustalfootballbookingfield.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,7 +17,9 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.League;
+import com.squareup.picasso.Picasso;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,17 +32,15 @@ public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHold
     Context context;
     League league;
     Activity activity;
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
-
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        NetworkImageView imageLeague;
+        ImageView imageLeague;
         TextView title;
         CardView cv;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.cv);
-            imageLeague = (NetworkImageView) itemView.findViewById(R.id.imageLeague);
+            imageLeague = (ImageView) itemView.findViewById(R.id.imageLeague);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }
@@ -66,10 +67,10 @@ public class AdapterLeague extends RecyclerView.Adapter<AdapterLeague.MyViewHold
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        if(imageLoader == null)
-            imageLoader = AppController.getInstance().getImageLoader();
             league = leagues.get(position);
-            holder.imageLeague.setImageUrl(league.getImage(), imageLoader);
+        Uri uri = Uri.parse(league.getImage());
+        context = holder.imageLeague.getContext();
+        Picasso.with(context).load(uri).into(holder.imageLeague);
 //        holder.title.setText(league.getTitle());
 
     }

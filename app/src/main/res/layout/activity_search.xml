@@ -3,71 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="0dp"
-    android:background="@drawable/bg_mobile"
     android:orientation="vertical"
-    tools:context="fustalfootballbookingfield.hammersmith.com.demosearch.MainActivity">
+    tools:context="com.hammersmith.fustalfootballbookingfield.Activities.SearchActivity">
 
-    <!--<EditText-->
-    <!--android:singleLine="true"-->
-    <!--android:capitalize="words"-->
-    <!--android:id="@+id/editText"-->
-    <!--android:hint="Search"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content" />-->
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar">
+    </include>
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar"
-        contentInsetLeft="72dp"
-        contentInsetStart="72dp"
-        android:background="#000"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:elevation="4dp"
-        android:minHeight="?attr/actionBarSize"
-        app:contentInsetLeft="72dp"
-        app:contentInsetStart="30dp">
-
-        <LinearLayout
-            android:id="@+id/search_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="0dp"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:gravity="center_vertical"
-                android:hint="Search"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingLeft="2dp"
-                android:singleLine="true"
-                android:textColor="#fff"
-                android:textColorHint="#b3636161" />
-
-            <ImageView
-                android:id="@+id/search_clear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp" />
-        </LinearLayout>
-    </android.support.v7.widget.Toolbar>
-    <ListView
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/listView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recylcerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </ListView>
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

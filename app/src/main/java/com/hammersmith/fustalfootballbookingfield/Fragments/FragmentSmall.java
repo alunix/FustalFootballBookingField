@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,12 +19,15 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.hammersmith.fustalfootballbookingfield.Activities.ActivityBooking;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.adapter.RecyclerAdapterSmallField;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.FieldDetail;
+import com.hammersmith.fustalfootballbookingfield.model.User;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
+import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,6 +50,8 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
     FieldDetail fieldDetail;
     String location;
     private ProgressDialog pDialog;
+    private String userID;
+    User user;
 
     public FragmentSmall() {
 
@@ -62,6 +68,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_field_detail, container, false);
+        user = PrefUtils.getCurrentUser(getContext());
         recyclerView = (RecyclerView) view.findViewById(R.id.recylcerview);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -79,6 +86,24 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         catField = getArguments().getString("title");
         location = getArguments().getString("location");
         typeField.setText(catField);
+
+        JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject jsonObject) {
+                try {
+                    userID = jsonObject.getString("id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getActivity(),"get user id "+volleyError, Toast.LENGTH_SHORT).show();
+                Log.d("calendar", "" + volleyError);
+            }
+        });
+        AppController.getInstance().addToRequestQueue(objectRequest);
 
         if (fieldDetails.size() <= 0) {
             // Creating volley request obj
@@ -151,6 +176,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
         bundle.putInt("ID", id[position]);
         bundle.putString("catField", title[position]);
         bundle.putString("location", location);
+        bundle.putString("userid",userID);
         fragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();

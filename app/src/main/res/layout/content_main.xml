@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#efeded"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activities.EditUserActivity"
@@ -22,34 +22,6 @@
             android:padding="0dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:background="@color/background"
-                android:gravity="center">
-
-                <com.facebook.login.widget.ProfilePictureView
-                    android:elevation="5dp"
-                    android:background="@color/white"
-                    android:padding="2dp"
-                    android:id="@+id/profilePic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:com_facebook_preset_size="normal" />
-
-                <ImageView
-                    android:elevation="5dp"
-                    android:background="@color/white"
-                    android:padding="2dp"
-                    android:layout_gravity="center"
-                    android:id="@+id/imageUserGoogel"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:background="#efeded"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

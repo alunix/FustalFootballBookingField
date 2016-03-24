@@ -25,7 +25,8 @@
                 app:contentScrim="@color/bgheader"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <com.android.volley.toolbox.NetworkImageView
+                <ImageView
+                    android:fitsSystemWindows="true"
                     android:id="@+id/image_field"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"

@@ -4,8 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.facebook.login.widget.ProfilePictureView;
+import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.User;
@@ -38,10 +43,19 @@ public class CustomProfile extends AppCompatActivity {
     TextView username, useremail, name, email, phone, address, dob, gender;
     FloatingActionButton fab;
     private ProgressDialog mProgressDialog;
+    private AppBarLayout appBarLayout;
+    private CollapsingToolbarLayout collapsingToolbarLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.custom_view_frofile);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         showProgressDialog();
         profilePictureView = (ProfilePictureView) findViewById(R.id.profilePic);
         proGoogle = (ImageView) findViewById(R.id.proGoogle);
@@ -56,6 +70,32 @@ public class CustomProfile extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         user = PrefUtils.getCurrentUser(context);
         userUpdate = new UserUpdate();
+
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbarLayout.setTitle("User's Information");
+                    isShow = true;
+                } else if (isShow) {
+                    collapsingToolbarLayout.setTitle("");
+                    isShow = false;
+                }
+            }
+        });
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         if (user.getImageProfile() != null) {
             profilePictureView.setVisibility(View.GONE);
@@ -97,7 +137,8 @@ public class CustomProfile extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getApplicationContext(), volleyError + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "custom profile "+volleyError, Toast.LENGTH_SHORT).show();
+                Log.d("error",""+volleyError);
                 hideProgressDialog();
             }
         });

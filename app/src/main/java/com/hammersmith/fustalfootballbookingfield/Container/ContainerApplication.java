@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,9 +32,9 @@ import com.facebook.login.widget.ProfilePictureView;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.hammersmith.fustalfootballbookingfield.Activities.CustomProfile;
-import com.hammersmith.fustalfootballbookingfield.Activities.HistoryUser;
 import com.hammersmith.fustalfootballbookingfield.Activities.RegisterActivity;
-import com.hammersmith.fustalfootballbookingfield.Activities.ViewProfile;
+import com.hammersmith.fustalfootballbookingfield.Activities.SearchActivity;
+import com.hammersmith.fustalfootballbookingfield.Activities.ViewHistory;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.TabMain.ContainerFragment;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
@@ -42,7 +42,6 @@ import com.hammersmith.fustalfootballbookingfield.model.User;
 import com.hammersmith.fustalfootballbookingfield.model.UserUpdate;
 import com.hammersmith.fustalfootballbookingfield.utils.Constant;
 import com.hammersmith.fustalfootballbookingfield.utils.PrefUtils;
-import com.hammersmith.fustalfootballbookingfield.widget.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -89,12 +88,25 @@ public class ContainerApplication extends AppCompatActivity {
         setContentView(R.layout.container_application_layout);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         editText = (EditText) findViewById(R.id.editText);
-        listView = (ListView) findViewById(R.id.listView);
         clearText = (ImageView) findViewById(R.id.search_clear);
         clearText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editText.setText("");
+            }
+        });
+        editText.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent event) {
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    Intent intent = new Intent(ContainerApplication.this, SearchActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("key",editText.getText().toString());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    return true;
+                }
+                return false;
             }
         });
         user = PrefUtils.getCurrentUser(ContainerApplication.this);
@@ -122,7 +134,7 @@ public class ContainerApplication extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getApplicationContext(), volleyError + "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "container application " + volleyError, Toast.LENGTH_SHORT).show();
             }
         });
         AppController.getInstance().addToRequestQueue(objectRequest);
@@ -162,7 +174,7 @@ public class ContainerApplication extends AppCompatActivity {
                 }
 
                 if (item.getItemId() == R.id.nav_item_history) {
-                    Intent intent = new Intent(ContainerApplication.this, HistoryUser.class);
+                    Intent intent = new Intent(ContainerApplication.this, ViewHistory.class);
                     startActivity(intent);
                 }
                 return false;

@@ -2,6 +2,7 @@ package com.hammersmith.fustalfootballbookingfield.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,13 +13,11 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
-import com.hammersmith.fustalfootballbookingfield.Activities.SearchActivity;
-import com.hammersmith.fustalfootballbookingfield.Container.ContainerApplication;
 import com.hammersmith.fustalfootballbookingfield.R;
 import com.hammersmith.fustalfootballbookingfield.controller.AppController;
 import com.hammersmith.fustalfootballbookingfield.model.Field;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,19 +28,19 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
     private Activity activity;
     private List<Field> fields;
     Field field;
-    ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+    Context context;
 
     private ClickListener clickListener;
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         CardView cv;
-        NetworkImageView imgField;
+        ImageView imgField;
         TextView name, location;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.cv);
-            imgField = (NetworkImageView) itemView.findViewById(R.id.cover);
+            imgField = (ImageView) itemView.findViewById(R.id.cover);
             name = (TextView) itemView.findViewById(R.id.nameField);
             location = (TextView) itemView.findViewById(R.id.locationField);
             itemView.setClickable(true);
@@ -72,11 +71,10 @@ public class RecyclerHomeAdapter extends RecyclerView.Adapter<RecyclerHomeAdapte
 
     @Override
     public void onBindViewHolder(final RecyclerHomeAdapter.MyViewHolder holder, int position) {
-        if (imageLoader == null)
-            imageLoader = AppController.getInstance().getImageLoader();
-
         field = fields.get(position);
-        holder.imgField.setImageUrl(field.getImage(), imageLoader);
+        Uri uri = Uri.parse(field.getImage());
+        context = holder.imgField.getContext();
+        Picasso.with(context).load(uri).into(holder.imgField);
         holder.name.setText(field.getName());
         holder.location.setText(field.getLocation());
     }
