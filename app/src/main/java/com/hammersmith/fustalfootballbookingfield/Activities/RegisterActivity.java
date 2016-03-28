@@ -19,6 +19,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -201,6 +202,9 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                                     hideProgressDialog();
                                 }
                             });
+                            int socketTimeout = 60000;
+                            RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+                            objectRequest.setRetryPolicy(policy);
                             AppController.getInstance().addToRequestQueue(objectRequest);
                         }
                     });
@@ -245,6 +249,9 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                 return params;
             }
         };
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        userReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(userReq);
     }
 
@@ -326,6 +333,9 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                     hideProgressDialog();
                 }
             });
+            int socketTimeout = 60000;
+            RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+            objectRequest.setRetryPolicy(policy);
             AppController.getInstance().addToRequestQueue(objectRequest);
 //            objectRequest.setRetryPolicy(new DefaultRetryPolicy(5000, 20, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
             updateUI(true);
@@ -417,6 +427,9 @@ public class RegisterActivity extends AppCompatActivity implements GoogleApiClie
                 return params;
             }
         };
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        googleRequest.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(googleRequest);
     }
 

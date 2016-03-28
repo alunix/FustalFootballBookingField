@@ -23,7 +23,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.facebook.FacebookSdk;
@@ -86,6 +88,7 @@ public class ContainerApplication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.container_application_layout);
+        Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_SHORT).show();
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         editText = (EditText) findViewById(R.id.editText);
         clearText = (ImageView) findViewById(R.id.search_clear);
@@ -93,6 +96,7 @@ public class ContainerApplication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText("");
+//                showDialogRety();
             }
         });
         editText.setOnKeyListener(new View.OnKeyListener() {
@@ -101,7 +105,7 @@ public class ContainerApplication extends AppCompatActivity {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)) {
                     Intent intent = new Intent(ContainerApplication.this, SearchActivity.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("key",editText.getText().toString());
+                    bundle.putString("key", editText.getText().toString());
                     intent.putExtras(bundle);
                     startActivity(intent);
                     return true;
@@ -134,10 +138,14 @@ public class ContainerApplication extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getApplicationContext(), "container application " + volleyError, Toast.LENGTH_SHORT).show();
+//                showDialogRety();
             }
         });
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        objectRequest.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(objectRequest);
+
         if (user.getImageProfile() != null) {
             profilePictureView.setVisibility(View.GONE);
             Picasso.with(context).load(user.getImageProfile()).into(proGoogle);
@@ -238,5 +246,32 @@ public class ContainerApplication extends AppCompatActivity {
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
+    }
+
+    public void showDialogRety() {
+        new AlertDialog.Builder(context)
+                .setTitle("No Connection")
+                .setMessage("Please retry again!")
+                .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        final Intent intent = getIntent();
+                        startActivity(intent);
+                        finish();
+                        overridePendingTransition(0, 0);
+                        overridePendingTransition(0, 0);
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

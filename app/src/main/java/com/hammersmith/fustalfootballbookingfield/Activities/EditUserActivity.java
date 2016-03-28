@@ -20,8 +20,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -162,7 +164,11 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(getApplicationContext(), volleyError + "", Toast.LENGTH_SHORT).show();
             }
         });
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        objectRequest.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(objectRequest);
+
         name.setOnFocusChangeListener(this);
         gender.setOnFocusChangeListener(this);
         phone.setOnFocusChangeListener(this);
@@ -297,6 +303,9 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
                 return params;
             }
         };
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        userReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(userReq);
     }
 

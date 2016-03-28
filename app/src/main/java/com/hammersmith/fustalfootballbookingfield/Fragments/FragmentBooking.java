@@ -19,8 +19,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -60,6 +62,8 @@ public class FragmentBooking extends Fragment {
     private boolean clicked = false;
     private LinearLayout layout;
     private FrameLayout frameLayout;
+    int socketTimeout = 60000;
+    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -114,6 +118,7 @@ public class FragmentBooking extends Fragment {
                 Toast.makeText(getActivity(), "get bid " + volleyError, Toast.LENGTH_SHORT).show();
             }
         });
+        objRequest.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(objRequest);
 
         JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
@@ -136,6 +141,7 @@ public class FragmentBooking extends Fragment {
                 Toast.makeText(getActivity(), "booking " + volleyError, Toast.LENGTH_SHORT).show();
             }
         });
+        objectRequest.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(objectRequest);
         button = (FloatingActionButton) view.findViewById(R.id.fab);
         button.setOnClickListener(new View.OnClickListener() {
@@ -257,6 +263,7 @@ public class FragmentBooking extends Fragment {
                 return params;
             }
         };
+        userReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(userReq);
     }
 
@@ -285,6 +292,7 @@ public class FragmentBooking extends Fragment {
                 return params;
             }
         };
+        userReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(userReq);
     }
 

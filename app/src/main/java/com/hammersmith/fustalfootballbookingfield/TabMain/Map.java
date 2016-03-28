@@ -198,33 +198,33 @@ public class Map extends Fragment implements OnMapReadyCallback {
         @Override
         protected void onPostExecute(String json) {
             hidePDialog();
-            try {
-                JSONArray jsonArray = new JSONArray(json);
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
-                    LatLng latLng = new LatLng(Double.parseDouble(jsonObject.getString("latitude")),
-                            Double.parseDouble(jsonObject.getString("longitude")));
-                    if (i == 1) {
-                        CameraPosition cameraPosition = new CameraPosition.Builder()
-                                .target(latLng).zoom(0).build();
-                        googleMap.animateCamera(CameraUpdateFactory
-                                .newCameraPosition(cameraPosition));
-                        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                    }
-                    Marker marker = googleMap.addMarker(new MarkerOptions()
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                            .title(jsonObject.getString("name"))
-                            .snippet(jsonObject.getString("address"))
-                            .position(latLng));
-                    marker.showInfoWindow();
-                    CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12).build();
-                    googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-
-                }
-            } catch (JSONException e) {
-                Log.e(LOG_TAG, "Error processing JSON", e);
-                hidePDialog();
-            }
+//            try {
+//                JSONArray jsonArray = new JSONArray(json);
+//                for (int i = 0; i < jsonArray.length(); i++) {
+//                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+//                    LatLng latLng = new LatLng(Double.parseDouble(jsonObject.getString("latitude")),
+//                            Double.parseDouble(jsonObject.getString("longitude")));
+//                    if (i == 1) {
+//                        CameraPosition cameraPosition = new CameraPosition.Builder()
+//                                .target(latLng).zoom(0).build();
+//                        googleMap.animateCamera(CameraUpdateFactory
+//                                .newCameraPosition(cameraPosition));
+//                        googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+//                    }
+//                    Marker marker = googleMap.addMarker(new MarkerOptions()
+//                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+//                            .title(jsonObject.getString("name"))
+//                            .snippet(jsonObject.getString("address"))
+//                            .position(latLng));
+//                    marker.showInfoWindow();
+//                    CameraPosition cameraPosition = new CameraPosition.Builder().target(latLng).zoom(12).build();
+//                    googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+//
+//                }
+//            } catch (JSONException e) {
+//                Log.e(LOG_TAG, "Error processing JSON", e);
+//                hidePDialog();
+//            }
             super.onPostExecute(json);
         }
     }

@@ -25,7 +25,9 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -169,6 +171,10 @@ public class ActivityBooking extends AppCompatActivity {
                         hidePDialog();
                     }
                 });
+                int socketTimeout = 60000;
+                RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+                fieldReq.setRetryPolicy(policy);
+
                 AppController.getInstance().addToRequestQueue(fieldReq);
             }
 

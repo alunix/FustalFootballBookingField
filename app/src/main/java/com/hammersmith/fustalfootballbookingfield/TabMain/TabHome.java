@@ -2,10 +2,14 @@ package com.hammersmith.fustalfootballbookingfield.TabMain;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -49,7 +53,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
     List<Field> fields = new ArrayList<>();
     Field field;
     String image = "";
-
+    Context context;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +97,7 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError volleyError) {
-                    Toast.makeText(getActivity(), "tab home" +volleyError, Toast.LENGTH_SHORT).show();
+//                    showDialog();
                     Log.d("error",""+volleyError);
                     hidePDialog();
                 }
@@ -157,5 +161,22 @@ public class TabHome extends Fragment implements RecyclerHomeAdapter.ClickListen
             pDialog.dismiss();
             pDialog = null;
         }
+    }
+    public void showDialog() {
+        new AlertDialog.Builder(getContext())
+                .setTitle("No Connection")
+                .setMessage("Please retry again!")
+                .setPositiveButton("Retry", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Fragment frg = null;
+                        frg = getActivity().getSupportFragmentManager().findFragmentById(R.id.layoutHome);
+                        final FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                        ft.detach(frg);
+                        ft.attach(frg);
+                        ft.commit();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_info)
+                .show();
     }
 }

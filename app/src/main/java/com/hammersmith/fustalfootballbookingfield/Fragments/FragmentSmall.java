@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -40,6 +42,8 @@ import java.util.List;
  * Created by USER on 11/17/2015.
  */
 public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField.ClickListener {
+    int socketTimeout = 60000;
+    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
     TextView typeField;
     RecyclerView recyclerView;
     RecyclerAdapterSmallField adapter;
@@ -138,6 +142,7 @@ public class FragmentSmall extends Fragment implements RecyclerAdapterSmallField
                     hidePDialog();
                 }
             });
+            fieldReq.setRetryPolicy(policy);
             AppController.getInstance().addToRequestQueue(fieldReq);
         }
 

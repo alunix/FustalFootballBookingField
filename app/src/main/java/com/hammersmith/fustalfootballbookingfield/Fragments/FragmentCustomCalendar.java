@@ -16,8 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -54,6 +56,8 @@ public class FragmentCustomCalendar extends Fragment {
     User user;
     String userID;
     String location;
+    int socketTimeout = 60000;
+    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -184,6 +188,7 @@ public class FragmentCustomCalendar extends Fragment {
                 return params;
             }
         };
+        userReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(userReq);
     }
 }

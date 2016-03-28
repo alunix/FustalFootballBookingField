@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.RetryPolicy;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -38,6 +40,8 @@ import java.util.Arrays;
  * Created by minea2015 on 12/16/2015.
  */
 public class FragmentFb_Google extends Fragment {
+    int socketTimeout = 60000;
+    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 
     private CallbackManager callbackManager = null;
     private AccessTokenTracker accessTokenTracker = null;

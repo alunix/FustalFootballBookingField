@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.facebook.login.widget.ProfilePictureView;
@@ -112,6 +114,9 @@ public class HistoryUser extends AppCompatActivity implements AdapterHistory.Cli
                     hidePDialog();
                 }
             });
+            int socketTimeout = 60000;
+            RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+            leagueReq.setRetryPolicy(policy);
             AppController.getInstance().addToRequestQueue(leagueReq);
 
         }

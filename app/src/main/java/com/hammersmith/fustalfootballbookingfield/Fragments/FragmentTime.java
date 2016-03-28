@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -42,7 +44,8 @@ import java.util.List;
  */
 public class FragmentTime extends Fragment {
     int i;
-
+    int socketTimeout = 60000;
+    RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
     TextView dayBooking;
     String titles[];
     String bookingDay;
@@ -168,6 +171,7 @@ public class FragmentTime extends Fragment {
                 Toast.makeText(getActivity(),"get user id "+volleyError, Toast.LENGTH_SHORT).show();
             }
         });
+        objectRequest.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(objectRequest);
 
         if (times.size() <= 0) {

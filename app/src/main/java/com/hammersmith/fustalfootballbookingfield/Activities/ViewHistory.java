@@ -27,8 +27,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -117,6 +119,9 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(getApplicationContext(), volleyError + "", Toast.LENGTH_SHORT).show();
             }
         });
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        objectRequest.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(objectRequest);
 
         collapsingToolbarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
@@ -247,6 +252,9 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
                         hidePDialog();
                     }
                 });
+                int socketTimeout = 60000;
+                RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+                leagueReq.setRetryPolicy(policy);
                 AppController.getInstance().addToRequestQueue(leagueReq);
             }
 
@@ -343,6 +351,9 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
                 return params;
             }
         };
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        userReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(userReq);
     }
 
@@ -366,6 +377,9 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
                 return params;
             }
         };
+        int socketTimeout = 60000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        userReq.setRetryPolicy(policy);
         AppController.getInstance().addToRequestQueue(userReq);
     }
 }
