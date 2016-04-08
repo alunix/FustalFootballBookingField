@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Container;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,7 +16,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -88,7 +92,8 @@ public class ContainerApplication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.container_application_layout);
-        Toast.makeText(getApplicationContext(), "Hello", Toast.LENGTH_SHORT).show();
+        view = findViewById(R.id.DrawerLayout);
+        setupParent(view);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         editText = (EditText) findViewById(R.id.editText);
         clearText = (ImageView) findViewById(R.id.search_clear);
@@ -96,7 +101,6 @@ public class ContainerApplication extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editText.setText("");
-//                showDialogRety();
             }
         });
         editText.setOnKeyListener(new View.OnKeyListener() {
@@ -188,8 +192,7 @@ public class ContainerApplication extends AppCompatActivity {
                 return false;
             }
         });
-        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.app_name,
-                R.string.app_name);
+        ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, toolbar, R.string.app_name,R.string.app_name);
         mDrawer.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
 
@@ -198,8 +201,6 @@ public class ContainerApplication extends AppCompatActivity {
         } else {
             containTab = (ContainerFragment) getSupportFragmentManager().getFragments().get(0);
         }
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
@@ -273,5 +274,26 @@ public class ContainerApplication extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
+    protected void setupParent(View view) {
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard();
+                    return false;
+                }
+            });
+        }
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupParent(innerView);
+            }
+        }
+    }
+
+    private void hideSoftKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 }

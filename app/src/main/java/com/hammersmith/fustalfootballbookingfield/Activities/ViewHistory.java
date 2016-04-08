@@ -1,6 +1,7 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,6 +22,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -68,9 +71,9 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
     private ViewPagerProfile adapter;
     private AppBarLayout appBarLayout;
     ProfilePictureView profilePictureView;
-    String str;
     String status_history;
     private boolean clicked = false;
+    private Activity activity = ViewHistory.this;
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -88,8 +91,6 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        Bundle bundle = new Bundle();
-        str = bundle.getString("test");
 
         setToolbar();
         adapter = new ViewPagerProfile(getSupportFragmentManager());
@@ -136,9 +137,21 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
                 }
                 if (scrollRange + verticalOffset == 0) {
                     collapsingToolbarLayout.setTitle("User's Histories");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window window = activity.getWindow();
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.setStatusBarColor(activity.getResources().getColor(R.color.primary_dark));
+                    }
                     isShow = true;
                 } else if (isShow) {
                     collapsingToolbarLayout.setTitle("");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window window = activity.getWindow();
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        window.setStatusBarColor(activity.getResources().getColor(R.color.transparent));
+                    }
                     isShow = false;
                 }
             }
@@ -217,7 +230,7 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
             mAdapter.setClickListener(this);
 
             pDialog = new ProgressDialog(getActivity());
-            pDialog.setMessage("Loading...");
+            pDialog.setMessage("Wait a moment...");
             pDialog.show();
 
             if (histories.size() <= 0) {
@@ -276,7 +289,7 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
 
         @Override
         public void itemClicked(View view, int position) {
-            Toast.makeText(getContext(),"item "+position,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "item " + position, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -335,7 +348,7 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
         StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_DELETEHISTORY + user.getFacebookID(), new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-                Toast.makeText(getApplicationContext(), "Data uploaded...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Data deleted", Toast.LENGTH_SHORT).show();
             }
         },
                 new Response.ErrorListener() {
@@ -361,7 +374,7 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
         StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_DELETEHISTORY + user.getFacebookID(), new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-                Toast.makeText(getApplicationContext(), "Data uploaded...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Data restored", Toast.LENGTH_SHORT).show();
             }
         },
                 new Response.ErrorListener() {

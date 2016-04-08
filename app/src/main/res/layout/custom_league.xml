@@ -16,15 +16,13 @@
             xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/cv"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:layout_marginBottom="2dp"
             android:layout_marginTop="2dp"
             android:padding="3dp"
             card_view:cardCornerRadius="2dp">
 
             <LinearLayout
-                android:paddingBottom="1dp"
-                android:paddingTop="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
@@ -41,23 +39,6 @@
                         android:id="@+id/imageLeague"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    android:background="#20000000"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:textSize="16sp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:text="Barclay Premier League"
-                        android:textColor="@color/bgheader" />
-
                 </LinearLayout>
 
             </LinearLayout>

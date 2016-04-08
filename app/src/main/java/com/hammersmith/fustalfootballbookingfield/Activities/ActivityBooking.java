@@ -1,10 +1,13 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.TabLayout;
@@ -22,6 +25,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -63,6 +68,8 @@ public class ActivityBooking extends AppCompatActivity {
     ImageView cover;
     Context context;
     static String location;
+    private Activity activity = ActivityBooking.this;
+    private AppBarLayout appBarLayout;
 
     public static int field;
 
@@ -75,9 +82,39 @@ public class ActivityBooking extends AppCompatActivity {
         mCollapsingToolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar_layout);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mToolbar = (Toolbar) findViewById(R.id.app_bar);
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar_layout);
 
         setSupportActionBar(mToolbar);
         mCollapsingToolBarLayout.setCollapsedTitleTextColor(getResources().getColor(R.color.white));
+
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window window = activity.getWindow();
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.setStatusBarColor(activity.getResources().getColor(R.color.primary_dark));
+                    }
+                    isShow = true;
+                } else if (isShow) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        Window window = activity.getWindow();
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        window.setStatusBarColor(activity.getResources().getColor(R.color.transparent));
+                    }
+                    isShow = false;
+                }
+            }
+        });
 
         mAdapter = new BookingViewPager(getSupportFragmentManager());
         mPager = (ViewPager) findViewById(R.id.view_pager);

@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
+import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -13,10 +14,13 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -58,11 +62,15 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
     private ProgressDialog mProgressDialog;
     private AppBarLayout appBarLayout;
     private CollapsingToolbarLayout collapsingToolbarLayout;
+    private LinearLayout linearLayout;
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        view = findViewById(R.id.layoutEditUser);
+        setupParent(view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
@@ -86,6 +94,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
         gender = (EditText) findViewById(R.id.edgender);
         dob = (EditText) findViewById(R.id.eddob);
         imageProGoogle = (ImageView) findViewById(R.id.imageUserGoogel);
+        linearLayout = (LinearLayout) findViewById(R.id.layoutEditProfile);
 
         name.setText(user.getName());
         email.setText(user.getEmail());
@@ -180,6 +189,13 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
     }
 
     @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        return true;
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab:
@@ -257,7 +273,7 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.cancel();
-                                    gender.setFocusable(false);
+                                    gender.clearFocus();
                                     phone.setFocusable(true);
                                 }
                             });
@@ -347,5 +363,26 @@ public class EditUserActivity extends AppCompatActivity implements View.OnClickL
     protected void onDestroy() {
         super.onDestroy();
         hideProgressDialog();
+    }
+    protected void setupParent(View view) {
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard();
+                    return false;
+                }
+            });
+        }
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupParent(innerView);
+            }
+        }
+    }
+
+    private void hideSoftKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 }

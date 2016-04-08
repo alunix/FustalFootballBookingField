@@ -1,5 +1,6 @@
 package com.hammersmith.fustalfootballbookingfield.Activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +12,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -52,11 +56,14 @@ public class SearchActivity extends AppCompatActivity implements RecyclerHomeAda
     Field field;
     String image = "";
     ImageView imgClearText;
+    private View view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_search);
+        view = findViewById(R.id.layout_search);
+        setupParent(view);
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         editText = (EditText) findViewById(R.id.editText);
         listView = (ListView) findViewById(R.id.list_item);
@@ -142,6 +149,8 @@ public class SearchActivity extends AppCompatActivity implements RecyclerHomeAda
             RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
             fieldReq.setRetryPolicy(policy);
             AppController.getInstance().addToRequestQueue(fieldReq);
+        }else{
+            Toast.makeText(getApplicationContext(),"Data not found!",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -166,5 +175,26 @@ public class SearchActivity extends AppCompatActivity implements RecyclerHomeAda
             pDialog.dismiss();
             pDialog = null;
         }
+    }
+    protected void setupParent(View view) {
+        if (!(view instanceof EditText)) {
+            view.setOnTouchListener(new View.OnTouchListener() {
+                public boolean onTouch(View v, MotionEvent event) {
+                    hideSoftKeyboard();
+                    return false;
+                }
+            });
+        }
+        if (view instanceof ViewGroup) {
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++) {
+                View innerView = ((ViewGroup) view).getChildAt(i);
+                setupParent(innerView);
+            }
+        }
+    }
+
+    private void hideSoftKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 }
