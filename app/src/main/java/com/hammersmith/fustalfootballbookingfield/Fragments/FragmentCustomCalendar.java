@@ -21,6 +21,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.hammersmith.fustalfootballbookingfield.R;
@@ -33,6 +34,7 @@ import com.imanoweb.calendarview.CustomCalendarView;
 import com.imanoweb.calendarview.DayDecorator;
 import com.imanoweb.calendarview.DayView;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -51,12 +53,13 @@ public class FragmentCustomCalendar extends Fragment {
     CustomCalendarView calendarView;
     CalendarView calendar;
     TextView textView;
-    String strdate;
+    String date_booking;
     int fid;
     User user;
     String userID;
     String location;
     int socketTimeout = 60000;
+    String current_date;
     RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 
     @Override
@@ -89,9 +92,9 @@ public class FragmentCustomCalendar extends Fragment {
                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
                 SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
                 SimpleDateFormat df2 = new SimpleDateFormat("dd MMM yyyy");
-                strdate = df1.format(date);
+                date_booking = df1.format(date);
                 String strdate = df2.format(date);
-                Fragment fragment = new FragmentTime();
+                Fragment fragment = new FieldTime();
                 Bundle bundle = new Bundle();
                 bundle.putString("dateBooking", df.format(date));
                 bundle.putString("dayBooking", id + "/" + df1.format(date));
@@ -101,13 +104,17 @@ public class FragmentCustomCalendar extends Fragment {
                 bundle.putString("catField", typeField);
                 bundle.putString("location", location);
                 bundle.putString("dateselected", strdate);
+                bundle.putString("uid", userID);
+                bundle.putString("strdate", date_booking);
+                bundle.putString("current_date",current_date);
+
                 fragment.setArguments(bundle);
                 FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
                 fragmentTransaction.replace(R.id.layoutCalendarBooking, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
-                saveDataBooking();
+//                saveDataBooking();
 //                Toast.makeText(getActivity(), "id" + userID + "fid" + fid + "date" + strdate, Toast.LENGTH_SHORT).show();
             }
 
@@ -117,6 +124,27 @@ public class FragmentCustomCalendar extends Fragment {
 //                Toast.makeText(getActivity(), df.format(time), Toast.LENGTH_SHORT).show();
             }
         });
+
+        JsonArrayRequest reqDate = new JsonArrayRequest(Constant.URL_DATE + date_booking, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray jsonArray) {
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    try {
+                        JSONObject obj = jsonArray.getJSONObject(i);
+                        current_date = obj.getString("date");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getActivity(), "date " + volleyError, Toast.LENGTH_SHORT).show();
+            }
+        });
+        reqDate.setRetryPolicy(policy);
+        AppController.getInstance().addToRequestQueue(reqDate);
 
         rootView.setFocusableInTouchMode(true);
         rootView.requestFocus();
@@ -166,7 +194,7 @@ public class FragmentCustomCalendar extends Fragment {
     }
 
     public void saveDataBooking() {
-        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_CHECKDATE + fid + "/" + strdate , new Response.Listener<String>() {
+        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_CHECKDATE + fid + "/" + date_booking , new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
 //                Toast.makeText(getActivity(), "Data uploaded...", Toast.LENGTH_SHORT).show();
@@ -182,7 +210,7 @@ public class FragmentCustomCalendar extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("booking_date", strdate);
+                params.put("booking_date", date_booking);
                 params.put("uid", userID);
                 params.put("fid", String.valueOf(fid));
                 return params;

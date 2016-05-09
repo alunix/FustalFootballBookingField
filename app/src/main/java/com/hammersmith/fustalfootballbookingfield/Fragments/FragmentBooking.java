@@ -63,6 +63,9 @@ public class FragmentBooking extends Fragment {
     private LinearLayout layout;
     private FrameLayout frameLayout;
     int socketTimeout = 60000;
+    String userId;
+    int id;
+    String strdate;
     RetryPolicy policy = new DefaultRetryPolicy(socketTimeout, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
 
     @Override
@@ -91,7 +94,7 @@ public class FragmentBooking extends Fragment {
         final String time = getArguments().getString("timeBooking");
         strtime = time;
         textTime.setText(time);
-        String date = getArguments().getString("date");
+        date = getArguments().getString("date");
         days = date;
         textDate.setText(date);
         type = getArguments().getString("title");
@@ -99,27 +102,29 @@ public class FragmentBooking extends Fragment {
         textField.setText(type + " (" + catFieldDetail + ")");
         final String field = getArguments().getString("field");
         final String dayBooking = getArguments().getString("dayBooking");
-        final int id = getArguments().getInt("ID");
+        id = getArguments().getInt("ID");
         location = getArguments().getString("location");
         selecteddate = getArguments().getString("dateselected");
         bid = getArguments().getString("bid");
-        JsonObjectRequest objRequest = new JsonObjectRequest(Constant.URL_CHECKDATE + dayBooking, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject jsonObject) {
-                try {
-                    bid = jsonObject.getString("id");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                Toast.makeText(getActivity(), "get bid " + volleyError, Toast.LENGTH_SHORT).show();
-            }
-        });
-        objRequest.setRetryPolicy(policy);
-        AppController.getInstance().addToRequestQueue(objRequest);
+        userId = getArguments().getString("uid");
+        strdate = getArguments().getString("strdate");
+//        JsonObjectRequest objRequest = new JsonObjectRequest(Constant.URL_CHECKDATE + dayBooking, null, new Response.Listener<JSONObject>() {
+//            @Override
+//            public void onResponse(JSONObject jsonObject) {
+//                try {
+//                    bid = jsonObject.getString("id");
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError volleyError) {
+//                Toast.makeText(getActivity(), "get bid " + volleyError, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        objRequest.setRetryPolicy(policy);
+//        AppController.getInstance().addToRequestQueue(objRequest);
 
         JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_GETDATA + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
             @Override
@@ -202,7 +207,7 @@ public class FragmentBooking extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     button.setVisibility(View.GONE);
-                    Fragment fragment = new FragmentTime();
+                    Fragment fragment = new FieldTime();
                     Bundle bundle = new Bundle();
                     bundle.putString("title", type);
                     bundle.putString("field", field);
@@ -242,7 +247,7 @@ public class FragmentBooking extends Fragment {
 
     public void saveTimeBooking() {
         showpDialog();
-        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_BOOKING + bid, new Response.Listener<String>() {
+        StringRequest userReq = new StringRequest(Request.Method.POST, Constant.URL_BOOKING, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
                 hidePDialog();
@@ -258,8 +263,10 @@ public class FragmentBooking extends Fragment {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("bid", bid);
                 params.put("booking_time", strtime);
+                params.put("booking_date",strdate);
+                params.put("uid",userId);
+                params.put("fid", String.valueOf(id));
                 return params;
             }
         };

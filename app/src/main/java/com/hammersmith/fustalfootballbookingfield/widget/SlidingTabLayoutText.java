@@ -74,7 +74,7 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
     }
 
     /**
-     * Set the custom {@link TabColorizer} to be used.
+     * Set the custom_time {@link TabColorizer} to be used.
      *
      * If you only require simple custmisation then you can use
      * {@link #setSelectedIndicatorColors(int...)} to achieve
@@ -108,7 +108,7 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
     }
 
     /**
-     * Set the custom layout to be inflated for the tab views.
+     * Set the custom_time layout to be inflated for the tab views.
      *
      * @param layoutResId Layout id to be inflated
      * @param textViewId id of the {@link TextView} in the inflated view
@@ -133,7 +133,7 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
     }
 
     /**
-     * Create a default view to be used for tabs. This is called if a custom tab view is not set via
+     * Create a default view to be used for tabs. This is called if a custom_time tab view is not set via
      * {@link #setCustomTabView(int, int)}.
      */
     protected TextView createDefaultTabView(Context context) {
@@ -167,7 +167,7 @@ public class SlidingTabLayoutText extends HorizontalScrollView {
             TextView tabTitleView = null;
 
             if (mTabViewLayoutId != 0) {
-                // If there is a custom tab view layout id set, try and inflate it
+                // If there is a custom_time tab view layout id set, try and inflate it
                 tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
                         false);
                 tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);

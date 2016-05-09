@@ -80,7 +80,7 @@ class SlidingTabStripSub extends LinearLayout {
     }
 
     void setSelectedIndicatorColors(int... colors) {
-        // Make sure that the custom colorizer is removed
+        // Make sure that the custom_time colorizer is removed
         mCustomTabColorizer = null;
         mDefaultTabColorizer.setIndicatorColors(colors);
         invalidate();

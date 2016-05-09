@@ -6,13 +6,23 @@ package com.hammersmith.fustalfootballbookingfield.model;
 public class Time {
     int id;
     String time;
+    String book;
     public Time(){
 
     }
 
-    public Time(int id, String time) {
+    public Time(int id, String time, String book) {
         this.id = id;
         this.time = time;
+        this.book = book;
+    }
+
+    public String getBook() {
+        return book;
+    }
+
+    public void setBook(String book) {
+        this.book = book;
     }
 
     public int getId() {
