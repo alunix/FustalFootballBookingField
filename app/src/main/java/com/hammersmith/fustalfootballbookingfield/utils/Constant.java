@@ -35,7 +35,7 @@ public class Constant {
     public static final String URL_CHECKUSERLOGIN = "http://acmcertindochina.com/futsal/public/index.php/user_social/";
     public static final String URL_GETDATA = "http://acmcertindochina.com/futsal/public/index.php/user/";
     public static final String URL_CHECKDATE = "http://acmcertindochina.com/futsal/public/index.php/checkdate/";
-    public static final String URL_BOOKING = "http://acmcertindochina.com/futsal/public/index.php/book/";
+    public static final String URL_BOOKING = "http://acmcertindochina.com/futsal/public/index.php/book";
     public static final String URL_ADDHISTORY = "http://acmcertindochina.com/futsal/public/index.php/users/history/";
     public static final String URL_HISTORY = "http://acmcertindochina.com/futsal/public/index.php/history/";
     public static final String URL_LOGIN = "http://acmcertindochina.com/futsal/public/index.php/user/login";

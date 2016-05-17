@@ -61,6 +61,7 @@ public class FieldTime extends Fragment implements AdapterTime.ClickListener {
     TextView dayBooking;
     TextView available;
     String get_time[];
+    String get_time_book[];
     String bookingDay;
     String catField;
     String dayBookingService;
@@ -116,7 +117,6 @@ public class FieldTime extends Fragment implements AdapterTime.ClickListener {
         JsonArrayRequest reqDate = new JsonArrayRequest(Constant.URL_DATE + strdate, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
-                hidePDialog();
                 for (int i = 0; i < jsonArray.length(); i++) {
                     try {
                         JSONObject obj = jsonArray.getJSONObject(i);
@@ -182,6 +182,7 @@ public class FieldTime extends Fragment implements AdapterTime.ClickListener {
                 @Override
                 public void onResponse(JSONArray jsonArray) {
                     get_time = new String[jsonArray.length()];
+                    get_time_book = new String[jsonArray.length()];
                     for (int i = 0; i < jsonArray.length(); i++) {
                         try {
                             JSONObject obj = jsonArray.getJSONObject(i);
@@ -207,6 +208,7 @@ public class FieldTime extends Fragment implements AdapterTime.ClickListener {
                                 }
                             }
                             get_text = get_time[i] = time.getBook();
+                            get_time_book[i] = time.getTime();
                             times.add(time);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -295,7 +297,7 @@ public class FieldTime extends Fragment implements AdapterTime.ClickListener {
             } else {
                 Fragment fragment = new FragmentBooking();
                 Bundle bundle = new Bundle();
-                bundle.putString("timeBooking", get_time[position]);
+                bundle.putString("timeBooking", get_time_book[position]);
                 bundle.putString("date", bookingDay);
                 bundle.putString("title", catField);
                 bundle.putString("field", field);

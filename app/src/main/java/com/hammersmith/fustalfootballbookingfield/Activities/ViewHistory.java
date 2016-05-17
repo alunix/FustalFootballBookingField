@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,6 +97,7 @@ public class ViewHistory extends AppCompatActivity implements View.OnClickListen
         adapter = new ViewPagerProfile(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
+        Log.d("user id ",user.getFacebookID());
         JsonObjectRequest objectRequest = new JsonObjectRequest(Constant.URL_CHECKUSERLOGIN + user.getFacebookID(), null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject jsonObject) {

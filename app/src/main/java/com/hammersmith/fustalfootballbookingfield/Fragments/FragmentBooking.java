@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -267,6 +268,7 @@ public class FragmentBooking extends Fragment {
                 params.put("booking_date",strdate);
                 params.put("uid",userId);
                 params.put("fid", String.valueOf(id));
+                Log.d("gms ",strtime + "" + strdate +"" + userId +""+id);
                 return params;
             }
         };
